@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Init — Mutual Interest Matching</title>
+  <meta name="description" content="Find out if the feeling is mutual — without ever risking rejection. Init is private, mutual interest matching for people you already know." />
+  <meta name="keywords" content="mutual interest matching, secret crush, anonymous interest, social matching app, init app" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Init — Mutual Interest Matching" />
+  <meta property="og:description" content="Find out if the feeling is mutual — without ever risking rejection." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://initmatch.com" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Init — Mutual Interest Matching" />
+  <meta name="twitter:description" content="Find out if the feeling is mutual — without ever risking rejection." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════
+     NAVBAR
+═══════════════════════════════════════════════ -->
+<nav class="navbar">
+  <a href="#" class="nav-logo">Init</a>
+
+  <ul class="nav-links">
+    <li><a href="#how" id="nav_how">How It Works</a></li>
+    <li><a href="#privacy" id="nav_privacy">Privacy</a></li>
+    <li><a href="#faq" id="nav_faq">FAQ</a></li>
+    <li><a href="#download" id="nav_download">Download</a></li>
+  </ul>
+
+  <div class="nav-controls">
+    <!-- Theme switcher -->
+    <div class="theme-switcher">
+      <button class="theme-btn" id="themeBtn" aria-label="Switch theme">
+        <span id="themeBtnLabel">🌙 Dark</span>
+      </button>
+      <div class="theme-menu" id="themeMenu">
+        <div class="theme-option" data-theme="dark">🌙 Dark</div>
+        <div class="theme-option" data-theme="light">☀️ Light</div>
+        <div class="theme-option" data-theme="init">✦ Init</div>
+      </div>
+    </div>
+
+    <!-- Language switcher -->
+    <div class="lang-switcher">
+      <button class="lang-btn" id="langBtn" aria-label="Switch language">
+        <span id="langBtnLabel">🇬🇧 English</span>
+      </button>
+      <div class="lang-menu" id="langMenu"></div>
+    </div>
+
+    <!-- Mobile menu -->
+    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="#how" id="nav_how_m">How It Works</a>
+  <a href="#privacy" id="nav_privacy_m">Privacy</a>
+  <a href="#categories" id="nav_cats_m">Categories</a>
+  <a href="#faq" id="nav_faq_m">FAQ</a>
+  <a href="#download" id="nav_download_m">Download</a>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     HERO
+═══════════════════════════════════════════════ -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-glow"></div>
+
+  <div class="hero-content reveal">
+    <div class="hero-eyebrow">
+      <span class="dot"></span>
+      <span id="hero_eyebrow">MUTUAL INTEREST MATCHING</span>
+    </div>
+
+    <h1 id="hero_h1">
+      Find out if the feeling is <span class="highlight">mutual</span> — without ever risking rejection.
+    </h1>
+
+    <p class="hero-sub" id="hero_sub">
+      Your interest stays completely private. They only find out if they feel it too.
+    </p>
+
+    <div class="hero-cta">
+      <a href="#download" class="btn-primary">
+        <span id="hero_cta1">Get the App</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#how" class="btn-outline">
+        <span id="hero_cta2">How it works</span>
+      </a>
+    </div>
+
+    <p class="hero-tagline" id="hero_tagline">Your match could be one init away.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     CAROUSEL — WHY INIT
+═══════════════════════════════════════════════ -->
+<section class="carousel-section" id="why">
+  <div class="section-header reveal">
+    <p class="section-eyebrow" id="carousel_eyebrow">WHY INIT</p>
+    <h2 id="carousel_h2">The feeling was always mutual.</h2>
+    <p id="carousel_sub">Some things are better left unsaid. Until now, that was your only option.</p>
+  </div>
+
+  <div class="carousel-wrapper">
+    <div class="carousel-track-outer">
+      <div class="carousel-track" id="carouselTrack">
+        <!-- Slides rendered by JS -->
+      </div>
+    </div>
+
+    <div class="carousel-nav">
+      <button class="carousel-btn" id="prevBtn" aria-label="Previous">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <div class="carousel-dots"></div>
+      <button class="carousel-btn" id="nextBtn" aria-label="Next">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     HOW IT WORKS
+═══════════════════════════════════════════════ -->
+<section class="how-section" id="how">
+  <div class="section-header reveal">
+    <p class="section-eyebrow" id="how_eyebrow">HOW IT WORKS</p>
+    <h2 id="how_h2">Simple. Private. Powerful.</h2>
+    <p id="how_sub">Four steps to finding out what you've always wondered.</p>
+  </div>
+  <div class="steps-grid" id="stepsGrid">
+    <!-- Steps rendered by JS -->
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     PRIVACY
+═══════════════════════════════════════════════ -->
+<section class="privacy-section" id="privacy">
+  <div class="privacy-inner">
+    <div class="privacy-text reveal">
+      <div class="privacy-badge">🔒 <span id="privacy_eyebrow">PRIVACY FIRST</span></div>
+      <h2 id="privacy_h2">Your feelings are yours — until the universe decides otherwise.</h2>
+      <p id="privacy_p">We built Init from the ground up with one principle: your feelings are your most private thing. We treat them that way.</p>
+      <div class="privacy-points" id="privacyPoints">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+    <div class="privacy-visual" id="privacyCards">
+      <!-- Rendered by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     CATEGORIES
+═══════════════════════════════════════════════ -->
+<section class="categories-section" id="categories">
+  <div class="section-header reveal">
+    <p class="section-eyebrow" id="cats_eyebrow">INTEREST CATEGORIES</p>
+    <h2 id="cats_h2">Six ways to express what you feel.</h2>
+    <p id="cats_sub">Pick one or more. Init finds overlap on both sides.</p>
+  </div>
+  <div class="categories-grid" id="categoriesGrid">
+    <!-- Rendered by JS -->
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     COMPARISON
+═══════════════════════════════════════════════ -->
+<section class="comparison-section" id="compare">
+  <div class="section-header reveal">
+    <p class="section-eyebrow" id="comp_eyebrow">WHY INIT</p>
+    <h2 id="comp_h2">Not another dating app.</h2>
+    <p id="comp_sub">Init is for the people already in your life.</p>
+  </div>
+  <div class="comparison-table" id="comparisonTable">
+    <!-- Rendered by JS -->
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     DOWNLOAD
+═══════════════════════════════════════════════ -->
+<section class="download-section" id="download">
+  <div class="download-inner reveal">
+    <h2 id="dl_h2">Download Init</h2>
+    <p id="dl_p">Available on iOS and Android. Beta access available now.</p>
+    <div class="store-buttons">
+      <!-- Google Play -->
+      <a href="#" class="store-btn" aria-label="Get it on Google Play">
+        <div class="store-btn-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M3.18 23.76c.39.22.84.27 1.27.14l12.04-6.95-2.76-2.76-10.55 9.57zM.29 1.27C.11 1.62 0 2.02 0 2.47v19.06c0 .45.1.85.29 1.2l.07.07 10.68-10.68v-.25L.36 1.2l-.07.07zM19.96 10.29L16.5 8.31 13.45 11.36l3.05 3.05 3.47-2c.99-.57.99-1.5-.01-2.12zM4.45.1L16.49 7.05l-2.76 2.76L3.18.24C3.58.1 4.05.16 4.45.1z"/>
+          </svg>
+        </div>
+        <div class="store-btn-text">
+          <small id="dl_google">Get it on</small>
+          <strong id="dl_google2">Google Play</strong>
+          <span class="coming-soon-badge">Coming soon</span>
+        </div>
+      </a>
+
+      <!-- App Store -->
+      <a href="#" class="store-btn" aria-label="Download on the App Store">
+        <div class="store-btn-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+          </svg>
+        </div>
+        <div class="store-btn-text">
+          <small id="dl_apple">Download on the</small>
+          <strong id="dl_apple2">App Store</strong>
+          <span class="coming-soon-badge">Coming soon</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     FAQ
+═══════════════════════════════════════════════ -->
+<section class="faq-section" id="faq">
+  <div class="section-header reveal">
+    <p class="section-eyebrow" id="faq_eyebrow">FAQ</p>
+    <h2 id="faq_h2">Common questions.</h2>
+  </div>
+  <div class="faq-list" id="faqList">
+    <!-- Rendered by JS -->
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h3>Init</h3>
+        <p id="footer_tagline">Mutual interest matching. Privately.</p>
+      </div>
+      <div class="footer-col">
+        <h4 id="footer_product">Product</h4>
+        <ul>
+          <li><a href="#how" id="f_how">How it works</a></li>
+          <li><a href="#privacy" id="f_privacy_p">Privacy</a></li>
+          <li><a href="#categories" id="f_cats">Categories</a></li>
+          <li><a href="#faq" id="f_faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 id="footer_company">Company</h4>
+        <ul>
+          <li><a href="mailto:hello@initmatch.com" id="f_about">About</a></li>
+          <li><a href="mailto:hello@initmatch.com" id="f_contact">Contact</a></li>
+          <li><a href="#" id="f_blog">Blog</a></li>
+          <li><a href="mailto:hello@initmatch.com" id="f_careers">Careers</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 id="footer_legal">Legal</h4>
+        <ul>
+          <li><a href="#" id="f_pp">Privacy Policy</a></li>
+          <li><a href="#" id="f_tos">Terms of Service</a></li>
+          <li><a href="#" id="f_cookie">Cookie Policy</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p id="footer_copy">© 2025 Init. All rights reserved.</p>
+      <div class="footer-social">
+        <a href="#" class="social-btn" aria-label="Instagram">📸</a>
+        <a href="#" class="social-btn" aria-label="Twitter">𝕏</a>
+        <a href="#" class="social-btn" aria-label="LinkedIn">in</a>
+      </div>
+      <a href="mailto:hello@initmatch.com">hello@initmatch.com</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
