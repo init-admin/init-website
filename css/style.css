@@ -127,10 +127,11 @@ h1, h2, h3, h4 { line-height: 1.2; font-weight: 700; }
 .nav-logo {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 1.85rem;
+  gap: 16px;
+  font-size: 2rem;
   font-weight: 800;
   letter-spacing: -0.5px;
+  line-height: 1;
   background: var(--grad-accent);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -206,8 +207,8 @@ h1, h2, h3, h4 { line-height: 1.2; font-weight: 700; }
   cursor: pointer;
   font-size: 0.85rem;
   /* Explicit light text — not inherited, not CSS-variable dependent */
-  color: #d8e8f5 !important;
-  -webkit-text-fill-color: #d8e8f5 !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
   background: transparent;
   background-image: none;
   background-clip: border-box;
@@ -710,7 +711,7 @@ h1, h2, h3, h4 { line-height: 1.2; font-weight: 700; }
 }
 
 /* Left-side card: reverse header order, right-align everything */
-.tl-half-left .tl-card-header { flex-direction: row-reverse; }
+.tl-half-left .tl-card-header { flex-direction: row; justify-content: flex-end; }
 .tl-half-left .tl-card-header-text { text-align: right; }
 .tl-half-left .tl-interest-tags { justify-content: flex-end; }
 .tl-half-left .tl-card-footer { justify-content: flex-end; }
@@ -764,7 +765,7 @@ h1, h2, h3, h4 { line-height: 1.2; font-weight: 700; }
 .tl-init-row {
   display: flex;
   justify-content: center;
-  margin: 8px 0 20px;
+  margin: 32px 0 20px;
   position: relative;
   z-index: 1;
 }
@@ -1412,4 +1413,54 @@ footer {
   .footer-top { grid-template-columns: 1fr; }
   .comparison-row div, .comparison-header div { padding: 12px 10px; font-size: 0.78rem; }
   .categories-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ── ABOUT & CONTACT SECTIONS ─────────────────────── */
+.info-section {
+  padding: 80px 24px;
+  border-top: 1px solid var(--border);
+}
+.info-section-inner {
+  max-width: 700px;
+  margin: 0 auto;
+}
+.info-section .section-header {
+  margin-bottom: 36px;
+}
+.info-section .section-header h2 {
+  font-size: 2rem;
+  margin-top: 8px;
+}
+.info-body p {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 18px;
+}
+.contact-email-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--primary);
+  padding: 14px 24px;
+  border: 1px solid var(--primary);
+  border-radius: var(--radius);
+  margin: 4px 0 20px;
+  transition: background var(--transition), box-shadow var(--transition);
+}
+.contact-email-link:hover {
+  background: rgba(14,165,233,0.08);
+  box-shadow: 0 0 20px var(--glow);
+  opacity: 1;
+}
+.contact-email-link svg {
+  flex-shrink: 0;
+  stroke: var(--primary);
+}
+.info-note {
+  font-size: 0.88rem !important;
+  color: var(--text-secondary);
+  font-style: italic;
 }
