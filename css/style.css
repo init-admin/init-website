@@ -125,7 +125,10 @@ h1, h2, h3, h4 { line-height: 1.2; font-weight: 700; }
 }
 
 .nav-logo {
-  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.85rem;
   font-weight: 800;
   letter-spacing: -0.5px;
   background: var(--grad-accent);
@@ -134,12 +137,10 @@ h1, h2, h3, h4 { line-height: 1.2; font-weight: 700; }
   background-clip: text;
 }
 
-.nav-logo span {
-  font-size: 1.1rem;
-  -webkit-text-fill-color: var(--text-secondary);
-  background: none;
-  font-weight: 400;
-  margin-left: 4px;
+.nav-logo-icon {
+  flex-shrink: 0;
+  border-radius: 8px;
+  /* SVG uses explicit fill colours — not affected by parent gradient-text */
 }
 
 .nav-controls {
@@ -187,15 +188,16 @@ h1, h2, h3, h4 { line-height: 1.2; font-weight: 700; }
   position: absolute;
   top: calc(100% + 8px);
   right: 0;
-  background: var(--card);
-  border: 1px solid var(--border);
+  /* Fixed dark colour scheme — always readable regardless of active site theme */
+  background: #1a2332;
+  border: 1px solid #243040;
   border-radius: var(--radius);
   padding: 6px;
   display: none;
   flex-direction: column;
   gap: 2px;
   min-width: 140px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
 }
 .theme-menu.open { display: flex; }
 .theme-option {
@@ -203,19 +205,22 @@ h1, h2, h3, h4 { line-height: 1.2; font-weight: 700; }
   border-radius: 8px;
   cursor: pointer;
   font-size: 0.85rem;
-  color: var(--text);
-  -webkit-text-fill-color: var(--text);
-  background-clip: unset;
-  -webkit-background-clip: unset;
+  /* Explicit light text — not inherited, not CSS-variable dependent */
+  color: #d8e8f5 !important;
+  -webkit-text-fill-color: #d8e8f5 !important;
+  background: transparent;
+  background-image: none;
+  background-clip: border-box;
+  -webkit-background-clip: border-box;
   transition: background var(--transition);
   display: flex;
   align-items: center;
   gap: 8px;
 }
-.theme-option:hover { background: var(--surface); }
+.theme-option:hover { background: rgba(255,255,255,0.07); }
 .theme-option.active {
-  color: var(--primary);
-  -webkit-text-fill-color: var(--primary);
+  color: #38bdf8 !important;
+  -webkit-text-fill-color: #38bdf8 !important;
   font-weight: 600;
 }
 
@@ -548,7 +553,7 @@ h1, h2, h3, h4 { line-height: 1.2; font-weight: 700; }
 
 /* ── TIMELINE STORY ───────────────────────────────── */
 .timeline-story {
-  max-width: 700px;
+  max-width: 840px;
   margin: 0 auto 60px;
   padding: 0 24px;
 }
