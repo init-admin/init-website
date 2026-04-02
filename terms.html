@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Service — Init</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='ig' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%236B21D4'/><stop offset='1' stop-color='%23D946EF'/></linearGradient></defs><rect width='100' height='100' rx='20' fill='url(%23ig)'/><path fill='white' fill-rule='evenodd' d='M50 16 C52 27,65 48,84 50 C65 52,52 73,50 84 C48 73,35 52,16 50 C35 48,48 27,50 16Z M50 37.27 L62.73 50 L50 62.73 L37.27 50 Z'/></svg>" />
+  <meta name="description" content="Terms of Service for the Init mutual interest matching app." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .legal-page { max-width: 800px; margin: 0 auto; padding: 120px 24px 80px; }
+    .legal-page h1 { font-size: 2rem; font-weight: 800; margin-bottom: 8px; color: var(--text); }
+    .legal-page .meta { color: var(--text-secondary); font-size: 0.875rem; margin-bottom: 48px; }
+    .legal-page h2 { font-size: 1.125rem; font-weight: 700; margin: 40px 0 12px; color: var(--text); }
+    .legal-page h3 { font-size: 0.975rem; font-weight: 600; margin: 24px 0 8px; color: var(--text); }
+    .legal-page p { color: var(--text-secondary); line-height: 1.75; margin-bottom: 12px; font-size: 0.9375rem; }
+    .legal-page ul, .legal-page ol { color: var(--text-secondary); line-height: 1.75; margin: 0 0 12px 20px; font-size: 0.9375rem; }
+    .legal-page ul li, .legal-page ol li { margin-bottom: 6px; }
+    .legal-page a { color: var(--primary); text-decoration: none; }
+    .legal-page a:hover { text-decoration: underline; }
+    .legal-page .highlight-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--primary);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      margin: 20px 0;
+    }
+    .legal-page .highlight-box p { margin-bottom: 0; }
+    .legal-page .caps { text-transform: uppercase; font-size: 0.875rem; font-weight: 600; letter-spacing: 0.03em; color: var(--text); line-height: 1.75; margin-bottom: 12px; }
+    .legal-toc { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 24px; margin-bottom: 40px; }
+    .legal-toc h4 { font-size: 0.875rem; font-weight: 600; color: var(--text); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .legal-toc ol { margin: 0 0 0 16px; padding: 0; }
+    .legal-toc ol li { margin-bottom: 4px; }
+    .legal-toc ol li a { color: var(--primary); font-size: 0.875rem; text-decoration: none; }
+    .legal-toc ol li a:hover { text-decoration: underline; }
+    .section-divider { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="/" class="nav-logo">
+    <svg class="nav-logo-icon" width="32" height="32" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <linearGradient id="navIconGrad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#6B21D4"/>
+          <stop offset="1" stop-color="#D946EF"/>
+        </linearGradient>
+      </defs>
+      <rect width="100" height="100" rx="22" fill="url(#navIconGrad)"/>
+      <path fill="white" fill-rule="evenodd"
+        d="M50 16 C52 27,65 48,84 50 C65 52,52 73,50 84 C48 73,35 52,16 50 C35 48,48 27,50 16Z
+           M50 37.27 L62.73 50 L50 62.73 L37.27 50 Z"/>
+    </svg>
+    Init
+  </a>
+  <ul class="nav-links">
+    <li><a href="/#how">How It Works</a></li>
+    <li><a href="/#privacy">Privacy</a></li>
+    <li><a href="/#faq">FAQ</a></li>
+    <li><a href="/#download">Download</a></li>
+  </ul>
+  <div class="nav-controls">
+    <div class="theme-switcher">
+      <button class="theme-btn" id="themeBtn" aria-label="Switch theme">
+        <span id="themeBtnLabel">🌙 Dark</span>
+      </button>
+      <div class="theme-menu" id="themeMenu">
+        <div class="theme-option" data-theme="dark">🌙 Dark</div>
+        <div class="theme-option" data-theme="light">☀️ Light</div>
+        <div class="theme-option" data-theme="init">✦ Init</div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main class="legal-page">
+  <h1>Terms of Service</h1>
+  <p class="meta">Last Updated: April 3, 2026 &nbsp;·&nbsp; Effective Date: April 3, 2026</p>
+
+  <div class="legal-toc">
+    <h4>Table of Contents</h4>
+    <ol>
+      <li><a href="#s1">Agreement to Terms</a></li>
+      <li><a href="#s2">Eligibility</a></li>
+      <li><a href="#s3">Account Registration</a></li>
+      <li><a href="#s4">How Init Works</a></li>
+      <li><a href="#s5">Acceptable Use</a></li>
+      <li><a href="#s6">Content Guidelines</a></li>
+      <li><a href="#s7">Reporting and Blocking</a></li>
+      <li><a href="#s8">Account Suspension and Termination</a></li>
+      <li><a href="#s9">Intellectual Property</a></li>
+      <li><a href="#s10">Disclaimers</a></li>
+      <li><a href="#s11">Limitation of Liability</a></li>
+      <li><a href="#s12">Indemnification</a></li>
+      <li><a href="#s13">Dispute Resolution</a></li>
+      <li><a href="#s14">Governing Law</a></li>
+      <li><a href="#s15">Modifications to Terms</a></li>
+      <li><a href="#s16">Third-Party Services</a></li>
+      <li><a href="#s17">Severability</a></li>
+      <li><a href="#s18">Entire Agreement</a></li>
+      <li><a href="#s19">Contact Us</a></li>
+    </ol>
+  </div>
+
+  <hr class="section-divider" />
+
+  <h2 id="s1">1. Agreement to Terms</h2>
+  <p>By downloading, installing, or using the Init mobile application ("App"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, do not use the App.</p>
+  <p>These Terms constitute a legally binding agreement between you ("User," "you," "your") and Init ("Company," "we," "us," "our").</p>
+
+  <hr class="section-divider" />
+
+  <h2 id="s2">2. Eligibility</h2>
+  <p>To use Init, you must:</p>
+  <ul>
+    <li>Be at least <strong>18 years old</strong>. By creating an account, you confirm that you are 18 years of age or older. We verify age through date of birth collection at registration. Providing a false date of birth is a violation of these Terms and grounds for immediate account termination.</li>
+    <li>Not be prohibited from using the App under applicable laws or regulations.</li>
+    <li>Not have been previously banned from the App for violating these Terms.</li>
+    <li>Be able to form a binding contract with Init under applicable law.</li>
+  </ul>
+
+  <hr class="section-divider" />
+
+  <h2 id="s3">3. Account Registration</h2>
+
+  <h3>3.1 Account Creation</h3>
+  <p>You may create an account using a phone number with OTP verification, an email address with OTP verification, or Google Sign-In (OAuth). You must provide accurate and complete information during registration and are responsible for maintaining the accuracy of your account information.</p>
+
+  <h3>3.2 Username (Init ID)</h3>
+  <p>After registration, you must choose a unique username (Init ID). Your username must be between 3 and 20 characters, may contain letters, numbers, and underscores, must not impersonate another person or entity, and must not contain offensive or discriminatory language.</p>
+
+  <h3>3.3 Account Security</h3>
+  <p>You are responsible for maintaining the confidentiality of your password and all activity that occurs under your account. Notify us immediately at <a href="mailto:legal@initmatch.com">legal@initmatch.com</a> of any unauthorized use. We are not liable for losses arising from unauthorized use of your account.</p>
+
+  <h3>3.4 One Account Per Person</h3>
+  <p>Each individual may maintain only one Init account. Creating multiple accounts to circumvent blocks, bans, or to manipulate the matching system is prohibited.</p>
+
+  <hr class="section-divider" />
+
+  <h2 id="s4">4. How Init Works</h2>
+
+  <h3>4.1 Interest Expression</h3>
+  <p>Init allows you to express interest in other people across six categories: Casual Date, Love, Marriage, Apology, Business, and Friendship. You may express interest by providing a target person's phone number, email address, username, or linked social media profile.</p>
+
+  <h3>4.2 Privacy-Preserving Matching</h3>
+  <div class="highlight-box">
+    <p>Your interest expressions are <strong>private and invisible to others</strong> unless the interest is mutual. This is a fundamental design principle of Init.</p>
+  </div>
+  <ul>
+    <li>When you express interest in someone, they are not notified.</li>
+    <li>Only when the other person independently expresses interest in you — with at least one overlapping category — are both parties notified of the mutual match.</li>
+    <li>Non-mutual interests are never revealed to any party.</li>
+  </ul>
+
+  <h3>4.3 Post-Match Communication</h3>
+  <p>Once a mutual match is detected, both users can communicate through an in-app messaging system. Messaging is only available between matched users.</p>
+
+  <h3>4.4 Social Link Verification</h3>
+  <p>You may link social media accounts to your profile. Certain platforms require verification: phones and emails are verified via OTP; Instagram is verified via the Code-in-Bio method. Linking a social account that you do not own is a violation of these Terms.</p>
+
+  <hr class="section-divider" />
+
+  <h2 id="s5">5. Acceptable Use</h2>
+
+  <h3>5.1 You Agree To</h3>
+  <ul>
+    <li>Use the App in compliance with all applicable laws and regulations.</li>
+    <li>Treat other users with respect and dignity.</li>
+    <li>Provide truthful information about yourself.</li>
+    <li>Report violations of these Terms by other users.</li>
+  </ul>
+
+  <h3>5.2 You Agree Not To</h3>
+  <ul>
+    <li><strong>Harassment</strong> — engage in harassment, bullying, intimidation, threats, or hate speech toward any user.</li>
+    <li><strong>Impersonation</strong> — create accounts or express interests under false identities.</li>
+    <li><strong>Stalking</strong> — use the App to monitor, track, or repeatedly contact someone who has blocked you.</li>
+    <li><strong>Spam</strong> — send unsolicited, repetitive, or commercial messages through the messaging system.</li>
+    <li><strong>Manipulation</strong> — exploit the matching system by creating fake accounts or using automated tools.</li>
+    <li><strong>Explicit Content</strong> — share sexually explicit, violent, or otherwise objectionable content.</li>
+    <li><strong>Minors</strong> — use the App if you are under 18, or express interest in someone you know to be under 18.</li>
+    <li><strong>Illegal Activity</strong> — use the App to facilitate any illegal activity.</li>
+    <li><strong>Reverse Engineering</strong> — attempt to reverse engineer, decompile, or extract source code from the App.</li>
+    <li><strong>Data Scraping</strong> — use automated means to collect user data or match information.</li>
+    <li><strong>Circumvention</strong> — attempt to bypass security measures, rate limits, or access controls.</li>
+  </ul>
+
+  <hr class="section-divider" />
+
+  <h2 id="s6">6. Content Guidelines</h2>
+
+  <h3>6.1 User Content</h3>
+  <p>"User Content" includes messages sent through matched conversations and any other content you create or share through the App. You retain ownership of your User Content, but you grant Init a non-exclusive, worldwide, royalty-free license to use, store, and process your User Content solely for the purpose of operating and providing the App.</p>
+
+  <h3>6.2 Prohibited Content</h3>
+  <p>The following content is prohibited in messages and usernames: threats of violence or harm; hate speech; sexually explicit or pornographic material; content that exploits or endangers minors; personal information of third parties without their consent; malware or phishing links; and content promoting illegal activities.</p>
+
+  <h3>6.3 Content Moderation</h3>
+  <p>We reserve the right to review, remove, or restrict access to any User Content that violates these Terms.</p>
+
+  <hr class="section-divider" />
+
+  <h2 id="s7">7. Reporting and Blocking</h2>
+
+  <h3>7.1 Reporting</h3>
+  <p>If you encounter a user who violates these Terms, you may report them through the App. We review all reports and take appropriate action, which may include warnings, temporary suspension, or permanent termination.</p>
+
+  <h3>7.2 Blocking</h3>
+  <p>You may block any matched user at any time. Blocking immediately prevents all further communication and hides the conversation from both parties.</p>
+
+  <hr class="section-divider" />
+
+  <h2 id="s8">8. Account Suspension and Termination</h2>
+
+  <h3>8.1 By You</h3>
+  <p>You may delete your account at any time through Profile → Delete Account. Your account enters a 30-day grace period during which you may reactivate. After 30 days, all your data is permanently deleted.</p>
+
+  <h3>8.2 By Us</h3>
+  <p>We may suspend or terminate your account, without prior notice, if you violate these Terms, provide false information during registration, or if your account poses a safety risk to other users or is required to be terminated by law or legal process. We reserve the right to refuse service to anyone at our sole discretion.</p>
+
+  <hr class="section-divider" />
+
+  <h2 id="s9">9. Intellectual Property</h2>
+  <p>The App, including its design, features, code, logos, trademarks, and documentation, is owned by Init and protected by applicable intellectual property laws. You may not copy, modify, distribute, or create derivative works based on the App. "Init," the Init logo, and related marks are trademarks of Init.</p>
+
+  <hr class="section-divider" />
+
+  <h2 id="s10">10. Disclaimers</h2>
+  <p class="caps">The App is provided "as is" and "as available" without warranties of any kind, either express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, and non-infringement.</p>
+  <p>We do not guarantee that you will receive any matches, that the App will be available at all times, or that interactions with matched users will be safe or positive. We are not responsible for the conduct of any user, whether online or offline. We strongly recommend that any in-person meetings take place in public settings.</p>
+  <p>While we verify ownership of phone numbers, emails, and certain social accounts, we do not conduct background checks or verify the character or intentions of any user.</p>
+
+  <hr class="section-divider" />
+
+  <h2 id="s11">11. Limitation of Liability</h2>
+  <p class="caps">To the maximum extent permitted by applicable law, Init shall not be liable for indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of profits, data, or goodwill, arising from your use of or inability to use the App, any interactions with other users, or any third-party conduct.</p>
+  <p class="caps">Our total liability for any claim arising out of or relating to these Terms or the App shall not exceed the amount you have paid to Init in the twelve (12) months preceding the claim, or ₹4,200 (approx. USD $50), whichever is greater.</p>
+
+  <hr class="section-divider" />
+
+  <h2 id="s12">12. Indemnification</h2>
+  <p>You agree to indemnify, defend, and hold harmless Init, its officers, directors, employees, and agents from and against any claims, liabilities, damages, losses, and expenses (including reasonable legal fees) arising out of or in any way connected with your use of the App, your violation of these Terms, or your User Content.</p>
+
+  <hr class="section-divider" />
+
+  <h2 id="s13">13. Dispute Resolution</h2>
+
+  <h3>13.1 Informal Resolution</h3>
+  <p>Before filing any formal legal action, you agree to attempt to resolve any dispute with us informally by contacting <a href="mailto:legal@initmatch.com">legal@initmatch.com</a>. We will attempt to resolve the dispute within 60 days of receiving your notice.</p>
+
+  <h3>13.2 Arbitration</h3>
+  <p>If informal resolution fails, any dispute arising out of or relating to these Terms or the App shall be resolved by binding arbitration in accordance with the <strong>Arbitration and Conciliation Act, 1996</strong> (India), as amended. The seat of arbitration shall be India. The arbitration shall be conducted in English.</p>
+
+  <h3>13.3 Class Action Waiver</h3>
+  <p>You agree that any dispute resolution proceedings will be conducted on an individual basis only, and not in a class, consolidated, or representative action.</p>
+
+  <h3>13.4 Exceptions</h3>
+  <p>Either party may seek injunctive or other equitable relief in any court of competent jurisdiction to prevent the actual or threatened infringement of intellectual property rights.</p>
+
+  <hr class="section-divider" />
+
+  <h2 id="s14">14. Governing Law</h2>
+  <p>These Terms shall be governed by and construed in accordance with the laws of <strong>India</strong>, including the Information Technology Act, 2000 and the Digital Personal Data Protection Act, 2023, without regard to conflict of law principles. Subject to the arbitration clause above, the courts of India shall have exclusive jurisdiction over any disputes.</p>
+
+  <hr class="section-divider" />
+
+  <h2 id="s15">15. Modifications to Terms</h2>
+  <p>We may modify these Terms at any time. When we make material changes, we will notify you via an in-app notification at least 14 days before the changes take effect. Continued use of the App after the effective date constitutes acceptance. If you do not agree, you must stop using the App and delete your account.</p>
+
+  <hr class="section-divider" />
+
+  <h2 id="s16">16. Third-Party Services</h2>
+  <p>The App integrates with third-party services (Google Sign-In, Instagram verification). Your use of these services is governed by their respective terms and privacy policies. We are not responsible for the practices of third-party service providers.</p>
+
+  <hr class="section-divider" />
+
+  <h2 id="s17">17. Severability</h2>
+  <p>If any provision of these Terms is found to be unenforceable or invalid, that provision shall be limited or eliminated to the minimum extent necessary, and the remaining provisions shall remain in full force and effect.</p>
+
+  <hr class="section-divider" />
+
+  <h2 id="s18">18. Entire Agreement</h2>
+  <p>These Terms, together with our <a href="privacy.html">Privacy Policy</a>, constitute the entire agreement between you and Init regarding the App and supersede all prior agreements, understandings, and communications.</p>
+
+  <hr class="section-divider" />
+
+  <h2 id="s19">19. Contact Us</h2>
+  <p>For questions about these Terms:</p>
+  <ul>
+    <li><strong>Email:</strong> <a href="mailto:legal@initmatch.com">legal@initmatch.com</a></li>
+    <li><strong>Subject line:</strong> "Terms Inquiry — [Your Username]"</li>
+  </ul>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <a href="/" class="nav-logo" style="margin-bottom:12px;display:inline-flex;">
+          <svg width="28" height="28" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs><linearGradient id="fg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6B21D4"/><stop offset="1" stop-color="#D946EF"/></linearGradient></defs>
+            <rect width="100" height="100" rx="22" fill="url(#fg2)"/>
+            <path fill="white" fill-rule="evenodd" d="M50 16 C52 27,65 48,84 50 C65 52,52 73,50 84 C48 73,35 52,16 50 C35 48,48 27,50 16Z M50 37.27 L62.73 50 L50 62.73 L37.27 50 Z"/>
+          </svg>
+          &nbsp;Init
+        </a>
+        <p style="color:var(--text-secondary);font-size:0.875rem;line-height:1.6;">Mutual interest matching — private until it's mutual.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="cookie-policy.html">Cookie Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Init. All rights reserved.</p>
+      <a href="mailto:hello@initmatch.com">hello@initmatch.com</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
