@@ -51,7 +51,7 @@ const translations = {
     cats_h2: "Six ways to express what you feel.",
     cats_sub: "Pick one or more. Init finds overlap on both sides.",
     categories: [
-      { emoji: "☕", name: "Hangout", desc: "Want to spend time with someone but not sure if they feel the same? Find out." },
+      { emoji: "☕", name: "Hangout", desc: "Want to have a casual time out with someone you know but not sure if they feel the same? Express a Hangout interest and find out." },
       { emoji: "💫", name: "Date", desc: "Been thinking about asking someone out but afraid of making it awkward? Let Init find out." },
       { emoji: "❤️", name: "Love", desc: "Have deep feelings for someone but never found the right moment to say it? Express it here." },
       { emoji: "💍", name: "Marriage", desc: "Ready to take the next step with someone special? See if they're on the same page." },
@@ -557,7 +557,6 @@ document.addEventListener("DOMContentLoaded", () => {
   setupCarousel();
   setupThemeSwitcher();
   setupLangSwitcher();
-  setupFAQ();
   setupScrollReveal();
   setupMobileMenu();
   setupDropdownClose();

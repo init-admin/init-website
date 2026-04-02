@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Init — Mutual Interest Matching</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230ea5e9'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-size='68' fill='white'>✦</text></svg>" />
   <meta name="description" content="Find out if the feeling is mutual — without ever risking rejection. Init is private, mutual interest matching for people you already know." />
   <meta name="keywords" content="mutual interest matching, secret crush, anonymous interest, social matching app, init app" />
 
@@ -152,9 +153,61 @@
     <h2 id="how_h2">Simple. Private. Powerful.</h2>
     <p id="how_sub">Four steps to finding out what you've always wondered.</p>
   </div>
-  <div class="steps-grid" id="stepsGrid">
-    <!-- Steps rendered by JS -->
+
+  <!-- Visual flow diagram -->
+  <div class="flow-diagram reveal">
+    <div class="flow-row flow-row-top">
+      <div class="flow-person-card">
+        <div class="flow-avatar flow-avatar-you">A</div>
+        <div class="flow-person-label">You</div>
+        <div class="flow-person-action">Express interest ✦</div>
+      </div>
+      <div class="flow-arrow-wrap">
+        <div class="flow-arrow-line"></div>
+        <div class="flow-arrow-head">›</div>
+      </div>
+      <div class="flow-init-box">
+        <div class="flow-init-icon">🔒</div>
+        <div class="flow-init-label">Hidden by Init</div>
+      </div>
+      <div class="flow-arrow-wrap">
+        <div class="flow-arrow-line"></div>
+        <div class="flow-arrow-head">‹</div>
+      </div>
+      <div class="flow-person-card">
+        <div class="flow-avatar flow-avatar-them">B</div>
+        <div class="flow-person-label">Them</div>
+        <div class="flow-person-action">Express interest ✦</div>
+      </div>
+    </div>
+    <div class="flow-row-connector">
+      <div class="flow-connector-line"></div>
+      <div class="flow-connector-label">If both express interest with overlapping categories</div>
+      <div class="flow-connector-line"></div>
+    </div>
+    <div class="flow-row flow-row-bottom">
+      <div class="flow-reveal-card">
+        <div class="flow-reveal-icon">✦</div>
+        <div class="flow-reveal-title">Mutual Match!</div>
+        <div class="flow-reveal-sub">Both notified at the exact same time. No one knew before this moment.</div>
+        <div class="flow-reveal-avatars">
+          <div class="flow-avatar flow-avatar-you">A</div>
+          <div class="flow-reveal-hearts">🎉</div>
+          <div class="flow-avatar flow-avatar-them">B</div>
+        </div>
+      </div>
+    </div>
+    <div class="flow-or-block">
+      <div class="flow-secret-card">
+        <div class="flow-secret-icon">🔒</div>
+        <div class="flow-secret-title">Or... your secret stays yours. Forever.</div>
+        <div class="flow-secret-sub">If they don't feel the same, nothing happens. They never find out.</div>
+      </div>
+    </div>
   </div>
+
+  <!-- Step cards below diagram -->
+  <div class="steps-grid" id="stepsGrid"></div>
 </section>
 
 <!-- ═══════════════════════════════════════════════
