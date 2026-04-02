@@ -712,7 +712,7 @@ h1, h2, h3, h4 { line-height: 1.2; font-weight: 700; }
 
 /* Left-side card: reverse header order, right-align everything */
 .tl-half-left .tl-card-header { flex-direction: row; justify-content: flex-end; }
-.tl-half-left .tl-card-header-text { text-align: right; }
+.tl-half-left .tl-card-header-text { text-align: right; flex: none; }
 .tl-half-left .tl-interest-tags { justify-content: flex-end; }
 .tl-half-left .tl-card-footer { justify-content: flex-end; }
 
