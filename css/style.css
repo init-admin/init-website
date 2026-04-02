@@ -541,19 +541,61 @@ h1, h2, h3, h4 { line-height: 1.2; font-weight: 700; }
 
 /* ── TIMELINE STORY ───────────────────────────────── */
 .timeline-story {
-  max-width: 680px;
+  max-width: 760px;
   margin: 0 auto 60px;
   padding: 0 24px;
 }
 
-/* Each step row */
-.tl-step {
-  display: flex;
-  gap: 20px;
-  align-items: stretch;
+/* Preface */
+.tl-preface {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 40px;
+}
+.tl-preface p {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  font-style: italic;
 }
 
-/* Node column (line + circle) */
+/* Each step row — 3-column grid: left card | center node | right card */
+.tl-step {
+  display: grid;
+  grid-template-columns: 1fr 48px 1fr;
+  align-items: start;
+  gap: 0;
+}
+
+/* Left step: card on left, node in center, empty on right */
+.tl-step-left .tl-card  { grid-column: 1; margin-right: 12px; text-align: right; }
+.tl-step-left .tl-node-col { grid-column: 2; }
+.tl-step-left .tl-empty { grid-column: 3; }
+.tl-step-left .tl-card-actor { flex-direction: row-reverse; }
+.tl-step-left .tl-interest-tags { justify-content: flex-end; }
+.tl-step-left .tl-card-footer { justify-content: flex-end; }
+
+/* Right step: empty on left, node in center, card on right */
+.tl-step-right .tl-empty   { grid-column: 1; }
+.tl-step-right .tl-node-col { grid-column: 2; }
+.tl-step-right .tl-card    { grid-column: 3; margin-left: 12px; }
+
+/* Center step (Init check): node + card span full width */
+.tl-step-center {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  margin: 4px 0;
+}
+.tl-step-center .tl-card { flex: 1; }
+
+/* Node column (vertical line + circle) */
+.tl-node-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 4px;
+}
 .tl-node-wrap {
   display: flex;
   flex-direction: column;

@@ -157,69 +157,68 @@
   <!-- Timeline story -->
   <div class="timeline-story reveal">
 
-    <!-- Step 1: You express -->
-    <div class="tl-step">
-      <div class="tl-node-wrap">
-        <div class="tl-node tl-node-you">1</div>
-        <div class="tl-line"></div>
-      </div>
+    <!-- Preface -->
+    <div class="tl-preface">
+      <p>That person you've been wanting to hang out with — but you don't know if they'd feel the same. Someone you've quietly fallen for but can't risk breaking what you have. Someone you owe an apology to but can't find the words to start. These moments happen every day. Most stay silent forever. Here's how Init changes that.</p>
+    </div>
+
+    <!-- Step 1: You (LEFT side) -->
+    <div class="tl-step tl-step-left">
       <div class="tl-card">
         <div class="tl-card-actor">
           <div class="tl-avatar tl-avatar-you">You</div>
-          <span class="tl-actor-label">You open Init and pick someone — let's say Alex.</span>
+          <span class="tl-actor-label">You express a Hangout interest — privately.</span>
         </div>
-        <div class="tl-card-body">
-          <p class="tl-card-desc">You select the categories that describe what you feel:</p>
-          <div class="tl-interest-tags">
-            <span class="tl-tag tl-tag-active">☕ Hangout</span>
-            <span class="tl-tag">💫 Date</span>
-            <span class="tl-tag">❤️ Love</span>
-          </div>
+        <div class="tl-interest-tags">
+          <span class="tl-tag tl-tag-active">☕ Hangout</span>
+          <span class="tl-tag">💫 Date</span>
         </div>
         <div class="tl-card-footer tl-footer-locked">
           <span class="tl-lock-icon">🔒</span>
-          <span>Your interest is saved privately. Alex sees <strong>nothing</strong>.</span>
+          <span>Only you can see this. Your colleague sees <strong>nothing</strong>.</span>
         </div>
       </div>
+      <div class="tl-node-col">
+        <div class="tl-node tl-node-you">1</div>
+        <div class="tl-line"></div>
+      </div>
+      <div class="tl-empty"></div>
     </div>
 
-    <!-- Step 2: They express -->
-    <div class="tl-step">
-      <div class="tl-node-wrap">
+    <!-- Step 2: Them (RIGHT side) -->
+    <div class="tl-step tl-step-right">
+      <div class="tl-empty"></div>
+      <div class="tl-node-col">
         <div class="tl-node tl-node-them">2</div>
         <div class="tl-line"></div>
       </div>
       <div class="tl-card">
         <div class="tl-card-actor">
-          <div class="tl-avatar tl-avatar-them">Alex</div>
-          <span class="tl-actor-label">Separately, Alex opens Init and picks you — without knowing you did.</span>
+          <div class="tl-avatar tl-avatar-them">?</div>
+          <span class="tl-actor-label">Someone you know does the same — without knowing you did.</span>
         </div>
-        <div class="tl-card-body">
-          <p class="tl-card-desc">Alex selects their own categories independently:</p>
-          <div class="tl-interest-tags">
-            <span class="tl-tag tl-tag-active">☕ Hangout</span>
-            <span class="tl-tag tl-tag-active">💼 Business</span>
-            <span class="tl-tag">💍 Marriage</span>
-          </div>
+        <div class="tl-interest-tags">
+          <span class="tl-tag tl-tag-active">☕ Hangout</span>
+          <span class="tl-tag">💼 Business</span>
         </div>
         <div class="tl-card-footer tl-footer-locked">
           <span class="tl-lock-icon">🔒</span>
-          <span>Alex's interest is also private. You can't see it. Alex can't see yours.</span>
+          <span>You can't see theirs. They can't see yours.</span>
         </div>
       </div>
     </div>
 
-    <!-- Step 3: Init checks -->
-    <div class="tl-step tl-step-init">
-      <div class="tl-node-wrap">
+    <!-- Step 3: Init checks (full width, centered) -->
+    <div class="tl-step tl-step-center">
+      <div class="tl-node-col">
         <div class="tl-node tl-node-init">✦</div>
         <div class="tl-line tl-line-branch"></div>
       </div>
       <div class="tl-card tl-card-init">
-        <div class="tl-init-label">Init quietly checks for overlapping categories...</div>
+        <div class="tl-init-label">Init quietly checks for overlapping categories…</div>
         <div class="tl-matching-visual">
           <div class="tl-match-side">
-            <div class="tl-match-side-label">Your categories</div>
+            <div class="tl-match-side-label">Your interest</div>
             <span class="tl-tag tl-tag-active">☕ Hangout</span>
           </div>
           <div class="tl-match-overlap">
@@ -227,7 +226,7 @@
             <div class="tl-overlap-label">Overlap found</div>
           </div>
           <div class="tl-match-side">
-            <div class="tl-match-side-label">Alex's categories</div>
+            <div class="tl-match-side-label">Their interest</div>
             <span class="tl-tag tl-tag-active">☕ Hangout</span>
           </div>
         </div>
@@ -236,31 +235,29 @@
 
     <!-- Branch outcomes -->
     <div class="tl-branch">
-      <!-- Match outcome -->
       <div class="tl-branch-outcome tl-outcome-match">
         <div class="tl-branch-line tl-branch-line-match"></div>
         <div class="tl-outcome-card tl-outcome-card-match">
           <div class="tl-outcome-icon">✦</div>
           <div class="tl-outcome-title">Mutual Match!</div>
-          <div class="tl-outcome-desc">Both of you are notified at the <strong>exact same moment</strong>. Neither of you knew before right now.</div>
+          <div class="tl-outcome-desc">Both notified at the <strong>exact same moment</strong>. Neither of you knew before right now.</div>
           <div class="tl-outcome-avatars">
             <div class="tl-avatar tl-avatar-you">You</div>
             <div class="tl-outcome-hearts">🎉</div>
-            <div class="tl-avatar tl-avatar-them">Alex</div>
+            <div class="tl-avatar tl-avatar-them">?</div>
           </div>
-          <div class="tl-outcome-tag">Categories matched: ☕ Hangout</div>
+          <div class="tl-outcome-tag">Matched on: ☕ Hangout</div>
         </div>
       </div>
 
       <div class="tl-branch-or">OR</div>
 
-      <!-- No match outcome -->
       <div class="tl-branch-outcome tl-outcome-secret">
         <div class="tl-branch-line tl-branch-line-secret"></div>
         <div class="tl-outcome-card tl-outcome-card-secret">
           <div class="tl-outcome-icon">🔒</div>
           <div class="tl-outcome-title">Your secret stays yours. Forever.</div>
-          <div class="tl-outcome-desc">Alex didn't select Hangout. Nothing happens. Alex never knows you expressed interest. You'll never know they didn't.</div>
+          <div class="tl-outcome-desc">No overlap found. Nothing happens. They never know. You'll never know they didn't.</div>
           <div class="tl-outcome-tag tl-tag-muted">No awkwardness. No damaged friendship.</div>
         </div>
       </div>
