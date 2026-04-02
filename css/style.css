@@ -539,6 +539,181 @@ h1, h2, h3, h4 { line-height: 1.2; font-weight: 700; }
 .step-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 8px; }
 .step-card p { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6; }
 
+/* ── FLOW DIAGRAM ─────────────────────────────────── */
+.flow-diagram {
+  max-width: 860px;
+  margin: 0 auto 60px;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.flow-row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+}
+
+.flow-person-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  min-width: 120px;
+}
+
+.flow-avatar {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #fff;
+  flex-shrink: 0;
+}
+.flow-avatar-you { background: var(--grad-accent); box-shadow: 0 4px 16px var(--glow); }
+.flow-avatar-them { background: linear-gradient(135deg, var(--secondary), var(--primary)); box-shadow: 0 4px 16px var(--glow); }
+
+.flow-person-label { font-size: 0.82rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; }
+.flow-person-action { font-size: 0.78rem; color: var(--primary); font-weight: 600; text-align: center; }
+
+.flow-arrow-wrap {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  max-width: 80px;
+}
+.flow-arrow-line {
+  flex: 1;
+  height: 2px;
+  background: var(--border);
+  background: linear-gradient(90deg, var(--border), var(--primary), var(--border));
+}
+.flow-arrow-head {
+  font-size: 1.4rem;
+  color: var(--primary);
+  line-height: 1;
+  margin: 0 -4px;
+}
+
+.flow-init-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 20px 24px;
+  min-width: 130px;
+  text-align: center;
+  position: relative;
+}
+.flow-init-icon { font-size: 2rem; }
+.flow-init-label { font-size: 0.78rem; font-weight: 600; color: var(--text-secondary); }
+
+.flow-row-connector {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 16px 0;
+  width: 100%;
+  max-width: 600px;
+}
+.flow-connector-line {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+  background: linear-gradient(90deg, transparent, var(--border));
+}
+.flow-connector-line:last-child {
+  background: linear-gradient(90deg, var(--border), transparent);
+}
+.flow-connector-label {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  text-align: center;
+  white-space: nowrap;
+  padding: 4px 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+}
+
+.flow-row-bottom { margin-bottom: 16px; }
+
+.flow-reveal-card {
+  background: var(--card);
+  border: 1px solid var(--primary);
+  border-radius: var(--radius-lg);
+  padding: 28px 32px;
+  text-align: center;
+  box-shadow: 0 0 32px var(--glow);
+  max-width: 400px;
+  width: 100%;
+}
+.flow-reveal-icon { font-size: 2rem; margin-bottom: 8px; }
+.flow-reveal-title { font-size: 1.1rem; font-weight: 800; margin-bottom: 8px; background: var(--grad-accent); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.flow-reveal-sub { font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 16px; line-height: 1.5; }
+.flow-reveal-avatars { display: flex; align-items: center; justify-content: center; gap: 12px; }
+.flow-reveal-hearts { font-size: 1.4rem; }
+
+.flow-or-block {
+  position: relative;
+  width: 100%;
+  max-width: 860px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 12px;
+}
+.flow-or-block::before {
+  content: 'OR';
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--text-secondary);
+  background: var(--bg);
+  padding: 4px 8px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border);
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.flow-secret-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 20px 28px;
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+  margin-top: 8px;
+}
+.flow-secret-icon { font-size: 1.5rem; margin-bottom: 8px; }
+.flow-secret-title { font-size: 0.9rem; font-weight: 700; margin-bottom: 6px; }
+.flow-secret-sub { font-size: 0.8rem; color: var(--text-secondary); line-height: 1.5; }
+
+@media (max-width: 680px) {
+  .flow-row-top {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .flow-arrow-wrap { transform: rotate(90deg); max-width: 40px; }
+  .flow-connector-label { font-size: 0.7rem; white-space: normal; text-align: center; }
+  .flow-reveal-card, .flow-secret-card { padding: 20px; }
+}
+
 /* ── PRIVACY SECTION ──────────────────────────────── */
 .privacy-section {
   padding: 80px 24px;
@@ -641,9 +816,9 @@ h1, h2, h3, h4 { line-height: 1.2; font-weight: 700; }
 
 .categories-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
-  max-width: var(--max-width);
+  max-width: 900px;
   margin: 0 auto;
 }
 
@@ -969,4 +1144,5 @@ footer {
   .carousel-slide { padding: 32px 20px; }
   .footer-top { grid-template-columns: 1fr; }
   .comparison-row div, .comparison-header div { padding: 12px 10px; font-size: 0.78rem; }
+  .categories-grid { grid-template-columns: repeat(2, 1fr); }
 }
