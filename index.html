@@ -1,93 +1,103 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Init — Mutual Interest Matching</title>
+  <title>Init — Find out if it's mutual.</title>
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png" />
   <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192.png" />
-  <meta name="description" content="Find out if the feeling is mutual — without ever risking rejection. Init is private, mutual interest matching for people you already know." />
-  <meta name="keywords" content="mutual interest matching, secret crush, anonymous interest, social matching app, init app" />
+  <meta name="description" content="Init is mutual interest matching. Express interest in someone you already know — privately. They only find out if they feel it too." />
+  <meta name="keywords" content="mutual interest matching, secret crush, private matching, init app" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Init — Mutual Interest Matching" />
-  <meta property="og:description" content="Find out if the feeling is mutual — without ever risking rejection." />
+  <meta property="og:title" content="Init — Find out if it's mutual." />
+  <meta property="og:description" content="Express interest privately. They only find out if they feel it too." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://initmatch.com" />
   <meta property="og:image" content="https://initmatch.com/images/og-image.png" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Init — Mutual Interest Matching" />
-  <meta name="twitter:description" content="Find out if the feeling is mutual — without ever risking rejection." />
+  <meta name="twitter:title" content="Init — Find out if it's mutual." />
+  <meta name="twitter:description" content="Express interest privately. They only find out if they feel it too." />
   <meta name="twitter:image" content="https://initmatch.com/images/og-image.png" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-<!-- ═══════════════════════════════════════════════
+<!-- ══════════════════════════════════════════════
      NAVBAR
-═══════════════════════════════════════════════ -->
-<nav class="navbar">
-  <a href="#" class="nav-logo">
-    <svg class="nav-logo-icon" width="32" height="32" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <defs>
-        <linearGradient id="navBg" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#050510"/>
-          <stop offset="100%" stop-color="#12122a"/>
-        </linearGradient>
-        <linearGradient id="navCheck" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#f72585"/>
-          <stop offset="100%" stop-color="#4cc9f0"/>
-        </linearGradient>
-      </defs>
-      <rect width="400" height="400" rx="80" fill="url(#navBg)"/>
-      <rect x="38" y="38" width="200" height="125" rx="26" fill="none" stroke="#f72585" stroke-width="9" opacity="0.85"/>
-      <polyline points="55,163 38,198 95,163" fill="none" stroke="#f72585" stroke-width="9" opacity="0.85"/>
-      <rect x="118" y="58" width="120" height="105" fill="#7209b7" opacity="0.12"/>
-      <rect x="118" y="58" width="200" height="125" rx="26" fill="none" stroke="#4cc9f0" stroke-width="9" opacity="0.85"/>
-      <polyline points="300,183 318,218 262,183" fill="none" stroke="#4cc9f0" stroke-width="9" opacity="0.85"/>
-      <polyline points="146,117 173,135 210,86" stroke="url(#navCheck)" stroke-width="14" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+══════════════════════════════════════════════ -->
+<nav class="navbar" id="navbar">
+  <a href="#" class="nav-logo" aria-label="Init — home">
+    <svg class="nav-logo-icon" viewBox="60 90 300 230" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M98,103 L268,103 Q290,103 290,125 L290,230 Q290,252 268,252 L160,252 L118,290 L140,252 L98,252 Q76,252 76,230 L76,125 Q76,103 98,103 Z" stroke="#f72585" stroke-width="10" fill="none" opacity="0.85"/>
+      <path d="M185,122 L322,122 Q344,122 344,144 L344,249 Q344,271 322,271 L300,271 L330,309 L270,271 L185,271 Q163,271 163,249 L163,144 Q163,122 185,122 Z" stroke="#4cc9f0" stroke-width="10" fill="none" opacity="0.85"/>
+      <rect x="163" y="122" width="127" height="130" fill="#7209b7" fill-opacity="0.15"/>
+      <path d="M195,195 L225,225 L270,165" stroke="#b740d4" stroke-width="16" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
     Init
   </a>
 
   <ul class="nav-links">
-    <li><a href="#how" id="nav_how">How It Works</a></li>
-    <li><a href="#privacy" id="nav_privacy">Privacy</a></li>
-    <li><a href="#faq" id="nav_faq">FAQ</a></li>
-    <li><a href="#download" id="nav_download">Download</a></li>
+    <li><a href="#how">How it works</a></li>
+    <li><a href="#categories">Init is for</a></li>
+    <li><a href="#mutual">The mutual bit</a></li>
   </ul>
 
   <div class="nav-controls">
-    <!-- Theme switcher -->
-    <div class="theme-switcher">
-      <button class="theme-btn" id="themeBtn" aria-label="Switch theme">
-        <span id="themeBtnLabel">🌙 Dark</span>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+      <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+      <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="4"/>
+        <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+      </svg>
+    </button>
+
+    <div class="nav-download" id="navDownload">
+      <button class="btn-nav-cta" id="downloadToggle" aria-haspopup="true" aria-expanded="false" aria-controls="navDownloadMenu">
+        Download
+        <svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
       </button>
-      <div class="theme-menu" id="themeMenu">
-        <div class="theme-option" data-theme="dark">🌙 Dark</div>
-        <div class="theme-option" data-theme="light">☀️ Light</div>
-        <div class="theme-option" data-theme="init">✦ Init</div>
+      <div class="nav-download-menu" id="navDownloadMenu" role="menu">
+        <a href="#" class="store-btn" role="menuitem" aria-label="Get it on Google Play">
+          <span class="coming-soon-pill">Soon</span>
+          <span class="store-btn-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M3.18 23.76c.39.22.84.27 1.27.14l12.04-6.95-2.76-2.76-10.55 9.57zM.29 1.27C.11 1.62 0 2.02 0 2.47v19.06c0 .45.1.85.29 1.2l.07.07 10.68-10.68v-.25L.36 1.2l-.07.07zM19.96 10.29L16.5 8.31 13.45 11.36l3.05 3.05 3.47-2c.99-.57.99-1.5-.01-2.12zM4.45.1L16.49 7.05l-2.76 2.76L3.18.24C3.58.1 4.05.16 4.45.1z"/>
+            </svg>
+          </span>
+          <span class="store-btn-text">
+            <small>Get it on</small>
+            <strong>Google Play</strong>
+          </span>
+        </a>
+        <a href="#" class="store-btn" role="menuitem" aria-label="Download on the App Store">
+          <span class="coming-soon-pill">Soon</span>
+          <span class="store-btn-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+            </svg>
+          </span>
+          <span class="store-btn-text">
+            <small>Download on the</small>
+            <strong>App Store</strong>
+          </span>
+        </a>
       </div>
     </div>
 
-    <!-- Language switcher -->
-    <div class="lang-switcher">
-      <button class="lang-btn" id="langBtn" aria-label="Switch language">
-        <span id="langBtnLabel">🇬🇧 English</span>
-      </button>
-      <div class="lang-menu" id="langMenu"></div>
-    </div>
-
-    <!-- Mobile menu -->
-    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
       </svg>
@@ -95,402 +105,512 @@
   </div>
 </nav>
 
-<!-- Mobile Nav -->
 <div class="mobile-nav" id="mobileNav">
-  <a href="#how" id="nav_how_m">How It Works</a>
-  <a href="#privacy" id="nav_privacy_m">Privacy</a>
-  <a href="#categories" id="nav_cats_m">Categories</a>
-  <a href="#faq" id="nav_faq_m">FAQ</a>
-  <a href="#download" id="nav_download_m">Download</a>
+  <a href="#how">How it works</a>
+  <a href="#categories">Init is for</a>
+  <a href="#mutual">The mutual bit</a>
+  <a href="#download">Download</a>
 </div>
 
-<!-- ═══════════════════════════════════════════════
+<!-- ══════════════════════════════════════════════
      HERO
-═══════════════════════════════════════════════ -->
-<section class="hero" id="home">
-  <div class="hero-bg"></div>
-  <div class="hero-glow"></div>
+══════════════════════════════════════════════ -->
+<section class="hero bg-soft" id="home">
+  <div class="hero-inner">
+    <div class="hero-content reveal">
+      <div class="hero-eyebrow">
+        <span class="dot"></span>
+        <span>Mutual interest matching</span>
+      </div>
 
-  <div class="hero-content reveal">
-    <div class="hero-eyebrow">
-      <span class="dot"></span>
-      <span id="hero_eyebrow">MUTUAL INTEREST MATCHING</span>
+      <h1>Find out if it's <span class="accent">mutual</span>.</h1>
+
+      <p class="hero-sub">Express interest in someone you already know — privately. They only find out if they feel it too.</p>
+
+      <div class="hero-cta">
+        <a href="#download" class="btn-primary">
+          Get the app
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+        <a href="#how" class="btn-outline">How it works</a>
+      </div>
     </div>
 
-    <h1 id="hero_h1">
-      Find out if the feeling is <span class="highlight">mutual</span> — without ever risking rejection.
-    </h1>
+    <div class="hero-visual reveal">
+      <div class="hero-visual-bg"></div>
+      <div class="card-stack">
+        <!-- Background peek pair -->
+        <div class="interest-card card-peek card-peek-1" aria-hidden="true">
+          <span class="ic-lock">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+              <rect x="3" y="11" width="18" height="11" rx="2"/>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            </svg>
+          </span>
+          <div class="ic-avatar">M</div>
+          <div class="ic-label">Your interest</div>
+          <div class="ic-tags">
+            <span class="ic-tag active">Love</span>
+            <span class="ic-tag active">Marriage</span>
+          </div>
+        </div>
 
-    <p class="hero-sub" id="hero_sub">
-      Your interest stays completely private. They only find out if they feel it too.
-    </p>
+        <div class="interest-card card-peek card-peek-2" aria-hidden="true">
+          <span class="ic-lock">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+              <rect x="3" y="11" width="18" height="11" rx="2"/>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            </svg>
+          </span>
+          <div class="ic-avatar">?</div>
+          <div class="ic-label">Their interest</div>
+          <div class="ic-tags">
+            <span class="ic-tag active">Date</span>
+            <span class="ic-tag">Apology</span>
+          </div>
+        </div>
 
-    <div class="hero-cta">
-      <a href="#download" class="btn-primary">
-        <span id="hero_cta1">Get the App</span>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <!-- Primary pair -->
+        <div class="interest-card card-you">
+          <span class="ic-lock" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+              <rect x="3" y="11" width="18" height="11" rx="2"/>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            </svg>
+          </span>
+          <div class="ic-avatar">Y</div>
+          <div class="ic-label">Your interest</div>
+          <div class="ic-tags">
+            <span class="ic-tag match"><span class="ic-tag-spark" aria-hidden="true">✦</span>Hangout</span>
+            <span class="ic-tag active">Crush</span>
+            <span class="ic-tag">Date</span>
+          </div>
+        </div>
+
+        <div class="match-burst" aria-hidden="true">
+          <span class="match-burst-label">Match</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        </div>
+
+        <div class="interest-card card-them">
+          <span class="ic-lock" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+              <rect x="3" y="11" width="18" height="11" rx="2"/>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            </svg>
+          </span>
+          <div class="ic-avatar">?</div>
+          <div class="ic-label">Their interest</div>
+          <div class="ic-tags">
+            <span class="ic-tag match"><span class="ic-tag-spark" aria-hidden="true">✦</span>Hangout</span>
+            <span class="ic-tag">Crush</span>
+            <span class="ic-tag">Love</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════
+     MODULE — HOW IT WORKS
+══════════════════════════════════════════════ -->
+<section id="how" class="bg-surface">
+  <div class="module reveal">
+    <div class="module-visual">
+      <div class="phone-frame" aria-hidden="true">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <div class="ei-header">
+            <span class="ei-header-spacer"></span>
+            <span class="ei-title">✦ Express Interest</span>
+            <span class="ei-back">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+              </svg>
+            </span>
+          </div>
+
+          <p class="ei-subtitle">Your interest stays completely private, will be revealed to both only if they express interest in you.</p>
+
+          <div class="ei-section-row">
+            <span class="ei-section-label">Express via</span>
+            <span class="ei-info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/>
+              </svg>
+            </span>
+          </div>
+
+          <div class="ei-method-card">
+            <div class="ei-method-head">
+              <span class="ei-method-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+              </span>
+              <span class="ei-method-label">Their number</span>
+            </div>
+            <div class="ei-method-input">
+              <span class="ei-dial">
+                <span class="ei-flag">🇺🇸</span>
+                <span>+1</span>
+              </span>
+              <span class="ei-phone-num">555 0134</span>
+              <span class="ei-contact-pick">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+                </svg>
+              </span>
+            </div>
+          </div>
+
+          <div class="ei-methods-row">
+            <div class="ei-method-tile">
+              <span class="ei-method-tile-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+                </svg>
+              </span>
+              <span class="ei-method-tile-label">Email Address</span>
+            </div>
+            <div class="ei-method-tile">
+              <span class="ei-method-tile-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16v16H4z"/><path d="M8 9h8M8 13h6"/>
+                </svg>
+              </span>
+              <span class="ei-method-tile-label">Init username</span>
+            </div>
+            <div class="ei-method-tile">
+              <span class="ei-method-tile-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                </svg>
+              </span>
+              <span class="ei-method-tile-label">Instagram</span>
+            </div>
+          </div>
+
+          <div class="ei-section-row">
+            <span class="ei-section-label">Your intention</span>
+          </div>
+
+          <div class="ei-pills">
+            <span class="ei-pill on-hangout">
+              <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="0">
+                <path d="M12 2c0 4-3 5-3 8a3 3 0 0 0 6 0c0-3-3-4-3-8zM6 12a4 4 0 1 0 4 4H6zm12 0a4 4 0 1 1-4 4h4z"/>
+              </svg>
+              Hangout
+            </span>
+            <span class="ei-pill">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>
+              </svg>
+              Crush
+            </span>
+            <span class="ei-pill">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2"/>
+                <path d="M16 2v4M8 2v4M3 10h18"/>
+                <path d="M9 16s1 1 3 1 3-1 3-1"/>
+              </svg>
+              Date
+            </span>
+            <span class="ei-pill">
+              <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="0">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+              </svg>
+              Love
+            </span>
+            <span class="ei-pill">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 3l-4 6 10 13L22 9l-4-6z"/><path d="M11 3h2"/><path d="M2 9h20"/>
+              </svg>
+              Marriage
+            </span>
+            <span class="ei-pill">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2c-1.5 0-2 2-2 4v6"/><path d="M12 2c1.5 0 2 2 2 4v6"/><path d="M7 10c-2 0-3 2-3 4s1 6 4 6h8c3 0 4-4 4-6s-1-4-3-4"/>
+              </svg>
+              Apology
+            </span>
+          </div>
+
+          <div class="ei-desc-card on-hangout">
+            <span class="ei-desc-label">Hangout</span>
+            Want casual time together — coffee, a walk, a plan. No pressure, just presence.
+          </div>
+
+          <div class="ei-submit">
+            Express
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="module-text">
+      <p class="eyebrow">How it works</p>
+      <h2>Express what you feel. Stay invisible.</h2>
+      <p>Express interest in anyone you know — by phone, email, username, or Instagram. Pick one or more categories. Nothing happens on their side until they express it back.</p>
+      <a href="#categories" class="module-link">
+        See the categories
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
       </a>
-      <a href="#how" class="btn-outline">
-        <span id="hero_cta2">How it works</span>
-      </a>
-    </div>
-
-    <p class="hero-tagline" id="hero_tagline">Your match could be one init away.</p>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════
-     CAROUSEL — WHY INIT
-═══════════════════════════════════════════════ -->
-<section class="carousel-section" id="why">
-  <div class="section-header reveal">
-    <p class="section-eyebrow" id="carousel_eyebrow">WHY INIT</p>
-    <h2 id="carousel_h2">The feeling was always mutual.</h2>
-    <p id="carousel_sub">Some things are better left unsaid. Until now, that was your only option.</p>
-  </div>
-
-  <div class="carousel-wrapper">
-    <div class="carousel-track-outer">
-      <div class="carousel-track" id="carouselTrack">
-        <!-- Slides rendered by JS -->
-      </div>
-    </div>
-
-    <div class="carousel-nav">
-      <button class="carousel-btn" id="prevBtn" aria-label="Previous">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-      </button>
-      <div class="carousel-dots"></div>
-      <button class="carousel-btn" id="nextBtn" aria-label="Next">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </button>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════
-     HOW IT WORKS
-═══════════════════════════════════════════════ -->
-<section class="how-section" id="how">
-  <div class="section-header reveal">
-    <p class="section-eyebrow" id="how_eyebrow">HOW IT WORKS</p>
-    <h2 id="how_h2">Simple. Private. Powerful.</h2>
-    <p id="how_sub">Four steps to finding out what you've always wondered.</p>
-  </div>
-
-  <!-- Timeline story -->
-  <div class="timeline-story reveal">
-
-    <!-- Preface box -->
-    <div class="tl-preface-box">
-      <div class="tl-scenarios">
-        <div class="tl-scenario-pill">
-          <span class="tl-sc-icon">☕</span>
-          <p>That friend you want to spend more time with — but you're not sure they feel the same.</p>
-        </div>
-        <div class="tl-scenario-pill">
-          <span class="tl-sc-icon">❤️</span>
-          <p>Someone you've quietly fallen for but can't risk saying it out loud.</p>
-        </div>
-        <div class="tl-scenario-pill">
-          <span class="tl-sc-icon">🤝</span>
-          <p>Someone you owe an apology to but can't find the words to start.</p>
-        </div>
-      </div>
-      <p class="tl-preface-close">These moments happen every day. Most stay silent forever. Here's how Init changes that.</p>
-    </div>
-
-    <!-- Timeline -->
-    <div class="tl-timeline">
-
-      <!-- Step 1: You (LEFT) -->
-      <div class="tl-row">
-        <div class="tl-half tl-half-left">
-          <div class="tl-card">
-            <div class="tl-card-header">
-              <div class="tl-avatar tl-avatar-you">You</div>
-              <div class="tl-card-header-text">
-                <div class="tl-card-title">express interest — privately.</div>
-              </div>
-            </div>
-            <div class="tl-interest-tags">
-              <span class="tl-tag tl-tag-active">☕ Hangout</span>
-              <span class="tl-tag">💫 Date</span>
-            </div>
-            <div class="tl-card-footer tl-footer-locked">
-              <span>🔒</span>
-              <span>Only you can see this. They see <strong>nothing</strong>.</span>
-            </div>
-          </div>
-        </div>
-        <div class="tl-col-mid"></div>
-        <div class="tl-half tl-half-right"></div>
-      </div>
-
-      <!-- Step 2: Them (RIGHT) -->
-      <div class="tl-row">
-        <div class="tl-half tl-half-left"></div>
-        <div class="tl-col-mid"></div>
-        <div class="tl-half tl-half-right">
-          <div class="tl-card">
-            <div class="tl-card-header">
-              <div class="tl-avatar tl-avatar-them">?</div>
-              <div class="tl-card-header-text">
-                <div class="tl-card-title">Someone you know does the same — without knowing you did.</div>
-              </div>
-            </div>
-            <div class="tl-interest-tags">
-              <span class="tl-tag tl-tag-active">☕ Hangout</span>
-              <span class="tl-tag">💼 Business</span>
-            </div>
-            <div class="tl-card-footer tl-footer-locked">
-              <span>🔒</span>
-              <span>You can't see theirs. They can't see yours.</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Init check block (centered) -->
-      <div class="tl-init-row">
-        <div class="tl-init-card">
-          <div class="tl-init-badge">✦</div>
-          <div class="tl-init-label">Init quietly checks for overlapping categories…</div>
-          <div class="tl-matching-visual">
-            <div class="tl-match-side">
-              <div class="tl-match-side-label">Your interest</div>
-              <span class="tl-tag tl-tag-active">☕ Hangout</span>
-            </div>
-            <div class="tl-match-overlap">
-              <div class="tl-overlap-icon">✦</div>
-              <div class="tl-overlap-label">Overlap found</div>
-            </div>
-            <div class="tl-match-side">
-              <div class="tl-match-side-label">Their interest</div>
-              <span class="tl-tag tl-tag-active">☕ Hangout</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Branch outcomes -->
-      <div class="tl-branch">
-        <div class="tl-branch-outcome tl-outcome-match">
-          <div class="tl-branch-line tl-branch-line-match"></div>
-          <div class="tl-outcome-card tl-outcome-card-match">
-            <div class="tl-outcome-icon">🎉</div>
-            <div class="tl-outcome-title">Mutual Match!</div>
-            <div class="tl-outcome-desc">Both notified at the <strong>exact same moment</strong>. Neither of you knew before right now.</div>
-            <div class="tl-outcome-avatars">
-              <div class="tl-avatar tl-avatar-you">You</div>
-              <div class="tl-outcome-hearts">✦</div>
-              <div class="tl-avatar tl-avatar-them">?</div>
-            </div>
-            <div class="tl-outcome-tag">Matched on: ☕ Hangout</div>
-          </div>
-        </div>
-
-        <div class="tl-branch-or">OR</div>
-
-        <div class="tl-branch-outcome tl-outcome-secret">
-          <div class="tl-branch-line tl-branch-line-secret"></div>
-          <div class="tl-outcome-card tl-outcome-card-secret">
-            <div class="tl-outcome-icon">🔒</div>
-            <div class="tl-outcome-title">Your secret stays yours.</div>
-            <div class="tl-outcome-desc">No overlap. Nothing happens. They never know you did. You'll never know they didn't.</div>
-            <div class="tl-outcome-tag tl-tag-muted">No awkwardness. No damaged friendship.</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════
-     PRIVACY
-═══════════════════════════════════════════════ -->
-<section class="privacy-section" id="privacy">
-  <div class="privacy-inner">
-    <div class="privacy-text reveal">
-      <div class="privacy-badge">🔒 <span id="privacy_eyebrow">PRIVACY FIRST</span></div>
-      <h2 id="privacy_h2">Your feelings are yours — until the universe decides otherwise.</h2>
-      <p id="privacy_p">We built Init from the ground up with one principle: your feelings are your most private thing. We treat them that way.</p>
-      <div class="privacy-points" id="privacyPoints">
-        <!-- Rendered by JS -->
-      </div>
-    </div>
-    <div class="privacy-visual" id="privacyCards">
-      <!-- Rendered by JS -->
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════
+<!-- ══════════════════════════════════════════════
      CATEGORIES
-═══════════════════════════════════════════════ -->
-<section class="categories-section" id="categories">
+══════════════════════════════════════════════ -->
+<section class="categories bg-tint" id="categories">
   <div class="section-header reveal">
-    <p class="section-eyebrow" id="cats_eyebrow">INTEREST CATEGORIES</p>
-    <h2 id="cats_h2">Six ways to express what you feel.</h2>
-    <p id="cats_sub">Pick one or more. Init finds overlap on both sides.</p>
+    <p class="eyebrow">Init is for</p>
+    <h2>The moments you never said out loud.</h2>
+    <p>Six ways to feel something. Swipe through — every one stays invisible until they feel it back.</p>
   </div>
-  <div class="categories-grid" id="categoriesGrid">
-    <!-- Rendered by JS -->
+
+  <div class="cat-bento reveal">
+    <article class="cat-card bento-hero cat-crush">
+      <div class="cat-image">
+        <span class="cat-tag">Crush</span>
+        <span class="cat-image-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>
+          </svg>
+        </span>
+      </div>
+      <div class="cat-body">
+        <h3>Crush</h3>
+        <p class="cat-story">They walk in and something shifts. You can't quite say why — but you're smiling.</p>
+      </div>
+    </article>
+
+    <article class="cat-card bento-wide cat-hangout">
+      <div class="cat-image">
+        <span class="cat-tag">Hangout</span>
+        <span class="cat-image-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 8h1a4 4 0 0 1 0 8h-1"/>
+            <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8z"/>
+            <line x1="6" y1="2" x2="6" y2="4"/><line x1="10" y1="2" x2="10" y2="4"/><line x1="14" y1="2" x2="14" y2="4"/>
+          </svg>
+        </span>
+      </div>
+      <div class="cat-body">
+        <h3>Hangout</h3>
+        <p class="cat-story">Wanting to ask them out for a long time, but scared to make a move.</p>
+      </div>
+    </article>
+
+    <article class="cat-card bento-wide cat-love">
+      <div class="cat-image">
+        <span class="cat-tag">Love</span>
+        <span class="cat-image-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+        </span>
+      </div>
+      <div class="cat-body">
+        <h3>Love</h3>
+        <p class="cat-story">You both know you love each other. But neither of you says it first.</p>
+      </div>
+    </article>
+
+    <article class="cat-card bento-third cat-date">
+      <div class="cat-image">
+        <span class="cat-tag">Date</span>
+        <span class="cat-image-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2"/>
+            <line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+          </svg>
+        </span>
+      </div>
+      <div class="cat-body">
+        <h3>Date</h3>
+        <p class="cat-story">Rehearsed the ask a hundred times. Let it find its way — without the ask.</p>
+      </div>
+    </article>
+
+    <article class="cat-card bento-third cat-marriage">
+      <div class="cat-image">
+        <span class="cat-tag">Marriage</span>
+        <span class="cat-image-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 3l-4 6 10 13L22 9l-4-6z"/><path d="M11 3h2"/><path d="M2 9h20"/>
+          </svg>
+        </span>
+      </div>
+      <div class="cat-body">
+        <h3>Marriage</h3>
+        <p class="cat-story">Quiet nights where "forever" passed through. Did it pass through theirs?</p>
+      </div>
+    </article>
+
+    <article class="cat-card bento-third cat-apology">
+      <div class="cat-image">
+        <span class="cat-tag">Apology</span>
+        <span class="cat-image-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
+        </span>
+      </div>
+      <div class="cat-body">
+        <h3>Apology</h3>
+        <p class="cat-story">The silence stretched too long. You'd say sorry — if you knew they'd still hear it.</p>
+      </div>
+    </article>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════
-     COMPARISON
-═══════════════════════════════════════════════ -->
-<section class="comparison-section" id="compare">
+<!-- ══════════════════════════════════════════════
+     MODULE — PRIVACY
+══════════════════════════════════════════════ -->
+<section id="mutual" class="bg-deep">
   <div class="section-header reveal">
-    <p class="section-eyebrow" id="comp_eyebrow">WHY INIT</p>
-    <h2 id="comp_h2">Not another dating app.</h2>
-    <p id="comp_sub">Init is for the people already in your life.</p>
+    <p class="eyebrow">The mutual bit</p>
+    <h2>Two steps. One honest moment.</h2>
+    <p>Here's what happens after you tap Express — and what happens when they feel it back.</p>
   </div>
-  <div class="comparison-table" id="comparisonTable">
-    <!-- Rendered by JS -->
+
+  <div class="journey reveal">
+    <article class="journey-card step-1">
+      <div class="journey-image">
+        <span class="journey-image-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2"/>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+        </span>
+      </div>
+      <div class="journey-text">
+        <span class="journey-step">01 · Expressed</span>
+        <h3>Expressed interest. Nothing to worry. Wait for a match.</h3>
+        <p>Your side: done. Their side: nothing visible. No ping, no hint, no "someone liked you." The feeling stays yours — in the quiet.</p>
+      </div>
+    </article>
+
+    <article class="journey-card step-2 reverse">
+      <div class="journey-image">
+        <span class="journey-image-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            <polyline points="9 12 11 14 15 10" stroke-width="2.2"/>
+          </svg>
+        </span>
+      </div>
+      <div class="journey-text">
+        <span class="journey-step">02 · Matched</span>
+        <h3>It's mutual. The unsaid has been said — time to take it forward.</h3>
+        <p>You both find out in the same second. No one had to ask first. No awkward "was it just me?" Just a quiet, honest yes — from both sides.</p>
+      </div>
+    </article>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════
+<!-- ══════════════════════════════════════════════
      DOWNLOAD
-═══════════════════════════════════════════════ -->
-<section class="download-section" id="download">
-  <div class="download-inner reveal">
-    <h2 id="dl_h2">Download Init</h2>
-    <p id="dl_p">Available on iOS and Android. Beta access available now.</p>
+══════════════════════════════════════════════ -->
+<section id="download" class="bg-surface">
+  <div class="download reveal">
+    <h2>Download Init.</h2>
+    <p>iOS and Android. Beta access opening now.</p>
     <div class="store-buttons">
-      <!-- Google Play -->
       <a href="#" class="store-btn" aria-label="Get it on Google Play">
-        <div class="store-btn-icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+        <span class="coming-soon-pill">Soon</span>
+        <span class="store-btn-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M3.18 23.76c.39.22.84.27 1.27.14l12.04-6.95-2.76-2.76-10.55 9.57zM.29 1.27C.11 1.62 0 2.02 0 2.47v19.06c0 .45.1.85.29 1.2l.07.07 10.68-10.68v-.25L.36 1.2l-.07.07zM19.96 10.29L16.5 8.31 13.45 11.36l3.05 3.05 3.47-2c.99-.57.99-1.5-.01-2.12zM4.45.1L16.49 7.05l-2.76 2.76L3.18.24C3.58.1 4.05.16 4.45.1z"/>
           </svg>
-        </div>
-        <div class="store-btn-text">
-          <small id="dl_google">Get it on</small>
-          <strong id="dl_google2">Google Play</strong>
-          <span class="coming-soon-badge">Coming soon</span>
-        </div>
+        </span>
+        <span class="store-btn-text">
+          <small>Get it on</small>
+          <strong>Google Play</strong>
+        </span>
       </a>
 
-      <!-- App Store -->
       <a href="#" class="store-btn" aria-label="Download on the App Store">
-        <div class="store-btn-icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+        <span class="coming-soon-pill">Soon</span>
+        <span class="store-btn-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
           </svg>
-        </div>
-        <div class="store-btn-text">
-          <small id="dl_apple">Download on the</small>
-          <strong id="dl_apple2">App Store</strong>
-          <span class="coming-soon-badge">Coming soon</span>
-        </div>
+        </span>
+        <span class="store-btn-text">
+          <small>Download on the</small>
+          <strong>App Store</strong>
+        </span>
       </a>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════
-     FAQ
-═══════════════════════════════════════════════ -->
-<section class="faq-section" id="faq">
-  <div class="section-header reveal">
-    <p class="section-eyebrow" id="faq_eyebrow">FAQ</p>
-    <h2 id="faq_h2">Common questions.</h2>
-  </div>
-  <div class="faq-list" id="faqList">
-    <!-- Rendered by JS -->
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════
-     ABOUT
-═══════════════════════════════════════════════ -->
-<section class="info-section" id="about">
-  <div class="info-section-inner reveal">
-    <div class="section-header">
-      <p class="section-eyebrow">ABOUT</p>
-      <h2>Built for the feeling you can't say out loud.</h2>
-    </div>
-    <div class="info-body">
-      <p>Init was created for the moments that matter most — when you feel something for someone but the risk of saying it keeps you silent. We believe mutual connection shouldn't depend on who speaks first.</p>
-      <p>Our mission is simple: let people find out if the feeling is mutual, without anyone having to take that first vulnerable step. Interest stays private until it's returned — and both people find out at the exact same moment.</p>
-      <p>Privacy is not a feature — it's the foundation. Your feelings are yours until they're mutual. We built Init to protect that.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════
-     CONTACT
-═══════════════════════════════════════════════ -->
-<section class="info-section" id="contact">
-  <div class="info-section-inner reveal">
-    <div class="section-header">
-      <p class="section-eyebrow">CONTACT</p>
-      <h2>We'd love to hear from you.</h2>
-    </div>
-    <div class="info-body">
-      <p>Have a question, feedback, or just want to say hello? Reach out — we read every message.</p>
-      <a href="mailto:connect@initmatch.com" class="contact-email-link">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-        connect@initmatch.com
-      </a>
-      <p class="info-note">For support, press enquiries, partnerships, or general questions — this is the right place to start.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════
+<!-- ══════════════════════════════════════════════
      FOOTER
-═══════════════════════════════════════════════ -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <h3>Init</h3>
-        <p id="footer_tagline">Mutual interest matching. Privately.</p>
-      </div>
-      <div class="footer-col">
-        <h4 id="footer_product">Product</h4>
-        <ul>
-          <li><a href="#how" id="f_how">How it works</a></li>
-          <li><a href="#privacy" id="f_privacy_p">Privacy</a></li>
-          <li><a href="#categories" id="f_cats">Categories</a></li>
-          <li><a href="#faq" id="f_faq">FAQ</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4 id="footer_company">Company</h4>
-        <ul>
-          <li><a href="#about" id="f_about">About</a></li>
-          <li><a href="#contact" id="f_contact">Contact</a></li>
-          <li><a href="#" id="f_blog">Blog</a></li>
-          <li><a href="mailto:hello@initmatch.com" id="f_careers">Careers</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4 id="footer_legal">Legal</h4>
-        <ul>
-          <li><a href="privacy.html" id="f_pp">Privacy Policy</a></li>
-          <li><a href="terms.html" id="f_tos">Terms of Service</a></li>
-          <li><a href="cookie-policy.html" id="f_cookie">Cookie Policy</a></li>
-        </ul>
-      </div>
+══════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#" class="nav-logo">
+        <svg class="nav-logo-icon" viewBox="60 90 300 230" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M98,103 L268,103 Q290,103 290,125 L290,230 Q290,252 268,252 L160,252 L118,290 L140,252 L98,252 Q76,252 76,230 L76,125 Q76,103 98,103 Z" stroke="#f72585" stroke-width="10" fill="none" opacity="0.85"/>
+          <path d="M185,122 L322,122 Q344,122 344,144 L344,249 Q344,271 322,271 L300,271 L330,309 L270,271 L185,271 Q163,271 163,249 L163,144 Q163,122 185,122 Z" stroke="#4cc9f0" stroke-width="10" fill="none" opacity="0.85"/>
+          <rect x="163" y="122" width="127" height="130" fill="#7209b7" fill-opacity="0.15"/>
+          <path d="M195,195 L225,225 L270,165" stroke="#b740d4" stroke-width="16" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Init
+      </a>
+      <p>Mutual interest matching. Private until it's mutual.</p>
     </div>
 
-    <div class="footer-bottom">
-      <p id="footer_copy">© 2025 Init. All rights reserved.</p>
-      <div class="footer-social">
-        <a href="#" class="social-btn" aria-label="Instagram">📸</a>
-        <a href="#" class="social-btn" aria-label="Twitter">𝕏</a>
-        <a href="#" class="social-btn" aria-label="LinkedIn">in</a>
-      </div>
-      <a href="mailto:hello@initmatch.com">hello@initmatch.com</a>
+    <div class="footer-col">
+      <h4>Product</h4>
+      <ul>
+        <li><a href="#how">How it works</a></li>
+        <li><a href="#categories">Init is for</a></li>
+        <li><a href="#mutual">The mutual bit</a></li>
+        <li><a href="#download">Download</a></li>
+      </ul>
     </div>
+
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="mailto:hello@initmatch.com">Contact</a></li>
+        <li><a href="mailto:press@initmatch.com">Press</a></li>
+        <li><a href="mailto:careers@initmatch.com">Careers</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms of Service</a></li>
+        <li><a href="cookie-policy.html">Cookie Policy</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2026 Init. All rights reserved.</p>
+    <a href="mailto:hello@initmatch.com">hello@initmatch.com</a>
   </div>
 </footer>
 
