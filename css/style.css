@@ -219,10 +219,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 .nav-store-btn {
+  position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 7px 12px;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
   background: var(--text);
   color: var(--bg);
   border-radius: 10px;
@@ -232,23 +234,19 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 .nav-store-btn:hover { transform: translateY(-1px); opacity: 0.9; }
 
-.nav-store-btn svg { flex-shrink: 0; }
-
-.nav-store-label {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.2;
-}
-
-.nav-store-label small {
-  font-size: 0.6rem;
-  font-weight: 500;
-  opacity: 0.7;
-}
-
-.nav-store-label strong {
-  font-size: 0.8rem;
-  font-weight: 700;
+.nav-soon-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: var(--primary);
+  color: #fff;
+  font-size: 0.5rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  padding: 2px 5px;
+  border-radius: 999px;
+  line-height: 1.4;
+  pointer-events: none;
 }
 
 .mobile-menu-btn {
