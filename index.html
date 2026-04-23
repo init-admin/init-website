@@ -48,7 +48,6 @@
   <ul class="nav-links">
     <li><a href="#how">How it works</a></li>
     <li><a href="#categories">Init is for</a></li>
-    <li><a href="#mutual">The mutual bit</a></li>
   </ul>
 
   <div class="nav-controls">
@@ -62,39 +61,19 @@
       </svg>
     </button>
 
-    <div class="nav-download" id="navDownload">
-      <button class="btn-nav-cta" id="downloadToggle" aria-haspopup="true" aria-expanded="false" aria-controls="navDownloadMenu">
-        Download
-        <svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <polyline points="6 9 12 15 18 9"/>
+    <div class="nav-store-btns">
+      <a href="#" class="nav-store-btn" aria-label="Get it on Google Play">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M3.18 23.76c.39.22.84.27 1.27.14l12.04-6.95-2.76-2.76-10.55 9.57zM.29 1.27C.11 1.62 0 2.02 0 2.47v19.06c0 .45.1.85.29 1.2l.07.07 10.68-10.68v-.25L.36 1.2l-.07.07zM19.96 10.29L16.5 8.31 13.45 11.36l3.05 3.05 3.47-2c.99-.57.99-1.5-.01-2.12zM4.45.1L16.49 7.05l-2.76 2.76L3.18.24C3.58.1 4.05.16 4.45.1z"/>
         </svg>
-      </button>
-      <div class="nav-download-menu" id="navDownloadMenu" role="menu">
-        <a href="#" class="store-btn" role="menuitem" aria-label="Get it on Google Play">
-          <span class="coming-soon-pill">Soon</span>
-          <span class="store-btn-icon">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M3.18 23.76c.39.22.84.27 1.27.14l12.04-6.95-2.76-2.76-10.55 9.57zM.29 1.27C.11 1.62 0 2.02 0 2.47v19.06c0 .45.1.85.29 1.2l.07.07 10.68-10.68v-.25L.36 1.2l-.07.07zM19.96 10.29L16.5 8.31 13.45 11.36l3.05 3.05 3.47-2c.99-.57.99-1.5-.01-2.12zM4.45.1L16.49 7.05l-2.76 2.76L3.18.24C3.58.1 4.05.16 4.45.1z"/>
-            </svg>
-          </span>
-          <span class="store-btn-text">
-            <small>Get it on</small>
-            <strong>Google Play</strong>
-          </span>
-        </a>
-        <a href="#" class="store-btn" role="menuitem" aria-label="Download on the App Store">
-          <span class="coming-soon-pill">Soon</span>
-          <span class="store-btn-icon">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-            </svg>
-          </span>
-          <span class="store-btn-text">
-            <small>Download on the</small>
-            <strong>App Store</strong>
-          </span>
-        </a>
-      </div>
+        <span class="nav-store-label"><small>Get it on</small><strong>Google Play</strong></span>
+      </a>
+      <a href="#" class="nav-store-btn" aria-label="Download on the App Store">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+        </svg>
+        <span class="nav-store-label"><small>App Store</small><strong>iOS</strong></span>
+      </a>
     </div>
 
     <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu">
@@ -108,7 +87,6 @@
 <div class="mobile-nav" id="mobileNav">
   <a href="#how">How it works</a>
   <a href="#categories">Init is for</a>
-  <a href="#mutual">The mutual bit</a>
   <a href="#download">Download</a>
 </div>
 
@@ -116,16 +94,23 @@
      HERO
 ══════════════════════════════════════════════ -->
 <section class="hero hero-banner" id="home">
-  <div class="hero-slideshow" aria-hidden="true">
-    <div class="slide active" style="background-image:url('images/slides/slide-1.jpeg')"></div>
-    <div class="slide" style="background-image:url('images/slides/slide-5.jpeg')"></div>
-    <div class="slide" style="background-image:url('images/slides/slide-2.jpeg')"></div>
-    <div class="slide" style="background-image:url('images/slides/slide-6.jpeg')"></div>
-    <div class="slide" style="background-image:url('images/slides/slide-3.jpeg')"></div>
-    <div class="slide" style="background-image:url('images/slides/slide-7.jpeg')"></div>
-    <div class="slide" style="background-image:url('images/slides/slide-4.jpeg')"></div>
-    <div class="slide" style="background-image:url('images/slides/slide-8.jpeg')"></div>
-    <div class="slide" style="background-image:url('images/slides/slide-9.jpeg')"></div>
+  <div class="hero-slideshow hero-slideshow--web" aria-hidden="true">
+    <div class="slide active" style="background-image:url('images/slides-web/web-bg-1.jpeg')"></div>
+    <div class="slide" style="background-image:url('images/slides-web/web-bg-2.jpeg')"></div>
+    <div class="slide" style="background-image:url('images/slides-web/web-bg-3.jpeg')"></div>
+    <div class="slide" style="background-image:url('images/slides-web/web-bg-4.jpeg')"></div>
+    <div class="slide" style="background-image:url('images/slides-web/web-bg-5.jpeg')"></div>
+  </div>
+  <div class="hero-slideshow hero-slideshow--mobile" aria-hidden="true">
+    <div class="slide active" style="background-image:url('images/slides-mobile/mobile-bg-1.jpeg')"></div>
+    <div class="slide" style="background-image:url('images/slides-mobile/mobile-bg-2.jpeg')"></div>
+    <div class="slide" style="background-image:url('images/slides-mobile/mobile-bg-3.jpeg')"></div>
+    <div class="slide" style="background-image:url('images/slides-mobile/mobile-bg-4.jpeg')"></div>
+    <div class="slide" style="background-image:url('images/slides-mobile/mobile-bg-5.jpeg')"></div>
+    <div class="slide" style="background-image:url('images/slides-mobile/mobile-bg-6.jpeg')"></div>
+    <div class="slide" style="background-image:url('images/slides-mobile/mobile-bg-7.jpeg')"></div>
+    <div class="slide" style="background-image:url('images/slides-mobile/mobile-bg-8.jpeg')"></div>
+    <div class="slide" style="background-image:url('images/slides-mobile/mobile-bg-9.jpeg')"></div>
   </div>
   <div class="hero-banner-overlay" aria-hidden="true"></div>
   <div class="hero-banner-inner">
@@ -159,21 +144,57 @@
     <div class="module-visual">
       <div class="phone-frame phone-frame--fold" aria-hidden="true">
         <div class="phone-screen phone-screen--screenshot">
-          <img src="images/express-interest.jpeg" alt="Express Interest screen" class="ei-screenshot">
+          <img src="images/express-interest-dark.jpeg" alt="Express Interest screen" class="ei-screenshot">
         </div>
       </div>
     </div>
 
-    <div class="module-text">
-      <p class="eyebrow">How it works</p>
-      <h2>Express what you feel.</h2>
-      <p>Phone, email, username, or Instagram. Pick a category. Nothing shows until they feel it back.</p>
-      <a href="#categories" class="module-link">
-        See the categories
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
-          <path d="M5 12h14M12 5l7 7-7 7"/>
-        </svg>
-      </a>
+    <div class="module-right">
+      <div class="module-text">
+        <p class="eyebrow">How it works</p>
+        <h2>Express what you feel.</h2>
+        <p>Phone, email, username, or Instagram. Pick a category. Nothing shows until they feel it back.</p>
+        <a href="#categories" class="module-link">
+          See the categories
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+
+      <div class="journey">
+        <article class="journey-card step-1">
+          <div class="journey-text">
+            <div class="journey-text-header">
+              <span class="journey-step">01 · Expressed</span>
+              <span class="journey-image-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="11" width="18" height="11" rx="2"/>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                </svg>
+              </span>
+            </div>
+            <h3>Expressed. Now wait.</h3>
+            <p>They see the feeling. Not who. Not until it's mutual.</p>
+          </div>
+        </article>
+
+        <article class="journey-card step-2">
+          <div class="journey-text">
+            <div class="journey-text-header">
+              <span class="journey-step">02 · Matched</span>
+              <span class="journey-image-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                  <polyline points="9 12 11 14 15 10" stroke-width="2.2"/>
+                </svg>
+              </span>
+            </div>
+            <h3>It's mutual. Take it forward.</h3>
+            <p>You both find out together. No asking first. Just a quiet yes — from both sides.</p>
+          </div>
+        </article>
+      </div>
     </div>
   </div>
 </section>
@@ -281,50 +302,6 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════
-     MODULE — PRIVACY
-══════════════════════════════════════════════ -->
-<section id="mutual" class="bg-deep">
-  <div class="section-header reveal">
-    <p class="eyebrow">The mutual bit</p>
-    <h2>Two steps. One honest moment.</h2>
-    <p>After you express. And when it comes back.</p>
-  </div>
-
-  <div class="journey reveal">
-    <article class="journey-card step-1">
-      <div class="journey-text">
-        <div class="journey-text-header">
-          <span class="journey-step">01 · Expressed</span>
-          <span class="journey-image-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="11" width="18" height="11" rx="2"/>
-              <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-            </svg>
-          </span>
-        </div>
-        <h3>Expressed. Now wait.</h3>
-        <p>They see the feeling. Not who. Not until it's mutual.</p>
-      </div>
-    </article>
-
-    <article class="journey-card step-2">
-      <div class="journey-text">
-        <div class="journey-text-header">
-          <span class="journey-step">02 · Matched</span>
-          <span class="journey-image-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-              <polyline points="9 12 11 14 15 10" stroke-width="2.2"/>
-            </svg>
-          </span>
-        </div>
-        <h3>It's mutual. Take it forward.</h3>
-        <p>You both find out together. No asking first. Just a quiet yes — from both sides.</p>
-      </div>
-    </article>
-  </div>
-</section>
 
 <!-- ══════════════════════════════════════════════
      DOWNLOAD
@@ -386,7 +363,6 @@
       <ul>
         <li><a href="#how">How it works</a></li>
         <li><a href="#categories">Init is for</a></li>
-        <li><a href="#mutual">The mutual bit</a></li>
         <li><a href="#download">Download</a></li>
       </ul>
     </div>
