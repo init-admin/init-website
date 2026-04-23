@@ -567,6 +567,8 @@
     return T[nav] ? nav : 'en';
   }
 
+  const NON_LATIN = new Set(['hi', 'bn', 'te', 'mr', 'ta', 'kn', 'zh']);
+
   function applyTranslations(lang) {
     const t = T[lang] || T.en;
     document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -578,6 +580,7 @@
       if (t[key] !== undefined) el.innerHTML = t[key];
     });
     document.documentElement.lang = lang;
+    document.documentElement.classList.toggle('non-latin', NON_LATIN.has(lang));
     const currentEl = document.getElementById('langCurrent');
     if (currentEl) currentEl.textContent = lang.toUpperCase();
   }
