@@ -2031,19 +2031,35 @@ section { padding: 96px 24px; position: relative; }
   text-transform: none;
 }
 
-/* Negative letter-spacing crushes Indic conjuncts; tight line-height
-   clips tall characters between lines. !important guards against more
-   specific class selectors (e.g. .hero-banner-title) overriding this.
-   font-synthesis:none prevents the browser from faking a bold weight
-   when the fallback Indic font doesn't have one — fake-bold smears glyphs. */
+/* Indic/CJK script fixes:
+   - letter-spacing: negative values crush conjunct glyphs
+   - line-height: 1.02 clips tall Indic vowel signs between lines
+   - font-synthesis: none stops fake-bold smearing conjuncts
+   - hero font-size scaled down — Kannada vowel signs extend ~30% beyond
+     the Latin cap-height, so 84px Latin ≈ 110px visual, which overflows
+     a 1.5 line-height. Capping at ~52px keeps lines visually separate. */
 .non-latin h1,
 .non-latin h2,
 .non-latin h3,
 .non-latin h4,
 .non-latin .hero-banner-title {
   letter-spacing: 0 !important;
-  line-height: 1.5 !important;
+  line-height: 1.7 !important;
   font-synthesis: none;
+}
+
+.non-latin .hero-banner-title {
+  font-size: clamp(1.75rem, 4vw, 3.25rem) !important;
+}
+
+/* background-clip:text clips below the em-box, cutting off Indic subscript
+   conjuncts (e.g. Kannada "ಸ್ಪ"). Use a solid colour instead. */
+.non-latin .hero-banner-title .accent {
+  background: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+  -webkit-text-fill-color: var(--primary-light, var(--primary));
+  color: var(--primary-light, var(--primary));
 }
 
 .journey-text-header {
