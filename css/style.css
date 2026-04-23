@@ -1902,6 +1902,7 @@ section { padding: 96px 24px; position: relative; }
   }
   .module.reverse { direction: ltr; }
   .module-text p { margin-left: auto; margin-right: auto; }
+  .module-visual { display: flex; justify-content: center; }
   .phone-frame { max-width: 300px; }
 
   .module-right .journey { grid-template-columns: 1fr; }
