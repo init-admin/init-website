@@ -582,7 +582,10 @@
     document.documentElement.lang = lang;
     document.documentElement.classList.toggle('non-latin', NON_LATIN.has(lang));
     const currentEl = document.getElementById('langCurrent');
-    if (currentEl) currentEl.textContent = lang.toUpperCase();
+    if (currentEl) {
+      const entry = LANGUAGES.find(l => l.code === lang);
+      currentEl.textContent = entry ? entry.label : lang.toUpperCase();
+    }
   }
 
   function setLanguage(lang) {
