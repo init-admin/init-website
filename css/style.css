@@ -2032,13 +2032,18 @@ section { padding: 96px 24px; position: relative; }
 }
 
 /* Negative letter-spacing crushes Indic conjuncts; tight line-height
-   clips tall characters between lines. Reset both on all headings. */
+   clips tall characters between lines. !important guards against more
+   specific class selectors (e.g. .hero-banner-title) overriding this.
+   font-synthesis:none prevents the browser from faking a bold weight
+   when the fallback Indic font doesn't have one — fake-bold smears glyphs. */
 .non-latin h1,
 .non-latin h2,
 .non-latin h3,
-.non-latin h4 {
-  letter-spacing: 0;
-  line-height: 1.4;
+.non-latin h4,
+.non-latin .hero-banner-title {
+  letter-spacing: 0 !important;
+  line-height: 1.5 !important;
+  font-synthesis: none;
 }
 
 .journey-text-header {
