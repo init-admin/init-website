@@ -559,6 +559,8 @@
   /* ── Core ─────────────────────────────────────────────────── */
 
   function detectLang() {
+    const param = new URLSearchParams(window.location.search).get('lang');
+    if (param && T[param]) return param;
     try {
       const saved = localStorage.getItem(LANG_KEY);
       if (saved && T[saved]) return saved;
@@ -590,6 +592,13 @@
 
   function setLanguage(lang) {
     try { localStorage.setItem(LANG_KEY, lang); } catch (_) { /* ignore */ }
+    const url = new URL(window.location);
+    if (lang === 'en') {
+      url.searchParams.delete('lang');
+    } else {
+      url.searchParams.set('lang', lang);
+    }
+    history.replaceState(null, '', url);
     applyTranslations(lang);
     document.querySelectorAll('.lang-option').forEach(btn => {
       btn.classList.toggle('active', btn.dataset.lang === lang);
