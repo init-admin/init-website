@@ -559,6 +559,8 @@
   /* ── Core ─────────────────────────────────────────────────── */
 
   function detectLang() {
+    const param = new URLSearchParams(window.location.search).get('lang');
+    if (param && T[param]) return param;
     try {
       const saved = localStorage.getItem(LANG_KEY);
       if (saved && T[saved]) return saved;
@@ -566,6 +568,8 @@
     const nav = ((navigator.language || navigator.userLanguage || 'en')).slice(0, 2).toLowerCase();
     return T[nav] ? nav : 'en';
   }
+
+  const NON_LATIN = new Set(['hi', 'bn', 'te', 'mr', 'ta', 'kn', 'zh']);
 
   function applyTranslations(lang) {
     const t = T[lang] || T.en;
@@ -578,12 +582,23 @@
       if (t[key] !== undefined) el.innerHTML = t[key];
     });
     document.documentElement.lang = lang;
+    document.documentElement.classList.toggle('non-latin', NON_LATIN.has(lang));
     const currentEl = document.getElementById('langCurrent');
-    if (currentEl) currentEl.textContent = lang.toUpperCase();
+    if (currentEl) {
+      const entry = LANGUAGES.find(l => l.code === lang);
+      currentEl.textContent = entry ? entry.label : lang.toUpperCase();
+    }
   }
 
   function setLanguage(lang) {
     try { localStorage.setItem(LANG_KEY, lang); } catch (_) { /* ignore */ }
+    const url = new URL(window.location);
+    if (lang === 'en') {
+      url.searchParams.delete('lang');
+    } else {
+      url.searchParams.set('lang', lang);
+    }
+    history.replaceState(null, '', url);
     applyTranslations(lang);
     document.querySelectorAll('.lang-option').forEach(btn => {
       btn.classList.toggle('active', btn.dataset.lang === lang);

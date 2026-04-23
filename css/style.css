@@ -1950,16 +1950,17 @@ section { padding: 96px 24px; position: relative; }
   gap: 5px;
   padding: 8px 10px;
   height: 40px;
+  max-width: 130px;
   border-radius: 12px;
   background: var(--surface);
   border: 1px solid var(--border);
   color: var(--text);
   font-size: 0.8125rem;
   font-weight: 700;
-  letter-spacing: 0.04em;
   cursor: pointer;
   transition: all 0.2s ease;
   white-space: nowrap;
+  overflow: hidden;
 }
 
 .lang-btn:hover {
@@ -2014,4 +2015,23 @@ section { padding: 96px 24px; position: relative; }
     right: auto;
     left: 0;
   }
+}
+
+/* ── Non-Latin script fixes ───────────────────────────────────
+   letter-spacing on Indic/CJK scripts spreads combining glyphs
+   apart and causes visible overlap. Reset spacing + casing, and
+   allow the journey header to wrap when step labels are long.
+─────────────────────────────────────────────────────────────── */
+
+.non-latin .hero-eyebrow,
+.non-latin .section-header .eyebrow,
+.non-latin .module-text .eyebrow,
+.non-latin .journey-step {
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.journey-text-header {
+  flex-wrap: wrap;
+  row-gap: 8px;
 }
