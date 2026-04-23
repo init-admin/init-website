@@ -2047,7 +2047,7 @@ section { padding: 96px 24px; position: relative; }
 .non-latin h3,
 .non-latin h4 {
   letter-spacing: 0 !important;
-  line-height: 1.7 !important;
+  line-height: 1.55 !important;
   font-synthesis: none;
 }
 
@@ -2060,30 +2060,30 @@ section { padding: 96px 24px; position: relative; }
 .non-latin .journey-text p,
 .non-latin .download p {
   letter-spacing: 0;
-  line-height: 1.8;
+  line-height: 1.65;
 }
 
 /* Hero title */
 .non-latin .hero-banner-title {
-  font-size: clamp(1.75rem, 4vw, 3.25rem) !important;
+  font-size: clamp(2.25rem, 5vw, 4.25rem) !important;
   letter-spacing: 0 !important;
-  line-height: 1.7 !important;
+  line-height: 1.55 !important;
   font-synthesis: none;
 }
 
 /* Section & module h2 */
 .non-latin .section-header h2,
 .non-latin .download h2 {
-  font-size: clamp(1.5rem, 3.2vw, 2.5rem) !important;
+  font-size: clamp(1.75rem, 3.5vw, 2.875rem) !important;
 }
 
 .non-latin .module-text h2 {
-  font-size: clamp(1.35rem, 2.8vw, 2.1rem) !important;
+  font-size: clamp(1.6rem, 3vw, 2.4rem) !important;
 }
 
 /* Journey step h3 */
 .non-latin .journey-text h3 {
-  font-size: clamp(1.05rem, 1.8vw, 1.25rem) !important;
+  font-size: clamp(1.15rem, 1.9vw, 1.4rem) !important;
 }
 
 /* background-clip:text clips below the em-box, cutting off Indic subscript
