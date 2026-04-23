@@ -89,6 +89,18 @@
     });
   }
 
+  /* ── Hero slideshow ──────────────────────────────────── */
+
+  const slides = document.querySelectorAll('.hero-slideshow .slide');
+  if (slides.length > 1) {
+    let current = 0;
+    setInterval(() => {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }, 4000);
+  }
+
   /* ── Reveal on scroll ─────────────────────────────────── */
 
   const revealEls = document.querySelectorAll('.reveal');

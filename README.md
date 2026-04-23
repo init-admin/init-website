@@ -25,6 +25,16 @@ npx serve -l 3333 .
 # Open http://localhost:3333
 ```
 
+## Syncing App Icons
+
+Category icons in the "Init is for" section are sourced from the app's icon libraries. Run this after updating icons in the app:
+
+```bash
+node scripts/sync-category-icons.js
+```
+
+Reads SVG paths directly from `../init/mobile/node_modules` (lucide-react-native + phosphor-react-native) and patches `index.html` automatically.
+
 ## Deployment
 
 Push to `main` → GitHub Actions (`.github/workflows/deploy.yml`) → GitHub Pages → live at initmatch.com.
