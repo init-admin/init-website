@@ -2031,25 +2031,59 @@ section { padding: 96px 24px; position: relative; }
   text-transform: none;
 }
 
-/* Indic/CJK script fixes:
-   - letter-spacing: negative values crush conjunct glyphs
-   - line-height: 1.02 clips tall Indic vowel signs between lines
-   - font-synthesis: none stops fake-bold smearing conjuncts
-   - hero font-size scaled down — Kannada vowel signs extend ~30% beyond
-     the Latin cap-height, so 84px Latin ≈ 110px visual, which overflows
-     a 1.5 line-height. Capping at ~52px keeps lines visually separate. */
+/* ── Non-Latin (Indic / CJK) script fixes ──────────────────────────────────
+   Indic vowel diacritics extend ~30% beyond the Latin em-box, so the same
+   px size renders visually larger and clips at tight line-heights.
+   Fixes applied:
+     - letter-spacing: 0  → negative values crush conjunct glyphs
+     - line-height: 1.7   → prevents vowel signs clipping between lines
+     - font-synthesis:none→ stops fake-bold smearing conjuncts
+     - reduced font-sizes → keeps visual weight comparable to Latin
+   ──────────────────────────────────────────────────────────────────────── */
+
+/* Headings */
 .non-latin h1,
 .non-latin h2,
 .non-latin h3,
-.non-latin h4,
-.non-latin .hero-banner-title {
+.non-latin h4 {
   letter-spacing: 0 !important;
   line-height: 1.7 !important;
   font-synthesis: none;
 }
 
+/* Body / UI text */
+.non-latin p,
+.non-latin .hero-sub,
+.non-latin .section-header p,
+.non-latin .module-text p,
+.non-latin .cat-story,
+.non-latin .journey-text p,
+.non-latin .download p {
+  letter-spacing: 0;
+  line-height: 1.8;
+}
+
+/* Hero title */
 .non-latin .hero-banner-title {
   font-size: clamp(1.75rem, 4vw, 3.25rem) !important;
+  letter-spacing: 0 !important;
+  line-height: 1.7 !important;
+  font-synthesis: none;
+}
+
+/* Section & module h2 */
+.non-latin .section-header h2,
+.non-latin .download h2 {
+  font-size: clamp(1.5rem, 3.2vw, 2.5rem) !important;
+}
+
+.non-latin .module-text h2 {
+  font-size: clamp(1.35rem, 2.8vw, 2.1rem) !important;
+}
+
+/* Journey step h3 */
+.non-latin .journey-text h3 {
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem) !important;
 }
 
 /* background-clip:text clips below the em-box, cutting off Indic subscript
