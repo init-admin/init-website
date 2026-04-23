@@ -2031,6 +2031,16 @@ section { padding: 96px 24px; position: relative; }
   text-transform: none;
 }
 
+/* Negative letter-spacing crushes Indic conjuncts; tight line-height
+   clips tall characters between lines. Reset both on all headings. */
+.non-latin h1,
+.non-latin h2,
+.non-latin h3,
+.non-latin h4 {
+  letter-spacing: 0;
+  line-height: 1.4;
+}
+
 .journey-text-header {
   flex-wrap: wrap;
   row-gap: 8px;
