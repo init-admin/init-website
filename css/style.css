@@ -2047,7 +2047,7 @@ section { padding: 96px 24px; position: relative; }
 .non-latin h3,
 .non-latin h4 {
   letter-spacing: 0 !important;
-  line-height: 1.55 !important;
+  line-height: 1.4 !important;
   font-synthesis: none;
 }
 
@@ -2060,14 +2060,14 @@ section { padding: 96px 24px; position: relative; }
 .non-latin .journey-text p,
 .non-latin .download p {
   letter-spacing: 0;
-  line-height: 1.65;
+  line-height: 1.5;
 }
 
 /* Hero title */
 .non-latin .hero-banner-title {
   font-size: clamp(2.25rem, 5vw, 4.25rem) !important;
   letter-spacing: 0 !important;
-  line-height: 1.55 !important;
+  line-height: 1.4 !important;
   font-synthesis: none;
 }
 
