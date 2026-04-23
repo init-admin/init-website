@@ -212,39 +212,43 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .nav-download.open .btn-nav-cta .chev { transform: rotate(180deg); }
 
-/* Inline download popover */
-.nav-download { position: relative; }
-
-.nav-download-menu {
-  position: absolute;
-  top: calc(100% + 10px);
-  right: 0;
-  min-width: 260px;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 10px;
-  box-shadow: var(--shadow-lg);
-  display: none;
-  flex-direction: column;
+/* Inline nav store buttons */
+.nav-store-btns {
+  display: flex;
   gap: 8px;
-  z-index: 105;
 }
 
-.nav-download.open .nav-download-menu { display: flex; }
-
-.nav-download-menu .store-btn {
-  padding: 10px 14px;
-  gap: 10px;
-  border-radius: 12px;
+.nav-store-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 12px;
+  background: var(--text);
+  color: var(--bg);
+  border-radius: 10px;
+  text-decoration: none;
+  transition: transform 0.15s ease, opacity 0.15s ease;
 }
-.nav-download-menu .store-btn-icon svg { width: 22px; height: 22px; }
-.nav-download-menu .store-btn-text small { font-size: 0.625rem; }
-.nav-download-menu .store-btn-text strong { font-size: 0.875rem; }
-.nav-download-menu .coming-soon-pill {
-  top: -8px; right: -8px;
-  font-size: 0.5625rem;
-  padding: 2px 8px;
+
+.nav-store-btn:hover { transform: translateY(-1px); opacity: 0.9; }
+
+.nav-store-btn svg { flex-shrink: 0; }
+
+.nav-store-label {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.nav-store-label small {
+  font-size: 0.6rem;
+  font-weight: 500;
+  opacity: 0.7;
+}
+
+.nav-store-label strong {
+  font-size: 0.8rem;
+  font-weight: 700;
 }
 
 .mobile-menu-btn {
@@ -347,6 +351,19 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   display: none;
 }
 
+/* Web slideshow: desktop only */
+.hero-slideshow--web {
+  display: block;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+/* Mobile slideshow: hidden on desktop, shown on mobile */
+.hero-slideshow--mobile {
+  display: none;
+}
+
 .hero-slideshow .slide {
   position: absolute;
   inset: 0;
@@ -365,7 +382,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     background: #0C0A14;
     align-items: flex-end;
   }
-  .hero-slideshow {
+  .hero-slideshow--web { display: none; }
+  .hero-slideshow--mobile {
     display: block;
     position: absolute;
     inset: 0;
@@ -902,13 +920,31 @@ section { padding: 96px 24px; position: relative; }
 ═══════════════════════════════════════════════════════════════ */
 
 .module {
-  max-width: 1100px;
+  max-width: 1160px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1.6fr;
   gap: 64px;
   align-items: center;
 }
+
+.module-right {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+  text-align: center;
+}
+
+.module-right .journey {
+  max-width: none;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.module-right .journey::before { display: none; }
 
 .module.reverse { direction: rtl; }
 .module.reverse > * { direction: ltr; }
@@ -956,7 +992,7 @@ section { padding: 96px 24px; position: relative; }
   width: 100%;
   max-width: 340px;
   aspect-ratio: 9 / 15.5;
-  margin: 0 auto;
+  margin: 0 0 0 100px;
   /* brushed-titanium bezel */
   background:
     linear-gradient(135deg, #2B2B2E 0%, #4A4A4F 30%, #2E2E31 55%, #4A4A4F 80%, #2B2B2E 100%);
@@ -981,8 +1017,8 @@ section { padding: 96px 24px; position: relative; }
 }
 .phone-screen--screenshot { padding: 0; }
 .phone-screen--screenshot::after { display: none; }
-.phone-screen--screenshot img { width: 100%; height: 114%; object-fit: cover; object-position: top; display: block; border-radius: inherit; margin-top: 14%; }
-[data-theme="dark"] .ei-screenshot { content: url("../images/express-interest.jpeg"); }
+.phone-screen--screenshot img { width: 100%; height: 95%; object-fit: cover; object-position: top; display: block; border-radius: 0; margin-top: 14%; }
+[data-theme="dark"] .ei-screenshot { content: url("../images/express-interest-dark.jpeg"); }
 [data-theme="light"] .ei-screenshot { content: url("../images/express-interest-light.jpeg"); }
 
 /* Google Pixel 9 frame */
@@ -1001,7 +1037,7 @@ section { padding: 96px 24px; position: relative; }
     0 0 0 1.5px rgba(0,0,0,0.5);
 }
 .phone-frame--fold .phone-screen {
-  border-radius: 36px;
+  border-radius: 34px;
 }
 /* Punch-hole camera */
 .phone-frame--fold .phone-screen--screenshot::before {
@@ -1528,14 +1564,13 @@ section { padding: 96px 24px; position: relative; }
 .cat-card .cat-overlay h3 {
   font-size: 1.125rem;
   font-weight: 800;
-  color: var(--cat-ink, var(--primary));
+  color: var(--text);
   letter-spacing: -0.02em;
   line-height: 1.15;
 }
 .cat-card .cat-overlay .cat-story {
   font-size: 0.875rem;
-  color: var(--cat-ink, var(--primary));
-  opacity: 0.75;
+  color: var(--text-secondary);
   line-height: 1.5;
 }
 
@@ -1639,10 +1674,10 @@ section { padding: 96px 24px; position: relative; }
 }
 
 .journey-text {
-  padding: 32px 32px;
+  padding: 24px 24px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
   align-items: center;
   text-align: center;
 }
@@ -1852,7 +1887,7 @@ section { padding: 96px 24px; position: relative; }
 @media (max-width: 960px) {
   .nav-links { display: none; }
   .mobile-menu-btn { display: inline-flex; }
-  .nav-download { display: none; }
+  .nav-store-btns { display: none; }
 
   .nav-logo { font-size: 1.75rem; gap: 10px; }
   .nav-logo-icon { width: 56px; height: 40px; }
@@ -1886,8 +1921,9 @@ section { padding: 96px 24px; position: relative; }
   .module-text p { margin-left: auto; margin-right: auto; }
   .phone-frame { max-width: 300px; }
 
+  .module-right .journey { grid-template-columns: 1fr; }
   .journey { grid-template-columns: 1fr; }
-  .journey-text { padding: 32px 28px; }
+  .journey-text { padding: 24px 20px; }
   .journey::before { display: none; }
 
   .scenario-card { padding: 48px 28px; }

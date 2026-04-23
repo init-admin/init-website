@@ -64,42 +64,20 @@
     });
   }
 
-  /* ── Download dropdown ────────────────────────────────── */
-
-  const navDownload = document.getElementById('navDownload');
-  const downloadToggle = document.getElementById('downloadToggle');
-  if (navDownload && downloadToggle) {
-    downloadToggle.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const open = navDownload.classList.toggle('open');
-      downloadToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-    document.addEventListener('click', (e) => {
-      if (!navDownload.contains(e.target)) {
-        navDownload.classList.remove('open');
-        downloadToggle.setAttribute('aria-expanded', 'false');
-      }
-    });
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && navDownload.classList.contains('open')) {
-        navDownload.classList.remove('open');
-        downloadToggle.setAttribute('aria-expanded', 'false');
-        downloadToggle.focus();
-      }
-    });
-  }
 
   /* ── Hero slideshow ──────────────────────────────────── */
 
-  const slides = document.querySelectorAll('.hero-slideshow .slide');
-  if (slides.length > 1) {
-    let current = 0;
-    setInterval(() => {
-      slides[current].classList.remove('active');
-      current = (current + 1) % slides.length;
-      slides[current].classList.add('active');
-    }, 4000);
-  }
+  document.querySelectorAll('.hero-slideshow').forEach(show => {
+    const slides = show.querySelectorAll('.slide');
+    if (slides.length > 1) {
+      let current = 0;
+      setInterval(() => {
+        slides[current].classList.remove('active');
+        current = (current + 1) % slides.length;
+        slides[current].classList.add('active');
+      }, 4000);
+    }
+  });
 
   /* ── Reveal on scroll ─────────────────────────────────── */
 
