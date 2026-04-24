@@ -428,6 +428,11 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   margin-bottom: 16px;
 }
 
+.hero-messages .hero-sub {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .hero-banner-title {
   font-size: clamp(2.75rem, 6vw, 5.25rem);
   font-weight: 800;
