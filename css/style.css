@@ -107,7 +107,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  background: color-mix(in srgb, var(--bg) 45%, transparent);
+  background: color-mix(in srgb, var(--bg) 25%, transparent);
   backdrop-filter: saturate(180%) blur(20px);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   border: 1px solid var(--border);
@@ -118,7 +118,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 .navbar.scrolled {
   box-shadow: var(--shadow-lg);
-  background: color-mix(in srgb, var(--bg) 70%, transparent);
+  background: color-mix(in srgb, var(--bg) 45%, transparent);
 }
 
 /* Inner grouped pills — rectangular, Bumble-style */
