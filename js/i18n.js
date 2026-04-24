@@ -581,7 +581,6 @@
       const key = el.getAttribute('data-i18n-html');
       if (t[key] !== undefined) el.innerHTML = t[key];
     });
-    document.documentElement.lang = lang;
     document.documentElement.classList.toggle('non-latin', NON_LATIN.has(lang));
     const currentEl = document.getElementById('langCurrent');
     if (currentEl) {
