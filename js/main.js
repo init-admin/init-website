@@ -87,6 +87,18 @@
     }
   });
 
+  /* ── Hero message rotation ───────────────────────────── */
+
+  const heroMessages = document.querySelectorAll('.hero-message');
+  if (heroMessages.length > 1) {
+    let current = 0;
+    setInterval(() => {
+      heroMessages[current].classList.remove('active');
+      current = (current + 1) % heroMessages.length;
+      heroMessages[current].classList.add('active');
+    }, 4000);
+  }
+
   /* ── Reveal on scroll ─────────────────────────────────── */
 
   const revealEls = document.querySelectorAll('.reveal');

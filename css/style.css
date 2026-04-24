@@ -402,6 +402,32 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   align-items: center;
 }
 
+.hero-messages {
+  display: grid;
+  margin-bottom: 28px;
+}
+
+.hero-message {
+  grid-area: 1 / 1;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+  pointer-events: none;
+}
+
+.hero-message.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.hero-messages .hero-banner-title,
+.hero-messages .hero-sub {
+  margin-bottom: 0;
+}
+
+.hero-messages .hero-banner-title {
+  margin-bottom: 16px;
+}
+
 .hero-banner-title {
   font-size: clamp(2.75rem, 6vw, 5.25rem);
   font-weight: 800;
@@ -1279,6 +1305,8 @@ section { padding: 96px 24px; position: relative; }
   margin-bottom: 2px;
   display: block;
 }
+.ei-desc-card.on-crush   { background: #F4EDFF; border-color: #A78BFA; color: #5B21B6; }
+[data-theme="dark"] .ei-desc-card.on-crush   { background: rgba(167, 139, 250, 0.12); border-color: rgba(167, 139, 250, 0.4); color: #C4A8FF; }
 .ei-desc-card.on-hangout { background: #FEF3E2; border-color: #F4B264; color: #8A4A09; }
 [data-theme="dark"] .ei-desc-card.on-hangout { background: rgba(244, 178, 100, 0.12); border-color: rgba(244, 178, 100, 0.35); color: #F4B264; }
 
