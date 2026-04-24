@@ -46,7 +46,7 @@
       hero_cta_how: 'How it works',
       how_eyebrow: 'How it works',
       how_title: 'Express what you feel.',
-      how_body: 'Phone, email, username, or Instagram. Pick a category. Nothing shows until they feel it back.',
+      how_body: 'Pick a category. Nothing shows until they feel it back.',
       how_link: 'See the categories',
       mock_title: 'Express Interest',
       mock_subtitle: 'They only know if they feel it too.',
