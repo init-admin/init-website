@@ -56,11 +56,19 @@
   const mobileBtn = document.getElementById('mobileMenuBtn');
   const mobileNav = document.getElementById('mobileNav');
   if (mobileBtn && mobileNav) {
-    mobileBtn.addEventListener('click', () => {
+    mobileBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
       mobileNav.classList.toggle('open');
     });
     mobileNav.addEventListener('click', (e) => {
       if (e.target.tagName === 'A') mobileNav.classList.remove('open');
+    });
+    document.addEventListener('click', (e) => {
+      if (mobileNav.classList.contains('open') &&
+          !mobileNav.contains(e.target) &&
+          e.target !== mobileBtn) {
+        mobileNav.classList.remove('open');
+      }
     });
   }
 
