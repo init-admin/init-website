@@ -1021,6 +1021,14 @@ section { padding: 96px 24px; position: relative; }
 }
 .phone-frame--fold .phone-screen {
   border-radius: 34px;
+  overflow: hidden;
+}
+
+/* Pill labels can be multi-syllable in Indic scripts — allow wrapping */
+.ei-pill {
+  white-space: normal;
+  text-align: center;
+  line-height: 1.2;
 }
 /* Punch-hole camera */
 .phone-frame--fold .phone-screen--screenshot::before {
