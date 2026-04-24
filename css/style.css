@@ -402,6 +402,37 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   align-items: center;
 }
 
+.hero-messages {
+  display: grid;
+  margin-bottom: 28px;
+}
+
+.hero-message {
+  grid-area: 1 / 1;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+  pointer-events: none;
+}
+
+.hero-message.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.hero-messages .hero-banner-title,
+.hero-messages .hero-sub {
+  margin-bottom: 0;
+}
+
+.hero-messages .hero-banner-title {
+  margin-bottom: 16px;
+}
+
+.hero-messages .hero-sub {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .hero-banner-title {
   font-size: clamp(2.75rem, 6vw, 5.25rem);
   font-weight: 800;
@@ -1021,6 +1052,14 @@ section { padding: 96px 24px; position: relative; }
 }
 .phone-frame--fold .phone-screen {
   border-radius: 34px;
+  overflow: hidden;
+}
+
+/* Pill labels can be multi-syllable in Indic scripts — allow wrapping */
+.ei-pill {
+  white-space: normal;
+  text-align: center;
+  line-height: 1.2;
 }
 /* Punch-hole camera */
 .phone-frame--fold .phone-screen--screenshot::before {
@@ -1271,6 +1310,8 @@ section { padding: 96px 24px; position: relative; }
   margin-bottom: 2px;
   display: block;
 }
+.ei-desc-card.on-crush   { background: #F4EDFF; border-color: #A78BFA; color: #5B21B6; }
+[data-theme="dark"] .ei-desc-card.on-crush   { background: rgba(167, 139, 250, 0.12); border-color: rgba(167, 139, 250, 0.4); color: #C4A8FF; }
 .ei-desc-card.on-hangout { background: #FEF3E2; border-color: #F4B264; color: #8A4A09; }
 [data-theme="dark"] .ei-desc-card.on-hangout { background: rgba(244, 178, 100, 0.12); border-color: rgba(244, 178, 100, 0.35); color: #F4B264; }
 
@@ -2089,12 +2130,19 @@ section { padding: 96px 24px; position: relative; }
 
 /* background-clip:text clips below the em-box, cutting off Indic subscript
    conjuncts (e.g. Kannada "ಸ್ಪ"). Use a solid colour instead. */
-.non-latin .hero-banner-title .accent {
+.non-latin .hero-banner-title .accent,
+.non-latin .ei-title {
   background: none;
   -webkit-background-clip: unset;
   background-clip: unset;
   -webkit-text-fill-color: var(--primary-light, var(--primary));
   color: var(--primary-light, var(--primary));
+}
+
+.non-latin .ei-title {
+  white-space: normal;
+  font-size: 0.75rem;
+  line-height: 1.3;
 }
 
 .journey-text-header {
