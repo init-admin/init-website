@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Child Safety Standards — Init</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png?v=2" />
+  <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192.png?v=2" />
+  <meta name="description" content="Init's standards against child sexual abuse and exploitation (CSAE)." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M2WR5MGKL1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-M2WR5MGKL1', { send_page_view: true });
+  </script>
+  <style>
+    .legal-page { max-width: 800px; margin: 0 auto; padding: 120px 24px 80px; }
+    .legal-page h1 { font-size: 2rem; font-weight: 800; margin-bottom: 8px; color: var(--text); }
+    .legal-page .meta { color: var(--text-secondary); font-size: 0.875rem; margin-bottom: 48px; }
+    .legal-page h2 { font-size: 1.125rem; font-weight: 700; margin: 40px 0 12px; color: var(--text); }
+    .legal-page h3 { font-size: 0.975rem; font-weight: 600; margin: 24px 0 8px; color: var(--text); }
+    .legal-page p { color: var(--text-secondary); line-height: 1.75; margin-bottom: 12px; font-size: 0.9375rem; }
+    .legal-page ul { color: var(--text-secondary); line-height: 1.75; margin: 0 0 12px 20px; font-size: 0.9375rem; }
+    .legal-page ul li { margin-bottom: 6px; }
+    .legal-page a { color: var(--primary); text-decoration: none; }
+    .legal-page a:hover { text-decoration: underline; }
+    .legal-page .highlight-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--primary);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      margin: 20px 0;
+    }
+    .legal-page .highlight-box p { margin-bottom: 0; }
+    .legal-toc { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 24px; margin-bottom: 40px; }
+    .legal-toc h4 { font-size: 0.875rem; font-weight: 600; color: var(--text); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .legal-toc ol { margin: 0 0 0 16px; padding: 0; }
+    .legal-toc ol li { margin-bottom: 4px; }
+    .legal-toc ol li a { color: var(--primary); font-size: 0.875rem; text-decoration: none; }
+    .legal-toc ol li a:hover { text-decoration: underline; }
+    .section-divider { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+  </style>
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <a href="/" class="nav-logo" aria-label="Init — home">
+    <svg class="nav-logo-icon" viewBox="60 90 300 230" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M98,103 L268,103 Q290,103 290,125 L290,230 Q290,252 268,252 L160,252 L118,290 L140,252 L98,252 Q76,252 76,230 L76,125 Q76,103 98,103 Z" stroke="#f72585" stroke-width="10" fill="none" opacity="0.85"/>
+      <path d="M185,122 L322,122 Q344,122 344,144 L344,249 Q344,271 322,271 L300,271 L330,309 L270,271 L185,271 Q163,271 163,249 L163,144 Q163,122 185,122 Z" stroke="#4cc9f0" stroke-width="10" fill="none" opacity="0.85"/>
+      <rect x="163" y="122" width="127" height="130" fill="#7209b7" fill-opacity="0.15"/>
+      <path d="M195,195 L225,225 L270,165" stroke="#b740d4" stroke-width="16" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    Init
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="/#how">How it works</a></li>
+    <li><a href="/#categories">Init is for</a></li>
+  </ul>
+
+  <div class="nav-controls">
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+      <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+      <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="4"/>
+        <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+      </svg>
+    </button>
+
+    <a href="/#download" class="btn-nav-cta">
+      Download
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+        <path d="M5 12h14M12 5l7 7-7 7"/>
+      </svg>
+    </a>
+
+    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="/#how">How it works</a>
+  <a href="/#categories">Init is for</a>
+  <a href="/#download">Download</a>
+</div>
+
+<main class="legal-page">
+  <h1>Child Safety Standards</h1>
+  <p class="meta">Last Updated: May 10, 2026 &nbsp;·&nbsp; Effective Date: May 10, 2026</p>
+
+  <div class="highlight-box">
+    <p>Init has a <strong>zero-tolerance policy</strong> for child sexual abuse and exploitation (CSAE) in any form. This page describes our standards, preventive measures, and reporting mechanisms.</p>
+  </div>
+
+  <div class="legal-toc">
+    <h4>Table of Contents</h4>
+    <ol>
+      <li><a href="#s1">Our Commitment</a></li>
+      <li><a href="#s2">Prohibited Content and Conduct</a></li>
+      <li><a href="#s3">Age Verification</a></li>
+      <li><a href="#s4">Detection and Enforcement</a></li>
+      <li><a href="#s5">Reporting CSAE</a></li>
+      <li><a href="#s6">Law Enforcement Cooperation</a></li>
+      <li><a href="#s7">Contact</a></li>
+    </ol>
+  </div>
+
+  <hr class="section-divider" />
+
+  <h2 id="s1">1. Our Commitment</h2>
+  <p>Init is a mutual interest matching platform strictly for adults aged 18 and older. The protection of children from sexual abuse, exploitation, and grooming is a non-negotiable commitment. We maintain clear standards, enforce them rigorously, and cooperate fully with law enforcement when CSAE is reported or detected.</p>
+  <p>These standards apply to all users, all content shared on Init, and all conduct facilitated through Init — including messages, profile information, and linked social media accounts.</p>
+
+  <hr class="section-divider" />
+
+  <h2 id="s2">2. Prohibited Content and Conduct</h2>
+  <p>The following are strictly prohibited on Init and will result in immediate, permanent account termination and referral to law enforcement:</p>
+  <ul>
+    <li>Any content that sexually exploits, abuses, or depicts minors (CSAM — child sexual abuse material), including images, videos, written descriptions, or illustrations.</li>
+    <li>Grooming — any attempt to establish contact with a minor for the purpose of sexual exploitation, including via messaging or profile links.</li>
+    <li>Soliciting, sharing, or distributing CSAM in any form.</li>
+    <li>Using Init to facilitate access to minors for sexual purposes.</li>
+    <li>Any content that normalizes, promotes, or glorifies the sexual abuse or exploitation of children.</li>
+  </ul>
+  <p>There are no exceptions or second chances for violations in this category. Accounts found to be in violation are permanently banned and reported to the relevant authorities.</p>
+
+  <hr class="section-divider" />
+
+  <h2 id="s3">3. Age Verification</h2>
+  <p>Init requires all users to be <strong>18 years of age or older</strong>. Age is verified at registration:</p>
+  <ul>
+    <li>Users must provide their date of birth during account creation.</li>
+    <li>Users who do not meet the minimum age requirement are blocked from creating an account.</li>
+    <li>Attempts to circumvent age verification (e.g., providing a false date of birth) constitute a violation of our Terms of Service and result in immediate account termination upon discovery.</li>
+  </ul>
+  <p>If we become aware that a user is under 18, we immediately terminate their account, delete all associated data, and take any additional steps required by applicable law.</p>
+
+  <hr class="section-divider" />
+
+  <h2 id="s4">4. Detection and Enforcement</h2>
+  <p>Init employs the following measures to prevent and detect CSAE:</p>
+  <ul>
+    <li><strong>User reporting</strong> — any user can report another user for CSAE-related conduct directly from the app. Reports are reviewed promptly.</li>
+    <li><strong>Account termination</strong> — accounts found to have violated this policy are permanently banned without appeal.</li>
+    <li><strong>Data preservation</strong> — where required by law, we preserve relevant data to support law enforcement investigations.</li>
+    <li><strong>No re-registration</strong> — banned accounts are flagged to prevent re-registration using the same phone number, email address, or device.</li>
+  </ul>
+
+  <hr class="section-divider" />
+
+  <h2 id="s5">5. Reporting CSAE</h2>
+  <p>If you encounter content or conduct on Init that you believe involves the sexual abuse or exploitation of a child, please report it immediately:</p>
+  <ul>
+    <li><strong>In-app reporting</strong> — use the Report button on any user's profile or within any conversation to flag content for review.</li>
+    <li><strong>Email</strong> — <a href="mailto:connect@initmatch.com">connect@initmatch.com</a> — include as much detail as possible (usernames, screenshots, description of the conduct).</li>
+  </ul>
+  <p>All reports are treated as urgent and reviewed as a priority. We do not tolerate retaliation against users who make good-faith reports.</p>
+  <p>You may also report CSAM directly to your national reporting centre:</p>
+  <ul>
+    <li><strong>India:</strong> <a href="https://cybercrime.gov.in" target="_blank" rel="noopener">cybercrime.gov.in</a> — National Cyber Crime Reporting Portal</li>
+    <li><strong>USA:</strong> <a href="https://www.missingkids.org/gethelpnow/cybertipline" target="_blank" rel="noopener">NCMEC CyberTipline</a></li>
+    <li><strong>Global:</strong> <a href="https://www.iwf.org.uk" target="_blank" rel="noopener">Internet Watch Foundation (IWF)</a></li>
+  </ul>
+
+  <hr class="section-divider" />
+
+  <h2 id="s6">6. Law Enforcement Cooperation</h2>
+  <p>Init cooperates fully and promptly with law enforcement agencies investigating CSAE. This includes:</p>
+  <ul>
+    <li>Responding to lawful requests for user data, records, and communications relating to CSAE investigations.</li>
+    <li>Proactively reporting confirmed or credibly suspected CSAE to the appropriate authorities, including the <strong>National Cyber Crime Reporting Portal (India)</strong> and the <strong>National Center for Missing and Exploited Children (NCMEC)</strong> where required by law.</li>
+    <li>Preserving relevant data pending legal process.</li>
+  </ul>
+
+  <hr class="section-divider" />
+
+  <h2 id="s7">7. Contact</h2>
+  <p>For questions about these standards, to report a concern, or to make a law enforcement request:</p>
+  <ul>
+    <li><strong>Safety email:</strong> <a href="mailto:connect@initmatch.com">connect@initmatch.com</a></li>
+    <li><strong>General contact:</strong> <a href="mailto:connect@initmatch.com">connect@initmatch.com</a></li>
+    <li><strong>Address:</strong> Om Chambers, 648/A, 4th Floor, Binnamangala 1st Stage, Indiranagar, Bengaluru — 560038, Karnataka, India</li>
+  </ul>
+</main>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="/" class="nav-logo">
+        <svg class="nav-logo-icon" viewBox="60 90 300 230" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M98,103 L268,103 Q290,103 290,125 L290,230 Q290,252 268,252 L160,252 L118,290 L140,252 L98,252 Q76,252 76,230 L76,125 Q76,103 98,103 Z" stroke="#f72585" stroke-width="10" fill="none" opacity="0.85"/>
+          <path d="M185,122 L322,122 Q344,122 344,144 L344,249 Q344,271 322,271 L300,271 L330,309 L270,271 L185,271 Q163,271 163,249 L163,144 Q163,122 185,122 Z" stroke="#4cc9f0" stroke-width="10" fill="none" opacity="0.85"/>
+          <rect x="163" y="122" width="127" height="130" fill="#7209b7" fill-opacity="0.15"/>
+          <path d="M195,195 L225,225 L270,165" stroke="#b740d4" stroke-width="16" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Init
+      </a>
+      <p>Mutual interest matching. Private until it's mutual.</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Product</h4>
+      <ul>
+        <li><a href="/#how">How it works</a></li>
+        <li><a href="/#categories">Init is for</a></li>
+        <li><a href="/#download">Download</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="mailto:connect@initmatch.com">Contact</a></li>
+        <li><a href="mailto:connect@initmatch.com">Press</a></li>
+        <li><a href="mailto:connect@initmatch.com">Careers</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms of Service</a></li>
+        <li><a href="cookie-policy.html">Cookie Policy</a></li>
+        <li><a href="child-safety.html">Child Safety</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2026 Init. All rights reserved.</p>
+    <a href="mailto:connect@initmatch.com">connect@initmatch.com</a>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
