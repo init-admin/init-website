@@ -18,6 +18,8 @@
   --border: #E0D8EE;
   --input-bg: #F3F0FA;
 
+  --lounge-gold: #A88A3D;
+
   --glow: rgba(124, 58, 237, 0.15);
   --grad-accent: linear-gradient(135deg, #7C3AED 0%, #8B5CF6 100%);
   --grad-primary: linear-gradient(135deg, #7C3AED 0%, #8B5CF6 50%, #A78BFA 100%);
@@ -46,6 +48,8 @@
   --text-secondary: #8B85A0;
   --border: #2A2440;
   --input-bg: #131020;
+
+  --lounge-gold: #D0B070;
 
   --glow: rgba(139, 92, 246, 0.35);
   --grad-accent: linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%);
@@ -1053,12 +1057,6 @@ section { padding: 96px 24px; position: relative; }
   overflow: hidden;
 }
 
-/* Pill labels can be multi-syllable in Indic scripts — allow wrapping */
-.ei-pill {
-  white-space: normal;
-  text-align: center;
-  line-height: 1.2;
-}
 /* Punch-hole camera */
 .phone-frame--fold .phone-screen--screenshot::before {
   content: "";
@@ -1090,7 +1088,7 @@ section { padding: 96px 24px; position: relative; }
   pointer-events: none;
 }
 
-/* Express Interest screen mockup — matches app screen */
+/* Express Interest screen mockup — matches CreateInterestScreen.tsx */
 .ei-header {
   display: grid;
   grid-template-columns: 22px 1fr 22px;
@@ -1099,7 +1097,11 @@ section { padding: 96px 24px; position: relative; }
   padding: 2px 2px 0;
 }
 
-.ei-header-spacer { width: 22px; height: 22px; }
+.ei-header--v2 {
+  display: flex;
+  grid-template-columns: unset;
+  justify-content: space-between;
+}
 
 .ei-title {
   font-size: 0.875rem;
@@ -1114,14 +1116,22 @@ section { padding: 96px 24px; position: relative; }
   white-space: nowrap;
 }
 
-.ei-back {
-  width: 22px; height: 22px;
-  border-radius: 8px;
-  background: var(--input-bg);
-  display: flex; align-items: center; justify-content: center;
+.ei-title--v2 {
+  text-align: left;
+  background: none;
+  -webkit-text-fill-color: unset;
   color: var(--text);
 }
-.ei-back svg { width: 14px; height: 14px; }
+
+.ei-close {
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: var(--input-bg);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-secondary);
+  flex-shrink: 0;
+}
+.ei-close svg { width: 11px; height: 11px; }
 
 .ei-subtitle {
   font-size: 0.625rem;
@@ -1130,6 +1140,8 @@ section { padding: 96px 24px; position: relative; }
   padding: 0 6px;
   line-height: 1.35;
 }
+
+.ei-subtitle--v2 { text-align: left; padding: 0; }
 
 .ei-section-row {
   display: flex;
@@ -1140,49 +1152,6 @@ section { padding: 96px 24px; position: relative; }
 
 .ei-section-label {
   font-size: 0.625rem;
-  font-weight: 700;
-  color: var(--text);
-}
-
-.ei-info-icon {
-  width: 14px; height: 14px;
-  color: var(--text-secondary);
-  opacity: 0.7;
-}
-.ei-info-icon svg { width: 14px; height: 14px; }
-
-/* Selected method card — "Their number" */
-.ei-method-card {
-  border: none;
-  background: color-mix(in srgb, var(--primary) 6%, var(--card));
-  border-radius: 12px;
-  padding: 11.5px 11.5px 10.5px;
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
-  box-shadow:
-    0 0 0 1px color-mix(in srgb, var(--primary) 22%, transparent),
-    0 6px 18px -6px color-mix(in srgb, var(--primary) 55%, transparent);
-}
-
-.ei-method-head {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-}
-
-.ei-method-icon {
-  width: 26px; height: 26px;
-  border-radius: 8px;
-  background: var(--grad-accent);
-  display: flex; align-items: center; justify-content: center;
-  color: #fff;
-  flex-shrink: 0;
-}
-.ei-method-icon svg { width: 14px; height: 14px; }
-
-.ei-method-label {
-  font-size: 0.75rem;
   font-weight: 700;
   color: var(--text);
 }
@@ -1227,91 +1196,49 @@ section { padding: 96px 24px; position: relative; }
 }
 .ei-contact-pick svg { width: 16px; height: 16px; }
 
-/* Alternate method tiles row */
-.ei-methods-row {
+/* Category grid — 2 columns, icon-top + label-below, colored when active */
+.ei-catgrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr 1fr;
   gap: 5px;
 }
 
-.ei-method-tile {
-  padding: 8px 4px 7px;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 10px;
+.ei-catbtn {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
-  text-align: center;
-}
-.ei-method-tile-icon {
-  width: 20px; height: 20px;
-  color: var(--text-secondary);
-}
-.ei-method-tile-icon svg { width: 18px; height: 18px; }
-.ei-method-tile-label {
-  font-size: 0.5625rem;
-  font-weight: 600;
-  color: var(--text-secondary);
-  line-height: 1.1;
-}
-
-.ei-pills {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 5px;
-}
-
-.ei-pill {
-  display: inline-flex;
-  align-items: center;
   justify-content: center;
-  gap: 4px;
-  padding: 7px 4px;
-  border-radius: 999px;
-  background: var(--card);
-  border: 1px solid var(--border);
+  gap: 3px;
+  padding: 8px 4px;
+  border-radius: 10px;
+  background: transparent;
   color: var(--text-secondary);
   font-size: 0.625rem;
   font-weight: 700;
+  text-align: center;
 }
-.ei-pill svg { width: 11px; height: 11px; flex-shrink: 0; }
+.ei-catbtn svg { width: 15px; height: 15px; flex-shrink: 0; }
 
-.ei-pill.on-hangout  { background: #FEF3E2; border-color: #F4B264; color: #B4600C; }
-.ei-pill.on-crush    { background: #F4EDFF; border-color: #A78BFA; color: #6D28D9; }
-.ei-pill.on-date     { background: #FFEDF5; border-color: #F9A8D4; color: #BE185D; }
-.ei-pill.on-love     { background: #FFEBEB; border-color: #FCA5A5; color: #B91C1C; }
-.ei-pill.on-marriage { background: #EEF0FF; border-color: #A5B4FC; color: #3730A3; }
-.ei-pill.on-apology  { background: #E6FBF7; border-color: #5EEAD4; color: #0F766E; }
+.ei-catbtn.on-hangout.active  { background: #FEF3E2; color: #B4600C; }
+.ei-catbtn.on-crush.active    { background: #F4EDFF; color: #6D28D9; }
+.ei-catbtn.on-date.active     { background: #FFEDF5; color: #BE185D; }
+.ei-catbtn.on-love.active     { background: #FFEBEB; color: #B91C1C; }
+.ei-catbtn.on-marriage.active { background: #EEF0FF; color: #3730A3; }
+.ei-catbtn.on-apology.active  { background: #E6FBF7; color: #0F766E; }
 
-[data-theme="dark"] .ei-pill.on-hangout  { background: rgba(244, 178, 100, 0.14); border-color: rgba(244, 178, 100, 0.4); color: #F4B264; }
-[data-theme="dark"] .ei-pill.on-crush    { background: rgba(167, 139, 250, 0.16); border-color: rgba(167, 139, 250, 0.5); color: #C4A8FF; }
-[data-theme="dark"] .ei-pill.on-date     { background: rgba(249, 168, 212, 0.14); border-color: rgba(249, 168, 212, 0.45); color: #F9A8D4; }
-[data-theme="dark"] .ei-pill.on-love     { background: rgba(252, 165, 165, 0.14); border-color: rgba(252, 165, 165, 0.45); color: #FCA5A5; }
-[data-theme="dark"] .ei-pill.on-marriage { background: rgba(165, 180, 252, 0.14); border-color: rgba(165, 180, 252, 0.45); color: #A5B4FC; }
-[data-theme="dark"] .ei-pill.on-apology  { background: rgba(94, 234, 212, 0.14); border-color: rgba(94, 234, 212, 0.45); color: #5EEAD4; }
+[data-theme="dark"] .ei-catbtn.on-hangout.active  { background: rgba(244, 178, 100, 0.14); color: #F4B264; }
+[data-theme="dark"] .ei-catbtn.on-crush.active    { background: rgba(167, 139, 250, 0.16); color: #C4A8FF; }
+[data-theme="dark"] .ei-catbtn.on-date.active     { background: rgba(249, 168, 212, 0.14); color: #F9A8D4; }
+[data-theme="dark"] .ei-catbtn.on-love.active     { background: rgba(252, 165, 165, 0.14); color: #FCA5A5; }
+[data-theme="dark"] .ei-catbtn.on-marriage.active { background: rgba(165, 180, 252, 0.14); color: #A5B4FC; }
+[data-theme="dark"] .ei-catbtn.on-apology.active  { background: rgba(94, 234, 212, 0.14); color: #5EEAD4; }
 
-/* Selected-category description card (appears under pills) */
-.ei-desc-card {
-  border-radius: 10px;
-  padding: 8px 10px;
-  font-size: 0.625rem;
-  line-height: 1.4;
-  border: 1px solid;
-}
-.ei-desc-card .ei-desc-label {
+.ei-hint {
   font-size: 0.5625rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin-bottom: 2px;
-  display: block;
+  line-height: 1.4;
+  color: var(--text-secondary);
+  padding: 2px 2px 0;
 }
-.ei-desc-card.on-crush   { background: #F4EDFF; border-color: #A78BFA; color: #5B21B6; }
-[data-theme="dark"] .ei-desc-card.on-crush   { background: rgba(167, 139, 250, 0.12); border-color: rgba(167, 139, 250, 0.4); color: #C4A8FF; }
-.ei-desc-card.on-hangout { background: #FEF3E2; border-color: #F4B264; color: #8A4A09; }
-[data-theme="dark"] .ei-desc-card.on-hangout { background: rgba(244, 178, 100, 0.12); border-color: rgba(244, 178, 100, 0.35); color: #F4B264; }
 
 .ei-submit {
   margin-top: auto;
@@ -1330,6 +1257,12 @@ section { padding: 96px 24px; position: relative; }
 }
 .ei-submit svg { width: 14px; height: 14px; }
 
+.ei-submit--v2 {
+  background: var(--input-bg);
+  color: var(--text);
+  box-shadow: none;
+}
+
 /* Dynamic Island */
 .phone-notch {
   position: absolute;
@@ -1343,6 +1276,159 @@ section { padding: 96px 24px; position: relative; }
     0 1px 2px rgba(0, 0, 0, 0.5);
   z-index: 2;
 }
+
+/* Lounge screen mockup — matches ActiveSessionView.tsx + VibeCard.tsx.
+   Gold (--lounge-gold) is the Lounge feature's own accent — distinct
+   from the app's primary purple, same as in the real client. */
+.lounge-mock { position: relative; }
+
+.lounge-mock-heronamerow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 2px 8px;
+}
+.lounge-mock-heroname {
+  flex: 1;
+  min-width: 0;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.lounge-mock-heroname-affix { color: var(--lounge-gold); }
+
+.lounge-mock-icon-btn {
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.lounge-mock-icon-btn svg { width: 12px; height: 12px; }
+.lounge-mock-icon-btn--gold { color: var(--lounge-gold); }
+.lounge-mock-icon-btn--exit { color: #EF4444; }
+
+.lounge-mock-vibestrip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 2px;
+}
+.lounge-mock-vibestrip-avatar {
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--lounge-gold) 18%, transparent);
+  color: var(--lounge-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.lounge-mock-vibestrip-avatar svg { width: 16px; height: 16px; }
+.lounge-mock-vibestrip-text {
+  font-size: 0.625rem;
+  font-style: italic;
+  color: var(--text-secondary);
+}
+
+.lounge-mock-sep {
+  height: 1px;
+  background: color-mix(in srgb, var(--lounge-gold) 35%, transparent);
+  margin: 4px 0 8px;
+}
+
+.lounge-mock-carousel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.5625rem;
+  font-weight: 700;
+  color: var(--lounge-gold);
+  padding: 0 2px 8px;
+}
+.lounge-mock-carousel-timer {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 0.6875rem;
+  font-weight: 800;
+  color: var(--text);
+}
+.lounge-mock-carousel-timer svg { width: 11px; height: 11px; color: var(--text); }
+
+.lounge-mock-peek {
+  position: absolute;
+  top: 178px;
+  width: 12px;
+  height: 130px;
+  background: var(--border);
+  z-index: 0;
+}
+.lounge-mock-peek--left { left: 0; border-radius: 0 10px 10px 0; }
+.lounge-mock-peek--right { right: 0; border-radius: 10px 0 0 10px; }
+
+.lounge-mock-vibecard {
+  position: relative;
+  z-index: 1;
+  margin: 0 10px;
+  height: 150px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--card);
+  border: 1px solid color-mix(in srgb, var(--lounge-gold) 25%, var(--border));
+  box-shadow: 0 6px 18px -6px color-mix(in srgb, var(--lounge-gold) 45%, transparent);
+}
+.lounge-mock-vibecard-photo {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: color-mix(in srgb, var(--lounge-gold) 10%, transparent);
+  color: var(--lounge-gold);
+}
+.lounge-mock-vibecard-photo svg { width: 48px; height: 48px; opacity: 0.5; }
+
+.lounge-mock-vibecard-box {
+  position: absolute;
+  left: 6px; right: 6px; bottom: 6px;
+  background: color-mix(in srgb, var(--card) 88%, transparent);
+  border-radius: 10px;
+  padding: 7px 9px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.lounge-mock-vibecard-left { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.lounge-mock-vibecard-meta {
+  font-size: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--text-secondary);
+}
+.lounge-mock-vibecard-desc {
+  font-size: 0.625rem;
+  font-style: italic;
+  color: var(--text);
+  line-height: 1.3;
+}
+.lounge-mock-vibe-btn {
+  flex-shrink: 0;
+  width: 32px; height: 32px;
+  border-radius: 9px;
+  background: var(--lounge-gold);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+}
+.lounge-mock-vibe-btn svg { width: 14px; height: 14px; }
+.lounge-mock-vibe-btn span { font-size: 0.5rem; font-weight: 700; }
 
 .phone-header {
   text-align: center;
