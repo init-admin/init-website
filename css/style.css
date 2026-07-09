@@ -2005,6 +2005,20 @@ section { padding: 96px 24px; position: relative; }
   letter-spacing: -0.01em;
 }
 
+.nav-badge {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 2px 7px;
+  background: var(--primary);
+  color: #fff;
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  vertical-align: middle;
+}
+
 .coming-soon-pill {
   position: absolute;
   top: -10px; right: -10px;
