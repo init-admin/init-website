@@ -275,9 +275,6 @@
 }
 
 .usp-bullet {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
   font-size: 1.125rem;
   font-weight: 600;
   color: var(--text);
@@ -285,9 +282,6 @@
 .usp-bullet:nth-child(2) { transition-delay: 0.06s; }
 .usp-bullet:nth-child(3) { transition-delay: 0.12s; }
 .usp-bullet:nth-child(4) { transition-delay: 0.18s; }
-
-.usp-bullet svg { width: 24px; height: 24px; flex-shrink: 0; margin-top: 1px; color: var(--lounge-gold); }
-.u-init .usp-bullet svg { color: var(--text); }
 
 @media (max-width: 640px) {
   .usp-bullets { grid-template-columns: 1fr; padding-bottom: 72px; }
@@ -299,31 +293,22 @@
    Lounge: bottom-right (offset down), content first then card.
 ═══════════════════════════════════════════════════════════════ */
 
-.home-kicker {
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 156px 24px 8px;
-  text-align: center;
-  font-size: 1.0625rem;
-  font-weight: 700;
-  color: var(--text-secondary);
-}
-
 .home-cards {
   max-width: 1240px;
   margin: 0 auto;
-  padding: 32px 24px 80px;
+  padding: 160px 24px 80px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 56px;
   align-items: start;
 }
 
-.home-col-lounge { padding-top: 120px; }
+.home-col-init { text-align: left; }
+.home-col-lounge { text-align: right; padding-top: 120px; }
 
 .home-card {
-  padding: 48px 40px;
-  border-radius: 28px;
+  padding: 32px 28px;
+  border-radius: 24px;
   border: 1px solid var(--border);
 }
 .home-col-init .home-card { background: var(--glass-card-bg); }
@@ -331,32 +316,35 @@
 
 .home-card-eyebrow {
   display: inline-block;
-  font-size: 0.875rem;
+  font-size: 1.125rem;
   font-weight: 800;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
 .home-col-init .home-card-eyebrow { color: var(--text-secondary); }
-.home-col-lounge .home-card-eyebrow { color: var(--gold-text); opacity: 0.7; }
+/* On loungeCardBg (a dark, translucent gold tint — not solid gold), text
+   must use the bright gold token, not goldText: goldText is dark brown,
+   meant only for text ON solid 100%-opacity gold surfaces (buttons,
+   badges). Using it here made the heading unreadable against the dark
+   card. See docs/dev-guidelines/design-system.md "Text on loungeCardBg". */
+.home-col-lounge .home-card-eyebrow { color: var(--lounge-gold); }
 
 .home-card h2 {
-  font-size: clamp(2rem, 3.4vw, 2.75rem);
+  font-size: clamp(1.75rem, 3vw, 2.375rem);
   font-weight: 800;
   letter-spacing: -0.03em;
   line-height: 1.05;
   color: var(--text);
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
-.home-col-lounge .home-card h2 { color: var(--gold-text); }
 
 .home-card p {
-  font-size: 1.125rem;
+  font-size: 1.0625rem;
   line-height: 1.55;
   color: var(--text-secondary);
-  margin-bottom: 28px;
+  margin-bottom: 24px;
 }
-.home-col-lounge .home-card p { color: color-mix(in srgb, var(--gold-text) 75%, transparent); }
 
 .home-card-cta {
   display: inline-flex;
@@ -372,22 +360,16 @@
 
 .home-bullets {
   list-style: none;
-  padding: 28px 4px;
+  padding: 24px 4px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
 }
 .home-bullets li {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
   font-size: 1.0625rem;
   font-weight: 600;
   color: var(--text);
 }
-.home-bullets svg { width: 22px; height: 22px; flex-shrink: 0; margin-top: 1px; }
-.home-col-init .home-bullets svg { color: var(--text-secondary); }
-.home-col-lounge .home-bullets svg { color: var(--lounge-gold); }
 
 .home-explore {
   display: inline-flex;
@@ -405,6 +387,7 @@
 
 @media (max-width: 900px) {
   .home-cards { grid-template-columns: 1fr; gap: 48px; }
+  .home-col-init, .home-col-lounge { text-align: left; }
   .home-col-lounge { padding-top: 0; }
 }
 
