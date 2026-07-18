@@ -48,6 +48,10 @@ html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
   --glass-card-bg: #FFFFFF;
   --lounge-card-bg: rgba(208, 176, 112, 0.55);
   --gold-section-bg: rgba(208, 176, 112, 0.10);
+  /* Landing-section background — approximated from a reference screenshot,
+     not a token pulled from useTheme.ts (no warm-gray token exists there).
+     Flag with a hex if this isn't the right shade. */
+  --landing-bg: #EDEAE4;
 }
 
 [data-theme="dark"] {
@@ -76,6 +80,7 @@ html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
   --glass-card-bg: rgba(255, 255, 255, 0.18);
   --lounge-card-bg: rgba(208, 176, 112, 0.20);
   --gold-section-bg: rgba(208, 176, 112, 0.08);
+  --landing-bg: #2E2B27;
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -85,8 +90,9 @@ html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
 
 .navbar { padding: 16px 20px 16px 22px; }
 .nav-logo-icon { width: 62px; height: 46px; }
-.nav-links { gap: 40px; padding: 10px 28px; }
-.nav-links a { font-size: 1.1875rem; font-weight: 800; }
+/* No pill/background around the nav items — plain text links */
+.nav-links { gap: 48px; padding: 0; background: none; border: none; }
+.nav-links a { font-size: 1.375rem; font-weight: 800; }
 .theme-toggle { width: 48px; height: 48px; }
 .theme-toggle svg { width: 22px; height: 22px; }
 .nav-store-btn { padding: 13px 20px; font-size: 1rem; gap: 8px; }
@@ -141,35 +147,36 @@ html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
   margin: 0 auto;
   min-height: 100vh;
   box-sizing: border-box;
-  padding: 140px 24px 60px;
+  padding: 120px 24px 60px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 56px;
-  align-items: start;
+  grid-auto-rows: min-content;
+  gap: 32px 56px;
   align-content: center;
 }
 
-.home-col-init { text-align: left; }
-/* Fixed clearance, not a small offset: the Lounge card must start
-   below the Init card's bottom edge, not overlap it diagonally. */
-.home-col-lounge { text-align: right; padding-top: 440px; }
+/* Row placement (not a guessed pixel offset) guarantees the Lounge
+   card can never overlap the Init card: row 2 always starts after
+   row 1's content ends, whatever their actual heights turn out to be. */
+.home-col-init { text-align: left; grid-column: 1; grid-row: 1; }
+.home-col-lounge { text-align: right; grid-column: 2; grid-row: 2; }
 
 .home-card {
   padding: 40px 36px;
   border-radius: 24px;
   border: 1px solid var(--border);
+  max-width: 500px;
 }
 .home-col-init .home-card { background: var(--glass-card-bg); }
 .home-col-lounge .home-card {
   background: var(--lounge-card-bg);
   border-color: transparent;
-  max-width: 460px;
   margin-left: auto;
 }
 
 .home-card-eyebrow {
   display: inline-block;
-  font-size: 1.375rem;
+  font-size: 1.75rem;
   font-weight: 800;
   letter-spacing: 0.03em;
   margin-bottom: 14px;
@@ -203,10 +210,11 @@ html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
 .home-col-lounge .home-card-cta { background: var(--gold-text); color: var(--lounge-gold); }
 
 @media (max-width: 900px) {
-  .home-cards { grid-template-columns: 1fr; gap: 48px; min-height: 0; }
-  .home-col-init, .home-col-lounge { text-align: left; }
-  .home-col-lounge { padding-top: 0; }
-  .home-col-lounge .home-card { max-width: none; margin-left: 0; }
+  .home-cards { grid-template-columns: 1fr; gap: 32px; min-height: 0; }
+  .home-col-init, .home-col-lounge { grid-column: 1; text-align: left; }
+  .home-col-init { grid-row: 1; }
+  .home-col-lounge { grid-row: 2; }
+  .home-col-lounge .home-card { max-width: 500px; margin-left: 0; }
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -217,8 +225,7 @@ html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
    right. Scroll order on the page is Lounge, then Init.
 ═══════════════════════════════════════════════════════════════ */
 
-.landing-section { padding: 96px 24px; scroll-margin-top: 100px; }
-.landing-section.alt-bg { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.landing-section { padding: 96px 24px; scroll-margin-top: 100px; background: var(--landing-bg); }
 
 .landing-split {
   max-width: 1240px;
@@ -309,7 +316,6 @@ html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
 ═══════════════════════════════════════════════════════════════ */
 
 .steps-band { padding: 56px 24px; }
-.steps-band.gold-band { background: var(--gold-section-bg); }
 
 .steps {
   max-width: 1080px;
