@@ -93,12 +93,11 @@
 .btn-gradient:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
 
 .btn-glass-v2 {
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
+  background: var(--card);
+  border: 1.5px solid var(--border);
   color: var(--text);
-  backdrop-filter: blur(8px);
 }
-.btn-glass-v2:hover { transform: translateY(-2px); background: color-mix(in srgb, var(--glass-bg) 140%, transparent); }
+.btn-glass-v2:hover { transform: translateY(-2px); border-color: var(--text); }
 
 .btn-flat-gold {
   background: var(--lounge-gold);
@@ -109,16 +108,16 @@
 
 /* ═══════════════════════════════════════════════════════════════
    Hero (homepage = Lounge, /init = Init core)
+   Flat solid surface, no glass/gradient panel, no app screenshot —
+   big type carries it. Staggered load-in: eyebrow → h1 → lead → cta,
+   echoing the "wordmark lands first, content fills in" beat.
 ═══════════════════════════════════════════════════════════════ */
 
 .subhero {
-  padding: 128px 24px 64px;
-  max-width: 1200px;
+  padding: 152px 24px 72px;
+  max-width: 880px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: 48px;
-  align-items: center;
+  text-align: center;
 }
 
 .subhero-eyebrow {
@@ -131,72 +130,163 @@
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
+  opacity: 0;
+  animation: heroIn 0.6s ease forwards;
 }
 .subhero-lounge .subhero-eyebrow { background: color-mix(in srgb, var(--lounge-gold) 20%, transparent); color: var(--lounge-gold); }
-.subhero-init .subhero-eyebrow { background: var(--glass-bg); color: var(--primary); border: 1px solid var(--glass-border); }
+.subhero-init .subhero-eyebrow { background: var(--input-bg); color: var(--primary); border: 1px solid var(--border); }
 
 .subhero h1 {
-  font-size: clamp(2.25rem, 4.4vw, 3.5rem);
+  font-size: clamp(3rem, 7vw, 5.5rem);
   font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 1.05;
+  letter-spacing: -0.04em;
+  line-height: 0.98;
   color: var(--text);
-  margin-bottom: 18px;
+  margin-bottom: 24px;
+  opacity: 0;
+  animation: heroIn 0.6s ease 0.12s forwards;
 }
 
 .subhero p.lead {
-  font-size: 1.1875rem;
+  font-size: 1.25rem;
   color: var(--text-secondary);
-  max-width: 460px;
-  margin-bottom: 32px;
+  max-width: 520px;
+  margin: 0 auto 36px;
+  opacity: 0;
+  animation: heroIn 0.6s ease 0.24s forwards;
 }
 
-.subhero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
-.subhero-visual { display: flex; justify-content: center; }
-.subhero-visual .phone-frame { max-width: 300px; }
-
-@media (max-width: 860px) {
-  .subhero { grid-template-columns: 1fr; padding-top: 112px; text-align: center; }
-  .subhero-eyebrow, .subhero-cta { justify-content: center; margin-left: auto; margin-right: auto; }
-  .subhero p.lead { margin-left: auto; margin-right: auto; }
+.subhero-cta {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: center;
+  opacity: 0;
+  animation: heroIn 0.6s ease 0.36s forwards;
 }
 
-/* ── Compact feature row (3 tiles, one line each) ── */
+@keyframes heroIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .subhero-eyebrow, .subhero h1, .subhero p.lead, .subhero-cta { animation: none; opacity: 1; }
+}
 
-.feature-row {
+@media (max-width: 640px) {
+  .subhero { padding-top: 128px; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   How it works — 3-step strip
+═══════════════════════════════════════════════════════════════ */
+
+.steps {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 24px 24px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.step {
+  text-align: center;
+}
+.step-num {
+  width: 32px; height: 32px;
+  margin: 0 auto 14px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.8125rem;
+  font-weight: 800;
+  color: var(--gold-text);
+  background: var(--lounge-gold);
+}
+.subhero-init ~ .steps .step-num,
+.steps.s-init .step-num { background: var(--text); color: var(--bg); }
+
+.step h4 { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 6px; letter-spacing: -0.01em; }
+.step p { font-size: 0.875rem; color: var(--text-secondary); line-height: 1.5; }
+
+@media (max-width: 780px) {
+  .steps { grid-template-columns: 1fr; gap: 24px; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   USP cards — 3 headline cards, icon tile + heading + line.
+   Flat surfaces only (var(--card)); gold stays concentrated in the
+   icon tile, not spread across the card — matches how the app
+   actually uses gold as an accent, not a field color.
+═══════════════════════════════════════════════════════════════ */
+
+.usp-grid {
   max-width: 1160px;
   margin: 0 auto;
-  padding: 8px 24px 88px;
+  padding: 8px 24px 24px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 
-.feature-tile {
+/* Stagger reuses the site's existing .reveal/.in scroll observer
+   (js/main.js) — cards/bullets should carry class="... reveal" in
+   markup. Only the per-item delay is added here. */
+.usp-card {
   padding: 28px 24px;
   border-radius: var(--radius-lg);
   background: var(--card);
   border: 1px solid var(--border);
 }
+.usp-card:nth-child(2) { transition-delay: 0.1s; }
+.usp-card:nth-child(3) { transition-delay: 0.2s; }
 
-.feature-tile .f-icon {
-  width: 44px; height: 44px;
-  border-radius: 12px;
+.usp-card-art {
+  width: 56px; height: 56px;
+  border-radius: 14px;
   display: flex; align-items: center; justify-content: center;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
 }
-.feature-tile .f-icon svg { width: 22px; height: 22px; }
+.usp-card-art svg { width: 26px; height: 26px; }
 
-.subhero-lounge ~ .feature-row .f-icon,
-.feature-row.f-lounge .f-icon { background: color-mix(in srgb, var(--lounge-gold) 18%, transparent); color: var(--lounge-gold); }
-.feature-row.f-init .f-icon { background: var(--glass-bg); color: var(--primary); }
+.usp-grid.u-lounge .usp-card-art { background: var(--lounge-gold); color: var(--gold-text); }
+.usp-grid.u-init .usp-card-art { background: var(--input-bg); color: var(--primary); border: 1px solid var(--border); }
 
-.feature-tile h3 { font-size: 1.0625rem; font-weight: 700; color: var(--text); margin-bottom: 6px; letter-spacing: -0.01em; }
-.feature-tile p { font-size: 0.9375rem; color: var(--text-secondary); line-height: 1.5; }
+.usp-card h3 { font-size: 1.125rem; font-weight: 700; color: var(--text); margin-bottom: 8px; letter-spacing: -0.01em; }
+.usp-card p { font-size: 0.9375rem; color: var(--text-secondary); line-height: 1.55; }
 
 @media (max-width: 860px) {
-  .feature-row { grid-template-columns: 1fr; padding-bottom: 64px; }
+  .usp-grid { grid-template-columns: 1fr; }
+}
+
+/* ── USP bullet strip — the remaining, quicker points ── */
+
+.usp-bullets {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 8px 24px 88px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 32px;
+}
+
+.usp-bullet {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.9375rem;
+  color: var(--text);
+}
+.usp-bullet:nth-child(2) { transition-delay: 0.06s; }
+.usp-bullet:nth-child(3) { transition-delay: 0.12s; }
+.usp-bullet:nth-child(4) { transition-delay: 0.18s; }
+
+.usp-bullet svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 1px; color: var(--lounge-gold); }
+.u-init .usp-bullet svg { color: var(--primary); }
+
+@media (max-width: 640px) {
+  .usp-bullets { grid-template-columns: 1fr; padding-bottom: 64px; }
 }
 
 /* ── Cross-link band (send to the other product's page) ── */
