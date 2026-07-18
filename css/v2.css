@@ -1,19 +1,72 @@
 /* ═══════════════════════════════════════════════════════════════
    Init — v2 revamp layer
-   Loaded after style.css. Reuses root tokens (already gold-based)
-   and adds: app-accurate button variants, twin-narrative hero,
-   compact feature rows. Deliberately does NOT reuse style.css's
-   purple tri-tile / cat-card treatments — those never matched the
-   app palette (app is gold + glass only, no purple accent).
+   Loaded after style.css. Overrides the base :root color tokens
+   with the app's real palette, and adds app-accurate button
+   variants + compact hero/feature layout. Deliberately does NOT
+   reuse style.css's tri-tile / cat-card / hero-visual treatments —
+   those hardcode purple/coral/mint that never matched the app.
 ═══════════════════════════════════════════════════════════════ */
 
+/* Real app tokens (mobile/src/utils/useTheme.ts DARK_COLORS / LIGHT_COLORS) —
+   overrides style.css's legacy violet-tinted "neutrals" (#FAF8FF, #1C1627,
+   #0C0A14, #2A2440, etc). The app has exactly one accent (gold); every
+   "neutral" here is a true gray/black, not indigo-biased. */
 :root, [data-theme="light"] {
-  --glass-bg: rgba(0, 0, 0, 0.10);
-  --glass-border: rgba(0, 0, 0, 0.14);
+  --primary: #D0B070;
+  --primary-light: #E8C877;
+  --primary-dark: #A88A3D;
+  --secondary: #D0B070;
+
+  --bg: #F2F2F2;
+  --surface: #FFFFFF;
+  --card: #FFFFFF;
+
+  --text: #1A1A1A;
+  --text-secondary: #6B6B6B;
+  --border: #E5E5E5;
+  --input-bg: #F5F5F5;
+
+  --lounge-gold: #D0B070;
+  --lounge-heading: #7A5C0A;
+  --lounge-subtext: #9A7820;
+  --gold-text: #2D1A00;
+
+  --glow: rgba(208, 176, 112, 0.20);
+  --grad-accent: linear-gradient(135deg, #E8C877 0%, #A88A3D 100%);
+  --grad-primary: linear-gradient(135deg, #E8C877 0%, #D0B070 50%, #A88A3D 100%);
+  --overlay: rgba(0, 0, 0, 0.82);
+
+  --glass-bg: rgba(0, 0, 0, 0.06);
+  --glass-border: rgba(0, 0, 0, 0.06);
 }
+
 [data-theme="dark"] {
+  --primary: #D0B070;
+  --primary-light: #E8C877;
+  --primary-dark: #A88A3D;
+  --secondary: #D0B070;
+
+  --bg: #050505;
+  --surface: #2A2A2A;
+  --card: #2A2A2A;
+
+  --text: rgba(255, 255, 255, 0.88);
+  --text-secondary: rgba(255, 255, 255, 0.50);
+  --border: rgba(255, 255, 255, 0.08);
+  --input-bg: #0E0E0E;
+
+  --lounge-gold: #D0B070;
+  --lounge-heading: #D0B070;
+  --lounge-subtext: rgba(208, 176, 112, 0.65);
+  --gold-text: #2D1A00;
+
+  --glow: rgba(208, 176, 112, 0.30);
+  --grad-accent: linear-gradient(135deg, #E8C877 0%, #A88A3D 100%);
+  --grad-primary: linear-gradient(135deg, #E8C877 0%, #D0B070 50%, #A88A3D 100%);
+  --overlay: rgba(0, 0, 0, 0.88);
+
   --glass-bg: rgba(255, 255, 255, 0.14);
-  --glass-border: rgba(255, 255, 255, 0.16);
+  --glass-border: rgba(255, 255, 255, 0.15);
 }
 
 /* ── App-accurate buttons (mirrors mobile design-system.md) ── */
@@ -55,135 +108,7 @@
 .btn-flat-gold:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
 
 /* ═══════════════════════════════════════════════════════════════
-   Twin hero — two acts, no photos, one fold
-═══════════════════════════════════════════════════════════════ */
-
-.twin-hero {
-  padding: 104px 16px 32px;
-  max-width: 1320px;
-  margin: 0 auto;
-}
-
-.twin-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-}
-
-.twin-panel {
-  position: relative;
-  border-radius: var(--radius-xl);
-  padding: 44px 40px;
-  min-height: 560px;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  border: 1px solid var(--border);
-}
-
-.twin-panel-lounge {
-  background:
-    radial-gradient(circle at 85% 15%, color-mix(in srgb, var(--lounge-gold) 30%, transparent), transparent 55%),
-    linear-gradient(160deg, color-mix(in srgb, var(--lounge-gold) 16%, var(--surface)) 0%, var(--surface) 65%);
-}
-
-.twin-panel-init {
-  background:
-    radial-gradient(circle at 85% 15%, var(--glow), transparent 55%),
-    linear-gradient(160deg, var(--input-bg) 0%, var(--surface) 65%);
-}
-
-.twin-panel-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  align-self: flex-start;
-  padding: 6px 14px;
-  border-radius: 999px;
-  font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin-bottom: 22px;
-}
-.twin-panel-lounge .twin-panel-tag { background: color-mix(in srgb, var(--lounge-gold) 22%, transparent); color: var(--lounge-gold); }
-.twin-panel-init .twin-panel-tag { background: var(--glass-bg); color: var(--primary); border: 1px solid var(--glass-border); }
-
-.twin-panel h2 {
-  font-size: clamp(1.75rem, 3vw, 2.5rem);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
-  color: var(--text);
-  margin-bottom: 12px;
-  max-width: 380px;
-}
-
-.twin-panel p {
-  font-size: 1.0625rem;
-  color: var(--text-secondary);
-  max-width: 360px;
-  margin-bottom: 28px;
-}
-
-.twin-panel-cta { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: auto; }
-
-.twin-panel-mock {
-  align-self: flex-end;
-  margin-top: 24px;
-  transform: scale(0.82);
-  transform-origin: bottom right;
-}
-.twin-panel-mock .phone-frame { margin: 0; max-width: 230px; }
-
-@media (max-width: 900px) {
-  .twin-grid { grid-template-columns: 1fr; }
-  .twin-panel { min-height: 0; padding: 36px 28px; }
-  .twin-panel-mock { align-self: center; transform: scale(0.78); margin-top: 8px; }
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   Trust strip — compact, no scroll bloat
-═══════════════════════════════════════════════════════════════ */
-
-.trust-strip {
-  max-width: 1160px;
-  margin: 0 auto;
-  padding: 40px 24px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
-.trust-item {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 18px 20px;
-  border-radius: var(--radius-lg);
-  background: var(--card);
-  border: 1px solid var(--border);
-}
-
-.trust-item .trust-icon {
-  width: 40px; height: 40px;
-  border-radius: 10px;
-  background: var(--input-bg);
-  color: var(--primary);
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-}
-.trust-item .trust-icon svg { width: 20px; height: 20px; }
-
-.trust-item h4 { font-size: 0.9375rem; font-weight: 700; color: var(--text); margin-bottom: 2px; }
-.trust-item p { font-size: 0.8125rem; color: var(--text-secondary); }
-
-@media (max-width: 780px) {
-  .trust-strip { grid-template-columns: 1fr; padding: 12px 24px 40px; }
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   Sub-page hero (Lounge / Init landing pages)
+   Hero (homepage = Lounge, /init = Init core)
 ═══════════════════════════════════════════════════════════════ */
 
 .subhero {
