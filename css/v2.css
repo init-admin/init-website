@@ -2,9 +2,11 @@
    Init — v2 revamp layer
    Loaded after style.css. Overrides the base :root color tokens
    with the app's real palette, and adds app-accurate button
-   variants + compact hero/feature layout. Deliberately does NOT
-   reuse style.css's tri-tile / cat-card / hero-visual treatments —
-   those hardcode purple/coral/mint that never matched the app.
+   variants + a big/bold Bumble-inspired layout. No gradients, no
+   glass/blur — flat solid surfaces only. Gold is concentrated on
+   Lounge surfaces + the universal "Get the app" CTA, matching how
+   the real app scopes its flat-gold variant to Lounge and keeps
+   Init's own home-card CTA on the neutral Glass variant.
 ═══════════════════════════════════════════════════════════════ */
 
 /* Real app tokens (mobile/src/utils/useTheme.ts DARK_COLORS / LIGHT_COLORS) —
@@ -32,12 +34,14 @@
   --gold-text: #2D1A00;
 
   --glow: rgba(208, 176, 112, 0.20);
-  --grad-accent: linear-gradient(135deg, #E8C877 0%, #A88A3D 100%);
-  --grad-primary: linear-gradient(135deg, #E8C877 0%, #D0B070 50%, #A88A3D 100%);
   --overlay: rgba(0, 0, 0, 0.82);
 
-  --glass-bg: rgba(0, 0, 0, 0.06);
-  --glass-border: rgba(0, 0, 0, 0.06);
+  /* Home-screen card surfaces — matches app's glassCardBg / loungeCardBg
+     exactly. No blur: on a flat page background these are just tinted
+     solid fills, not a glass effect. */
+  --glass-card-bg: #FFFFFF;
+  --lounge-card-bg: rgba(208, 176, 112, 0.55);
+  --gold-section-bg: rgba(208, 176, 112, 0.10);
 }
 
 [data-theme="dark"] {
@@ -61,61 +65,67 @@
   --gold-text: #2D1A00;
 
   --glow: rgba(208, 176, 112, 0.30);
-  --grad-accent: linear-gradient(135deg, #E8C877 0%, #A88A3D 100%);
-  --grad-primary: linear-gradient(135deg, #E8C877 0%, #D0B070 50%, #A88A3D 100%);
   --overlay: rgba(0, 0, 0, 0.88);
 
-  --glass-bg: rgba(255, 255, 255, 0.14);
-  --glass-border: rgba(255, 255, 255, 0.15);
+  --glass-card-bg: rgba(255, 255, 255, 0.18);
+  --lounge-card-bg: rgba(208, 176, 112, 0.20);
+  --gold-section-bg: rgba(208, 176, 112, 0.08);
 }
 
-/* ── App-accurate buttons (mirrors mobile design-system.md) ── */
+/* ═══════════════════════════════════════════════════════════════
+   Navbar — bigger, bolder pills
+═══════════════════════════════════════════════════════════════ */
 
-.btn-gradient, .btn-glass-v2, .btn-flat-gold {
+.navbar { padding: 12px 16px 12px 24px; }
+.nav-links { gap: 40px; padding: 8px 26px; }
+.nav-links a { font-size: 1.0625rem; font-weight: 800; }
+.nav-logo { font-size: 2.5rem; }
+.nav-store-btn { padding: 10px 16px; font-size: 0.875rem; }
+
+/* ═══════════════════════════════════════════════════════════════
+   Buttons — flat only, no gradients
+═══════════════════════════════════════════════════════════════ */
+
+.btn-flat-gold, .btn-flat-dark, .btn-outline-v2 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 14px 26px;
-  border-radius: 12px;
-  font-size: 1rem;
-  font-weight: 700;
-  transition: transform 0.15s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+  padding: 18px 34px;
+  border-radius: 14px;
+  font-size: 1.125rem;
+  font-weight: 800;
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
   cursor: pointer;
   white-space: nowrap;
 }
 
-.btn-gradient {
-  background: var(--grad-primary);
-  color: var(--gold-text);
-  box-shadow: var(--shadow-md);
-}
-.btn-gradient:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
-
-.btn-glass-v2 {
-  background: var(--card);
-  border: 1.5px solid var(--border);
-  color: var(--text);
-}
-.btn-glass-v2:hover { transform: translateY(-2px); border-color: var(--text); }
-
 .btn-flat-gold {
   background: var(--lounge-gold);
   color: var(--gold-text);
-  box-shadow: var(--shadow-md);
 }
-.btn-flat-gold:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+.btn-flat-gold:hover { transform: translateY(-2px); }
+
+.btn-flat-dark {
+  background: var(--text);
+  color: var(--bg);
+}
+.btn-flat-dark:hover { transform: translateY(-2px); }
+
+.btn-outline-v2 {
+  background: transparent;
+  border: 2px solid var(--border);
+  color: var(--text);
+}
+.btn-outline-v2:hover { border-color: var(--text); transform: translateY(-2px); }
 
 /* ═══════════════════════════════════════════════════════════════
-   Hero (homepage = Lounge, /init = Init core)
-   Flat solid surface, no glass/gradient panel, no app screenshot —
-   big type carries it. Staggered load-in: eyebrow → h1 → lead → cta,
-   echoing the "wordmark lands first, content fills in" beat.
+   Hero — big, flat, no app screenshot. Staggered load-in.
 ═══════════════════════════════════════════════════════════════ */
 
 .subhero {
-  padding: 152px 24px 72px;
-  max-width: 880px;
+  padding: 168px 24px 80px;
+  max-width: 920px;
   margin: 0 auto;
   text-align: center;
 }
@@ -124,35 +134,35 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 6px 14px;
+  padding: 8px 18px;
   border-radius: 999px;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
   opacity: 0;
   animation: heroIn 0.6s ease forwards;
 }
-.subhero-lounge .subhero-eyebrow { background: color-mix(in srgb, var(--lounge-gold) 20%, transparent); color: var(--lounge-gold); }
-.subhero-init .subhero-eyebrow { background: var(--input-bg); color: var(--primary); border: 1px solid var(--border); }
+.subhero-lounge .subhero-eyebrow { background: var(--lounge-gold); color: var(--gold-text); }
+.subhero-init .subhero-eyebrow { background: var(--input-bg); color: var(--text); border: 2px solid var(--border); }
 
 .subhero h1 {
-  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-size: clamp(3.5rem, 8vw, 6.5rem);
   font-weight: 800;
   letter-spacing: -0.04em;
-  line-height: 0.98;
+  line-height: 0.96;
   color: var(--text);
-  margin-bottom: 24px;
+  margin-bottom: 28px;
   opacity: 0;
   animation: heroIn 0.6s ease 0.12s forwards;
 }
 
 .subhero p.lead {
-  font-size: 1.25rem;
+  font-size: 1.4375rem;
   color: var(--text-secondary);
-  max-width: 520px;
-  margin: 0 auto 36px;
+  max-width: 560px;
+  margin: 0 auto 40px;
   opacity: 0;
   animation: heroIn 0.6s ease 0.24s forwards;
 }
@@ -175,67 +185,60 @@
 }
 
 @media (max-width: 640px) {
-  .subhero { padding-top: 128px; }
+  .subhero { padding-top: 136px; }
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   How it works — 3-step strip
+   How it works — 3-step strip. Optional flat gold full-bleed band.
 ═══════════════════════════════════════════════════════════════ */
 
+.steps-band { padding: 56px 24px; }
+.steps-band.gold-band { background: var(--gold-section-bg); }
+
 .steps {
-  max-width: 1000px;
+  max-width: 1080px;
   margin: 0 auto;
-  padding: 0 24px 24px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
+  gap: 40px;
 }
 
-.step {
-  text-align: center;
-}
+.step { text-align: center; }
 .step-num {
-  width: 32px; height: 32px;
-  margin: 0 auto 14px;
+  width: 68px; height: 68px;
+  margin: 0 auto 20px;
   border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
-  font-size: 0.8125rem;
+  font-size: 1.75rem;
   font-weight: 800;
   color: var(--gold-text);
   background: var(--lounge-gold);
 }
-.subhero-init ~ .steps .step-num,
 .steps.s-init .step-num { background: var(--text); color: var(--bg); }
 
-.step h4 { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 6px; letter-spacing: -0.01em; }
-.step p { font-size: 0.875rem; color: var(--text-secondary); line-height: 1.5; }
+.step h4 { font-size: 1.375rem; font-weight: 800; color: var(--text); margin-bottom: 10px; letter-spacing: -0.01em; }
+.step p { font-size: 1.0625rem; color: var(--text-secondary); line-height: 1.55; }
 
 @media (max-width: 780px) {
-  .steps { grid-template-columns: 1fr; gap: 24px; }
+  .steps { grid-template-columns: 1fr; gap: 40px; }
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   USP cards — 3 headline cards, icon tile + heading + line.
-   Flat surfaces only (var(--card)); gold stays concentrated in the
-   icon tile, not spread across the card — matches how the app
-   actually uses gold as an accent, not a field color.
+   USP cards — big boxes, big type. Gold stays on the icon tile.
 ═══════════════════════════════════════════════════════════════ */
 
 .usp-grid {
-  max-width: 1160px;
+  max-width: 1240px;
   margin: 0 auto;
-  padding: 8px 24px 24px;
+  padding: 16px 24px 32px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 24px;
 }
 
-/* Stagger reuses the site's existing .reveal/.in scroll observer
-   (js/main.js) — cards/bullets should carry class="... reveal" in
-   markup. Only the per-item delay is added here. */
 .usp-card {
-  padding: 28px 24px;
-  border-radius: var(--radius-lg);
+  padding: 44px 36px;
+  border-radius: 24px;
   background: var(--card);
   border: 1px solid var(--border);
 }
@@ -243,81 +246,182 @@
 .usp-card:nth-child(3) { transition-delay: 0.2s; }
 
 .usp-card-art {
-  width: 56px; height: 56px;
-  border-radius: 14px;
+  width: 76px; height: 76px;
+  border-radius: 18px;
   display: flex; align-items: center; justify-content: center;
-  margin-bottom: 18px;
+  margin-bottom: 26px;
 }
-.usp-card-art svg { width: 26px; height: 26px; }
+.usp-card-art svg { width: 34px; height: 34px; }
 
 .usp-grid.u-lounge .usp-card-art { background: var(--lounge-gold); color: var(--gold-text); }
-.usp-grid.u-init .usp-card-art { background: var(--input-bg); color: var(--primary); border: 1px solid var(--border); }
+.usp-grid.u-init .usp-card-art { background: var(--input-bg); color: var(--text); border: 1px solid var(--border); }
 
-.usp-card h3 { font-size: 1.125rem; font-weight: 700; color: var(--text); margin-bottom: 8px; letter-spacing: -0.01em; }
-.usp-card p { font-size: 0.9375rem; color: var(--text-secondary); line-height: 1.55; }
+.usp-card h3 { font-size: 1.5rem; font-weight: 800; color: var(--text); margin-bottom: 12px; letter-spacing: -0.015em; }
+.usp-card p { font-size: 1.0625rem; color: var(--text-secondary); line-height: 1.6; }
 
 @media (max-width: 860px) {
   .usp-grid { grid-template-columns: 1fr; }
 }
 
-/* ── USP bullet strip — the remaining, quicker points ── */
+/* ── USP bullet strip ── */
 
 .usp-bullets {
-  max-width: 1000px;
+  max-width: 1080px;
   margin: 0 auto;
-  padding: 8px 24px 88px;
+  padding: 8px 24px 96px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px 32px;
+  gap: 20px 40px;
 }
 
 .usp-bullet {
   display: flex;
   align-items: flex-start;
-  gap: 10px;
-  font-size: 0.9375rem;
+  gap: 14px;
+  font-size: 1.125rem;
+  font-weight: 600;
   color: var(--text);
 }
 .usp-bullet:nth-child(2) { transition-delay: 0.06s; }
 .usp-bullet:nth-child(3) { transition-delay: 0.12s; }
 .usp-bullet:nth-child(4) { transition-delay: 0.18s; }
 
-.usp-bullet svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 1px; color: var(--lounge-gold); }
-.u-init .usp-bullet svg { color: var(--primary); }
+.usp-bullet svg { width: 24px; height: 24px; flex-shrink: 0; margin-top: 1px; color: var(--lounge-gold); }
+.u-init .usp-bullet svg { color: var(--text); }
 
 @media (max-width: 640px) {
-  .usp-bullets { grid-template-columns: 1fr; padding-bottom: 64px; }
+  .usp-bullets { grid-template-columns: 1fr; padding-bottom: 72px; }
 }
 
-/* ── Cross-link band (send to the other product's page) ── */
+/* ═══════════════════════════════════════════════════════════════
+   Home — dual big cards mirroring the app's own home screen.
+   Init: top-left, card first then content below.
+   Lounge: bottom-right (offset down), content first then card.
+═══════════════════════════════════════════════════════════════ */
 
-.crosslink {
-  max-width: 1160px;
-  margin: 0 auto 24px;
-  padding: 0 24px;
+.home-kicker {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 156px 24px 8px;
+  text-align: center;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--text-secondary);
 }
-.crosslink-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 20px 28px;
-  border-radius: var(--radius-lg);
+
+.home-cards {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 32px 24px 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+.home-col-lounge { padding-top: 120px; }
+
+.home-card {
+  padding: 48px 40px;
+  border-radius: 28px;
   border: 1px solid var(--border);
-  background: var(--surface);
 }
-.crosslink-inner p { font-size: 0.9375rem; color: var(--text-secondary); }
-.crosslink-inner strong { color: var(--text); }
-.crosslink-inner a {
+.home-col-init .home-card { background: var(--glass-card-bg); }
+.home-col-lounge .home-card { background: var(--lounge-card-bg); border-color: transparent; }
+
+.home-card-eyebrow {
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+.home-col-init .home-card-eyebrow { color: var(--text-secondary); }
+.home-col-lounge .home-card-eyebrow { color: var(--gold-text); opacity: 0.7; }
+
+.home-card h2 {
+  font-size: clamp(2rem, 3.4vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+.home-col-lounge .home-card h2 { color: var(--gold-text); }
+
+.home-card p {
+  font-size: 1.125rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+  margin-bottom: 28px;
+}
+.home-col-lounge .home-card p { color: color-mix(in srgb, var(--gold-text) 75%, transparent); }
+
+.home-card-cta {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  font-size: 0.9375rem;
-  font-weight: 700;
-  color: var(--primary);
-  flex-shrink: 0;
+  gap: 8px;
+  padding: 14px 24px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 800;
+}
+.home-col-init .home-card-cta { background: var(--card); border: 2px solid var(--border); color: var(--text); }
+.home-col-lounge .home-card-cta { background: var(--gold-text); color: var(--lounge-gold); }
+
+.home-bullets {
+  list-style: none;
+  padding: 28px 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.home-bullets li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.home-bullets svg { width: 22px; height: 22px; flex-shrink: 0; margin-top: 1px; }
+.home-col-init .home-bullets svg { color: var(--text-secondary); }
+.home-col-lounge .home-bullets svg { color: var(--lounge-gold); }
+
+.home-explore {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 12px 4px 0;
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+.home-explore svg { width: 22px; height: 22px; transition: transform 0.2s ease; }
+.home-explore:hover svg { transform: translateX(4px); }
+.home-col-lounge .home-explore { color: var(--lounge-heading); }
+
+@media (max-width: 900px) {
+  .home-cards { grid-template-columns: 1fr; gap: 48px; }
+  .home-col-lounge { padding-top: 0; }
 }
 
-@media (max-width: 640px) {
-  .crosslink-inner { flex-direction: column; align-items: flex-start; }
+/* ═══════════════════════════════════════════════════════════════
+   Cross-link — single line, no awkward wrap
+═══════════════════════════════════════════════════════════════ */
+
+.crosslink {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 8px 24px 80px;
+  text-align: center;
+}
+.crosslink a {
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
