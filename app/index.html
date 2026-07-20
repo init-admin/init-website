@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Init</title>
+</head>
+<body>
+<script>
+  (function () {
+    var ua = navigator.userAgent || navigator.vendor || '';
+    var url = 'https://initmatch.com';
+    if (/iPad|iPhone|iPod/.test(ua)) {
+      url = 'https://apps.apple.com/app/init/id6769866609';
+    } else if (/Android/i.test(ua)) {
+      url = 'https://play.google.com/store/apps/details?id=com.initapp';
+    }
+    window.location.replace(url);
+  })();
+</script>
+<noscript>
+  <p>Get Init: <a href="https://apps.apple.com/app/init/id6769866609">iOS App Store</a> &middot; <a href="https://play.google.com/store/apps/details?id=com.initapp">Google Play</a></p>
+</noscript>
+</body>
+</html>
