@@ -178,10 +178,6 @@ html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
    row's chip list is duplicated in the markup so translateX(-50%)
    loops seamlessly. */
 .vibe-marquee-wrap {
-  /* Wider than its own grid column on purpose — bleeds across the
-     gap and under the Lounge card's left edge, where z-index makes
-     the card physically occlude the chips ("vanish behind it")
-     instead of relying on a soft right-edge fade. */
   width: 100%;
   max-width: none;
   flex-shrink: 0;
@@ -189,18 +185,8 @@ html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
   display: flex;
   flex-direction: column;
   gap: 20px;
-  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 96%);
-  mask-image: linear-gradient(to right, transparent, black 10%, black 96%);
-}
-
-/* Default wrap bleeds rightward (card sits to its right, e.g. Init's
-   marquee at bottom-left). .bleed-left mirrors this for marquees whose
-   card sits to their LEFT instead (Lounge's marquee at top-right):
-   right-anchor the row so the overflow spills leftward into the card,
-   and reverse the mask so the fade lands on the far (right) edge. */
-.vibe-marquee-wrap.bleed-left {
-  -webkit-mask-image: linear-gradient(to right, black 4%, black 90%, transparent);
-  mask-image: linear-gradient(to right, black 4%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
 
 .vibe-marquee-row { display: flex; width: max-content; }
