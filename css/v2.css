@@ -162,25 +162,53 @@ html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
 .home-col-vibes { grid-column: 1; grid-row: 2; display: flex; align-items: center; }
 .home-col-lounge { text-align: right; grid-column: 2; grid-row: 2; }
 
-/* Vibe-tag cloud — fills the empty space beside the Lounge card with
-   example vibe-card phrases. Sized/weighted like a word cloud, but
-   kept to the app's actual palette (gold + neutral text tones) rather
-   than the rainbow colors in typical tag-cloud references — this app
-   has exactly one accent color. */
-.vibe-cloud {
+/* Vibe-tag marquee — fills the empty space beside the Lounge card with
+   example vibe-card phrases, auto-scrolling continuously (two rows,
+   opposite directions). A rotating 3D tag-cloud globe (WP-Cumulus
+   style) is a dated 2008-era pattern that would clash with the flat
+   modern look everywhere else on this page — a marquee gives the same
+   "always moving, different tags visible" effect without it. Kept to
+   the app's actual palette (gold + neutral chip) rather than rainbow
+   tag-cloud colors, since the app has exactly one accent color. Each
+   row's chip list is duplicated in the markup so translateX(-50%)
+   loops seamlessly. */
+.vibe-marquee-wrap {
+  width: 100%;
+  max-width: 520px;
+  overflow: hidden;
   display: flex;
-  flex-wrap: wrap;
-  align-content: center;
-  gap: 10px 18px;
-  max-width: 460px;
-  padding: 8px;
+  flex-direction: column;
+  gap: 20px;
+  -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
 }
-.vibe-tag { font-weight: 800; white-space: nowrap; }
-.vibe-tag.t1 { font-size: 1.75rem; color: var(--lounge-gold); }
-.vibe-tag.t2 { font-size: 1.1875rem; color: var(--text); }
-.vibe-tag.t3 { font-size: 1rem; color: var(--text-secondary); font-weight: 700; }
-.vibe-tag:nth-child(odd) { transform: rotate(-3deg); }
-.vibe-tag:nth-child(even) { transform: rotate(2deg); }
+
+.vibe-marquee-row { display: flex; width: max-content; }
+.vibe-marquee-row.dir-left { animation: vibeMarqueeLeft 22s linear infinite; }
+.vibe-marquee-row.dir-right { animation: vibeMarqueeRight 26s linear infinite; }
+
+@keyframes vibeMarqueeLeft { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes vibeMarqueeRight { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .vibe-marquee-row { animation: none; }
+}
+
+.vibe-chip {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 22px;
+  margin-right: 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.vibe-chip.gold { background: var(--lounge-gold); color: var(--gold-text); border-color: transparent; }
 
 @media (max-width: 900px) {
   .home-col-vibes { display: none; }
