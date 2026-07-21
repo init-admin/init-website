@@ -155,15 +155,17 @@ html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
   align-content: center;
 }
 
-/* Row placement (not a guessed pixel offset) guarantees the Lounge
-   card can never overlap the Init card: row 2 always starts after
-   row 1's content ends, whatever their actual heights turn out to be. */
-.home-col-init { text-align: left; grid-column: 1; grid-row: 1; }
-/* z-index below the Lounge card and overflow:visible so the marquee
-   can bleed rightward past its own column and be clipped by the card
-   sitting on top of it, instead of a plain edge-fade. */
+/* Row placement (not a guessed pixel offset) guarantees the two cards
+   can never overlap: each occupies its own row, whatever their actual
+   heights turn out to be. Lounge: top-left. Init: bottom-right. */
+.home-col-lounge { text-align: left; grid-column: 1; grid-row: 1; position: relative; z-index: 2; }
+.home-col-init { text-align: right; grid-column: 2; grid-row: 2; position: relative; z-index: 2; }
+
+/* z-index below their neighboring card and overflow:visible so each
+   marquee can bleed toward the card and be clipped by it sitting on
+   top, instead of a plain edge-fade. */
 .home-col-vibes { grid-column: 1; grid-row: 2; display: flex; align-items: center; position: relative; z-index: 1; overflow: visible; min-width: 0; }
-.home-col-lounge { text-align: right; grid-column: 2; grid-row: 2; position: relative; z-index: 2; }
+.home-col-lounge-vibes { grid-column: 2; grid-row: 1; display: flex; align-items: center; justify-content: flex-end; position: relative; z-index: 1; overflow: visible; min-width: 0; }
 
 /* Vibe-tag marquee — fills the empty space beside the Lounge card with
    example vibe-card phrases, auto-scrolling continuously (two rows,
@@ -189,6 +191,16 @@ html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
   gap: 20px;
   -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 96%);
   mask-image: linear-gradient(to right, transparent, black 10%, black 96%);
+}
+
+/* Default wrap bleeds rightward (card sits to its right, e.g. Init's
+   marquee at bottom-left). .bleed-left mirrors this for marquees whose
+   card sits to their LEFT instead (Lounge's marquee at top-right):
+   right-anchor the row so the overflow spills leftward into the card,
+   and reverse the mask so the fade lands on the far (right) edge. */
+.vibe-marquee-wrap.bleed-left {
+  -webkit-mask-image: linear-gradient(to right, black 4%, black 90%, transparent);
+  mask-image: linear-gradient(to right, black 4%, black 90%, transparent);
 }
 
 .vibe-marquee-row { display: flex; width: max-content; }
@@ -219,7 +231,7 @@ html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
 .vibe-chip.gold { background: var(--lounge-gold); color: var(--gold-text); border-color: transparent; }
 
 @media (max-width: 900px) {
-  .home-col-vibes { display: none; }
+  .home-col-vibes, .home-col-lounge-vibes { display: none; }
 }
 
 .home-card {
@@ -228,11 +240,10 @@ html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
   border: 1px solid var(--border);
   max-width: 500px;
 }
-.home-col-init .home-card { background: var(--glass-card-bg); }
+.home-col-init .home-card { background: var(--glass-card-bg); margin-left: auto; }
 .home-col-lounge .home-card {
   background: var(--lounge-card-bg);
   border-color: transparent;
-  margin-left: auto;
 }
 
 .home-card-eyebrow {
@@ -273,9 +284,9 @@ html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
 @media (max-width: 900px) {
   .home-cards { grid-template-columns: 1fr; gap: 32px; min-height: 0; }
   .home-col-init, .home-col-lounge { grid-column: 1; text-align: left; }
-  .home-col-init { grid-row: 1; }
-  .home-col-lounge { grid-row: 2; }
-  .home-col-lounge .home-card { max-width: 500px; margin-left: 0; }
+  .home-col-lounge { grid-row: 1; }
+  .home-col-init { grid-row: 2; }
+  .home-col-init .home-card { max-width: 500px; margin-left: 0; }
 }
 
 /* ═══════════════════════════════════════════════════════════════
