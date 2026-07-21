@@ -159,8 +159,11 @@ html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
    card can never overlap the Init card: row 2 always starts after
    row 1's content ends, whatever their actual heights turn out to be. */
 .home-col-init { text-align: left; grid-column: 1; grid-row: 1; }
-.home-col-vibes { grid-column: 1; grid-row: 2; display: flex; align-items: center; }
-.home-col-lounge { text-align: right; grid-column: 2; grid-row: 2; }
+/* z-index below the Lounge card and overflow:visible so the marquee
+   can bleed rightward past its own column and be clipped by the card
+   sitting on top of it, instead of a plain edge-fade. */
+.home-col-vibes { grid-column: 1; grid-row: 2; display: flex; align-items: center; position: relative; z-index: 1; overflow: visible; min-width: 0; }
+.home-col-lounge { text-align: right; grid-column: 2; grid-row: 2; position: relative; z-index: 2; }
 
 /* Vibe-tag marquee — fills the empty space beside the Lounge card with
    example vibe-card phrases, auto-scrolling continuously (two rows,
@@ -173,14 +176,19 @@ html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
    row's chip list is duplicated in the markup so translateX(-50%)
    loops seamlessly. */
 .vibe-marquee-wrap {
-  width: 100%;
-  max-width: 520px;
+  /* Wider than its own grid column on purpose — bleeds across the
+     gap and under the Lounge card's left edge, where z-index makes
+     the card physically occlude the chips ("vanish behind it")
+     instead of relying on a soft right-edge fade. */
+  width: 780px;
+  max-width: none;
+  flex-shrink: 0;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
-  mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 96%);
+  mask-image: linear-gradient(to right, transparent, black 10%, black 96%);
 }
 
 .vibe-marquee-row { display: flex; width: max-content; }
