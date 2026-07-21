@@ -182,7 +182,7 @@ html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
      gap and under the Lounge card's left edge, where z-index makes
      the card physically occlude the chips ("vanish behind it")
      instead of relying on a soft right-edge fade. */
-  width: 780px;
+  width: 100%;
   max-width: none;
   flex-shrink: 0;
   overflow: hidden;
