@@ -159,7 +159,32 @@ html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
    card can never overlap the Init card: row 2 always starts after
    row 1's content ends, whatever their actual heights turn out to be. */
 .home-col-init { text-align: left; grid-column: 1; grid-row: 1; }
+.home-col-vibes { grid-column: 1; grid-row: 2; display: flex; align-items: center; }
 .home-col-lounge { text-align: right; grid-column: 2; grid-row: 2; }
+
+/* Vibe-tag cloud — fills the empty space beside the Lounge card with
+   example vibe-card phrases. Sized/weighted like a word cloud, but
+   kept to the app's actual palette (gold + neutral text tones) rather
+   than the rainbow colors in typical tag-cloud references — this app
+   has exactly one accent color. */
+.vibe-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  gap: 10px 18px;
+  max-width: 460px;
+  padding: 8px;
+}
+.vibe-tag { font-weight: 800; white-space: nowrap; }
+.vibe-tag.t1 { font-size: 1.75rem; color: var(--lounge-gold); }
+.vibe-tag.t2 { font-size: 1.1875rem; color: var(--text); }
+.vibe-tag.t3 { font-size: 1rem; color: var(--text-secondary); font-weight: 700; }
+.vibe-tag:nth-child(odd) { transform: rotate(-3deg); }
+.vibe-tag:nth-child(even) { transform: rotate(2deg); }
+
+@media (max-width: 900px) {
+  .home-col-vibes { display: none; }
+}
 
 .home-card {
   padding: 40px 36px;
