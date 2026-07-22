@@ -19,7 +19,7 @@
   /* ── 1. Section view tracking ─────────────────────────── */
   // Fires once per section when it enters the viewport.
 
-  var SECTIONS = ['home', 'how', 'categories', 'lounge', 'download'];
+  var SECTIONS = ['lounge-landing', 'init-landing', 'download'];
   var sectionSeen = {};
 
   if ('IntersectionObserver' in window) {
