@@ -196,16 +196,15 @@ html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
   overflow: hidden;
   width: 597px;
   height: 335px;
-  /* Soften the canvas boundary itself — with positions now kept a
-     comfortable 6-8px inside every edge, nothing genuinely gets cut
-     off, but the hard overflow:hidden edge still reads as an abrupt
-     wall when a chip happens to sit close to it. A mask gradient
-     fades the last ~4% of each edge instead. */
-  -webkit-mask-image: linear-gradient(to right, transparent 0, black 4%, black 96%, transparent 100%),
-    linear-gradient(to bottom, transparent 0, black 4%, black 96%, transparent 100%);
+  /* Soften the canvas boundary itself, purely cosmetic — every
+     position in js/vibe-pills.js's POSITIONS pool now keeps a real
+     ~25px margin from every edge, comfortably clear of this 2% fade
+     band, so a chip is never seen partially shaded. */
+  -webkit-mask-image: linear-gradient(to right, transparent 0, black 2%, black 98%, transparent 100%),
+    linear-gradient(to bottom, transparent 0, black 2%, black 98%, transparent 100%);
   -webkit-mask-composite: source-in;
-  mask-image: linear-gradient(to right, transparent 0, black 4%, black 96%, transparent 100%),
-    linear-gradient(to bottom, transparent 0, black 4%, black 96%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0, black 2%, black 98%, transparent 100%),
+    linear-gradient(to bottom, transparent 0, black 2%, black 98%, transparent 100%);
   mask-composite: intersect;
 }
 
@@ -231,9 +230,9 @@ html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
   display: inline-flex;
   align-items: center;
   gap: 9px;
-  width: 190px;
+  width: 170px;
   box-sizing: border-box;
-  padding: 14px 18px;
+  padding: 14px 16px;
   border-radius: 26px;
   border: 1px solid var(--border);
   background: var(--card);
@@ -257,7 +256,7 @@ html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
 }
 
 /* Only 3 slots now (see js/vibe-pills.js), spread out enough on the
-   597x335 canvas to never overlap even at a fixed 190px chip width.
+   597x335 canvas to never overlap even at a fixed 170px chip width.
    The scale wrapper's own box shrinks to match so it never overflows
    its grid column at narrower desktop viewports; the field inside
    keeps its full-size 597x335 layout and is scaled down to fit, which

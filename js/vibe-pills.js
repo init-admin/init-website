@@ -60,19 +60,19 @@
   var FADE_MS = 1100;
   var ROTATE_INTERVAL_MS = 5000;
 
-  // 9 candidate spots on the 597x335 design canvas, a 3x3 grid (slight
-  // top jitter per row for an organic feel; left columns are exact,
-  // not jittered — see math below). Chip width is fixed at 190px;
-  // column starts of 1%/34%/67% put chip boxes at 6-196px / 203-393px
-  // / 400-590px, each ~7-8px clear of its neighbor and of the 597px
-  // canvas edge. (An earlier version used 69-70% for the last column,
-  // which put the chip's right edge 5-11px PAST the canvas boundary —
-  // clipped by .vibe-pill-scale-wrap's overflow:hidden. Any left value
-  // here must satisfy left% * 597 + 190 <= 597, i.e. left% <= 68.2%.)
+  // 9 candidate spots on the 597x335 design canvas, a 3x3 grid with
+  // real margin (~25px) from every edge — not just clear of the
+  // canvas boundary itself, but clear of .vibe-pill-scale-wrap's mask
+  // fade band too, so a chip is never seen partially shaded. Columns
+  // (chip width 170px): 4%/34%/65% → boxes at 24-190px / 203-373px /
+  // 388-558px (13-15px gaps, 24px/39px margin from the two edges).
+  // Rows (chip height up to ~85px for 2 wrapped lines): 7%/37%/64%
+  // (with ±2% jitter for an organic feel) → boxes roughly 23-108px /
+  // 124-209px / 214-299px, 25px+ margin from top/bottom.
   var POSITIONS = [
-    { top: '2%', left: '1%' }, { top: '4%', left: '34%' }, { top: '1%', left: '67%' },
-    { top: '37%', left: '1%' }, { top: '39%', left: '34%' }, { top: '36%', left: '67%' },
-    { top: '71%', left: '1%' }, { top: '69%', left: '34%' }, { top: '72%', left: '67%' },
+    { top: '7%', left: '4%' }, { top: '9%', left: '34%' }, { top: '6%', left: '65%' },
+    { top: '36%', left: '4%' }, { top: '38%', left: '34%' }, { top: '35%', left: '65%' },
+    { top: '64%', left: '4%' }, { top: '66%', left: '34%' }, { top: '63%', left: '65%' },
   ];
 
   function t(key) {
