@@ -51,19 +51,18 @@
 <body>
 
 <nav class="navbar" id="navbar">
-  <a href="/" class="nav-logo" aria-label="Init — home">
+  <a href="index.html" class="nav-logo" aria-label="Init — home">
     <svg class="nav-logo-icon" viewBox="60 90 300 230" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <path d="M98,103 L268,103 Q290,103 290,125 L290,230 Q290,252 268,252 L160,252 L118,290 L140,252 L98,252 Q76,252 76,230 L76,125 Q76,103 98,103 Z" stroke="#f72585" stroke-width="10" fill="none" opacity="0.85"/>
       <path d="M185,122 L322,122 Q344,122 344,144 L344,249 Q344,271 322,271 L300,271 L330,309 L270,271 L185,271 Q163,271 163,249 L163,144 Q163,122 185,122 Z" stroke="#4cc9f0" stroke-width="10" fill="none" opacity="0.85"/>
       <rect x="163" y="122" width="127" height="130" fill="#7209b7" fill-opacity="0.15"/>
       <path d="M195,195 L225,225 L270,165" stroke="#b740d4" stroke-width="16" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
-    Init
   </a>
 
   <ul class="nav-links">
-    <li><a href="/#how">How it works</a></li>
-    <li><a href="/#categories">Init is for</a></li>
+    <li><a href="index.html#init-landing" data-i18n="nav_init">Init</a></li>
+    <li><a href="index.html#lounge-landing" data-i18n="nav_lounge">Lounge</a></li>
   </ul>
 
   <div class="nav-controls">
@@ -77,12 +76,23 @@
       </svg>
     </button>
 
-    <a href="/#download" class="btn-nav-cta">
-      Download
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
-        <path d="M5 12h14M12 5l7 7-7 7"/>
-      </svg>
-    </a>
+    <div class="lang-selector" id="langSelector">
+      <button class="lang-btn" id="langBtn" aria-haspopup="listbox" aria-expanded="false" aria-label="Select language">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+        </svg>
+        <span id="langCurrent">EN</span>
+      </button>
+      <div class="lang-dropdown" id="langDropdown" hidden role="listbox" aria-label="Language"></div>
+    </div>
+
+    <div class="nav-store-btns">
+      <a href="https://play.google.com/store/apps/details?id=com.initapp" class="nav-store-btn" aria-label="Get it on Google Play" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.18 23.76c.39.22.84.27 1.27.14l12.04-6.95-2.76-2.76-10.55 9.57zM.29 1.27C.11 1.62 0 2.02 0 2.47v19.06c0 .45.1.85.29 1.2l.07.07 10.68-10.68v-.25L.36 1.2l-.07.07zM19.96 10.29L16.5 8.31 13.45 11.36l3.05 3.05 3.47-2c.99-.57.99-1.5-.01-2.12zM4.45.1L16.49 7.05l-2.76 2.76L3.18.24C3.58.1 4.05.16 4.45.1z"/></svg>
+        <span>Get it</span>
+      </a>
+    </div>
 
     <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -93,9 +103,8 @@
 </nav>
 
 <div class="mobile-nav" id="mobileNav">
-  <a href="/#how">How it works</a>
-  <a href="/#categories">Init is for</a>
-  <a href="/#download">Download</a>
+  <a href="index.html#init-landing" data-i18n="nav_init">Init</a>
+  <a href="index.html#lounge-landing" data-i18n="nav_lounge">Lounge</a>
 </div>
 
 <main class="legal-page">
@@ -260,5 +269,6 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script src="js/i18n.js"></script>
 </body>
 </html>
