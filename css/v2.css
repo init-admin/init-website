@@ -169,18 +169,21 @@ html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
 
 /* Vibe-tag pill field — fills the empty space beside each card with
    example vibe-card phrases (Lounge) / relationship moments (Init).
-   Exactly 3 fixed chip elements per field; js/vibe-pills.js rotates a
-   longer content list through them one at a time (fade out old text,
-   fade in new). A rotating 3D tag-cloud globe (WP-Cumulus style) is a
-   dated 2008-era pattern that would clash with the flat modern look
-   elsewhere on this page, and a continuous horizontal marquee read as
-   too busy/wide once tried — this gives the same "always something
-   moving" effect at a calm, capped pace: never more than 3 visible,
-   because only 3 elements exist.
-   Chips are absolutely positioned at hand-placed top/left PERCENTAGES
-   against a fixed 597x335 design canvas, spaced far enough apart
-   (different thirds of the canvas height) to never overlap even at
-   the fixed 190px chip width with 2 lines of wrapped text. Percentages
+   Exactly 3 chip elements per field; js/vibe-pills.js rotates a longer
+   content list through them one at a time (fade out old text, fade in
+   new) AND relocates each chip to a random spot from a 9-position
+   pool on every rotation — so it never reads as 3 static labels just
+   swapping text in place. A rotating 3D tag-cloud globe (WP-Cumulus
+   style) is a dated 2008-era pattern that would clash with the flat
+   modern look elsewhere on this page, and a continuous horizontal
+   marquee read as too busy/wide once tried — this gives the same
+   "always something moving" effect at a calm, capped pace: never more
+   than 3 visible, because only 3 elements exist, while still feeling
+   like a wider field thanks to the position variety.
+   Chip top/left values are set inline by JS, not here — see
+   POSITIONS in js/vibe-pills.js for the 9 hand-placed, pairwise
+   non-overlapping candidate spots on the fixed 597x335 design canvas
+   (any subset of 3 is automatically non-overlapping too). Percentages
    on an absolutely positioned child resolve against its OWN box, so if
    this field were 100% of its (fluid) grid column instead, the exact
    same percentages would resolve to smaller px positions at narrower

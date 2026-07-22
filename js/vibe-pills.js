@@ -1,12 +1,21 @@
 /* ═══════════════════════════════════════════════════════════════
    Init — home hero vibe-pill rotator
-   Each field (Lounge / Init) has exactly 3 fixed "slot" chips in the
-   DOM. This rotates a longer content list through those 3 slots one
-   at a time, fading the old phrase out and the new one in. Because
-   only 3 elements ever exist, the on-screen count can never exceed 3
-   — unlike the old design (one element per phrase, each on its own
+   Each field (Lounge / Init) has exactly 3 chip elements in the DOM.
+   This rotates a longer content list through those 3 elements one at
+   a time, fading the old phrase out and the new one in. Because only
+   3 elements ever exist, the on-screen count can never exceed 3 —
+   unlike the old design (one element per phrase, each on its own
    independent random CSS animation), where "never more than N at
    once" wasn't actually enforceable.
+
+   Each element's position is also picked at random from a pool of 9
+   candidate spots (POSITIONS) every time it rotates, rather than
+   living at one fixed spot forever — a fixed 1-slot-per-position
+   design reads as static (content just swaps in place); picking from
+   a wider pool keeps the "field of movement" feel the old many-pill
+   design had, while still only ever having 3 elements. The 9 spots
+   are hand-placed to never overlap each other pairwise, so any subset
+   of 3 chosen at once is automatically non-overlapping too.
 ═══════════════════════════════════════════════════════════════ */
 
 (function () {
@@ -26,6 +35,7 @@
     vibe_drinking_buddy: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8"/><path d="M12 17v4"/><path d="M5 3h14l-7 9-7-9Z"/></svg>',
     vibe_quick_run: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/></svg>',
     vibe_talk_cars: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 16H9m10 0h3v-3.15a1 1 0 0 0-.84-.99L16 11l-2.7-3.6a1 1 0 0 0-.8-.4H5.24a2 2 0 0 0-1.8 1.1l-.8 1.63A6 6 0 0 0 2 12.42V16h2"/><circle cx="6.5" cy="16.5" r="2.5"/><circle cx="16.5" cy="16.5" r="2.5"/></svg>',
+    vibe_talk_movies: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m2.5 7 19 0"/><path d="m6 3-2 4"/><path d="m11 3-2 4"/><path d="m16 3-2 4"/><path d="m21 3-2 4"/><rect x="2.5" y="7" width="19" height="14" rx="2"/></svg>',
     // Init
     vibe_something_unsaid: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>',
     vibe_want_hangout: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h10l-1.2 9.6a3.8 3.8 0 0 1-7.6 0Z"/><path d="M12 22v-7"/><path d="M8 22h8"/></svg>',
@@ -35,11 +45,22 @@
     vibe_thinking_propose: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 12L2 9Z"/><path d="M11 3 8 9l4 12 4-12-3-6"/><path d="M2 9h20"/></svg>',
   };
 
-  var LOUNGE_KEYS = ['vibe_gym_buddy', 'vibe_walk_dog', 'vibe_catchup_tech', 'vibe_ping_pong', 'vibe_beer_bbq', 'vibe_catchup_politics', 'vibe_chess', 'vibe_drinking_buddy', 'vibe_quick_run', 'vibe_talk_cars'];
+  var LOUNGE_KEYS = ['vibe_gym_buddy', 'vibe_walk_dog', 'vibe_catchup_tech', 'vibe_ping_pong', 'vibe_beer_bbq', 'vibe_catchup_politics', 'vibe_chess', 'vibe_drinking_buddy', 'vibe_quick_run', 'vibe_talk_cars', 'vibe_talk_movies'];
   var INIT_KEYS = ['vibe_something_unsaid', 'vibe_want_hangout', 'vibe_admired_colleague', 'vibe_gym_mate_unasked', 'vibe_do_they_like_you', 'vibe_thinking_propose'];
 
   var FADE_MS = 1100;
   var ROTATE_INTERVAL_MS = 5000;
+
+  // 9 candidate spots on the 597x335 design canvas, hand-placed as a
+  // 3x3 grid (with slight per-cell jitter) so any two never overlap —
+  // chip width is fixed at 190px (~32% of canvas width), and even a
+  // 2-line-wrapped chip stays under ~90px tall (~27% of canvas
+  // height), so 33%-spaced rows/columns leave enough margin.
+  var POSITIONS = [
+    { top: '2%', left: '1%' }, { top: '4%', left: '36%' }, { top: '1%', left: '69%' },
+    { top: '37%', left: '3%' }, { top: '39%', left: '38%' }, { top: '36%', left: '70%' },
+    { top: '71%', left: '2%' }, { top: '69%', left: '37%' }, { top: '72%', left: '69%' },
+  ];
 
   function t(key) {
     if (window.__i18n && typeof window.__i18n.t === 'function') return window.__i18n.t(key);
@@ -64,6 +85,7 @@
     var queue = shuffle(keys);
     var qi = 0;
     var currentKey = slots.map(function () { return null; });
+    var currentPos = slots.map(function () { return null; });
 
     function nextKey(excludeIdx) {
       var avoid = currentKey.filter(function (_, i) { return i !== excludeIdx; });
@@ -78,6 +100,12 @@
       return queue[0];
     }
 
+    function nextPos(excludeIdx) {
+      var avoid = currentPos.filter(function (_, i) { return i !== excludeIdx; });
+      var free = POSITIONS.map(function (_, i) { return i; }).filter(function (i) { return avoid.indexOf(i) === -1; });
+      return free[Math.floor(Math.random() * free.length)];
+    }
+
     function render(slot, key) {
       var iconEl = slot.querySelector('.vibe-chip-icon');
       var textEl = slot.querySelector('.vibe-chip-text');
@@ -85,28 +113,33 @@
       if (textEl) textEl.textContent = t(key);
     }
 
-    function reveal(idx, key) {
+    function reveal(idx, key, posIdx) {
       currentKey[idx] = key;
+      currentPos[idx] = posIdx;
+      var pos = POSITIONS[posIdx];
+      slots[idx].style.top = pos.top;
+      slots[idx].style.left = pos.left;
       render(slots[idx], key);
       if (REDUCED_MOTION) {
         slots[idx].classList.add('visible');
         return;
       }
-      // Force a style flush between rendering the new text and adding
-      // the class, so the opacity transition actually runs instead of
-      // jumping straight to the end state. A short setTimeout is used
-      // instead of double-rAF — rAF doesn't fire in a backgrounded tab,
-      // which would otherwise leave chips permanently invisible.
+      // Force a style flush between rendering the new text/position and
+      // adding the class, so the opacity transition actually runs
+      // instead of jumping straight to the end state. A short setTimeout
+      // is used instead of double-rAF — rAF doesn't fire in a
+      // backgrounded tab, which would otherwise leave chips permanently
+      // invisible.
       setTimeout(function () { slots[idx].classList.add('visible'); }, 20);
     }
 
     function cycle(idx) {
       slots[idx].classList.remove('visible');
-      setTimeout(function () { reveal(idx, nextKey(idx)); }, REDUCED_MOTION ? 0 : FADE_MS);
+      setTimeout(function () { reveal(idx, nextKey(idx), nextPos(idx)); }, REDUCED_MOTION ? 0 : FADE_MS);
     }
 
     slots.forEach(function (slot, idx) {
-      setTimeout(function () { reveal(idx, nextKey(idx)); }, REDUCED_MOTION ? 0 : idx * 900);
+      setTimeout(function () { reveal(idx, nextKey(idx), nextPos(idx)); }, REDUCED_MOTION ? 0 : idx * 900);
     });
 
     var timer = null;
