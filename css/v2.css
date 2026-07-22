@@ -168,28 +168,27 @@ html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
 .home-col-lounge-vibes { grid-column: 2; grid-row: 1; display: flex; align-items: center; justify-content: flex-end; position: relative; z-index: 1; overflow: visible; min-width: 0; }
 
 /* Vibe-tag pill field — fills the empty space beside each card with
-   example vibe-card phrases (Lounge) / interest categories (Init),
-   each pill fading in and out on its own staggered timer. A rotating
-   3D tag-cloud globe (WP-Cumulus style) is a dated 2008-era pattern
-   that would clash with the flat modern look everywhere else on this
-   page, and a continuous horizontal marquee read as too busy/wide
-   once tried — a field of pills that quietly appear and disappear
-   gives the same "always something moving" effect at a calmer pace.
-   Each pill keeps its box (opacity only, no layout shift) so nothing
-   reflows as they fade; animation-delay/duration is set per pill
-   inline so the whole field doesn't blink in sync.
-   Pills are absolutely positioned at hand-placed top/left PERCENTAGES,
-   but those percentages were computed against a fixed 597x332 design
-   canvas with fixed-px pill widths verified to never overlap or
-   overflow at that size. Percentages on an absolutely positioned
-   child resolve against its OWN box, so if this field were 100% of
-   its (fluid) grid column instead, the exact same percentages would
-   resolve to smaller px positions at narrower viewports while pill
-   widths stayed fixed — silently recreating overlaps. Fixing the
-   field's own size to the design canvas keeps that math constant;
-   .vibe-pill-scale below shrinks the whole fixed canvas uniformly to
-   fit narrower columns instead, which can never introduce a new
-   overlap since scaling preserves relative spacing. */
+   example vibe-card phrases (Lounge) / relationship moments (Init).
+   Exactly 3 fixed chip elements per field; js/vibe-pills.js rotates a
+   longer content list through them one at a time (fade out old text,
+   fade in new). A rotating 3D tag-cloud globe (WP-Cumulus style) is a
+   dated 2008-era pattern that would clash with the flat modern look
+   elsewhere on this page, and a continuous horizontal marquee read as
+   too busy/wide once tried — this gives the same "always something
+   moving" effect at a calm, capped pace: never more than 3 visible,
+   because only 3 elements exist.
+   Chips are absolutely positioned at hand-placed top/left PERCENTAGES
+   against a fixed 597x335 design canvas, spaced far enough apart
+   (different thirds of the canvas height) to never overlap even at
+   the fixed 190px chip width with 2 lines of wrapped text. Percentages
+   on an absolutely positioned child resolve against its OWN box, so if
+   this field were 100% of its (fluid) grid column instead, the exact
+   same percentages would resolve to smaller px positions at narrower
+   viewports while chip width stayed fixed — silently recreating
+   overlaps. Fixing the field's own size to the design canvas keeps
+   that math constant; .vibe-pill-scale below shrinks the whole fixed
+   canvas uniformly to fit narrower columns instead, which can never
+   introduce a new overlap since scaling preserves relative spacing. */
 .vibe-pill-scale-wrap {
   overflow: hidden;
   width: 597px;
@@ -202,47 +201,54 @@ html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
   height: 335px;
 }
 
+/* Exactly 3 fixed "slot" chips per field (see js/vibe-pills.js), each
+   rotating through a longer content list one at a time. This replaces
+   the old approach of one element per phrase with independent random
+   CSS animations — that made "never show more than N at once"
+   impossible to guarantee (N independent timers will always
+   occasionally coincide). With only 3 elements ever in the DOM, the
+   on-screen count is capped by construction, and the rotation pace is
+   controlled directly in JS instead of fought over in keyframe %s. */
 .vibe-chip {
   position: absolute;
   opacity: 0;
-  animation: vibePillFade 10s ease-in-out infinite;
+  transform: translateY(4px);
+  transition: opacity 1.1s ease, transform 1.1s ease;
   display: inline-flex;
   align-items: center;
   gap: 9px;
-  padding: 12px 22px;
-  border-radius: 999px;
+  width: 190px;
+  box-sizing: border-box;
+  padding: 14px 18px;
+  border-radius: 26px;
   border: 1px solid var(--border);
   background: var(--card);
   color: var(--text);
-  font-size: 1.0625rem;
+  font-size: 1rem;
   font-weight: 700;
-  white-space: nowrap;
+  line-height: 1.25;
+  white-space: normal;
 }
+.vibe-chip.visible { opacity: 1; transform: translateY(0); }
 .vibe-chip.gold { background: var(--lounge-gold); color: var(--gold-text); border-color: transparent; }
-.vibe-chip svg { width: 16px; height: 16px; flex-shrink: 0; }
+.vibe-chip-icon { width: 16px; height: 16px; flex-shrink: 0; }
+.vibe-chip-icon svg { width: 100%; height: 100%; }
 /* Init's field sits beside the Init card, not the Lounge card — its
    "gold" pills use the Init card's own surface instead of Lounge gold,
    so the accent colors stay tied to whichever card they're next to. */
 .home-col-vibes .vibe-chip.gold { background: var(--glass-card-bg); color: var(--text); border-color: var(--border); }
 
-@keyframes vibePillFade {
-  0%, 100% { opacity: 0; transform: translateY(4px); }
-  15%, 28% { opacity: 1; transform: translateY(0); }
-  46% { opacity: 0; }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .vibe-chip { opacity: 1; animation: none; }
+  .vibe-chip { transition: none; }
 }
 
-/* Pill positions/widths are hand-placed in px to guarantee zero
-   overlap on the 597x335 design canvas (verified: no two pills
-   intersect even with all of them forced visible at once). The scale
-   wrapper's own box shrinks to match so it never overflows its grid
-   column at narrower desktop viewports; the field inside keeps its
-   full-size 597x335 layout and is scaled down to fit, which preserves
-   the verified non-overlapping spacing exactly (just smaller) instead
-   of re-deriving new coordinates per breakpoint. */
+/* Only 3 slots now (see js/vibe-pills.js), spread out enough on the
+   597x335 canvas to never overlap even at a fixed 190px chip width.
+   The scale wrapper's own box shrinks to match so it never overflows
+   its grid column at narrower desktop viewports; the field inside
+   keeps its full-size 597x335 layout and is scaled down to fit, which
+   preserves the 3 slots' spacing exactly (just smaller) instead of
+   re-deriving new coordinates per breakpoint. */
 @media (min-width: 901px) and (max-width: 999px) {
   .vibe-pill-scale-wrap { width: 406px; height: 228px; }
   .vibe-pill-field { transform: scale(0.68); transform-origin: top left; }
