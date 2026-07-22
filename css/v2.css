@@ -191,6 +191,7 @@ html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
   animation: vibePillFade 10s ease-in-out infinite;
   display: inline-flex;
   align-items: center;
+  gap: 9px;
   padding: 12px 22px;
   border-radius: 999px;
   border: 1px solid var(--border);
@@ -201,6 +202,7 @@ html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
   white-space: nowrap;
 }
 .vibe-chip.gold { background: var(--lounge-gold); color: var(--gold-text); border-color: transparent; }
+.vibe-chip svg { width: 16px; height: 16px; flex-shrink: 0; }
 /* Init's field sits beside the Init card, not the Lounge card — its
    "gold" pills use the Init card's own surface instead of Lounge gold,
    so the accent colors stay tied to whichever card they're next to. */
