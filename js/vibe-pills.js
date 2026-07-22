@@ -21,6 +21,15 @@
 (function () {
   'use strict';
 
+  // Guard against two independent rotators ending up bound to the same
+  // 3 DOM elements (e.g. a bfcache restore re-running this script
+  // without a full reload) — that would show up as exactly the bug
+  // this file exists to prevent: two uncoordinated timers fighting
+  // over the same chips, producing overlapping text and stuck
+  // positions.
+  if (window.__vibePillsInit) return;
+  window.__vibePillsInit = true;
+
   var REDUCED_MOTION = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
 
   var ICON = {
