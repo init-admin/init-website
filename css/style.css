@@ -106,7 +106,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   left: 50%;
   transform: translateX(-50%);
   width: calc(100% - 32px);
-  max-width: 1160px;
+  max-width: 1240px;
   z-index: 100;
   padding: 10px 14px 10px 20px;
   display: flex;

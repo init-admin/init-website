@@ -143,7 +143,7 @@ html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
 ═══════════════════════════════════════════════════════════════ */
 
 .home-cards {
-  max-width: 1400px;
+  max-width: 1240px;
   margin: 0 auto;
   min-height: 100vh;
   box-sizing: border-box;
