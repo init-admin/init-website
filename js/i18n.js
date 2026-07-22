@@ -170,6 +170,12 @@
       vibe_apology_swallowed: 'the apology you kept swallowing',
       vibe_not_sure_mutual: 'not sure if they feel the same',
       vibe_lost_touch: 'someone you lost touch with',
+      vibe_coffee_no_bigdeal: 'grabbing coffee, no big deal',
+      vibe_picturing_forever: 'already picturing forever with them',
+      vibe_both_feel_unsaid: "both feel it, neither's said it",
+      vibe_cant_stop_thinking: "can't stop thinking about them",
+      vibe_working_up_ask_out: 'finally working up to ask them out',
+      vibe_apology_overdue: 'an apology three years overdue',
     },
 
     fr: {
@@ -315,6 +321,12 @@
       vibe_apology_swallowed: 'les excuses que vous avez ravalées',
       vibe_not_sure_mutual: 'pas sûr que ce soit réciproque',
       vibe_lost_touch: 'quelqu\'un que vous avez perdu de vue',
+      vibe_coffee_no_bigdeal: 'un café, sans se prendre la tête',
+      vibe_picturing_forever: 'vous imaginez déjà toute une vie ensemble',
+      vibe_both_feel_unsaid: 'les deux le ressentent, aucun ne l\'a dit',
+      vibe_cant_stop_thinking: 'impossible d\'arrêter d\'y penser',
+      vibe_working_up_ask_out: 'enfin le courage de l\'inviter',
+      vibe_apology_overdue: 'des excuses en retard de trois ans',
     },
 
     it: {
@@ -460,6 +472,12 @@
       vibe_apology_swallowed: 'le scuse che hai trattenuto',
       vibe_not_sure_mutual: 'non sei sicuro se prova lo stesso',
       vibe_lost_touch: 'qualcuno con cui hai perso i contatti',
+      vibe_coffee_no_bigdeal: 'un caffè, senza troppi pensieri',
+      vibe_picturing_forever: 'vi immaginate già insieme per sempre',
+      vibe_both_feel_unsaid: 'entrambi lo provano, nessuno l\'ha detto',
+      vibe_cant_stop_thinking: 'non riesci a smettere di pensarci',
+      vibe_working_up_ask_out: 'finalmente il coraggio di invitarla/o',
+      vibe_apology_overdue: 'delle scuse in ritardo di tre anni',
     },
 
     es: {
@@ -605,6 +623,12 @@
       vibe_apology_swallowed: 'la disculpa que te tragaste',
       vibe_not_sure_mutual: 'no estás seguro si siente lo mismo',
       vibe_lost_touch: 'alguien con quien perdiste contacto',
+      vibe_coffee_no_bigdeal: 'un café, sin darle muchas vueltas',
+      vibe_picturing_forever: 'ya te imaginas toda una vida juntos',
+      vibe_both_feel_unsaid: 'los dos lo sienten, ninguno lo ha dicho',
+      vibe_cant_stop_thinking: 'no puedes dejar de pensar en esa persona',
+      vibe_working_up_ask_out: 'por fin animándote a invitarla/o a salir',
+      vibe_apology_overdue: 'una disculpa con tres años de retraso',
     },
 
     hi: {
@@ -750,6 +774,12 @@
       vibe_apology_swallowed: 'वह माफ़ी जो आपने अंदर ही दबाए रखी',
       vibe_not_sure_mutual: 'पक्का नहीं कि उन्हें भी वैसा ही लगता है',
       vibe_lost_touch: 'कोई जिससे संपर्क टूट गया',
+      vibe_coffee_no_bigdeal: 'बस एक कॉफी, कोई बड़ी बात नहीं',
+      vibe_picturing_forever: 'पहले से ही साथ हमेशा के लिए सोच रहे हैं',
+      vibe_both_feel_unsaid: 'दोनों महसूस करते हैं, किसी ने कहा नहीं',
+      vibe_cant_stop_thinking: 'उनके बारे में सोचना बंद नहीं कर पाते',
+      vibe_working_up_ask_out: 'आखिरकार डेट पर पूछने की हिम्मत जुटा रहे हैं',
+      vibe_apology_overdue: 'तीन साल से बकाया एक माफ़ी',
     },
 
     zh: {
@@ -895,6 +925,12 @@
       vibe_apology_swallowed: '那句你一直咽下去的道歉',
       vibe_not_sure_mutual: '不确定对方是否也这么想',
       vibe_lost_touch: '一个你失联已久的人',
+      vibe_coffee_no_bigdeal: '就喝杯咖啡，别多想',
+      vibe_picturing_forever: '已经开始想象和对方的一辈子',
+      vibe_both_feel_unsaid: '两人都有感觉，谁都没说出口',
+      vibe_cant_stop_thinking: '满脑子都是那个人',
+      vibe_working_up_ask_out: '终于鼓起勇气想约对方',
+      vibe_apology_overdue: '一句迟到三年的道歉',
     },
 
     bn: {
@@ -1040,6 +1076,12 @@
       vibe_apology_swallowed: 'যে ক্ষমা চেপে রেখেছেন',
       vibe_not_sure_mutual: 'নিশ্চিত নন তারাও একই রকম অনুভব করে কিনা',
       vibe_lost_touch: 'যার সাথে যোগাযোগ হারিয়ে গেছে',
+      vibe_coffee_no_bigdeal: 'শুধু এক কাপ কফি, তেমন কিছু না',
+      vibe_picturing_forever: 'ইতিমধ্যে সারাজীবন একসাথে থাকার কথা ভাবছেন',
+      vibe_both_feel_unsaid: 'দুজনেই অনুভব করে, কেউ বলেনি',
+      vibe_cant_stop_thinking: 'তার কথা ভাবা থামাতে পারছেন না',
+      vibe_working_up_ask_out: 'অবশেষে ডেটে বলার সাহস জোগাড় করছেন',
+      vibe_apology_overdue: 'তিন বছরের বকেয়া একটা ক্ষমা',
     },
 
     te: {
@@ -1185,6 +1227,12 @@
       vibe_apology_swallowed: 'మీరు దాచిపెట్టుకున్న క్షమాపణ',
       vibe_not_sure_mutual: 'వారికీ అలాగే అనిపిస్తుందో లేదో ఖచ్చితంగా తెలియదు',
       vibe_lost_touch: 'సంపర్కం కోల్పోయిన వ్యక్తి',
+      vibe_coffee_no_bigdeal: 'ఒక కాఫీ, పెద్ద విషయం ఏం కాదు',
+      vibe_picturing_forever: 'ఇప్పటికే జీవితాంతం కలిసి ఉండాలని ఊహించుకుంటున్నారు',
+      vibe_both_feel_unsaid: 'ఇద్దరూ అనుభూతి చెందుతారు, ఎవరూ చెప్పలేదు',
+      vibe_cant_stop_thinking: 'వారి గురించి ఆలోచించడం ఆపలేకపోతున్నారు',
+      vibe_working_up_ask_out: 'చివరకు డేట్‌కి అడిగే ధైర్యం తెచ్చుకుంటున్నారు',
+      vibe_apology_overdue: 'మూడేళ్ల నుండి పెండింగ్‌లో ఉన్న క్షమాపణ',
     },
 
     mr: {
@@ -1330,6 +1378,12 @@
       vibe_apology_swallowed: 'जी माफी तुम्ही आत दाबून ठेवली',
       vibe_not_sure_mutual: 'त्यांनाही तसंच वाटतं की नाही खात्री नाही',
       vibe_lost_touch: 'ज्याच्याशी संपर्क तुटला अशी व्यक्ती',
+      vibe_coffee_no_bigdeal: 'फक्त एक कॉफी, फार मोठी गोष्ट नाही',
+      vibe_picturing_forever: 'आधीच आयुष्यभर सोबत राहण्याची कल्पना करत आहात',
+      vibe_both_feel_unsaid: 'दोघांनाही वाटतं, कुणीच बोललं नाही',
+      vibe_cant_stop_thinking: 'त्यांचा विचार करणं थांबवता येत नाही',
+      vibe_working_up_ask_out: 'अखेर डेटसाठी विचारण्याचं धाडस जमवत आहात',
+      vibe_apology_overdue: 'तीन वर्षांपासून थकलेली एक माफी',
     },
 
     ta: {
@@ -1475,6 +1529,12 @@
       vibe_apology_swallowed: 'நீங்கள் அடக்கி வைத்த மன்னிப்பு',
       vibe_not_sure_mutual: 'அவர்களுக்கும் அப்படித்தான் தோன்றுகிறதா என்று உறுதியில்லை',
       vibe_lost_touch: 'தொடர்பு இழந்த ஒருவர்',
+      vibe_coffee_no_bigdeal: 'ஒரு காபி, பெரிய விஷயம் இல்லை',
+      vibe_picturing_forever: 'ஏற்கனவே வாழ்நாள் முழுவதும் சேர்ந்திருப்பதை கற்பனை செய்கிறீர்கள்',
+      vibe_both_feel_unsaid: 'இருவரும் உணர்கிறார்கள், யாரும் சொல்லவில்லை',
+      vibe_cant_stop_thinking: 'அவர்களை பற்றி நினைப்பதை நிறுத்த முடியவில்லை',
+      vibe_working_up_ask_out: 'இறுதியாக டேட்டிற்கு கேட்க தைரியம் திரட்டுகிறீர்கள்',
+      vibe_apology_overdue: 'மூன்று ஆண்டுகளாக தாமதமான ஒரு மன்னிப்பு',
     },
 
     kn: {
@@ -1620,6 +1680,12 @@
       vibe_apology_swallowed: 'ನೀವು ಅದುಮಿಟ್ಟುಕೊಂಡ ಕ್ಷಮೆ',
       vibe_not_sure_mutual: 'ಅವರಿಗೂ ಹಾಗೆ ಅನಿಸುತ್ತದೆಯೋ ಎಂದು ಖಚಿತವಿಲ್ಲ',
       vibe_lost_touch: 'ಸಂಪರ್ಕ ಕಳೆದುಕೊಂಡ ಒಬ್ಬರು',
+      vibe_coffee_no_bigdeal: 'ಬರೀ ಒಂದು ಕಾಫಿ, ದೊಡ್ಡ ವಿಷಯ ಏನಿಲ್ಲ',
+      vibe_picturing_forever: 'ಈಗಾಗಲೇ ಜೀವನಪೂರ್ತಿ ಜೊತೆ ಇರುವುದನ್ನು ಊಹಿಸಿಕೊಳ್ಳುತ್ತಿದ್ದೀರಿ',
+      vibe_both_feel_unsaid: 'ಇಬ್ಬರೂ ಅನುಭವಿಸುತ್ತಾರೆ, ಯಾರೂ ಹೇಳಿಲ್ಲ',
+      vibe_cant_stop_thinking: 'ಅವರ ಬಗ್ಗೆ ಯೋಚಿಸುವುದನ್ನು ನಿಲ್ಲಿಸಲಾಗುತ್ತಿಲ್ಲ',
+      vibe_working_up_ask_out: 'ಕೊನೆಗೂ ಡೇಟ್‌ಗೆ ಕೇಳುವ ಧೈರ್ಯ ತಂದುಕೊಳ್ಳುತ್ತಿದ್ದೀರಿ',
+      vibe_apology_overdue: 'ಮೂರು ವರ್ಷಗಳಿಂದ ಬಾಕಿ ಇರುವ ಒಂದು ಕ್ಷಮೆ',
     },
   };
 
