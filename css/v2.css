@@ -196,6 +196,17 @@ html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
   overflow: hidden;
   width: 597px;
   height: 335px;
+  /* Soften the canvas boundary itself — with positions now kept a
+     comfortable 6-8px inside every edge, nothing genuinely gets cut
+     off, but the hard overflow:hidden edge still reads as an abrupt
+     wall when a chip happens to sit close to it. A mask gradient
+     fades the last ~4% of each edge instead. */
+  -webkit-mask-image: linear-gradient(to right, transparent 0, black 4%, black 96%, transparent 100%),
+    linear-gradient(to bottom, transparent 0, black 4%, black 96%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(to right, transparent 0, black 4%, black 96%, transparent 100%),
+    linear-gradient(to bottom, transparent 0, black 4%, black 96%, transparent 100%);
+  mask-composite: intersect;
 }
 
 .vibe-pill-field {
