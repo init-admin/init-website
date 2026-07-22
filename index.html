@@ -23,12 +23,12 @@
   <meta name="twitter:description" content="Express interest privately. They only find out if they feel it too." />
   <meta name="twitter:image" content="https://initmatch.com/images/og-image.png" />
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/v2.css" />
 
   <!-- Google Analytics (GA4) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-M2WR5MGKL1"></script>
@@ -41,35 +41,25 @@
 </head>
 <body>
 
-<!-- ══════════════════════════════════════════════
-     NAVBAR
-══════════════════════════════════════════════ -->
 <nav class="navbar" id="navbar">
-  <a href="#" class="nav-logo" aria-label="Init — home">
+  <a href="index.html" class="nav-logo" aria-label="Init — home">
     <svg class="nav-logo-icon" viewBox="60 90 300 230" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <path d="M98,103 L268,103 Q290,103 290,125 L290,230 Q290,252 268,252 L160,252 L118,290 L140,252 L98,252 Q76,252 76,230 L76,125 Q76,103 98,103 Z" stroke="#f72585" stroke-width="10" fill="none" opacity="0.85"/>
       <path d="M185,122 L322,122 Q344,122 344,144 L344,249 Q344,271 322,271 L300,271 L330,309 L270,271 L185,271 Q163,271 163,249 L163,144 Q163,122 185,122 Z" stroke="#4cc9f0" stroke-width="10" fill="none" opacity="0.85"/>
       <rect x="163" y="122" width="127" height="130" fill="#7209b7" fill-opacity="0.15"/>
       <path d="M195,195 L225,225 L270,165" stroke="#b740d4" stroke-width="16" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
-    Init
   </a>
 
   <ul class="nav-links">
-    <li><a href="#how" data-i18n="nav_how">How it works</a></li>
-    <li><a href="#categories" data-i18n="nav_for">Init is for</a></li>
-    <li><a href="#lounge" data-i18n="nav_lounge">Lounge</a><span class="nav-badge" data-i18n="nav_lounge_badge">New</span></li>
+    <li><a href="#init-landing" data-i18n="nav_init">Init</a></li>
+    <li><a href="#lounge-landing" data-i18n="nav_lounge">Lounge</a></li>
   </ul>
 
   <div class="nav-controls">
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-      <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-      </svg>
-      <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <circle cx="12" cy="12" r="4"/>
-        <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
-      </svg>
+      <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
     </button>
 
     <div class="lang-selector" id="langSelector">
@@ -85,502 +75,268 @@
 
     <div class="nav-store-btns">
       <a href="https://play.google.com/store/apps/details?id=com.initapp" class="nav-store-btn" aria-label="Get it on Google Play" target="_blank" rel="noopener">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M3.18 23.76c.39.22.84.27 1.27.14l12.04-6.95-2.76-2.76-10.55 9.57zM.29 1.27C.11 1.62 0 2.02 0 2.47v19.06c0 .45.1.85.29 1.2l.07.07 10.68-10.68v-.25L.36 1.2l-.07.07zM19.96 10.29L16.5 8.31 13.45 11.36l3.05 3.05 3.47-2c.99-.57.99-1.5-.01-2.12zM4.45.1L16.49 7.05l-2.76 2.76L3.18.24C3.58.1 4.05.16 4.45.1z"/>
-        </svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.18 23.76c.39.22.84.27 1.27.14l12.04-6.95-2.76-2.76-10.55 9.57zM.29 1.27C.11 1.62 0 2.02 0 2.47v19.06c0 .45.1.85.29 1.2l.07.07 10.68-10.68v-.25L.36 1.2l-.07.07zM19.96 10.29L16.5 8.31 13.45 11.36l3.05 3.05 3.47-2c.99-.57.99-1.5-.01-2.12zM4.45.1L16.49 7.05l-2.76 2.76L3.18.24C3.58.1 4.05.16 4.45.1z"/></svg>
         <span>Get it</span>
-      </a>
-      <a href="#" class="nav-store-btn" aria-label="Download on the App Store">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-        </svg>
-        <span>Soon</span>
       </a>
     </div>
 
     <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
-      </svg>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
     </button>
   </div>
 </nav>
 
 <div class="mobile-nav" id="mobileNav">
-  <a href="#how" data-i18n="nav_how">How it works</a>
-  <a href="#categories" data-i18n="nav_for">Init is for</a>
-  <a href="#lounge" class="mobile-nav-lounge"><span data-i18n="nav_lounge">Lounge</span><span class="nav-badge" data-i18n="nav_lounge_badge">New</span></a>
-  <a href="#download" data-i18n="nav_download">Download</a>
+  <a href="#init-landing" data-i18n="nav_init">Init</a>
+  <a href="#lounge-landing" data-i18n="nav_lounge">Lounge</a>
 </div>
 
 <!-- ══════════════════════════════════════════════
-     HERO
+     HOME TEASER — two minimal cards, no body copy.
+     Lounge: card top-left, its vibe-tag marquee top-right (bleeding
+     left, under the card). Init: card bottom-right, its own marquee
+     (six interest categories + phrases from the page's own copy)
+     bottom-left (bleeding right, under the card).
 ══════════════════════════════════════════════ -->
-<section class="hero hero-banner" id="home">
-  <div class="hero-slideshow hero-slideshow--web" aria-hidden="true">
-    <div class="slide active" style="background-image:url('images/slides-web/web-bg-1.jpeg')"></div>
-    <div class="slide" style="background-image:url('images/slides-web/web-bg-2.jpeg')"></div>
-    <div class="slide" style="background-image:url('images/slides-web/web-bg-3.jpeg')"></div>
-    <div class="slide" style="background-image:url('images/slides-web/web-bg-4.jpeg')"></div>
-    <div class="slide" style="background-image:url('images/slides-web/web-bg-5.jpeg')"></div>
-  </div>
-  <div class="hero-slideshow hero-slideshow--mobile" aria-hidden="true">
-    <div class="slide active" style="background-image:url('images/slides-mobile/mobile-bg-1.jpeg')"></div>
-    <div class="slide" style="background-image:url('images/slides-mobile/mobile-bg-2.jpeg')"></div>
-    <div class="slide" style="background-image:url('images/slides-mobile/mobile-bg-3.jpeg')"></div>
-    <div class="slide" style="background-image:url('images/slides-mobile/mobile-bg-4.jpeg')"></div>
-  </div>
-  <div class="hero-banner-overlay" aria-hidden="true"></div>
-  <div class="hero-banner-inner">
-    <div class="hero-eyebrow hero-eyebrow-light">
-      <span class="dot"></span>
-      <span data-i18n="hero_eyebrow">Mutual interest matching</span>
-    </div>
+<section class="home-cards">
 
-    <div class="hero-messages">
-      <div class="hero-message active">
-        <h1 class="hero-banner-title" data-i18n-html="hero_title">Find out if it's<br><span class="accent">mutual</span>.</h1>
-        <p class="hero-sub hero-sub-light" data-i18n="hero_sub">Private interest. Revealed only when it's mutual.</p>
-      </div>
-      <div class="hero-message">
-        <h1 class="hero-banner-title" data-i18n-html="hero_title_2">Your interest stays<br><span class="accent">completely private</span>.</h1>
-        <p class="hero-sub hero-sub-light" data-i18n="hero_sub_2">They only find out if they feel it too.</p>
-      </div>
-      <div class="hero-message">
-        <h1 class="hero-banner-title" data-i18n-html="hero_title_3">Someone you know.<br><span class="accent">Someone in the room</span>.</h1>
-        <p class="hero-sub hero-sub-light" data-i18n="hero_sub_3">Two ways to find out if it's mutual.</p>
-      </div>
-      <div class="hero-message">
-        <h1 class="hero-banner-title" data-i18n-html="hero_title_4">Doesn't create connections.<br><span class="accent">It reveals them</span>.</h1>
-        <p class="hero-sub hero-sub-light" data-i18n="hero_sub_4">The feeling was always there. Now you can find out.</p>
-      </div>
-      <div class="hero-message">
-        <h1 class="hero-banner-title" data-i18n-html="hero_title_5">Express it privately.<br><span class="accent">Find out together</span>.</h1>
-        <p class="hero-sub hero-sub-light" data-i18n="hero_sub_5">No awkward asks. Just a quiet yes — from both sides.</p>
-      </div>
-    </div>
-
-    <div class="hero-cta">
-      <a href="#download" class="btn-primary">
-        <span data-i18n="hero_cta_get">Get the app</span>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
-          <path d="M5 12h14M12 5l7 7-7 7"/>
-        </svg>
-      </a>
-      <a href="#how" class="btn-outline btn-outline-light" data-i18n="hero_cta_how">How it works</a>
-      <a href="#lounge" class="btn-outline btn-outline-light" data-i18n="hero_cta_lounge">Try the Lounge</a>
+  <div class="home-col-lounge">
+    <div class="home-card">
+      <span class="home-card-eyebrow" data-i18n="nav_lounge">Lounge</span>
+      <h2 data-i18n-html="home_hero_lounge_title">Some people<br>never get met.</h2>
+      <a href="#lounge-landing" class="home-card-cta" data-i18n="home_explore">Explore →</a>
     </div>
   </div>
-</section>
 
-
-<!-- ══════════════════════════════════════════════
-     MODULE — HOW IT WORKS
-══════════════════════════════════════════════ -->
-<section id="how" class="bg-surface">
-  <div class="module reveal">
-    <div class="module-visual">
-      <div class="phone-frame phone-frame--fold" aria-hidden="true">
-        <div class="phone-notch"></div>
-        <div class="phone-screen">
-          <div class="ei-header ei-header--v2">
-            <span class="ei-title ei-title--v2" data-i18n="mock_title">Express Interest</span>
-            <span class="ei-close" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
-          </div>
-          <p class="ei-subtitle ei-subtitle--v2" data-i18n="mock_subtitle">They only know if they feel it too.</p>
-          <div class="ei-section-row">
-            <span class="ei-section-label" data-i18n="mock_reach">Express interest to</span>
-          </div>
-          <div class="ei-method-input">
-            <span class="ei-dial"><span class="ei-flag">🇮🇳</span> +91</span>
-            <span class="ei-phone-num">•••• ••• •••</span>
-            <span class="ei-contact-pick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
-          </div>
-          <div class="ei-section-row">
-            <span class="ei-section-label" data-i18n="mock_feeling">Categories</span>
-          </div>
-          <div class="ei-catgrid">
-            <div class="ei-catbtn on-crush active">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3q1 4 4 6.5t3 5.5a1 1 0 0 1-14 0 5 5 0 0 1 1-3 1 1 0 0 0 5 0c0-2-1.5-3-1.5-5q0-2 2.5-4"/></svg>
-              <span data-i18n="cat_crush">Crush</span>
-            </div>
-            <div class="ei-catbtn on-hangout">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="m213.93 213.94-17.65 4.73-10.42-38.89a40.06 40.06 0 0 0 20.77-46.14c-12.6-47-38.78-88.22-39.89-89.95a8 8 0 0 0-8.68-3.45l-21.86 5.47c0-8.25-.18-13.43-.21-14.08a8 8 0 0 0-6.05-7.39l-32-8a8 8 0 0 0-8.68 3.45c-1.11 1.73-27.29 42.93-39.89 90a40.06 40.06 0 0 0 20.77 46.14l-10.42 38.84-17.65-4.73a8 8 0 0 0-4.14 15.46l48 12.86a8.2 8.2 0 0 0 2.07.27 8 8 0 0 0 2.07-15.73l-14.9-4 10.42-38.89c.81.05 1.61.08 2.41.08a40.12 40.12 0 0 0 37-24.88c1.18 6.37 2.6 12.82 4.31 19.22A40.08 40.08 0 0 0 168 184c.8 0 1.6 0 2.41-.08l10.42 38.89-14.9 4a8 8 0 0 0 2.07 15.72 8.2 8.2 0 0 0 2.07-.27l48-12.86a8 8 0 0 0-4.14-15.46M156.22 57.19c2.78 4.7 7.23 12.54 12.2 22.46L136 87.77c-.42-10-.38-18.25-.25-23.79 0-.56.05-1.12.08-1.68Zm-56.44-24 20.37 5.09c.06 4.28 0 10.67-.21 18.47-.06 1.21-.16 3.19-.23 5.84 0 1-.1 2-.16 3l-32.86-8.16C92 46.67 96.84 38.16 99.78 33.19m85.06 10.39a8 8 0 0 1 3.58-10.74l16-8a8 8 0 1 1 7.16 14.32l-16 8a8 8 0 0 1-10.74-3.58M232 72a8 8 0 0 1-8 8h-16a8 8 0 0 1 0-16h16a8 8 0 0 1 8 8M32.84 20.42a8 8 0 0 1 10.74-3.58l16 8a8 8 0 0 1-7.16 14.32l-16-8a8 8 0 0 1-3.58-10.74M40 72H24a8 8 0 0 1 0-16h16a8 8 0 0 1 0 16"/></svg>
-              <span data-i18n="cat_hangout">Hangout</span>
-            </div>
-            <div class="ei-catbtn on-date">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.127 22H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v5.125"/><path d="M14.62 18.8A2.25 2.25 0 1 1 18 15.836a2.25 2.25 0 1 1 3.38 2.966l-2.626 2.856a.998.998 0 0 1-1.507 0z"/><path d="M16 2v4"/><path d="M3 10h18"/><path d="M8 2v4"/></svg>
-              <span data-i18n="cat_date">Date</span>
-            </div>
-            <div class="ei-catbtn on-love">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"/><path d="M3.22 13H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"/></svg>
-              <span data-i18n="cat_love">Love</span>
-            </div>
-            <div class="ei-catbtn on-marriage">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 3 8 9l4 13 4-13-2.5-6"/><path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/></svg>
-              <span data-i18n="cat_marriage">Marriage</span>
-            </div>
-            <div class="ei-catbtn on-apology">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="m235.32 180-36.24-36.25-36.46-120.29A21.76 21.76 0 0 0 128 12.93a21.76 21.76 0 0 0-34.62 10.53l-36.46 120.3L20.68 180a16 16 0 0 0 0 22.62l32.69 32.69a16 16 0 0 0 22.63 0L124.28 187a41 41 0 0 0 3.72-4.29 41 41 0 0 0 3.72 4.29L180 235.32a16 16 0 0 0 22.63 0l32.69-32.69a16 16 0 0 0 0-22.63M120 158.75a23.85 23.85 0 0 1-7 17L88.68 200 56 167.32l13.65-13.66a8 8 0 0 0 2-3.34l37-122.22A5.78 5.78 0 0 1 120 29.78Zm47.44 41.38L143 175.72a23.85 23.85 0 0 1-7-17v-129a5.78 5.78 0 0 1 11.31-1.68l37 122.22a8 8 0 0 0 2 3.34l14.49 14.49Z"/></svg>
-              <span data-i18n="cat_apology">Apology</span>
-            </div>
-          </div>
-          <p class="ei-hint" data-i18n="cat_crush_story">A feeling you can't explain.</p>
-          <div class="ei-submit ei-submit--v2">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="13" height="13"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>
-            <span data-i18n="mock_send">Express →</span>
-          </div>
-        </div>
-      </div>
+  <div class="home-col-lounge-vibes">
+    <div class="vibe-pill-scale-wrap">
+    <div class="vibe-pill-field" aria-hidden="true">
+      <span class="vibe-chip" style="top:3.0%;left:2.5%;animation-delay:4.1s;animation-duration:11.4s">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        <span data-i18n="vibe_gym_buddy">Looking for a gym buddy</span>
+      </span>
+      <span class="vibe-chip gold" style="top:29.3%;left:67%;animation-delay:0.6s;animation-duration:9.7s">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><line x1="6" y1="2" x2="6" y2="4"/><line x1="10" y1="2" x2="10" y2="4"/><line x1="14" y1="2" x2="14" y2="4"/></svg>
+        <span data-i18n="vibe_coffee_chat">coffee chat</span>
+      </span>
+      <span class="vibe-chip" style="top:27.8%;left:9.2%;animation-delay:7.9s;animation-duration:12.8s">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+        <span data-i18n="vibe_cab_share">share a cab to the airport</span>
+      </span>
+      <span class="vibe-chip" style="top:54.0%;left:43.6%;animation-delay:2.4s;animation-duration:10.3s">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="0.8" fill="currentColor"/><circle cx="15.5" cy="8.5" r="0.8" fill="currentColor"/><circle cx="12" cy="12" r="0.8" fill="currentColor"/><circle cx="8.5" cy="15.5" r="0.8" fill="currentColor"/><circle cx="15.5" cy="15.5" r="0.8" fill="currentColor"/></svg>
+        <span data-i18n="vibe_chess">play chess?</span>
+      </span>
+      <span class="vibe-chip" style="top:52.5%;left:4.2%;animation-delay:9.2s;animation-duration:13.6s">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h14l-1.4 15.2a2 2 0 0 1-2 1.8H8.4a2 2 0 0 1-2-1.8Z"/><path d="M5.5 8h13"/></svg>
+        <span data-i18n="vibe_drinking_buddy">drinking buddy</span>
+      </span>
+      <span class="vibe-chip gold" style="top:4.5%;left:55.3%;animation-delay:5.5s;animation-duration:9.1s">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/></svg>
+        <span data-i18n="vibe_quick_run">quick run?</span>
+      </span>
     </div>
-
-    <div class="module-right">
-      <div class="module-text">
-        <p class="eyebrow" data-i18n="how_eyebrow">How it works</p>
-        <h2 data-i18n="how_title">Express what you feel.</h2>
-        <p data-i18n="how_body">Phone, email, username, or Instagram. Pick a category. Nothing shows until they feel it back.</p>
-        <a href="#categories" class="module-link">
-          <span data-i18n="how_link">See the categories</span>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-        </a>
-      </div>
-
-      <div class="journey">
-        <article class="journey-card step-1">
-          <div class="journey-text">
-            <div class="journey-text-header">
-              <span class="journey-step" data-i18n="step1_label">01 · Expressed</span>
-              <span class="journey-image-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="3" y="11" width="18" height="11" rx="2"/>
-                  <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-                </svg>
-              </span>
-            </div>
-            <h3 data-i18n="step1_title">Expressed. Now wait.</h3>
-            <p data-i18n="step1_body">They see the feeling. Not who. Not until it's mutual.</p>
-          </div>
-        </article>
-
-        <article class="journey-card step-2">
-          <div class="journey-text">
-            <div class="journey-text-header">
-              <span class="journey-step" data-i18n="step2_label">02 · Matched</span>
-              <span class="journey-image-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-                  <polyline points="9 12 11 14 15 10" stroke-width="2.2"/>
-                </svg>
-              </span>
-            </div>
-            <h3 data-i18n="step2_title">It's mutual. Take it forward.</h3>
-            <p data-i18n="step2_body">You both find out together. No asking first. Just a quiet yes — from both sides.</p>
-          </div>
-        </article>
-      </div>
     </div>
   </div>
+
+  <div class="home-col-vibes">
+    <div class="vibe-pill-scale-wrap">
+    <div class="vibe-pill-field" aria-hidden="true">
+      <span class="vibe-chip gold" style="top:1.5%;left:72%;animation-delay:3.4s;animation-duration:10.9s">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h10l-1.2 9.6a3.8 3.8 0 0 1-7.6 0Z"/><path d="M12 22v-7"/><path d="M8 22h8"/></svg>
+        <span data-i18n="cat_hangout">Hangout</span>
+      </span>
+      <span class="vibe-chip" style="top:1.5%;left:1.3%;animation-delay:8.1s;animation-duration:12.2s">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3q1 4 4 6.5t3 5.5a1 1 0 0 1-14 0 5 5 0 0 1 1-3 1 1 0 0 0 5 0c0-2-1.5-3-1.5-5q0-2 2.5-4"/></svg>
+        <span data-i18n="vibe_crush_unmentioned">the crush you never mentioned</span>
+      </span>
+      <span class="vibe-chip gold" style="top:20.9%;left:5.9%;animation-delay:0.9s;animation-duration:9.4s">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 12L2 9Z"/><path d="M11 3 8 9l4 12 4-12-3-6"/><path d="M2 9h20"/></svg>
+        <span data-i18n="cat_marriage">Marriage</span>
+      </span>
+      <span class="vibe-chip" style="top:20.9%;left:36.8%;animation-delay:6.6s;animation-duration:13.1s">
+        <svg viewBox="0 0 256 256" fill="currentColor"><path d="m235.32 180-36.24-36.25-36.46-120.29A21.76 21.76 0 0 0 128 12.93a21.76 21.76 0 0 0-34.62 10.53l-36.46 120.3L20.68 180a16 16 0 0 0 0 22.62l32.69 32.69a16 16 0 0 0 22.63 0L124.28 187a41 41 0 0 0 3.72-4.29 41 41 0 0 0 3.72 4.29L180 235.32a16 16 0 0 0 22.63 0l32.69-32.69a16 16 0 0 0 0-22.63M120 158.75a23.85 23.85 0 0 1-7 17L88.68 200 56 167.32l13.65-13.66a8 8 0 0 0 2-3.34l37-122.22A5.78 5.78 0 0 1 120 29.78Zm47.44 41.38L143 175.72a23.85 23.85 0 0 1-7-17v-129a5.78 5.78 0 0 1 11.31-1.68l37 122.22a8 8 0 0 0 2 3.34l14.49 14.49Z"/></svg>
+        <span data-i18n="vibe_apology_swallowed">the apology you kept swallowing</span>
+      </span>
+      <span class="vibe-chip gold" style="top:59.7%;left:79.4%;animation-delay:2.2s;animation-duration:10.6s">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"/></svg>
+        <span data-i18n="cat_love">Love</span>
+      </span>
+      <span class="vibe-chip gold" style="top:40.3%;left:10.1%;animation-delay:9.4s;animation-duration:11.7s">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3q1 4 4 6.5t3 5.5a1 1 0 0 1-14 0 5 5 0 0 1 1-3 1 1 0 0 0 5 0c0-2-1.5-3-1.5-5q0-2 2.5-4"/></svg>
+        <span data-i18n="cat_crush">Crush</span>
+      </span>
+      <span class="vibe-chip" style="top:40.3%;left:38.5%;animation-delay:1.6s;animation-duration:9.9s">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>
+        <span data-i18n="vibe_not_sure_mutual">not sure if they feel the same</span>
+      </span>
+      <span class="vibe-chip gold" style="top:59.7%;left:2.5%;animation-delay:7.3s;animation-duration:12.9s">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="M12 17.5c-2-1.2-3-2.2-3-3.5a1.5 1.5 0 0 1 3-.6 1.5 1.5 0 0 1 3 .6c0 1.3-1 2.3-3 3.5Z"/></svg>
+        <span data-i18n="cat_date">Date</span>
+      </span>
+      <span class="vibe-chip" style="top:59.7%;left:24.5%;animation-delay:4.8s;animation-duration:10.1s">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <span data-i18n="vibe_lost_touch">someone you lost touch with</span>
+      </span>
+      <span class="vibe-chip gold" style="top:79.1%;left:33.5%;animation-delay:5.9s;animation-duration:13.4s">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 2v4"/><path d="M9 5l2 2 2-2"/><path d="M7 22c0-5.2 2.2-9 5-9s5 3.8 5 9"/></svg>
+        <span data-i18n="cat_apology">Apology</span>
+      </span>
+    </div>
+    </div>
+  </div>
+
+  <div class="home-col-init">
+    <div class="home-card">
+      <span class="home-card-eyebrow" data-i18n="nav_init">Init</span>
+      <h2 data-i18n-html="home_hero_init_title">Some feelings<br>never get said.</h2>
+      <a href="#init-landing" class="home-card-cta" data-i18n="home_explore">Explore →</a>
+    </div>
+  </div>
+
 </section>
 
 <!-- ══════════════════════════════════════════════
-     CATEGORIES
+     LOUNGE LANDING — cards left, text right
 ══════════════════════════════════════════════ -->
-<section class="categories bg-tint" id="categories">
-  <div class="section-header reveal">
-    <p class="eyebrow" data-i18n="cat_eyebrow">Init is for</p>
-    <h2 data-i18n="cat_title">Every feeling you haven't said yet.</h2>
-  </div>
-
-  <div class="cat-grid reveal">
-    <article class="cat-card cat-crush">
-      <div class="cat-image">
-        <span class="cat-image-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 3q1 4 4 6.5t3 5.5a1 1 0 0 1-14 0 5 5 0 0 1 1-3 1 1 0 0 0 5 0c0-2-1.5-3-1.5-5q0-2 2.5-4"/>
-          </svg>
-        </span>
-        <div class="cat-overlay">
-          <h3 data-i18n="cat_crush">Crush</h3>
-          <p class="cat-story" data-i18n="cat_crush_story">A feeling you can't explain.</p>
-        </div>
+<section id="lounge-landing" class="landing-section alt-bg landing-lounge">
+  <div class="landing-split reverse">
+    <div class="showcase-stack">
+      <div class="showcase-card showcase-card--1">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        <span>Gym</span>
       </div>
-    </article>
-
-    <article class="cat-card cat-hangout">
-      <div class="cat-image">
-        <span class="cat-image-icon" aria-hidden="true">
-          <svg viewBox="0 0 256 256" fill="currentColor">
-            <path d="m213.93 213.94-17.65 4.73-10.42-38.89a40.06 40.06 0 0 0 20.77-46.14c-12.6-47-38.78-88.22-39.89-89.95a8 8 0 0 0-8.68-3.45l-21.86 5.47c0-8.25-.18-13.43-.21-14.08a8 8 0 0 0-6.05-7.39l-32-8a8 8 0 0 0-8.68 3.45c-1.11 1.73-27.29 42.93-39.89 90a40.06 40.06 0 0 0 20.77 46.14l-10.42 38.84-17.65-4.73a8 8 0 0 0-4.14 15.46l48 12.86a8.2 8.2 0 0 0 2.07.27 8 8 0 0 0 2.07-15.73l-14.9-4 10.42-38.89c.81.05 1.61.08 2.41.08a40.12 40.12 0 0 0 37-24.88c1.18 6.37 2.6 12.82 4.31 19.22A40.08 40.08 0 0 0 168 184c.8 0 1.6 0 2.41-.08l10.42 38.89-14.9 4a8 8 0 0 0 2.07 15.72 8.2 8.2 0 0 0 2.07-.27l48-12.86a8 8 0 0 0-4.14-15.46M156.22 57.19c2.78 4.7 7.23 12.54 12.2 22.46L136 87.77c-.42-10-.38-18.25-.25-23.79 0-.56.05-1.12.08-1.68Zm-56.44-24 20.37 5.09c.06 4.28 0 10.67-.21 18.47-.06 1.21-.16 3.19-.23 5.84 0 1-.1 2-.16 3l-32.86-8.16C92 46.67 96.84 38.16 99.78 33.19m85.06 10.39a8 8 0 0 1 3.58-10.74l16-8a8 8 0 1 1 7.16 14.32l-16 8a8 8 0 0 1-10.74-3.58M232 72a8 8 0 0 1-8 8h-16a8 8 0 0 1 0-16h16a8 8 0 0 1 8 8M32.84 20.42a8 8 0 0 1 10.74-3.58l16 8a8 8 0 0 1-7.16 14.32l-16-8a8 8 0 0 1-3.58-10.74M40 72H24a8 8 0 0 1 0-16h16a8 8 0 0 1 0 16"/>
-          </svg>
-        </span>
-        <div class="cat-overlay">
-          <h3 data-i18n="cat_hangout">Hangout</h3>
-          <p class="cat-story" data-i18n="cat_hangout_story">An ask you keep putting off.</p>
-        </div>
+      <div class="showcase-card showcase-card--2">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><line x1="6" y1="2" x2="6" y2="4"/><line x1="10" y1="2" x2="10" y2="4"/><line x1="14" y1="2" x2="14" y2="4"/></svg>
+        <span>Café</span>
       </div>
-    </article>
-
-    <article class="cat-card cat-love">
-      <div class="cat-image">
-        <span class="cat-image-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"/>
-            <path d="M3.22 13H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"/>
-          </svg>
-        </span>
-        <div class="cat-overlay">
-          <h3 data-i18n="cat_love">Love</h3>
-          <p class="cat-story" data-i18n="cat_love_story">Both feel it. Neither says it first.</p>
-        </div>
-      </div>
-    </article>
-
-    <article class="cat-card cat-date">
-      <div class="cat-image">
-        <span class="cat-image-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12.127 22H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v5.125"/>
-            <path d="M14.62 18.8A2.25 2.25 0 1 1 18 15.836a2.25 2.25 0 1 1 3.38 2.966l-2.626 2.856a.998.998 0 0 1-1.507 0z"/>
-            <path d="M16 2v4"/>
-            <path d="M3 10h18"/>
-            <path d="M8 2v4"/>
-          </svg>
-        </span>
-        <div class="cat-overlay">
-          <h3 data-i18n="cat_date">Date</h3>
-          <p class="cat-story" data-i18n="cat_date_story">A question you keep rehearsing.</p>
-        </div>
-      </div>
-    </article>
-
-    <article class="cat-card cat-marriage">
-      <div class="cat-image">
-        <span class="cat-image-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M10.5 3 8 9l4 13 4-13-2.5-6"/>
-            <path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/>
-            <path d="M2 9h20"/>
-          </svg>
-        </span>
-        <div class="cat-overlay">
-          <h3 data-i18n="cat_marriage">Marriage</h3>
-          <p class="cat-story" data-i18n="cat_marriage_story">A future you've pictured with them.</p>
-        </div>
-      </div>
-    </article>
-
-    <article class="cat-card cat-apology">
-      <div class="cat-image">
-        <span class="cat-image-icon" aria-hidden="true">
-          <svg viewBox="0 0 256 256" fill="currentColor">
-            <path d="m235.32 180-36.24-36.25-36.46-120.29A21.76 21.76 0 0 0 128 12.93a21.76 21.76 0 0 0-34.62 10.53l-36.46 120.3L20.68 180a16 16 0 0 0 0 22.62l32.69 32.69a16 16 0 0 0 22.63 0L124.28 187a41 41 0 0 0 3.72-4.29 41 41 0 0 0 3.72 4.29L180 235.32a16 16 0 0 0 22.63 0l32.69-32.69a16 16 0 0 0 0-22.63M120 158.75a23.85 23.85 0 0 1-7 17L88.68 200 56 167.32l13.65-13.66a8 8 0 0 0 2-3.34l37-122.22A5.78 5.78 0 0 1 120 29.78Zm47.44 41.38L143 175.72a23.85 23.85 0 0 1-7-17v-129a5.78 5.78 0 0 1 11.31-1.68l37 122.22a8 8 0 0 0 2 3.34l14.49 14.49Z"/>
-          </svg>
-        </span>
-        <div class="cat-overlay">
-          <h3 data-i18n="cat_apology">Apology</h3>
-          <p class="cat-story" data-i18n="cat_apology_story">Words left unsaid for too long.</p>
-        </div>
-      </div>
-    </article>
-  </div>
-</section>
-
-
-<!-- ══════════════════════════════════════════════
-     INIT LOUNGE
-══════════════════════════════════════════════ -->
-<section id="lounge" class="bg-deep">
-  <div class="module reverse reveal">
-    <div class="module-visual">
-      <div class="phone-frame phone-frame--fold" aria-hidden="true">
-        <div class="phone-notch"></div>
-        <div class="phone-screen lounge-mock">
-          <div class="lounge-mock-heronamerow">
-            <span class="lounge-mock-heroname">
-              <span data-i18n="mock_lounge_at">At </span><span data-i18n="mock_lounge_venue">Ember &amp; Oak</span>
-            </span>
-            <span class="lounge-mock-heroname-suffix" data-i18n="mock_lounge_suffix">Lounge</span>
-            <span class="lounge-mock-icon-btn lounge-mock-icon-btn--gold" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14l4-4h12a2 2 0 0 0 2-2v-1"/><path d="M16 3l3 3-3 3"/></svg>
-            </span>
-            <span class="lounge-mock-icon-btn lounge-mock-icon-btn--exit" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
-            </span>
-          </div>
-
-          <div class="lounge-mock-vibestrip">
-            <div class="lounge-mock-vibestrip-avatarcol">
-              <div class="lounge-mock-vibestrip-avatar" style="background-image: url('images/slides-web/web-bg-1.jpeg');"></div>
-              <span class="lounge-mock-vibestrip-edit" data-i18n="mock_lounge_tapedit">Tap to edit</span>
-            </div>
-            <span class="lounge-mock-vibestrip-text" data-i18n="mock_lounge_myvibe">Up for a game of pickleball</span>
-          </div>
-          <div class="lounge-mock-sep"></div>
-
-          <div class="lounge-mock-carousel-head">
-            <span data-i18n="mock_lounge_insights">Insights</span>
-            <span class="lounge-mock-carousel-timer">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              42:10
-            </span>
-            <span data-i18n="mock_lounge_swipe">Swipe →</span>
-          </div>
-
-          <div class="lounge-mock-carousel">
-            <div class="lounge-mock-peek lounge-mock-peek--left"></div>
-            <div class="lounge-mock-peek lounge-mock-peek--right"></div>
-            <div class="lounge-mock-vibecard">
-              <div class="lounge-mock-vibecard-photo" style="background-image: url('images/slides-web/web-bg-1.jpeg');"></div>
-              <div class="lounge-mock-vibecard-box">
-                <div class="lounge-mock-vibecard-left">
-                  <span class="lounge-mock-vibecard-meta" data-i18n="mock_lounge_meta">F, 25-30</span>
-                  <span class="lounge-mock-vibecard-desc" data-i18n="mock_lounge_vibe1">Need a gym workout buddy</span>
-                </div>
-                <span class="lounge-mock-vibe-btn">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/></svg>
-                  <span data-i18n="mock_lounge_vibecta">Vibe</span>
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <div class="lounge-mock-filters">
-            <div class="lounge-mock-filter active">
-              <span class="lounge-mock-filter-row">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                <span class="lounge-mock-filter-count">4</span>
-              </span>
-              <span class="lounge-mock-filter-label" data-i18n="mock_lounge_filter_all">All</span>
-              <span class="lounge-mock-filter-underline"></span>
-            </div>
-            <div class="lounge-mock-filter on-vibed">
-              <span class="lounge-mock-filter-row">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/></svg>
-                <span class="lounge-mock-filter-count">0</span>
-              </span>
-              <span class="lounge-mock-filter-label" data-i18n="mock_lounge_filter_vibed">Vibed</span>
-            </div>
-            <div class="lounge-mock-filter on-matched">
-              <span class="lounge-mock-filter-row">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></svg>
-                <span class="lounge-mock-filter-count">0</span>
-              </span>
-              <span class="lounge-mock-filter-label" data-i18n="mock_lounge_filter_matched">Matched</span>
-            </div>
-          </div>
-
-          <div class="lounge-mock-tabbar">
-            <div class="lounge-mock-tab active">
-              <span class="lounge-mock-tab-icon lounge-mock-tab-icon--gold">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 9V6a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v3"/><path d="M3 16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5a2 2 0 0 0-4 0v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V11a2 2 0 0 0-4 0z"/><path d="M5 18v2"/><path d="M19 18v2"/></svg>
-                <span class="lounge-mock-tab-badge"></span>
-              </span>
-              <span class="lounge-mock-tab-label" data-i18n="mock_lounge_tab_lounge">Lounge</span>
-            </div>
-            <div class="lounge-mock-tab">
-              <span class="lounge-mock-tab-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
-              </span>
-              <span class="lounge-mock-tab-label" data-i18n="mock_lounge_tab_init">Init</span>
-            </div>
-            <div class="lounge-mock-tab">
-              <span class="lounge-mock-tab-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"/></svg>
-              </span>
-              <span class="lounge-mock-tab-label" data-i18n="mock_lounge_tab_chats">Chats</span>
-            </div>
-          </div>
-        </div>
+      <div class="showcase-card showcase-card--3">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+        <span>Concert</span>
       </div>
     </div>
-
-    <div class="module-right">
-      <div class="module-text">
-        <p class="eyebrow lounge-eyebrow" data-i18n="lounge_eyebrow">Init Lounge</p>
-        <h2 data-i18n="lounge_title">Same room. Same vibe. No icebreaker.</h2>
-        <p data-i18n="lounge_subtitle">Start conversations with people around you — without the first-move hassle. If they vibe back, you both find out at the same time. If they don't, your interest stays private.</p>
-      </div>
+    <div class="landing-text">
+      <span class="landing-eyebrow" data-i18n="nav_lounge">Lounge</span>
+      <h1 data-i18n-html="ll_title">Same place. Same vibe.<br>No icebreaker.</h1>
+      <p class="lead" data-i18n="ll_lead">Saw someone across the room but couldn't connect?</p>
+      <a href="#download" class="btn-flat-gold" data-i18n="btn_get_app">Get the app →</a>
     </div>
   </div>
 
-  <div class="lounge-scenarios reveal">
-    <h3 class="lounge-scenarios-title" data-i18n="lounge_scenarios_title">We've all been there.</h3>
-    <div class="lounge-scenario-list">
-      <div class="lounge-scenario-item">
-        <span class="lounge-scenario-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h1a4 4 0 0 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8z"/><line x1="6" y1="2" x2="6" y2="4"/><line x1="10" y1="2" x2="10" y2="4"/><line x1="14" y1="2" x2="14" y2="4"/></svg>
-        </span>
-        <span data-i18n="lounge_s1">Bored at the pub and looking for a drink partner.</span>
-      </div>
-      <div class="lounge-scenario-item">
-        <span class="lounge-scenario-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        </span>
-        <span data-i18n="lounge_s2">Stuck at home in your apartment community, wishing you had a hangout buddy.</span>
-      </div>
-      <div class="lounge-scenario-item">
-        <span class="lounge-scenario-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M5 8h14M5 8a2 2 0 1 0 0 4h1M5 8V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v2"/><path d="M6 12v8a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-8"/></svg>
-        </span>
-        <span data-i18n="lounge_s3">Hunting for a workout buddy at the gym.</span>
-      </div>
-      <div class="lounge-scenario-item">
-        <span class="lounge-scenario-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2"/><path d="M8 2v20"/><path d="M16 2v20"/><path d="M2 8h20"/><path d="M2 16h20"/></svg>
-        </span>
-        <span data-i18n="lounge_s4">Need a fourth for your card game.</span>
-      </div>
-      <div class="lounge-scenario-item">
-        <span class="lounge-scenario-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
-        </span>
-        <span data-i18n="lounge_s5">Eyes locked across the room — and neither of you knows how to start.</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="lounge-steps reveal">
-    <div class="lounge-step">
-      <span class="lounge-step-num">01</span>
-      <div class="lounge-step-content">
+  <div class="steps-band">
+    <div class="steps s-lounge">
+      <div class="step">
+        <span class="step-num">1</span>
         <h4 data-i18n="lounge_step1_title">Check in</h4>
-        <p data-i18n="lounge_step1_body">Walk into a place, check in to the lounge. No setup, no profile to fill out.</p>
+        <p data-i18n="ll_step1_body">Arrive at a place, check in — no profile to build, just show up.</p>
       </div>
-    </div>
-    <div class="lounge-step">
-      <span class="lounge-step-num">02</span>
-      <div class="lounge-step-content">
+      <div class="step">
+        <span class="step-num">2</span>
         <h4 data-i18n="lounge_step2_title">Drop a vibe</h4>
-        <p data-i18n="lounge_step2_body">Write a short card about your mood or what you're open to. Choose whether your photo is visible.</p>
+        <p data-i18n="ll_step2_body">One line. A workout buddy, a debate partner, someone to split fries with.</p>
       </div>
-    </div>
-    <div class="lounge-step">
-      <span class="lounge-step-num">03</span>
-      <div class="lounge-step-content">
-        <h4 data-i18n="lounge_step3_title">Vibe back</h4>
-        <p data-i18n="lounge_step3_body">See others' cards, vibe on ones that resonate. If they vibe back — it's a match. Chat instantly.</p>
+      <div class="step">
+        <span class="step-num">3</span>
+        <h4 data-i18n="ll_step3_title">Match, live</h4>
+        <p data-i18n="ll_step3_body">Vibe back and it's mutual — chat opens right there.</p>
       </div>
     </div>
   </div>
 
-  <div class="lounge-safety reveal">
-    <div class="lounge-safety-items">
-      <div class="lounge-safety-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        <span data-i18n="lounge_safe1">Sessions auto-expire. No stale profiles, no lingering presence.</span>
+  <div class="usp-grid u-lounge">
+    <div class="usp-card reveal">
+      <span class="usp-card-art">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><circle cx="12" cy="12" r="6" opacity="0.55"/><circle cx="12" cy="12" r="10" opacity="0.3"/></svg>
+      </span>
+      <h3 data-i18n="ll_usp1_title">Real people, right now</h3>
+      <p data-i18n="ll_usp1_body">Everyone you see checked in moments back — no stale bios, no fake profiles.</p>
+    </div>
+    <div class="usp-card reveal">
+      <span class="usp-card-art">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      </span>
+      <h3 data-i18n="ll_usp2_title">You choose who sees you</h3>
+      <p data-i18n="ll_usp2_body">Show your photo to everyone, or only to people you vibe on.</p>
+    </div>
+    <div class="usp-card reveal">
+      <span class="usp-card-art">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </span>
+      <h3 data-i18n="ll_usp3_title">Any vibe, any place</h3>
+      <p data-i18n="ll_usp3_body">Tech talk, pickup basketball, a plant swap, unfiltered politics — vibe on anything, anywhere: gyms, cafés, campuses, concerts, your own building.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     INIT LANDING — text left, cards right
+══════════════════════════════════════════════ -->
+<section id="init-landing" class="landing-section landing-init">
+  <div class="landing-split">
+    <div class="landing-text">
+      <span class="landing-eyebrow" data-i18n="nav_init">Init</span>
+      <h1 data-i18n-html="il_title">Doesn't create connections.<br>It reveals them.</h1>
+      <p class="lead" data-i18n="il_lead">The feeling was always there. Now you can find out — privately, and only if it's mutual.</p>
+      <a href="#download" class="btn-flat-gold" data-i18n="btn_get_app">Get the app →</a>
+    </div>
+    <div class="showcase-stack">
+      <div class="showcase-card showcase-card--1">
+        <svg viewBox="0 0 256 256" fill="currentColor"><path d="m235.32 180-36.24-36.25-36.46-120.29A21.76 21.76 0 0 0 128 12.93a21.76 21.76 0 0 0-34.62 10.53l-36.46 120.3L20.68 180a16 16 0 0 0 0 22.62l32.69 32.69a16 16 0 0 0 22.63 0L124.28 187a41 41 0 0 0 3.72-4.29 41 41 0 0 0 3.72 4.29L180 235.32a16 16 0 0 0 22.63 0l32.69-32.69a16 16 0 0 0 0-22.63M120 158.75a23.85 23.85 0 0 1-7 17L88.68 200 56 167.32l13.65-13.66a8 8 0 0 0 2-3.34l37-122.22A5.78 5.78 0 0 1 120 29.78Zm47.44 41.38L143 175.72a23.85 23.85 0 0 1-7-17v-129a5.78 5.78 0 0 1 11.31-1.68l37 122.22a8 8 0 0 0 2 3.34l14.49 14.49Z"/></svg>
+        <span data-i18n="cat_apology">Apology</span>
       </div>
-      <div class="lounge-safety-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        <span data-i18n="lounge_safe2">Only people actually here are visible. Walk away and you're checked out.</span>
+      <div class="showcase-card showcase-card--2">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3q1 4 4 6.5t3 5.5a1 1 0 0 1-14 0 5 5 0 0 1 1-3 1 1 0 0 0 5 0c0-2-1.5-3-1.5-5q0-2 2.5-4"/></svg>
+        <span data-i18n="cat_crush">Crush</span>
       </div>
-      <div class="lounge-safety-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        <span data-i18n="lounge_safe3">Your vibe stays private until it's mutual. No public hints, no awkwardness.</span>
+      <div class="showcase-card showcase-card--3">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h10l-1.2 9.6a3.8 3.8 0 0 1-7.6 0Z"/><path d="M12 22v-7"/><path d="M8 22h8"/></svg>
+        <span data-i18n="cat_hangout">Hangout</span>
       </div>
     </div>
-    <p class="lounge-closer" data-i18n="lounge_closer">A lounge isn't a list of profiles. It's a room of people who are here right now.</p>
+  </div>
+
+  <div class="steps-band">
+    <div class="steps s-init">
+      <div class="step">
+        <span class="step-num">1</span>
+        <h4 data-i18n="il_step1_title">Pick someone</h4>
+        <p data-i18n="il_step1_body">Anyone you already know, by phone number — a crush, a friend, a colleague, someone you lost touch with.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">2</span>
+        <h4 data-i18n="il_step2_title">Express it, privately</h4>
+        <p data-i18n="il_step2_body">Six ways to say exactly what you mean, from Hangout to Marriage.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">3</span>
+        <h4 data-i18n="il_step3_title">Revealed only if mutual</h4>
+        <p data-i18n="il_step3_body">Both sides feel it, both find out. Otherwise, nothing happens — not even a hint.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="usp-grid u-init">
+    <div class="usp-card reveal">
+      <span class="usp-card-art">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H9l-5 4V6a2 2 0 0 1 2-2z"/></svg>
+      </span>
+      <h3 data-i18n="il_usp1_title">Say what you never could</h3>
+      <p data-i18n="il_usp1_body">The crush you never mentioned, a colleague you never asked out, an apology you never said. Init exists for exactly the feelings you're too scared to say out loud.</p>
+    </div>
+    <div class="usp-card reveal">
+      <span class="usp-card-art">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>
+      </span>
+      <h3 data-i18n="il_usp2_title">Zero risk, zero awkward</h3>
+      <p data-i18n="il_usp2_body">No rejection, no explaining yourself. You'll never know they didn't feel it — and neither will they.</p>
+    </div>
+    <div class="usp-card reveal">
+      <span class="usp-card-art">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/><line x1="4" y1="4" x2="20" y2="20"/></svg>
+      </span>
+      <h3 data-i18n="il_usp3_title">Not on anyone's radar</h3>
+      <p data-i18n="il_usp3_body">Init isn't a profile people browse. No swiping, no discovery feed — just you, quietly checking on the one connection you care about.</p>
+    </div>
   </div>
 </section>
 
@@ -593,28 +349,13 @@
     <p data-i18n="dl_body">iOS and Android. Beta access opening now.</p>
     <div class="store-buttons">
       <a href="https://play.google.com/store/apps/details?id=com.initapp" class="store-btn" aria-label="Get it on Google Play" target="_blank" rel="noopener">
-        <span class="store-btn-icon">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M3.18 23.76c.39.22.84.27 1.27.14l12.04-6.95-2.76-2.76-10.55 9.57zM.29 1.27C.11 1.62 0 2.02 0 2.47v19.06c0 .45.1.85.29 1.2l.07.07 10.68-10.68v-.25L.36 1.2l-.07.07zM19.96 10.29L16.5 8.31 13.45 11.36l3.05 3.05 3.47-2c.99-.57.99-1.5-.01-2.12zM4.45.1L16.49 7.05l-2.76 2.76L3.18.24C3.58.1 4.05.16 4.45.1z"/>
-          </svg>
-        </span>
-        <span class="store-btn-text">
-          <small>Get it on</small>
-          <strong>Google Play</strong>
-        </span>
+        <span class="store-btn-icon"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.18 23.76c.39.22.84.27 1.27.14l12.04-6.95-2.76-2.76-10.55 9.57zM.29 1.27C.11 1.62 0 2.02 0 2.47v19.06c0 .45.1.85.29 1.2l.07.07 10.68-10.68v-.25L.36 1.2l-.07.07zM19.96 10.29L16.5 8.31 13.45 11.36l3.05 3.05 3.47-2c.99-.57.99-1.5-.01-2.12zM4.45.1L16.49 7.05l-2.76 2.76L3.18.24C3.58.1 4.05.16 4.45.1z"/></svg></span>
+        <span class="store-btn-text"><small>Get it on</small><strong>Google Play</strong></span>
       </a>
-
       <a href="#" class="store-btn" aria-label="Download on the App Store">
         <span class="coming-soon-pill">Soon</span>
-        <span class="store-btn-icon">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-          </svg>
-        </span>
-        <span class="store-btn-text">
-          <small>Download on the</small>
-          <strong>App Store</strong>
-        </span>
+        <span class="store-btn-icon"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg></span>
+        <span class="store-btn-text"><small>Download on the</small><strong>App Store</strong></span>
       </a>
     </div>
   </div>
@@ -626,7 +367,7 @@
 <footer class="footer">
   <div class="footer-grid">
     <div class="footer-brand">
-      <a href="#" class="nav-logo">
+      <a href="index.html" class="nav-logo">
         <svg class="nav-logo-icon" viewBox="60 90 300 230" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <path d="M98,103 L268,103 Q290,103 290,125 L290,230 Q290,252 268,252 L160,252 L118,290 L140,252 L98,252 Q76,252 76,230 L76,125 Q76,103 98,103 Z" stroke="#f72585" stroke-width="10" fill="none" opacity="0.85"/>
           <path d="M185,122 L322,122 Q344,122 344,144 L344,249 Q344,271 322,271 L300,271 L330,309 L270,271 L185,271 Q163,271 163,249 L163,144 Q163,122 185,122 Z" stroke="#4cc9f0" stroke-width="10" fill="none" opacity="0.85"/>
@@ -635,28 +376,20 @@
         </svg>
         Init
       </a>
-      <p data-i18n="footer_tagline">Mutual interest matching. Private until it's mutual.</p>
+      <p data-i18n="home_footer_tagline">Some people never get met. Some feelings never get said.</p>
     </div>
-
     <div class="footer-col">
       <h4 data-i18n="footer_product">Product</h4>
       <ul>
-        <li><a href="#how" data-i18n="nav_how">How it works</a></li>
-        <li><a href="#categories" data-i18n="nav_for">Init is for</a></li>
-        <li><a href="#lounge" data-i18n="nav_lounge">Lounge</a></li>
+        <li><a href="#init-landing" data-i18n="nav_init">Init</a></li>
+        <li><a href="#lounge-landing" data-i18n="nav_lounge">Lounge</a></li>
         <li><a href="#download" data-i18n="nav_download">Download</a></li>
       </ul>
     </div>
-
     <div class="footer-col">
       <h4 data-i18n="footer_company">Company</h4>
-      <ul>
-        <li><a href="mailto:connect@initmatch.com" data-i18n="footer_contact">Contact</a></li>
-        <li><a href="mailto:connect@initmatch.com" data-i18n="footer_press">Press</a></li>
-        <li><a href="mailto:connect@initmatch.com" data-i18n="footer_careers">Careers</a></li>
-      </ul>
+      <ul><li><a href="mailto:connect@initmatch.com" data-i18n="footer_contact">Contact</a></li></ul>
     </div>
-
     <div class="footer-col">
       <h4 data-i18n="footer_legal">Legal</h4>
       <ul>
@@ -667,7 +400,6 @@
       </ul>
     </div>
   </div>
-
   <div class="footer-bottom">
     <p>&copy; 2026 Init. <span data-i18n="footer_rights">All rights reserved.</span></p>
     <a href="mailto:connect@initmatch.com">connect@initmatch.com</a>
