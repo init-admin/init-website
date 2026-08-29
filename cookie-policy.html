@@ -13,13 +13,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/v2.css" />
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M2WR5MGKL1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-M2WR5MGKL1', { send_page_view: true });
-  </script>
+  <!-- GA4 / Firebase Analytics — measurement ID + Consent Mode v2 live in js/ga.js -->
+  <script src="js/ga.js"></script>
   <style>
     .legal-page { max-width: 800px; margin: 0 auto; padding: 120px 24px 80px; }
     .legal-page h1 { font-size: 2rem; font-weight: 800; margin-bottom: 8px; color: var(--text); }
@@ -106,10 +101,10 @@
 
 <main class="legal-page">
   <h1>Cookie Policy</h1>
-  <p class="meta">Last Updated: April 3, 2026 &nbsp;·&nbsp; Effective Date: April 3, 2026</p>
+  <p class="meta">Last Updated: August 30, 2026 &nbsp;·&nbsp; Effective Date: August 30, 2026</p>
 
   <div class="highlight-box">
-    <p><strong>Short version:</strong> We do not use cookies. The Init app uses no cookies, tracking pixels, or advertising technologies. Our website uses only browser localStorage to remember your theme preference.</p>
+    <p><strong>Short version:</strong> The Init <strong>app</strong> uses no cookies, tracking pixels, or advertising technologies. This <strong>website</strong> uses browser localStorage to remember your theme preference, and — <strong>only if you accept the consent banner</strong> — Google Analytics cookies to measure how the site is used. No advertising trackers, ever.</p>
   </div>
 
   <hr class="section-divider" />
@@ -131,9 +126,11 @@
 
   <hr class="section-divider" />
 
-  <h2>3. This Website (initmatch.com) — localStorage Only</h2>
-  <p>Our marketing website at <strong>initmatch.com</strong> does not set any cookies. However, it does use <strong>browser localStorage</strong> — a similar technology that stores small pieces of data in your browser, but is never transmitted to our servers and has no expiry date beyond when you manually clear your browser data.</p>
-  <p>We use localStorage for one purpose only:</p>
+  <h2>3. This Website (initmatch.com)</h2>
+
+  <h3>3.1 Browser localStorage — Theme Preference</h3>
+  <p>Our marketing website at <strong>initmatch.com</strong> uses <strong>browser localStorage</strong> — a technology that stores small pieces of data in your browser, is never transmitted to our servers, and has no expiry date beyond when you manually clear your browser data.</p>
+  <p>We use localStorage for two purposes:</p>
 
   <table class="data-table">
     <thead>
@@ -151,21 +148,63 @@
         <td>One of: <code>light</code>, <code>dark</code></td>
         <td>No</td>
       </tr>
+      <tr>
+        <td><code>analytics_consent</code></td>
+        <td>Remember your choice on the analytics consent banner</td>
+        <td>One of: <code>granted</code>, <code>denied</code></td>
+        <td>No</td>
+      </tr>
     </tbody>
   </table>
 
   <p>This data is stored locally on your device only. It is never shared with us, never used for tracking, and never combined with any other data about you.</p>
 
+  <h3>3.2 Google Analytics — Only With Your Consent</h3>
+  <p>We use <strong>Google Analytics 4</strong> (part of Google Firebase) to understand aggregate website usage — which pages are visited, rough traffic volume, referral sources, and broad device/region breakdowns. It helps us decide what to improve on the site.</p>
+  <p>When you first visit, Google Analytics runs in a <strong>consent-denied</strong> state: it sets <strong>no cookies</strong> and sends only cookieless, non-identifying pings. A banner asks whether you accept analytics cookies:</p>
+  <ul>
+    <li><strong>If you accept</strong>, Google Analytics sets the cookies below to distinguish sessions and returning visitors. Your IP address is anonymised before storage.</li>
+    <li><strong>If you decline</strong> (or ignore the banner), no analytics cookies are ever set.</li>
+  </ul>
+  <p>You can change your mind at any time by clearing site data (see section 5), which brings the banner back on your next visit. You can also opt out of Google Analytics across all sites with the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics Opt-out Browser Add-on</a>.</p>
+
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Cookie</th>
+        <th>Purpose</th>
+        <th>Duration</th>
+        <th>Set When?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>_ga</code></td>
+        <td>Distinguishes individual visitors</td>
+        <td>2 years</td>
+        <td>Only after you accept</td>
+      </tr>
+      <tr>
+        <td><code>_ga_&lt;container-id&gt;</code></td>
+        <td>Persists session state for Google Analytics 4</td>
+        <td>2 years</td>
+        <td>Only after you accept</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>We do not use Google Analytics for advertising, remarketing, or Google Signals. We do not sell or share this data. See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a> for how Google processes it.</p>
+
   <hr class="section-divider" />
 
-  <h2>4. Third-Party Cookies</h2>
-  <p>We do not load any third-party scripts, fonts served via third-party CDNs that set cookies, advertising networks, or social media widgets on this website.</p>
+  <h2>4. Other Third-Party Content</h2>
+  <p>Aside from Google Analytics (section 3.2), this website loads no advertising networks, social media widgets, or other third-party trackers.</p>
   <p>We do load fonts from <strong>Google Fonts</strong> via a stylesheet link. Google Fonts does not set cookies and does not track individual users. See <a href="https://developers.google.com/fonts/faq/privacy" target="_blank" rel="noopener">Google Fonts Privacy FAQ</a> for details.</p>
 
   <hr class="section-divider" />
 
-  <h2>5. How to Clear localStorage</h2>
-  <p>If you wish to clear the theme preference stored by our website, you can do so through your browser settings:</p>
+  <h2>5. How to Clear This Data</h2>
+  <p>To clear the localStorage values and any Google Analytics cookies set by our website, use your browser settings:</p>
   <ul>
     <li><strong>Chrome / Edge:</strong> Settings → Privacy and security → Clear browsing data → Cached images and files / Site data</li>
     <li><strong>Firefox:</strong> Settings → Privacy &amp; Security → Cookies and Site Data → Clear Data</li>
@@ -176,7 +215,7 @@
   <hr class="section-divider" />
 
   <h2>6. Changes to This Policy</h2>
-  <p>If we ever introduce cookies or additional tracking technologies, we will update this policy and notify App users via an in-app notification before doing so. We are committed to not introducing advertising trackers or third-party analytics without clear disclosure.</p>
+  <p>If we change how this website uses cookies or analytics, we will update this policy and its "Last Updated" date. If we ever add a new category of tracking, we will ask for your consent before it runs. We remain committed to never introducing advertising trackers or selling analytics data.</p>
 
   <hr class="section-divider" />
 
@@ -236,5 +275,6 @@
 
 <script src="js/main.js"></script>
 <script src="js/i18n.js"></script>
+<script src="js/consent.js"></script>
 </body>
 </html>

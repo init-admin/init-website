@@ -31,14 +31,8 @@
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/v2.css" />
 
-  <!-- Google Analytics (GA4) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M2WR5MGKL1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-M2WR5MGKL1', { send_page_view: true });
-  </script>
+  <!-- GA4 / Firebase Analytics — measurement ID + Consent Mode v2 live in js/ga.js -->
+  <script src="js/ga.js"></script>
 </head>
 <body>
 
@@ -393,5 +387,6 @@
 <script src="js/i18n.js?v=2"></script>
 <script src="js/vibe-pills.js?v=2"></script>
 <script src="js/analytics.js?v=2"></script>
+<script src="js/consent.js"></script>
 </body>
 </html>
