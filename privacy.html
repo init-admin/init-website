@@ -4,22 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Privacy Policy — Init</title>
-  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png?v=2" />
-  <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192.png?v=2" />
-  <link rel="apple-touch-icon" href="images/favicon-192.png?v=2" />
-  <meta name="description" content="Privacy Policy for the Init mutual interest matching app." />
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png?v=3" />
+  <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192.png?v=3" />
+  <link rel="apple-touch-icon" href="images/favicon-192.png?v=3" />
+  <meta name="description" content="Privacy Policy for the Init app — a location-based social app. How Init Lounge uses location, vibe cards, and matching data." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/v2.css" />
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M2WR5MGKL1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-M2WR5MGKL1', { send_page_view: true });
-  </script>
+  <!-- GA4 / Firebase Analytics — measurement ID + Consent Mode v2 live in js/ga.js -->
+  <script src="js/ga.js"></script>
   <style>
     .legal-page { max-width: 800px; margin: 0 auto; padding: 120px 24px 80px; }
     .legal-page h1 { font-size: 2rem; font-weight: 800; margin-bottom: 8px; color: var(--text); }
@@ -56,17 +51,12 @@
 
 <nav class="navbar" id="navbar">
   <a href="index.html" class="nav-logo" aria-label="Init — home">
-    <svg class="nav-logo-icon" viewBox="60 90 300 230" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <path d="M98,103 L268,103 Q290,103 290,125 L290,230 Q290,252 268,252 L160,252 L118,290 L140,252 L98,252 Q76,252 76,230 L76,125 Q76,103 98,103 Z" stroke="#f72585" stroke-width="10" fill="none" opacity="0.85"/>
-      <path d="M185,122 L322,122 Q344,122 344,144 L344,249 Q344,271 322,271 L300,271 L330,309 L270,271 L185,271 Q163,271 163,249 L163,144 Q163,122 185,122 Z" stroke="#4cc9f0" stroke-width="10" fill="none" opacity="0.85"/>
-      <rect x="163" y="122" width="127" height="130" fill="#7209b7" fill-opacity="0.15"/>
-      <path d="M195,195 L225,225 L270,165" stroke="#b740d4" stroke-width="16" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
+    <svg class="nav-logo-icon" viewBox="60 68 300 280" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M185,142 L322,142 Q344,142 344,164 L344,269 Q344,291 322,291 L300,291 L330,329 L270,291 L185,291 Q163,291 163,269 L163,164 Q163,142 185,142 Z" fill="none" stroke="#FFD200" stroke-width="14"/><path d="M98,83 L268,83 Q290,83 290,105 L290,210 Q290,232 268,232 L160,232 L118,270 L140,232 L98,232 Q76,232 76,210 L76,105 Q76,83 98,83 Z" fill="none" stroke="#FFD200" stroke-width="14"/><path d="M163,142 L290,142 L290,232 L163,232 Z" fill="#FFD200" fill-opacity="0.15"/><path d="M207.25,195 L226.75,214.5 L256,175.5" fill="none" stroke="#FFD200" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/></svg>
   </a>
 
   <ul class="nav-links">
-    <li><a href="index.html#init-landing" data-i18n="nav_init">Init</a></li>
-    <li><a href="index.html#lounge-landing" data-i18n="nav_lounge">Lounge</a></li>
+    <li><a href="index.html#how" data-i18n="nav_how">How it works</a></li>
+    <li><a href="index.html#download" data-i18n="nav_download">Download</a></li>
   </ul>
 
   <div class="nav-controls">
@@ -107,13 +97,13 @@
 </nav>
 
 <div class="mobile-nav" id="mobileNav">
-  <a href="index.html#init-landing" data-i18n="nav_init">Init</a>
-  <a href="index.html#lounge-landing" data-i18n="nav_lounge">Lounge</a>
+  <a href="index.html#how" data-i18n="nav_how">How it works</a>
+  <a href="index.html#download" data-i18n="nav_download">Download</a>
 </div>
 
 <main class="legal-page">
   <h1>Privacy Policy</h1>
-  <p class="meta">Last Updated: April 18, 2026 &nbsp;·&nbsp; Effective Date: April 18, 2026</p>
+  <p class="meta">Last Updated: September 5, 2026 &nbsp;·&nbsp; Effective Date: September 5, 2026</p>
 
   <div class="legal-toc">
     <h4>Table of Contents</h4>
@@ -121,8 +111,9 @@
       <li><a href="#s1">Introduction</a></li>
       <li><a href="#s2">Information We Collect</a></li>
       <li><a href="#s3">How We Use Your Information</a></li>
-      <li><a href="#s4">Our Core Privacy Guarantee</a></li>
+      <li><a href="#s4">Our Core Privacy Guarantees</a></li>
       <li><a href="#s5">How We Protect Your Information</a></li>
+      <li><a href="#s5a">Location Permissions and Controls</a></li>
       <li><a href="#s6">Information Sharing and Disclosure</a></li>
       <li><a href="#s7">Data Retention</a></li>
       <li><a href="#s8">Your Rights</a></li>
@@ -138,7 +129,8 @@
   <hr class="section-divider" />
 
   <h2 id="s1">1. Introduction</h2>
-  <p>Init ("we," "us," "our") operates the Init mobile application (the "App"), a mutual interest matching platform. This Privacy Policy explains how we collect, use, disclose, and protect your personal information when you use the App.</p>
+  <p>Init ("we," "us," "our") operates the Init mobile application (the "App"), a location-based social app. The App's primary feature is <strong>Init Lounge</strong>: you check in to a real-world place, post a short "vibe" describing what you're up for, see other people checked in around you, and connect when both sides vibe each other. The App also includes a <strong>private interest-matching</strong> feature that lets you privately record interest in someone you already know; that interest is revealed only if it is mutual.</p>
+  <p>This Privacy Policy explains how we collect, use, disclose, and protect your personal information when you use the App.</p>
   <p>By creating an account or using the App, you agree to the collection and use of information in accordance with this policy. If you do not agree, please do not use the App.</p>
   <p><strong>Contact:</strong> <a href="mailto:privacy@initmatch.com">privacy@initmatch.com</a></p>
   <p><strong>Address:</strong> Om Chambers, 648/A, 4th Floor, Binnamangala 1st Stage, Indiranagar, Bengaluru — 560038, Karnataka, India</p>
@@ -150,66 +142,87 @@
   <h3>2.1 Information You Provide Directly</h3>
   <ul>
     <li><strong>Phone number</strong> — used for registration and OTP verification.</li>
-    <li><strong>Email address</strong> — used for registration or linking to your profile.</li>
-    <li><strong>Date of birth</strong> — collected at registration for age verification (must be 18+).</li>
-    <li><strong>Password</strong> — stored as a secure hash; never stored in plain text.</li>
-    <li><strong>Username (Init ID)</strong> — a unique identifier you choose after registration.</li>
-    <li><strong>Social media profile URLs</strong> — optionally linked to your profile (Instagram, Facebook, LinkedIn, Snapchat).</li>
-    <li><strong>Interest expressions</strong> — the people you express interest in (phone, email, username, or social link) and the categories you select.</li>
-    <li><strong>Messages</strong> — content you send in matched conversations.</li>
+    <li><strong>Date of birth</strong> — collected at registration for age verification (must be 18+). Your <strong>age range and gender</strong> are shown on your Lounge vibe cards.</li>
+    <li><strong>Password</strong> — stored as a secure hash; never stored in plain text. If you register via Google or Apple Sign-In, you never set a password.</li>
+    <li><strong>Display name</strong> — shown to users you match with.</li>
+    <li><strong>Username (Init ID)</strong> — a unique identifier you choose after registration; revealed to someone only after you mutually match.</li>
+    <li><strong>Profile photo</strong> — optional. Shown on your Lounge vibe card <strong>only if you turn photo visibility on</strong>; you can choose to show it to everyone in a lounge or only to people you have vibed.</li>
+    <li><strong>Vibe card text</strong> — a short line (15–100 characters) you post when you check in, visible to other people checked in to the same lounge.</li>
+    <li><strong>Vibes</strong> — when you vibe on someone's card. One-way and private; the other person is not told unless they have also vibed you.</li>
+    <li><strong>Lounge / venue details</strong> — if you create a lounge that isn't already listed (venue name and location).</li>
+    <li><strong>Interest expressions</strong> — the person you privately express interest in (by phone number or username) and the category you select.</li>
+    <li><strong>Messages</strong> — content you send in conversations opened by a match.</li>
+    <li><strong>Reports</strong> — when you report a user, card, or venue.</li>
   </ul>
 
-  <h3>2.2 Information Collected Automatically</h3>
+  <h3>2.2 Location Information</h3>
+  <p>Location is collected <strong>only in connection with Init Lounge</strong>, and only while you are actively using it:</p>
+  <ul>
+    <li><strong>Precise location (GPS)</strong> — when you check in to a lounge, and during periodic checks while the App is open in the foreground and you have an active check-in. Used to confirm you are at the venue (within ~300 m to check in), keep the "here now" list accurate (you are automatically checked out if you move more than ~500 m away, or after a 3-hour cap), and detect location spoofing.</li>
+    <li><strong>Approximate location</strong> — when you open the Lounge tab, if you have granted only approximate/coarse location permission. Used to show nearby lounges in <strong>browse-only</strong> mode (roughly a 5 km radius). You cannot check in with approximate location only.</li>
+    <li><strong>Map viewport</strong> — while you pan or zoom the Lounge map, to request the correct map tiles for the area you are viewing.</li>
+  </ul>
+  <p>We do <strong>not</strong> collect location in the background, when the App is closed, or when you are not using the Lounge feature. We do not build a location history or movement profile, and we do not use location for advertising. See Section 5A for how to limit or disable location access.</p>
+
+  <h3>2.3 Information Collected Automatically</h3>
   <ul>
     <li><strong>Device tokens</strong> — for delivering push notifications (via Firebase Cloud Messaging).</li>
-    <li><strong>IP address and basic request metadata</strong> — logged by our servers for security and abuse prevention. Not stored long-term.</li>
+    <li><strong>Authentication tokens</strong> — for maintaining your logged-in session.</li>
+    <li><strong>IP address and basic request metadata</strong> — logged by our servers for security and abuse prevention; also received by our map-tile CDN and geocoding providers when the App requests maps or place data. Not stored long-term.</li>
+    <li><strong>Device integrity signals</strong> — on Android, whether "mock location" is enabled (used to block spoofed check-ins); coarse device characteristics used as a soft anti-abuse signal.</li>
+    <li><strong>Session records</strong> — which lounge you are checked in to and the check-in / check-out / "away" timestamps, retained for safety and abuse prevention.</li>
   </ul>
 
-  <h3>2.3 Information from Third Parties</h3>
+  <h3>2.4 Content Filtering</h3>
+  <p>Vibe card text is checked on your device and our servers against deterministic rules before it is posted: no links, no sequences of four or more digits (to discourage sharing phone numbers), no long runs of repeated characters, and at least one letter. We do not use this text for any purpose other than displaying your card and enforcing these rules.</p>
+
+  <h3>2.5 Information from Third Parties</h3>
   <ul>
     <li><strong>Google Sign-In</strong> — if you register or log in with Google, we receive your Google account email address and display name. We do not receive your Google password.</li>
+    <li><strong>Apple Sign-In</strong> — Apple ID token; name and email only if you choose to share them via Apple's private relay.</li>
+    <li><strong>Geocoding providers</strong> — place names and coordinates returned for your searches and check-ins (see Section 6.3).</li>
   </ul>
 
   <hr class="section-divider" />
 
   <h2 id="s3">3. How We Use Your Information</h2>
   <ul>
-    <li><strong>Account creation and authentication</strong> — to create your account, verify your identity via OTP or Google Sign-In, and maintain your session.</li>
-    <li><strong>Mutual interest detection</strong> — to determine whether two users have expressed reciprocal interest in each other. Your interest expressions are never visible to anyone unless the other person has also expressed interest in you. This is a core privacy guarantee of the App.</li>
-    <li><strong>Identity resolution across platforms</strong> — to match interest expressions made via phone number, email, username, or social media link to the correct user.</li>
-    <li><strong>Post-match communication</strong> — to enable real-time messaging between mutually matched users.</li>
+    <li><strong>Account creation and authentication</strong> — to create your account, verify your identity via OTP, Google Sign-In, or Apple Sign-In, and maintain your session.</li>
+    <li><strong>Init Lounge</strong> — to show you nearby lounges, verify that you are at a venue when you check in, show your vibe card to other people checked in to the same lounge, let you and others cast private vibes, and open a chat when two people vibe each other.</li>
+    <li><strong>Proximity and anti-abuse checks</strong> — to confirm you are within range of a venue, check you out automatically when you leave, and detect mock-location or physically impossible movement.</li>
+    <li><strong>Private mutual-interest detection</strong> — to determine whether two users have expressed reciprocal interest in each other. Your interest expressions are never visible to anyone unless the other person has also expressed interest in you. This is a core privacy guarantee of the App.</li>
+    <li><strong>Identity resolution</strong> — to match interest expressions made via phone number or username to the correct user.</li>
+    <li><strong>Post-match communication</strong> — to enable real-time messaging between users who have matched, whether through Lounge or the private interest feature.</li>
     <li><strong>Notifications</strong> — to notify you of new matches and messages via push notifications and in-app alerts.</li>
     <li><strong>Age verification</strong> — to confirm you meet our minimum age requirement of 18 years.</li>
-    <li><strong>Safety and security</strong> — to protect against fraud, unauthorized access, and abuse of the platform.</li>
+    <li><strong>Safety, moderation, and security</strong> — to review reports, act on venue takedown requests, protect against fraud and unauthorized access, and enforce our Terms.</li>
     <li><strong>Service improvement</strong> — to maintain, troubleshoot, and improve the App's functionality.</li>
   </ul>
 
   <hr class="section-divider" />
 
-  <h2 id="s4">4. Our Core Privacy Guarantee</h2>
+  <h2 id="s4">4. Our Core Privacy Guarantees</h2>
 
   <div class="highlight-box">
-    <p>Init is built around one fundamental principle: <strong>your interest in someone is never revealed unless it is mutual.</strong></p>
+    <p><strong>Unreciprocated interest is never revealed.</strong> A vibe or an interest you express stays invisible to the other person unless they independently do the same toward you.</p>
   </div>
 
-  <p>When you express interest in another person through the App:</p>
   <ul>
-    <li>Your interest record is stored in encrypted form.</li>
-    <li>The other person is <strong>not notified</strong> of your interest.</li>
-    <li>Only when the other person independently expresses interest in you — with at least one overlapping interest category — are both parties notified of the match.</li>
-    <li>If the interest is not mutual, the target person <strong>never learns</strong> that you expressed interest.</li>
+    <li><strong>In Lounge</strong>, when you vibe on someone's card, they are <strong>not notified</strong>. Only if that person independently vibes one of your cards in the same lounge are you both told, a match is formed, and a chat opens. If it is not mutual, the other person never learns that you vibed them.</li>
+    <li><strong>In the private interest feature</strong>, when you express interest in another person, your interest record is stored in encrypted form and the other person is <strong>not notified</strong>. Only when the other person independently expresses interest in you — with at least one overlapping category — are both parties notified of the match. If the interest is not mutual, the target person never learns that you expressed interest.</li>
   </ul>
-  <p>This privacy invariant is enforced at the code level and is central to how Init works.</p>
+  <p><strong>Your identity is withheld until you match.</strong> In a lounge, other people see your vibe card — its text, your age range and gender, and your photo if you have enabled it — but <strong>not</strong> your name, username, or profile until you and they have matched.</p>
+  <p>These invariants are enforced at the code level and are central to how Init works.</p>
 
   <hr class="section-divider" />
 
   <h2 id="s5">5. How We Protect Your Information</h2>
 
   <h3>5.1 Encryption at Rest</h3>
-  <p>All personally identifiable information (PII) is encrypted using AES-256-GCM before being stored in our database. This includes phone numbers, email addresses, and social media profile URLs. Each encrypted field uses a unique initialization vector (IV) and authentication tag.</p>
+  <p>Personally identifiable information (PII) is encrypted using AES-256-GCM with AWS KMS-managed envelope encryption before being stored in our database. This includes phone numbers and chat message content. Each encrypted field uses a unique initialization vector (IV) and authentication tag.</p>
 
   <h3>5.2 Hashed Lookups</h3>
-  <p>For matching and duplicate-detection purposes, we store HMAC-SHA256 hashes of phone numbers and email addresses. These hashes allow us to detect matches without decrypting stored data, minimizing exposure of plaintext PII.</p>
+  <p>For matching and duplicate-detection purposes, we store HMAC-SHA256 hashes of phone numbers. These hashes allow us to detect matches without decrypting stored data, minimizing exposure of plaintext PII.</p>
 
   <h3>5.3 Encryption in Transit</h3>
   <p>All data transmitted between the App and our servers is encrypted using TLS 1.2 or higher. WebSocket connections for real-time messaging also use encrypted transport.</p>
@@ -222,20 +235,33 @@
 
   <hr class="section-divider" />
 
+  <h2 id="s5a">5A. Location Permissions and Controls</h2>
+  <ul>
+    <li><strong>Granting precise location</strong> enables the full Lounge experience, including checking in.</li>
+    <li><strong>Granting only approximate location</strong> limits you to browsing nearby lounges; you will not be able to check in.</li>
+    <li><strong>Denying location</strong> means Init Lounge is unavailable. The rest of the App — the private interest feature, matches, and messaging — continues to work.</li>
+    <li>You can change or revoke location permission at any time in your device settings (<strong>iOS:</strong> Settings → Privacy &amp; Security → Location Services → Init; <strong>Android:</strong> Settings → Apps → Init → Permissions → Location).</li>
+    <li>Checking out of a lounge (manually, by walking away, by logging out, or after the 3-hour cap) stops all location use associated with that session.</li>
+  </ul>
+  <p>The App requests location with an on-device explanation: <em>"Init uses your location to show lounges near you and to confirm you're at a venue when you check in."</em></p>
+
+  <hr class="section-divider" />
+
   <h2 id="s6">6. Information Sharing and Disclosure</h2>
 
   <h3>6.1 We Do Not Sell Your Data</h3>
   <p>Init does not sell, rent, or trade your personal information to third parties. We never have and never will.</p>
 
-  <h3>6.2 What We Share With Matched Users</h3>
-  <p>When a mutual match is detected, we share the following with the matched user:</p>
+  <h3>6.2 What Other Users Can See</h3>
+  <p><strong>Other people checked in to the same lounge</strong> can see, before any match:</p>
   <ul>
-    <li>Your display name</li>
-    <li>Your username (Init ID)</li>
-    <li>The overlapping interest categories</li>
-    <li>Messages you send in the matched conversation</li>
+    <li>Your vibe card text</li>
+    <li>Your age range and gender</li>
+    <li>Your profile photo — <strong>only if</strong> you have turned photo visibility on for that card (and, if you chose "vibed only," only after they have vibed you)</li>
   </ul>
-  <p>We <strong>never</strong> share your phone number, email address, social media links, non-mutual interest expressions, or date of birth with matched users.</p>
+  <p>They <strong>cannot</strong> see your name, username, profile, phone number, date of birth, exact location, or the fact that you have vibed anyone (unless it is mutual).</p>
+  <p><strong>When you match</strong> (through Lounge or the private interest feature), we share with the matched user your display name, your username (Init ID), the lounge where you matched (for a Lounge match) or the overlapping interest categories (for an interest match), and the messages you send in that conversation.</p>
+  <p>We <strong>never</strong> share your phone number, your date of birth, your precise location, or your non-mutual vibes or interests with any other user.</p>
 
   <h3>6.3 Third-Party Service Providers</h3>
   <p>We use the following third-party services to operate the App. These providers process data on our behalf and are prohibited from using your data for their own purposes.</p>
@@ -244,11 +270,18 @@
       <tr><th>Provider</th><th>Purpose</th><th>Data Shared</th></tr>
     </thead>
     <tbody>
-      <tr><td>Amazon Web Services (AWS)</td><td>Cloud hosting, database, email delivery (SES)</td><td>All app data (stored on AWS infrastructure); email address for OTP/notifications</td></tr>
-      <tr><td>Google Firebase</td><td>Push notifications (FCM)</td><td>Device push token</td></tr>
-      <tr><td>Google Sign-In</td><td>Authentication</td><td>Google account email and display name (on login only)</td></tr>
+      <tr><td>Amazon Web Services (AWS)</td><td>Cloud hosting, database, encryption (KMS), SMS (SNS), map-tile storage (S3) and delivery (CloudFront)</td><td>All app data (encrypted at rest); your IP address and the map areas you view, when the App loads map tiles</td></tr>
+      <tr><td>Google</td><td>OAuth authentication</td><td>Email, display name (during sign-in)</td></tr>
+      <tr><td>Apple</td><td>Sign in with Apple authentication</td><td>Apple ID token; name/email only if shared via Apple's private relay</td></tr>
+      <tr><td>Firebase (Google)</td><td>Push notifications (FCM), Remote Config, app analytics</td><td>Device push token; anonymized usage events; no PII for feature-flag delivery</td></tr>
+      <tr><td>Sentry</td><td>Mobile crash reporting</td><td>Crash stack traces, device model/OS, app version — opaque user IDs only</td></tr>
+      <tr><td>Self-hosted Photon (on our own AWS infrastructure)</td><td>Place search and reverse geocoding, primarily for India</td><td>Your search text and the coordinates of your check-in or map interaction</td></tr>
+      <tr><td>LocationIQ</td><td>Place autocomplete for United States searches (production only)</td><td>Your search text and approximate map location</td></tr>
+      <tr><td>Photon (photon.komoot.io, Komoot GmbH)</td><td>Reverse geocoding outside India and as a fallback</td><td>Coordinates of your check-in or map interaction</td></tr>
+      <tr><td>Nominatim (OpenStreetMap Foundation)</td><td>Last-resort geocoding fallback</td><td>Your search text or coordinates</td></tr>
     </tbody>
   </table>
+  <p>Geocoding providers receive only what is needed to answer a place query. We do not send them your name, account identifiers, or contact details.</p>
 
   <h3>6.4 Legal Requirements</h3>
   <p>We may disclose your information if required to do so by law or in good faith belief that such action is necessary to comply with a legal obligation or court order, protect and defend our rights or property, prevent or investigate possible wrongdoing, or protect the personal safety of users or the public.</p>
@@ -256,11 +289,23 @@
   <hr class="section-divider" />
 
   <h2 id="s7">7. Data Retention</h2>
-  <p>We retain your personal data for as long as your account is active. When you delete your account:</p>
-  <ul>
-    <li>Your account enters a <strong>30-day grace period</strong> during which you can reactivate it.</li>
-    <li>After 30 days, all your data is permanently and irreversibly deleted — including your profile, social links, interest records, chat messages, match records, and notifications.</li>
-  </ul>
+  <table class="data-table">
+    <thead>
+      <tr><th>Data Type</th><th>Retention Period</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Account data (profile, photo)</td><td>Until you delete your account</td></tr>
+      <tr><td>Vibe cards</td><td>Soft-deleted when your Lounge session ends; permanently deleted on account deletion</td></tr>
+      <tr><td>Lounge session records (venue, timestamps)</td><td>Retained for a limited period for safety and abuse prevention, then deleted; permanently deleted on account deletion</td></tr>
+      <tr><td>Precise location coordinates</td><td>Used transiently for proximity and anti-abuse checks and not stored as a location history; the session's check-in venue is kept with the session record above</td></tr>
+      <tr><td>Vibes</td><td>Deleted when the session ends if no match formed; retained with the match if one did</td></tr>
+      <tr><td>Interest records</td><td>Soft-deleted when you remove them; permanently deleted on account deletion</td></tr>
+      <tr><td>Chat messages</td><td>Soft-deleted when a conversation ends; permanently deleted on account deletion</td></tr>
+      <tr><td>Date of birth</td><td>Until you delete your account</td></tr>
+      <tr><td>Device tokens</td><td>Until you log out or tokens are refreshed</td></tr>
+    </tbody>
+  </table>
+  <p><strong>Account deletion:</strong> your account enters a <strong>30-day grace period</strong> during which you can reactivate it. After 30 days, all your data is permanently and irreversibly deleted — including your profile and photo, all vibe cards, Lounge sessions and vibes, all interest records, all chat messages, and all match records and notifications.</p>
 
   <hr class="section-divider" />
 
@@ -271,7 +316,7 @@
     <li><strong>Access</strong> — request a copy of the personal data we hold about you.</li>
     <li><strong>Correction</strong> — update inaccurate or incomplete personal data via your profile settings.</li>
     <li><strong>Deletion</strong> — delete your account and all associated data at any time from Profile → Delete Account.</li>
-    <li><strong>Withdraw consent</strong> — unlink optional social media accounts at any time.</li>
+    <li><strong>Withdraw location consent</strong> — revoke location permission in your device settings at any time; Init Lounge stops working while the rest of the App continues.</li>
   </ul>
 
   <h3>8.2 Indian Users — Digital Personal Data Protection Act, 2023 (DPDP)</h3>
@@ -285,48 +330,61 @@
     <li><strong>Right to information about processing (Section 11)</strong> — you may request a summary of the personal data we hold about you and the processing activities we have carried out or are carrying out with that data.</li>
     <li><strong>Right to correction and erasure (Section 12)</strong> — you may request correction of inaccurate or incomplete personal data, and erasure of personal data that is no longer necessary for the purpose for which it was collected or if you have withdrawn your consent.</li>
     <li><strong>Right to grievance redressal (Section 13)</strong> — you may raise a grievance with our Grievance Officer (see Section 14). We will acknowledge receipt within 48 hours and resolve it within 30 days.</li>
-    <li><strong>Right to nominate (Section 14)</strong> — you may nominate another individual to exercise your rights under the DPDP Act in the event of your death or incapacity. To register a nominee, contact our Grievance Officer.</li>
+    <li><strong>Right to nominate (Section 14)</strong> — you may nominate another individual to exercise your rights under the DPDP Act in the event of your death or incapacity.</li>
   </ul>
 
   <h3>8.2.2 Consent and Purpose</h3>
   <p>Under Section 6 of the DPDP Act, we provide the following consent notice:</p>
-  <ul>
-    <li><strong>What data we collect:</strong> phone number or email address, display name, date of birth, and optionally social media profile links.</li>
-    <li><strong>Why we collect it:</strong> to create your account, verify your identity, detect mutual interest matches, enable post-match messaging, and send account-related notifications.</li>
-    <li><strong>How to withdraw consent:</strong> delete your account via Profile → Delete Account. Account deletion is the withdrawal of consent under the DPDP Act. Upon deletion, your data will be permanently erased within 30 days per our retention policy.</li>
-  </ul>
+  <table class="data-table">
+    <thead>
+      <tr><th>What we collect</th><th>Why</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Phone number</td><td>Account creation and OTP verification</td></tr>
+      <tr><td>Display name</td><td>Profile shown to matched users</td></tr>
+      <tr><td>Date of birth</td><td>Age verification (18+); age range and gender shown on Lounge cards</td></tr>
+      <tr><td>Precise or approximate location</td><td>Showing nearby lounges and verifying venue proximity for Init Lounge</td></tr>
+      <tr><td>Vibe card text and photo visibility choice</td><td>Displaying your card to others checked in to the same lounge</td></tr>
+      <tr><td>Vibes and interest expressions</td><td>Mutual-match detection</td></tr>
+      <tr><td>Messages</td><td>Communication after a match</td></tr>
+    </tbody>
+  </table>
+  <p><strong>How to withdraw consent:</strong> delete your account via Profile → Delete Account. Account deletion is the withdrawal of consent under the DPDP Act. Upon deletion, your data will be permanently erased within 30 days. You may withdraw location consent separately at any time through your device settings.</p>
 
   <h3>8.2.3 Data Breach Notification</h3>
-  <p>In the event of a personal data breach that is likely to cause harm to you, we will notify the <strong>Data Protection Board of India</strong> and affected users as required under Section 8(6) of the DPDP Act. Notification will be made without undue delay and will describe the nature of the breach, the data affected, and the steps we are taking to address it.</p>
+  <p>In the event of a personal data breach that is likely to cause harm to you, we will notify the <strong>Data Protection Board of India</strong> and affected users as required under Section 8(6) of the DPDP Act, without undue delay.</p>
 
   <h3>8.2.4 Cross-Border Data Transfers</h3>
-  <p>Your personal data is processed on servers located in the United States (AWS us-east-1). Cross-border transfers are subject to Section 16 of the DPDP Act. We will comply with any restrictions on cross-border data transfers that the Government of India notifies under the Act. If transfer restrictions affect our ability to store data outside India, we will migrate to India-based infrastructure and update this policy accordingly.</p>
+  <p>Your personal data is processed on servers located in the United States (AWS us-east-1). Map-tile and geocoding requests may also be served from infrastructure outside India. Cross-border transfers are subject to Section 16 of the DPDP Act. We will comply with any restrictions on cross-border data transfers that the Government of India notifies under the Act, and will migrate to India-based infrastructure if required.</p>
 
-  <h3>8.3 EEA, UK, and International Users (GDPR)</h3>
-  <p>If you are located in the EEA or UK, you additionally have the right to data portability (receive your data in a machine-readable format), restriction of processing, the right to object, and the right to lodge a complaint with your local data protection authority.</p>
-  <p><strong>Legal basis for processing:</strong> account operations and matching are performed on the basis of contractual necessity; safety and security on the basis of legitimate interest.</p>
-  <p><strong>International data transfers:</strong> your data is processed on servers in the United States (AWS us-east-1). For transfers from the EEA/UK, we rely on AWS's Standard Contractual Clauses (SCCs).</p>
+  <h3>8.3 California Residents (CCPA)</h3>
+  <p>If you are a California resident, you have the right to know what personal information we collect, use, and disclose; to delete your personal information (via account deletion); to non-discrimination for exercising your rights; and to opt out of the sale of personal information — Init does not sell personal information, so this right is satisfied by default. Contact privacy@initmatch.com to exercise these rights.</p>
+
+  <h3>8.4 EEA, UK, and Brazil Residents (GDPR / UK DPA / LGPD)</h3>
+  <p>If you are located in the EEA, UK, or Brazil, you additionally have the right to data portability (receive your data in a machine-readable format), restriction of processing, the right to object, and the right to lodge a complaint with your local data protection authority.</p>
+  <p><strong>Legal basis for processing:</strong> account operations, Init Lounge, location collection for proximity verification, and matching are performed on the basis of contractual necessity (and, for location, your device-level permission); anti-spoofing, safety, and security on the basis of legitimate interest; age verification as a legal obligation; push notifications on the basis of your consent.</p>
+  <p><strong>International data transfers:</strong> your data is processed on servers in the United States (AWS us-east-1). For transfers from the EEA/UK, we rely on AWS's Standard Contractual Clauses (SCCs). Geocoding providers used for non-India lookups (Komoot, OpenStreetMap Foundation) are based in the EEA/UK.</p>
 
   <hr class="section-divider" />
 
   <h2 id="s9">9. Children's Privacy</h2>
   <p>Init is strictly for users aged <strong>18 and older</strong>. We require date of birth verification at registration. We do not knowingly collect personal information from anyone under the age of 18. If we become aware that a user is under 18, we will immediately terminate their account and delete all associated data.</p>
-  <p>If you believe a minor is using the App, please contact us at <a href="mailto:privacy@initmatch.com">privacy@initmatch.com</a>.</p>
+  <p>If you believe a minor is using the App, please contact us at <a href="mailto:privacy@initmatch.com">privacy@initmatch.com</a>, or use the in-app report option and select "Suspected underage user."</p>
 
   <hr class="section-divider" />
 
   <h2 id="s10">10. Push Notifications</h2>
-  <p>You may receive push notifications for new mutual matches and new messages from matched users. You can disable push notifications at any time through your device settings. Disabling notifications does not affect the core functionality of the App.</p>
+  <p>You may receive push notifications for a new match (Lounge or interest), a match ending, and new messages from a matched user. You will <strong>not</strong> receive a notification when someone vibes or expresses interest in you but you have not reciprocated — unreciprocated interest is never surfaced. You can disable push notifications at any time through your device settings; this does not affect the core functionality of the App.</p>
 
   <hr class="section-divider" />
 
   <h2 id="s11">11. SMS and Email Communications</h2>
-  <p>We send SMS messages and emails only for transactional purposes: one-time passwords (OTP) for account verification and match notifications. We do not send marketing messages via SMS or email. By registering with a phone number or email, you consent to receiving verification codes necessary for account security.</p>
+  <p>We send SMS messages and emails only for transactional purposes: one-time passwords (OTP) for account verification. We do not send marketing messages via SMS or email. By registering with a phone number, you consent to receiving verification codes necessary for account security.</p>
 
   <hr class="section-divider" />
 
   <h2 id="s12">12. Cookies and Tracking</h2>
-  <p>The Init mobile app does not use cookies or web-based tracking technologies. We do not use third-party analytics SDKs, advertising trackers, or pixel tags in the App. See our <a href="cookie-policy.html">Cookie Policy</a> for details on how our website uses browser storage.</p>
+  <p>The Init mobile app does not use cookies or web-based tracking technologies. We do not use advertising trackers or pixel tags in the App. See our <a href="cookie-policy.html">Cookie Policy</a> for details on how our website uses browser storage.</p>
 
   <hr class="section-divider" />
 
@@ -361,22 +419,16 @@
   <div class="footer-grid">
     <div class="footer-brand">
       <a href="index.html" class="nav-logo">
-        <svg class="nav-logo-icon" viewBox="60 90 300 230" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M98,103 L268,103 Q290,103 290,125 L290,230 Q290,252 268,252 L160,252 L118,290 L140,252 L98,252 Q76,252 76,230 L76,125 Q76,103 98,103 Z" stroke="#f72585" stroke-width="10" fill="none" opacity="0.85"/>
-          <path d="M185,122 L322,122 Q344,122 344,144 L344,249 Q344,271 322,271 L300,271 L330,309 L270,271 L185,271 Q163,271 163,249 L163,144 Q163,122 185,122 Z" stroke="#4cc9f0" stroke-width="10" fill="none" opacity="0.85"/>
-          <rect x="163" y="122" width="127" height="130" fill="#7209b7" fill-opacity="0.15"/>
-          <path d="M195,195 L225,225 L270,165" stroke="#b740d4" stroke-width="16" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+        <svg class="nav-logo-icon" viewBox="60 68 300 280" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M185,142 L322,142 Q344,142 344,164 L344,269 Q344,291 322,291 L300,291 L330,329 L270,291 L185,291 Q163,291 163,269 L163,164 Q163,142 185,142 Z" fill="none" stroke="#FFD200" stroke-width="14"/><path d="M98,83 L268,83 Q290,83 290,105 L290,210 Q290,232 268,232 L160,232 L118,270 L140,232 L98,232 Q76,232 76,210 L76,105 Q76,83 98,83 Z" fill="none" stroke="#FFD200" stroke-width="14"/><path d="M163,142 L290,142 L290,232 L163,232 Z" fill="#FFD200" fill-opacity="0.15"/><path d="M207.25,195 L226.75,214.5 L256,175.5" fill="none" stroke="#FFD200" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/></svg>
         Init
       </a>
-      <p data-i18n="home_footer_tagline">Some people never get met. Some feelings never get said.</p>
+      <p data-i18n="home_footer_tagline">Same place. Same vibe. No icebreaker.</p>
     </div>
 
     <div class="footer-col">
       <h4 data-i18n="footer_product">Product</h4>
       <ul>
-        <li><a href="index.html#init-landing" data-i18n="nav_init">Init</a></li>
-        <li><a href="index.html#lounge-landing" data-i18n="nav_lounge">Lounge</a></li>
+        <li><a href="index.html#how" data-i18n="nav_how">How it works</a></li>
         <li><a href="index.html#download" data-i18n="nav_download">Download</a></li>
       </ul>
     </div>
@@ -405,5 +457,6 @@
 
 <script src="js/main.js"></script>
 <script src="js/i18n.js"></script>
+<script src="js/consent.js"></script>
 </body>
 </html>

@@ -6,10 +6,9 @@
    glass/blur — flat solid surfaces only. Gold is concentrated on
    Lounge surfaces + the universal "Get the app" CTA.
 
-   Single-page structure: home teaser (2 cards) → Lounge landing
-   section → Init landing section → download → footer, all on
-   index-v2.html. Each card's "Explore" link scroll-anchors to its
-   section; there's no separate lounge-v2.html/init-v2.html anymore.
+   Single-page structure: Lounge hero (#hero) → how-it-works steps →
+   USP cards → download → footer. The site presents Init as a
+   Lounge-first (location / vibe-matching) app.
 ═══════════════════════════════════════════════════════════════ */
 
 /* Real app tokens (mobile/src/utils/useTheme.ts DARK_COLORS / LIGHT_COLORS) —
@@ -17,7 +16,7 @@
    #0C0A14, #2A2440, etc). The app has exactly one accent (gold); every
    "neutral" here is a true gray/black, not indigo-biased. */
 html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
-.home-cards, .landing-section, #download { scroll-snap-align: start; }
+.landing-section, #download { scroll-snap-align: start; }
 
 :root, [data-theme="light"] {
   --primary: #D0B070;
@@ -84,12 +83,11 @@ html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   Navbar — bigger, bolder. Wordmark text dropped (icon only) so
-   the brand mark doesn't repeat "Init" next to the Init nav item.
+   Navbar — bigger, bolder. Wordmark text dropped (icon only).
 ═══════════════════════════════════════════════════════════════ */
 
 .navbar { padding: 16px 20px 16px 22px; }
-.nav-logo-icon { width: 62px; height: 46px; }
+.nav-logo-icon { width: 50px; height: 46px; }
 /* No pill/background around the nav items — plain text links */
 .nav-links { gap: 48px; padding: 0; background: none; border: none; }
 .nav-links a { font-size: 1.375rem; font-weight: 800; }
@@ -134,217 +132,18 @@ html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
 .btn-outline-v2:hover { border-color: var(--text); transform: translateY(-2px); }
 
 /* ═══════════════════════════════════════════════════════════════
-   Home teaser — two minimal cards: eyebrow + heading + Explore.
-   No body copy, no bullets — those live in the landing sections
-   further down the page. Init: top-left. Lounge: bottom-right,
-   offset down for the diagonal rhythm.
-═══════════════════════════════════════════════════════════════ */
-
-.home-cards {
-  max-width: 1240px;
-  margin: 0 auto;
-  min-height: 100vh;
-  box-sizing: border-box;
-  padding: 120px 16px 60px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-auto-rows: min-content;
-  gap: 32px 40px;
-  align-content: center;
-}
-
-/* Row placement (not a guessed pixel offset) guarantees the two cards
-   can never overlap: each occupies its own row, whatever their actual
-   heights turn out to be. Lounge: top-left. Init: bottom-right. */
-.home-col-lounge { text-align: left; grid-column: 1; grid-row: 1; position: relative; z-index: 2; }
-.home-col-init { text-align: right; grid-column: 2; grid-row: 2; position: relative; z-index: 2; }
-
-/* z-index below their neighboring card and overflow:visible so each
-   marquee can bleed toward the card and be clipped by it sitting on
-   top, instead of a plain edge-fade. */
-.home-col-vibes { grid-column: 1; grid-row: 2; display: flex; align-items: center; position: relative; z-index: 1; overflow: visible; min-width: 0; }
-.home-col-lounge-vibes { grid-column: 2; grid-row: 1; display: flex; align-items: center; justify-content: flex-end; position: relative; z-index: 1; overflow: visible; min-width: 0; }
-
-/* Vibe-tag pill field — fills the empty space beside each card with
-   example vibe-card phrases (Lounge) / relationship moments (Init).
-   Exactly 3 chip elements per field; js/vibe-pills.js rotates a longer
-   content list through them one at a time (fade out old text, fade in
-   new) AND relocates each chip to a random spot from a 9-position
-   pool on every rotation — so it never reads as 3 static labels just
-   swapping text in place. A rotating 3D tag-cloud globe (WP-Cumulus
-   style) is a dated 2008-era pattern that would clash with the flat
-   modern look elsewhere on this page, and a continuous horizontal
-   marquee read as too busy/wide once tried — this gives the same
-   "always something moving" effect at a calm, capped pace: never more
-   than 3 visible, because only 3 elements exist, while still feeling
-   like a wider field thanks to the position variety.
-   Chip top/left values are set inline by JS, not here — see
-   POSITIONS in js/vibe-pills.js for the 9 hand-placed, pairwise
-   non-overlapping candidate spots on the fixed 597x335 design canvas
-   (any subset of 3 is automatically non-overlapping too). Percentages
-   on an absolutely positioned child resolve against its OWN box, so if
-   this field were 100% of its (fluid) grid column instead, the exact
-   same percentages would resolve to smaller px positions at narrower
-   viewports while chip width stayed fixed — silently recreating
-   overlaps. Fixing the field's own size to the design canvas keeps
-   that math constant; .vibe-pill-scale below shrinks the whole fixed
-   canvas uniformly to fit narrower columns instead, which can never
-   introduce a new overlap since scaling preserves relative spacing. */
-.vibe-pill-scale-wrap {
-  overflow: hidden;
-  width: 597px;
-  height: 335px;
-  /* Soften the canvas boundary itself, purely cosmetic — every
-     position in js/vibe-pills.js's POSITIONS pool now keeps a real
-     ~25px margin from every edge, comfortably clear of this 2% fade
-     band, so a chip is never seen partially shaded. */
-  -webkit-mask-image: linear-gradient(to right, transparent 0, black 2%, black 98%, transparent 100%),
-    linear-gradient(to bottom, transparent 0, black 2%, black 98%, transparent 100%);
-  -webkit-mask-composite: source-in;
-  mask-image: linear-gradient(to right, transparent 0, black 2%, black 98%, transparent 100%),
-    linear-gradient(to bottom, transparent 0, black 2%, black 98%, transparent 100%);
-  mask-composite: intersect;
-}
-
-.vibe-pill-field {
-  position: relative;
-  width: 597px;
-  height: 335px;
-}
-
-/* Exactly 3 fixed "slot" chips per field (see js/vibe-pills.js), each
-   rotating through a longer content list one at a time. This replaces
-   the old approach of one element per phrase with independent random
-   CSS animations — that made "never show more than N at once"
-   impossible to guarantee (N independent timers will always
-   occasionally coincide). With only 3 elements ever in the DOM, the
-   on-screen count is capped by construction, and the rotation pace is
-   controlled directly in JS instead of fought over in keyframe %s. */
-.vibe-chip {
-  position: absolute;
-  opacity: 0;
-  transform: translateY(4px);
-  transition: opacity 1.1s ease, transform 1.1s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  width: 170px;
-  box-sizing: border-box;
-  padding: 14px 16px;
-  border-radius: 26px;
-  border: 1px solid var(--border);
-  background: var(--card);
-  color: var(--text);
-  font-size: 1rem;
-  font-weight: 700;
-  line-height: 1.25;
-  white-space: normal;
-}
-.vibe-chip.visible { opacity: 1; transform: translateY(0); }
-.vibe-chip.gold { background: var(--lounge-gold); color: var(--gold-text); border-color: transparent; }
-.vibe-chip-icon { width: 16px; height: 16px; flex-shrink: 0; }
-.vibe-chip-icon svg { width: 100%; height: 100%; }
-/* Init's field sits beside the Init card, not the Lounge card — its
-   "gold" pills use the Init card's own surface instead of Lounge gold,
-   so the accent colors stay tied to whichever card they're next to. */
-.home-col-vibes .vibe-chip.gold { background: var(--glass-card-bg); color: var(--text); border-color: var(--border); }
-
-@media (prefers-reduced-motion: reduce) {
-  .vibe-chip { transition: none; }
-}
-
-/* Only 3 slots now (see js/vibe-pills.js), spread out enough on the
-   597x335 canvas to never overlap even at a fixed 170px chip width.
-   The scale wrapper's own box shrinks to match so it never overflows
-   its grid column at narrower desktop viewports; the field inside
-   keeps its full-size 597x335 layout and is scaled down to fit, which
-   preserves the 3 slots' spacing exactly (just smaller) instead of
-   re-deriving new coordinates per breakpoint. */
-@media (min-width: 901px) and (max-width: 999px) {
-  .vibe-pill-scale-wrap { width: 406px; height: 228px; }
-  .vibe-pill-field { transform: scale(0.68); transform-origin: top left; }
-}
-@media (min-width: 1000px) and (max-width: 1099px) {
-  .vibe-pill-scale-wrap { width: 448px; height: 251px; }
-  .vibe-pill-field { transform: scale(0.75); transform-origin: top left; }
-}
-@media (min-width: 1100px) and (max-width: 1199px) {
-  .vibe-pill-scale-wrap { width: 495px; height: 278px; }
-  .vibe-pill-field { transform: scale(0.83); transform-origin: top left; }
-}
-@media (min-width: 1200px) and (max-width: 1299px) {
-  .vibe-pill-scale-wrap { width: 549px; height: 308px; }
-  .vibe-pill-field { transform: scale(0.92); transform-origin: top left; }
-}
-
-@media (max-width: 900px) {
-  .home-col-vibes, .home-col-lounge-vibes { display: none; }
-}
-
-.home-card {
-  padding: 40px 36px;
-  border-radius: 24px;
-  border: 1px solid var(--border);
-  max-width: 500px;
-}
-.home-col-init .home-card { background: var(--glass-card-bg); margin-left: auto; }
-.home-col-lounge .home-card {
-  background: var(--lounge-card-bg);
-  border-color: transparent;
-}
-
-.home-card-eyebrow {
-  display: inline-block;
-  font-size: 1.75rem;
-  font-weight: 800;
-  letter-spacing: 0.03em;
-  margin-bottom: 14px;
-}
-.home-col-init .home-card-eyebrow { color: var(--text-secondary); }
-/* On loungeCardBg (a dark, translucent gold tint — not solid gold), text
-   must use the bright gold token, not goldText: goldText is dark brown,
-   meant only for text ON solid 100%-opacity gold surfaces (buttons,
-   badges). See docs/dev-guidelines/design-system.md "Text on loungeCardBg". */
-.home-col-lounge .home-card-eyebrow { color: var(--lounge-gold); }
-
-.home-card h2 {
-  font-size: clamp(2.25rem, 3.6vw, 3rem);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 1.05;
-  color: var(--text);
-  margin-bottom: 26px;
-}
-
-.home-card-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 17px 30px;
-  border-radius: 12px;
-  font-size: 1.1875rem;
-  font-weight: 800;
-}
-.home-col-init .home-card-cta { background: var(--card); border: 2px solid var(--border); color: var(--text); }
-.home-col-lounge .home-card-cta { background: var(--gold-text); color: var(--lounge-gold); }
-
-@media (max-width: 900px) {
-  .home-cards { grid-template-columns: 1fr; gap: 32px; min-height: 0; }
-  .home-col-init, .home-col-lounge { grid-column: 1; text-align: left; }
-  .home-col-lounge { grid-row: 1; }
-  .home-col-init { grid-row: 2; }
-  .home-col-init .home-card { max-width: 500px; margin-left: 0; }
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   Landing sections — Bumble-style split: text one side, a fanned
+   Landing section — Bumble-style split: text one side, a fanned
    stack of flat-color icon cards the other (no stock photos, no
-   app screenshots — real category/venue content instead).
-   Lounge section: cards left, text right. Init: text left, cards
-   right. Scroll order on the page is Lounge, then Init.
+   app screenshots — real venue content instead). Cards left,
+   text right (.reverse).
 ═══════════════════════════════════════════════════════════════ */
 
 .landing-section { padding: 96px 24px; scroll-margin-top: 100px; background: var(--landing-bg); }
+
+/* First section sits under the fixed floating navbar — needs extra top
+   clearance so the eyebrow and the fanned card stack don't tuck behind it. */
+#hero { padding-top: 150px; }
+@media (max-width: 900px) { #hero { padding-top: 128px; } }
 
 .landing-split {
   max-width: 1240px;
@@ -366,7 +165,6 @@ html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
   margin-bottom: 20px;
 }
 .landing-lounge .landing-eyebrow { color: var(--lounge-gold); }
-.landing-init .landing-eyebrow { color: var(--text-secondary); }
 
 .landing-text h1 {
   font-size: clamp(2.5rem, 4.4vw, 3.75rem);
@@ -423,9 +221,6 @@ html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
 .landing-lounge .showcase-card--2 { background: var(--card); color: var(--text); border: 1px solid var(--border); }
 .landing-lounge .showcase-card--3 { background: var(--lounge-gold); color: var(--gold-text); }
 
-.landing-init .showcase-card--1 { background: var(--card); color: var(--text); border: 1px solid var(--border); }
-.landing-init .showcase-card--2 { background: var(--lounge-gold); color: var(--gold-text); }
-.landing-init .showcase-card--3 { background: var(--input-bg); color: var(--text); border: 1px solid var(--border); }
 
 @media (max-width: 900px) {
   .landing-split, .landing-split.reverse { grid-template-columns: 1fr; gap: 56px; }
@@ -459,7 +254,6 @@ html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
   color: var(--gold-text);
   background: var(--lounge-gold);
 }
-.steps.s-init .step-num { background: var(--text); color: var(--bg); }
 
 .step h4 { font-size: 1.375rem; font-weight: 800; color: var(--text); margin-bottom: 10px; letter-spacing: -0.01em; }
 .step p { font-size: 1.0625rem; color: var(--text-secondary); line-height: 1.55; }
@@ -499,7 +293,6 @@ html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
 .usp-card-art svg { width: 34px; height: 34px; }
 
 .usp-grid.u-lounge .usp-card-art { background: var(--lounge-gold); color: var(--gold-text); }
-.usp-grid.u-init .usp-card-art { background: var(--input-bg); color: var(--text); border: 1px solid var(--border); }
 
 .usp-card h3 { font-size: 1.5rem; font-weight: 800; color: var(--text); margin-bottom: 12px; letter-spacing: -0.015em; }
 .usp-card p { font-size: 1.0625rem; color: var(--text-secondary); line-height: 1.6; }
@@ -508,7 +301,21 @@ html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
   .usp-grid { grid-template-columns: 1fr; }
 }
 
-/* ── USP bullet strip ── */
+/* ── "No feed. No fakes." points strip ── */
+
+.lounge-points {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px 24px 8px;
+}
+.lounge-points h2 {
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  text-align: center;
+  margin-bottom: 32px;
+}
 
 .usp-bullets {
   max-width: 1080px;
@@ -520,14 +327,111 @@ html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
 }
 
 .usp-bullet {
+  position: relative;
+  padding-left: 26px;
   font-size: 1.125rem;
   font-weight: 600;
+  line-height: 1.5;
   color: var(--text);
+}
+.usp-bullet::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--lounge-gold);
 }
 .usp-bullet:nth-child(2) { transition-delay: 0.06s; }
 .usp-bullet:nth-child(3) { transition-delay: 0.12s; }
 .usp-bullet:nth-child(4) { transition-delay: 0.18s; }
+.usp-bullet:nth-child(5) { transition-delay: 0.24s; }
 
 @media (max-width: 640px) {
   .usp-bullets { grid-template-columns: 1fr; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Analytics consent banner  (js/consent.js)
+═══════════════════════════════════════════════════════════════ */
+
+.cookie-consent {
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  z-index: 300;
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 16px 20px;
+  background: color-mix(in srgb, var(--surface) 92%, transparent);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+.cookie-consent-text {
+  flex: 1;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+
+.cookie-consent-text a {
+  color: var(--text);
+  text-decoration: underline;
+}
+
+.cookie-consent-actions {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.cookie-consent-btn {
+  padding: 10px 18px;
+  border-radius: 12px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.cookie-consent-accept {
+  background: var(--text);
+  color: var(--bg);
+  box-shadow: var(--shadow-md);
+}
+
+.cookie-consent-accept:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.cookie-consent-decline {
+  background: transparent;
+  color: var(--text);
+  border: 1.5px solid var(--border);
+}
+
+.cookie-consent-decline:hover {
+  border-color: var(--text);
+}
+
+@media (max-width: 560px) {
+  .cookie-consent {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+  }
+  .cookie-consent-actions {
+    justify-content: flex-end;
+  }
 }

@@ -1,37 +1,23 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#050510;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#12122a;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="check" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#f72585;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#4cc9f0;stop-opacity:1" />
-    </linearGradient>
-  </defs>
+  <!-- Init social card - gold interlocked chat bubbles + checkmark on matte black,
+       mirroring the app icon (init repo: assets-logo/init-gold-icon.svg).
+       The "Init" wordmark below is Plus Jakarta Sans ExtraBold (the site font)
+       converted to outline paths, so the card rasterises identically in every
+       renderer with zero font dependency. To re-cut it if the mark ever changes,
+       outline "Init" at 88px from PlusJakartaSans-ExtraBold (Google Fonts /
+       github.com/tokotype/PlusJakartaSans), centred on x=600, baseline y=482. -->
+  <rect width="1200" height="630" fill="#050505"/>
+  <rect x="60" y="60" width="1080" height="510" rx="60" fill="#171717"/>
 
-  <!-- Background -->
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <rect x="60" y="60" width="1080" height="510" rx="60" fill="#0d0d24"/>
-
-  <!-- Logo + Init centered, scaled for 1200×630 -->
-  <g transform="translate(600,270) scale(2.2) translate(-180,-158.5)">
-    <!-- Pink bubble -->
-    <rect x="60" y="65" width="170" height="105" rx="22" fill="none" stroke="#f72585" stroke-width="8" opacity="0.85"/>
-    <polyline points="75,170 60,198 100,170" fill="none" stroke="#f72585" stroke-width="8" opacity="0.85"/>
-
-    <!-- Cyan bubble -->
-    <rect x="130" y="80" width="170" height="105" rx="22" fill="none" stroke="#4cc9f0" stroke-width="8" opacity="0.85"/>
-    <polyline points="287,185 300,213 262,185" fill="none" stroke="#4cc9f0" stroke-width="8" opacity="0.85"/>
-
-    <!-- Overlap tint -->
-    <rect x="130" y="80" width="100" height="90" rx="0" fill="#7209b7" opacity="0.15"/>
-
-    <!-- Checkmark -->
-    <polyline points="155,130 175,146 205,104" stroke="url(#check)" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-
-    <!-- Text -->
-    <text x="195" y="252" font-family="-apple-system, Helvetica Neue, Arial, sans-serif" font-size="68" font-weight="800" fill="#e8e8ff" text-anchor="middle" letter-spacing="6">Init</text>
+  <g transform="translate(600,240) scale(1.15) translate(-210,-206)">
+    <path d="M185,142 L322,142 Q344,142 344,164 L344,269 Q344,291 322,291 L300,291 L330,329 L270,291 L185,291 Q163,291 163,269 L163,164 Q163,142 185,142 Z"
+          fill="none" stroke="#FFD200" stroke-width="14"/>
+    <path d="M98,83 L268,83 Q290,83 290,105 L290,210 Q290,232 268,232 L160,232 L118,270 L140,232 L98,232 Q76,232 76,210 L76,105 Q76,83 98,83 Z"
+          fill="none" stroke="#FFD200" stroke-width="14"/>
+    <path d="M163,142 L290,142 L290,232 L163,232 Z" fill="#FFD200" fill-opacity="0.15"/>
+    <path d="M207.25,195 L226.75,214.5 L256,175.5"
+          fill="none" stroke="#FFD200" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
   </g>
 
+  <path fill="#F2F2F2" d="M533.86 482.0V416.44H547.5V482.0Z M560.148 482.0V433.952H572.468V439.848Q574.316 436.328 577.836 434.61199999999997Q581.356 432.896 585.932 432.896Q591.388 432.896 595.48 435.18399999999997Q599.572 437.472 601.86 441.56399999999996Q604.148 445.656 604.148 451.112V482.0H590.948V453.928Q590.948 449.79200000000003 588.4839999999999 447.284Q586.02 444.776 582.148 444.776Q578.276 444.776 575.8119999999999 447.284Q573.348 449.79200000000003 573.348 453.928V482.0Z M614.86 429.64V416.44H628.06V429.64ZM614.86 482.0V433.952H628.06V482.0Z M662.884 482.528Q654.172 482.528 649.376 477.82000000000005Q644.5799999999999 473.112 644.5799999999999 464.664V445.392H636.4839999999999V433.952H636.924Q644.5799999999999 433.952 644.5799999999999 426.56V423.04H657.78V433.952H669.044V445.392H657.78V463.784Q657.78 471.088 665.9639999999999 471.088Q667.196 471.088 669.044 470.824V482.0Q667.7239999999999 482.176 666.0519999999999 482.352Q664.38 482.528 662.884 482.528Z"/>
 </svg>
