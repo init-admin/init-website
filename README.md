@@ -1,6 +1,7 @@
 # Init — Landing Page
 
-Marketing landing page for [Init](https://initmatch.com) — the mutual interest matching app.
+Marketing landing page for [Init](https://initmatch.com) — a location-based
+social app (check in somewhere, drop a vibe, meet the people who are here now).
 
 ## Live Site
 
@@ -24,16 +25,6 @@ Static HTML + CSS + JS. No framework, no build step.
 npx serve -l 3333 .
 # Open http://localhost:3333
 ```
-
-## Syncing App Icons
-
-Category icons in the "Init is for" section are sourced from the app's icon libraries. Run this after updating icons in the app:
-
-```bash
-node scripts/sync-category-icons.js
-```
-
-Reads SVG paths directly from `../init/mobile/node_modules` (lucide-react-native + phosphor-react-native) and patches `index.html` automatically.
 
 ## Deployment
 
