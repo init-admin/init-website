@@ -87,7 +87,7 @@ html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
 ═══════════════════════════════════════════════════════════════ */
 
 .navbar { padding: 16px 20px 16px 22px; }
-.nav-logo-icon { width: 62px; height: 46px; }
+.nav-logo-icon { width: 50px; height: 46px; }
 /* No pill/background around the nav items — plain text links */
 .nav-links { gap: 48px; padding: 0; background: none; border: none; }
 .nav-links a { font-size: 1.375rem; font-weight: 800; }
