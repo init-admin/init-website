@@ -1,6 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <!-- Init social card — gold interlocked chat bubbles + checkmark on matte
-       black, mirroring the app icon (init repo: assets-logo/init-gold-icon.svg). -->
+  <!-- Init social card - gold interlocked chat bubbles + checkmark on matte black,
+       mirroring the app icon (init repo: assets-logo/init-gold-icon.svg).
+       The "Init" wordmark below is Plus Jakarta Sans ExtraBold (the site font)
+       converted to outline paths, so the card rasterises identically in every
+       renderer with zero font dependency. To re-cut it if the mark ever changes,
+       outline "Init" at 88px from PlusJakartaSans-ExtraBold (Google Fonts /
+       github.com/tokotype/PlusJakartaSans), centred on x=600, baseline y=482. -->
   <rect width="1200" height="630" fill="#050505"/>
   <rect x="60" y="60" width="1080" height="510" rx="60" fill="#171717"/>
 
@@ -14,6 +19,5 @@
           fill="none" stroke="#FFD200" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
   </g>
 
-  <text x="600" y="478" font-family="Plus Jakarta Sans, -apple-system, Helvetica Neue, Arial, sans-serif"
-        font-size="82" font-weight="800" fill="#F2F2F2" text-anchor="middle" letter-spacing="4">Init</text>
+  <path fill="#F2F2F2" d="M533.86 482.0V416.44H547.5V482.0Z M560.148 482.0V433.952H572.468V439.848Q574.316 436.328 577.836 434.61199999999997Q581.356 432.896 585.932 432.896Q591.388 432.896 595.48 435.18399999999997Q599.572 437.472 601.86 441.56399999999996Q604.148 445.656 604.148 451.112V482.0H590.948V453.928Q590.948 449.79200000000003 588.4839999999999 447.284Q586.02 444.776 582.148 444.776Q578.276 444.776 575.8119999999999 447.284Q573.348 449.79200000000003 573.348 453.928V482.0Z M614.86 429.64V416.44H628.06V429.64ZM614.86 482.0V433.952H628.06V482.0Z M662.884 482.528Q654.172 482.528 649.376 477.82000000000005Q644.5799999999999 473.112 644.5799999999999 464.664V445.392H636.4839999999999V433.952H636.924Q644.5799999999999 433.952 644.5799999999999 426.56V423.04H657.78V433.952H669.044V445.392H657.78V463.784Q657.78 471.088 665.9639999999999 471.088Q667.196 471.088 669.044 470.824V482.0Q667.7239999999999 482.176 666.0519999999999 482.352Q664.38 482.528 662.884 482.528Z"/>
 </svg>
