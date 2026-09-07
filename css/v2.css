@@ -188,7 +188,7 @@ a { color:inherit; }
 .navbar.scrolled { background:var(--card); box-shadow:5px 5px 0 var(--hard); }
 
 .nav-links, .nav-controls { background:none; border:none; padding:0; }
-.nav-links { gap:24px; }
+.nav-links { gap:44px; }
 .nav-links a {
   font-family:'Space Mono',monospace;
   text-transform:uppercase;
@@ -196,8 +196,11 @@ a { color:inherit; }
   font-size:.9rem;
   font-weight:700;
   color:var(--ink);
+  padding-bottom:5px;
+  border-bottom:2px dotted var(--ink-soft);
+  transition:color .12s ease, border-color .12s ease;
 }
-.nav-links a:hover { opacity:1; color:var(--stamp); }
+.nav-links a:hover { opacity:1; color:var(--stamp); border-bottom-color:var(--stamp); }
 
 .nav-logo { font-family:Oswald,sans-serif; font-weight:700; font-size:1.6rem; letter-spacing:-.01em; color:var(--ink); }
 .nav-logo-icon { width:44px; height:44px; }
@@ -352,7 +355,14 @@ html { scroll-snap-type:none; }
   padding:14px 8px;
   background:var(--card);
   color:var(--ink);
-  filter:drop-shadow(4px 4px 0 var(--hard));
+  /* 4-way 1.5px outline traces the perforated silhouette (so the cream
+     stamps read against the cream page) + the hard offset block */
+  filter:
+    drop-shadow(1.5px 0 0 var(--ink))
+    drop-shadow(-1.5px 0 0 var(--ink))
+    drop-shadow(0 1.5px 0 var(--ink))
+    drop-shadow(0 -1.5px 0 var(--ink))
+    drop-shadow(4px 5px 0 var(--hard));
   -webkit-mask:
     radial-gradient(var(--r) at 50% 0,#0000 96%,#000) 0 0/var(--s) var(--s) repeat-x,
     radial-gradient(var(--r) at 50% 100%,#0000 96%,#000) 0 100%/var(--s) var(--s) repeat-x,
