@@ -333,11 +333,11 @@ html { scroll-snap-type:none; }
 
 /* hero visual → a sheet of postage stamps (blue / cream / orange).
    6 venue stamps, 3x2, each with an icon + venue + a one-line vibe hint. */
-.showcase-stack { position:relative; width:100%; max-width:520px; }
+.showcase-stack { position:relative; width:100%; max-width:560px; }
 .stamp-sheet {
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:14px;
+  gap:12px;
   padding:6px;
 }
 .stamp {
@@ -373,17 +373,19 @@ html { scroll-snap-type:none; }
 }
 .stamp-hint {
   font-family:'Space Mono',monospace;
-  font-size:.68rem;
-  letter-spacing:.01em;
-  line-height:1.15;
+  font-weight:700;
+  font-size:.86rem;
+  letter-spacing:0;
+  line-height:1.25;
   text-align:center;
 }
 .stamp--cream  { background:var(--card);     color:var(--ink); }
-.stamp--blue   { background:var(--postmark); color:var(--on-accent); }
+.stamp--blue   { background:var(--postmark); color:var(--paper); }
 .stamp--orange { background:var(--stamp);    color:var(--on-accent); }
-.stamp--cream .stamp-hint { color:var(--ink-soft); }
-.stamp--blue  .stamp-hint,
-.stamp--orange .stamp-hint { color:color-mix(in srgb, var(--on-accent) 76%, transparent); }
+/* hint gets its own colour per stamp — as much pop as each fill allows */
+.stamp--cream  .stamp-hint { color:var(--stamp); }
+.stamp--blue   .stamp-hint { color:var(--paper); }
+.stamp--orange .stamp-hint { color:var(--on-accent); }
 
 .stamp:nth-child(1){transform:rotate(-2.5deg);}
 .stamp:nth-child(2){transform:rotate(1.6deg);}
@@ -431,7 +433,7 @@ html { scroll-snap-type:none; }
   background:none;
   font-family:Oswald,sans-serif;
   font-weight:700;
-  font-size:3.2rem;
+  font-size:4rem;
   line-height:1;
   color:var(--stamp);
 }
@@ -440,11 +442,11 @@ html { scroll-snap-type:none; }
   text-transform:uppercase;
   font-weight:600;
   letter-spacing:.03em;
-  font-size:1.35rem;
+  font-size:1.7rem;
   color:var(--ink);
-  margin:14px 0 12px;
+  margin:16px 0 12px;
 }
-.step p { color:var(--ink-soft); font-size:1.1rem; line-height:1.55; }
+.step p { color:var(--ink-soft); font-size:1.25rem; line-height:1.55; }
 
 /* ═══════════════════════════════════════════════════════════════
    USP cards — dashed franking cards + stamp medallions
@@ -514,12 +516,12 @@ html { scroll-snap-type:none; }
 .download h2 {
   font-family:Oswald,sans-serif;
   text-transform:uppercase;
-  font-size:clamp(2.6rem,5vw,3.8rem);
+  font-size:clamp(3rem,5.6vw,4.6rem);
   line-height:1.02;
   color:var(--ink);
-  margin-bottom:18px;
+  margin-bottom:20px;
 }
-.download p { color:var(--ink-soft); font-size:1.35rem; margin-bottom:40px; }
+.download p { color:var(--ink-soft); font-size:1.6rem; margin-bottom:44px; }
 
 .store-btn {
   --r:4px; --s:9px;
@@ -544,14 +546,14 @@ html { scroll-snap-type:none; }
   font-family:'Space Mono',monospace;
   text-transform:uppercase;
   letter-spacing:.1em;
-  font-size:.8rem;
+  font-size:.9rem;
   color:var(--ink-soft);
 }
 .store-btn-text strong {
   font-family:Oswald,sans-serif;
   text-transform:uppercase;
   letter-spacing:.01em;
-  font-size:1.2rem;
+  font-size:1.45rem;
   color:var(--ink);
 }
 
