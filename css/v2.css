@@ -331,22 +331,26 @@ html { scroll-snap-type:none; }
 }
 .landing-text p.lead { color:var(--ink-soft); max-width:30ch; }
 
-/* showcase stack → fanned perforated stamps */
-.showcase-stack { position:relative; height:400px; max-width:460px; }
-.landing-lounge .showcase-card,
-.showcase-card {
-  --r:4px; --s:9px;
-  position:absolute;
-  width:212px; height:280px;
-  padding:22px;
+/* hero visual → a sheet of postage stamps (blue / cream / orange) */
+.showcase-stack { position:relative; width:100%; max-width:480px; }
+.stamp-sheet {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  padding:6px;
+}
+.stamp {
+  --r:3.2px; --s:7.5px;
+  aspect-ratio:1 / 1.18;
   display:flex;
   flex-direction:column;
-  justify-content:space-between;
-  gap:10px;
-  border-radius:0 !important;
-  border:none !important;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  padding:8px 5px;
   background:var(--card);
-  filter:drop-shadow(4px 5px 0 var(--hard));
+  color:var(--ink);
+  filter:drop-shadow(3px 3px 0 var(--hard));
   -webkit-mask:
     radial-gradient(var(--r) at 50% 0,#0000 96%,#000) 0 0/var(--s) var(--s) repeat-x,
     radial-gradient(var(--r) at 50% 100%,#0000 96%,#000) 0 100%/var(--s) var(--s) repeat-x,
@@ -356,28 +360,34 @@ html { scroll-snap-type:none; }
   -webkit-mask-composite:xor;
           mask-composite:exclude;
 }
-.showcase-card svg { width:40px; height:40px; align-self:center; margin:auto 0; color:var(--stamp); }
-.showcase-card span {
-  font-family:Oswald,sans-serif;
+.stamp svg { width:24px; height:24px; }
+.stamp span {
+  font-family:'Space Mono',monospace;
   text-transform:uppercase;
+  letter-spacing:.05em;
+  font-size:.58rem;
   font-weight:700;
-  font-size:1.3rem;
-  letter-spacing:.01em;
-  color:var(--ink);
+  line-height:1.1;
+  text-align:center;
 }
-.landing-lounge .showcase-card--1 { background:var(--card); color:var(--ink); }
-.landing-lounge .showcase-card--2 { background:var(--card); color:var(--ink); }
-.landing-lounge .showcase-card--3 { background:var(--stamp); }
-.landing-lounge .showcase-card--3 svg,
-.landing-lounge .showcase-card--3 span { color:var(--on-accent); }
-.showcase-card--1 { top:8px;  left:0;    transform:rotate(-7deg);   z-index:1; }
-.showcase-card--2 { top:32px; right:6px; transform:rotate(6deg);    z-index:1; align-items:flex-end; text-align:right; }
-.showcase-card--2 svg { align-self:flex-end; }
-.showcase-card--3 { top:100px; left:96px; transform:rotate(-1.5deg); z-index:2; }
+.stamp--cream  { background:var(--card);     color:var(--ink); }
+.stamp--blue   { background:var(--postmark); color:var(--on-accent); }
+.stamp--orange { background:var(--stamp);    color:var(--on-accent); }
+.stamp--denom .inf { font-family:Oswald,sans-serif; font-weight:700; font-size:1.9rem; line-height:.9; }
+
+.stamp:nth-child(1){transform:rotate(-2.5deg);}
+.stamp:nth-child(2){transform:rotate(1.8deg);}
+.stamp:nth-child(3){transform:rotate(-1deg);}
+.stamp:nth-child(4){transform:rotate(2.2deg);}
+.stamp:nth-child(5){transform:rotate(-1.8deg);}
+.stamp:nth-child(6){transform:rotate(1deg);}
+.stamp:nth-child(7){transform:rotate(-2deg);}
+.stamp:nth-child(8){transform:rotate(2deg);}
 
 /* hero cancellation ring */
-.hero-postmark { position:absolute; top:-14px; right:-6px; z-index:4; }
+.hero-postmark { position:absolute; bottom:-24px; right:-22px; z-index:4; }
 @media (max-width:900px){ .showcase-stack { margin:0 auto; } }
+@media (max-width:460px){ .stamp-sheet { grid-template-columns:repeat(3,1fr); } }
 
 /* ═══════════════════════════════════════════════════════════════
    How it works — ticket-stub steps
@@ -391,21 +401,20 @@ html { scroll-snap-type:none; }
   border:2px solid var(--ink);
   border-radius:3px;
   box-shadow:6px 6px 0 var(--hard);
-  padding:34px 26px 30px;
+  padding:38px 30px 34px;
   text-align:left;
 }
-.step::before, .step::after {
+/* one concave "caved-in" notch, left edge only — a bite out of the stub */
+.step::before {
   content:"";
   position:absolute;
   top:50%;
-  width:20px; height:20px;
-  margin-top:-10px;
+  left:-13px;
+  width:26px; height:26px;
+  margin-top:-13px;
   background:var(--paper);
-  border:2px solid var(--ink);
   border-radius:999px;
 }
-.step::before { left:-11px; }
-.step::after  { right:-11px; }
 
 .step-num {
   width:auto; height:auto;
@@ -414,7 +423,7 @@ html { scroll-snap-type:none; }
   background:none;
   font-family:Oswald,sans-serif;
   font-weight:700;
-  font-size:2.4rem;
+  font-size:3.2rem;
   line-height:1;
   color:var(--stamp);
 }
@@ -423,10 +432,11 @@ html { scroll-snap-type:none; }
   text-transform:uppercase;
   font-weight:600;
   letter-spacing:.03em;
+  font-size:1.35rem;
   color:var(--ink);
-  margin:12px 0 10px;
+  margin:14px 0 12px;
 }
-.step p { color:var(--ink-soft); font-size:.98rem; }
+.step p { color:var(--ink-soft); font-size:1.1rem; line-height:1.55; }
 
 /* ═══════════════════════════════════════════════════════════════
    USP cards — dashed franking cards + stamp medallions
@@ -489,16 +499,19 @@ html { scroll-snap-type:none; }
   border-radius:4px;
   background:var(--card);
   box-shadow:8px 10px 0 var(--hard);
-  padding:48px 44px;
-  max-width:720px;
+  padding:60px 52px;
+  max-width:780px;
   margin-inline:auto;
 }
 .download h2 {
   font-family:Oswald,sans-serif;
   text-transform:uppercase;
+  font-size:clamp(2.6rem,5vw,3.8rem);
+  line-height:1.02;
   color:var(--ink);
+  margin-bottom:18px;
 }
-.download p { color:var(--ink-soft); }
+.download p { color:var(--ink-soft); font-size:1.35rem; margin-bottom:40px; }
 
 .store-btn {
   --r:4px; --s:9px;
@@ -523,12 +536,14 @@ html { scroll-snap-type:none; }
   font-family:'Space Mono',monospace;
   text-transform:uppercase;
   letter-spacing:.1em;
+  font-size:.8rem;
   color:var(--ink-soft);
 }
 .store-btn-text strong {
   font-family:Oswald,sans-serif;
   text-transform:uppercase;
   letter-spacing:.01em;
+  font-size:1.2rem;
   color:var(--ink);
 }
 
@@ -642,7 +657,6 @@ table.data-table td { border:1.5px solid var(--hair) !important; }
 .landing-text h1 { margin-bottom:20px; }
 .landing-text p.lead { font-size:1.25rem; line-height:1.5; max-width:460px; margin-bottom:32px; }
 
-.showcase-card { justify-content:center; gap:16px; }
 
 .steps-band { padding:56px 24px; }
 .steps {
