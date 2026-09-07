@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- Init favicon — simplified from the app's two-bubble mark for legibility
+       at 16-32px: navy rounded tile, one cream speech bubble, bold check.
+       A hair of franking orange on the tab / corner keeps the brand accent. -->
+  <rect x="16" y="16" width="480" height="480" rx="116" fill="#0B1E33"/>
+  <rect x="16" y="16" width="480" height="480" rx="116" fill="none" stroke="#E56A4B" stroke-width="14"/>
+  <!-- speech bubble -->
+  <path d="M150,120 H362 Q392,120 392,150 V300 Q392,330 362,330 H250 L176,392 L200,330 H150 Q120,330 120,300 V150 Q120,120 150,120 Z"
+        fill="none" stroke="#FFF8EA" stroke-width="30" stroke-linejoin="round"/>
+  <!-- check -->
+  <path d="M196,222 L242,268 L318,178"
+        fill="none" stroke="#E56A4B" stroke-width="34" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
