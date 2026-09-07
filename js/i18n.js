@@ -28,7 +28,7 @@
 
   const T = {
     en: {
-      nav_how: 'How it works',
+      nav_how: 'How Lounge works',
       nav_download: 'Download',
       hero_eyebrow: 'Init Lounge',
       lounge_step1_title: 'Check in',

@@ -188,12 +188,12 @@ a { color:inherit; }
 .navbar.scrolled { background:var(--card); box-shadow:5px 5px 0 var(--hard); }
 
 .nav-links, .nav-controls { background:none; border:none; padding:0; }
-.nav-links { gap:26px; }
+.nav-links { gap:24px; }
 .nav-links a {
   font-family:'Space Mono',monospace;
   text-transform:uppercase;
-  letter-spacing:.12em;
-  font-size:.72rem;
+  letter-spacing:.08em;
+  font-size:.9rem;
   font-weight:700;
   color:var(--ink);
 }
@@ -249,6 +249,7 @@ a { color:inherit; }
   font-family:'Space Mono',monospace;
   text-transform:uppercase;
   letter-spacing:.08em;
+  font-size:.9rem;
   font-weight:700;
 }
 .lang-btn:hover { border-color:var(--ink); color:var(--stamp); }
