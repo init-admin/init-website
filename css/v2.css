@@ -1,437 +1,698 @@
 /* ═══════════════════════════════════════════════════════════════
-   Init — v2 revamp layer
-   Loaded after style.css. Overrides the base :root color tokens
-   with the app's real palette, and adds app-accurate button
-   variants + a big/bold Bumble-inspired layout. No gradients, no
-   glass/blur — flat solid surfaces only. Gold is concentrated on
-   Lounge surfaces + the universal "Get the app" CTA.
+   Init — POSTMARK re-skin layer
+   Loaded after style.css. Re-skins the Lounge-first site in the
+   where2.wtf "mailing paper" look — the same design system shipped
+   in the app revamp (D:\Projects\init\mobile\src\design\postmark\).
 
-   Single-page structure: Lounge hero (#hero) → how-it-works steps →
-   USP cards → download → footer. The site presents Init as a
-   Lounge-first (location / vibe-matching) app.
+   Two palettes on the existing light/dark toggle:
+     light  → CREAM  (paper #F2E6CD · ink #0C2B4F · franking red #C83C2D)
+     dark   → NAVY   (paper #0B1E33 · ink #EFE3C6 · franking red #E56A4B)
+
+   Motifs: hard offset shadows (Npx Npx 0, no blur), 2px solid / dashed
+   ink borders, perforated postage-stamp edges, rotated .rubber stamped
+   chips, .postmark cancellation rings, ticket-stub notches, Oswald
+   ALL-CAPS headings, Space Mono labels, Inter body.
 ═══════════════════════════════════════════════════════════════ */
 
-/* Real app tokens (mobile/src/utils/useTheme.ts DARK_COLORS / LIGHT_COLORS) —
-   overrides style.css's legacy violet-tinted "neutrals" (#FAF8FF, #1C1627,
-   #0C0A14, #2A2440, etc). The app has exactly one accent (gold); every
-   "neutral" here is a true gray/black, not indigo-biased. */
-html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
-.landing-section, #download { scroll-snap-align: start; }
-
+/* ── palette ─────────────────────────────────────────────────── */
 :root, [data-theme="light"] {
-  --primary: #D0B070;
-  --primary-light: #E8C877;
-  --primary-dark: #A88A3D;
-  --secondary: #D0B070;
+  --paper:#F2E6CD;  --paper-2:#E7D5B4;  --card-2:#F4E6C8;
+  --ink:#0C2B4F;    --ink-soft:#5A6B80;
+  --stamp:#C83C2D;  --stamp-deep:#8D271F;  --postmark:#0B497F;
+  --hair:rgba(12,43,79,.20);
+  --hard:rgba(12,43,79,1);
+  --grain:rgba(12,43,79,.05);
+  --on-accent:#FFF8EA;
 
-  --bg: #F2F2F2;
-  --surface: #FFFFFF;
-  --card: #FFFFFF;
+  /* legacy tokens (style.css) remapped onto the postmark palette */
+  --primary:#C83C2D;
+  --primary-light:#C83C2D;
+  --primary-dark:#8D271F;
+  --secondary:#0B497F;
 
-  --text: #1A1A1A;
-  --text-secondary: #6B6B6B;
-  --border: #E5E5E5;
-  --input-bg: #F5F5F5;
+  --bg:#F2E6CD;
+  --surface:#FFF8EA;
+  --card:#FFF8EA;
 
-  --lounge-gold: #D0B070;
-  --lounge-heading: #7A5C0A;
-  --lounge-subtext: #9A7820;
-  --gold-text: #2D1A00;
+  --text:#0C2B4F;
+  --text-secondary:#5A6B80;
+  --border:#0C2B4F;
+  --input-bg:#F4E6C8;
 
-  --glow: rgba(208, 176, 112, 0.20);
-  --overlay: rgba(0, 0, 0, 0.82);
+  --lounge-gold:#C83C2D;
+  --gold-text:#FFF8EA;
 
-  /* Home-screen card surfaces — matches app's glassCardBg / loungeCardBg
-     exactly. No blur: on a flat page background these are just tinted
-     solid fills, not a glass effect. */
-  --glass-card-bg: #FFFFFF;
-  --lounge-card-bg: rgba(208, 176, 112, 0.55);
-  --gold-section-bg: rgba(208, 176, 112, 0.10);
-  /* Landing-section background — approximated from a reference screenshot,
-     not a token pulled from useTheme.ts (no warm-gray token exists there).
-     Flag with a hex if this isn't the right shade. */
-  --landing-bg: #EDEAE4;
+  --glow:transparent;
+  --grad-accent:#C83C2D;
+  --grad-primary:#C83C2D;
+  --overlay:rgba(12,43,79,.55);
+
+  --shadow-sm:3px 3px 0 var(--hard);
+  --shadow-md:5px 5px 0 var(--hard);
+  --shadow-lg:8px 10px 0 var(--hard);
+
+  --radius:3px;
+  --radius-lg:3px;
+  --radius-xl:4px;
 }
 
 [data-theme="dark"] {
-  --primary: #D0B070;
-  --primary-light: #E8C877;
-  --primary-dark: #A88A3D;
-  --secondary: #D0B070;
+  --paper:#0B1E33;  --paper-2:#07131F;  --card-2:#0E273F;
+  --ink:#EFE3C6;    --ink-soft:#9DB0C4;
+  --stamp:#E56A4B;  --stamp-deep:#F0916F;  --postmark:#7FB2D9;
+  --hair:rgba(239,227,198,.22);
+  --hard:rgba(239,227,198,1);
+  --grain:rgba(239,227,198,.05);
+  --on-accent:#FFF8EA;
 
-  --bg: #050505;
-  --surface: #2A2A2A;
-  --card: #2A2A2A;
+  --primary:#E56A4B;
+  --primary-light:#E56A4B;
+  --primary-dark:#F0916F;
+  --secondary:#7FB2D9;
 
-  --text: rgba(255, 255, 255, 0.88);
-  --text-secondary: rgba(255, 255, 255, 0.50);
-  --border: rgba(255, 255, 255, 0.08);
-  --input-bg: #0E0E0E;
+  --bg:#0B1E33;
+  --surface:#12314F;
+  --card:#12314F;
 
-  --lounge-gold: #D0B070;
-  --lounge-heading: #D0B070;
-  --lounge-subtext: rgba(208, 176, 112, 0.65);
-  --gold-text: #2D1A00;
+  --text:#EFE3C6;
+  --text-secondary:#9DB0C4;
+  --border:#EFE3C6;
+  --input-bg:#0E273F;
 
-  --glow: rgba(208, 176, 112, 0.30);
-  --overlay: rgba(0, 0, 0, 0.88);
+  --lounge-gold:#E56A4B;
+  --gold-text:#FFF8EA;
 
-  --glass-card-bg: rgba(255, 255, 255, 0.18);
-  --lounge-card-bg: rgba(208, 176, 112, 0.20);
-  --gold-section-bg: rgba(208, 176, 112, 0.08);
-  --landing-bg: #2E2B27;
+  --glow:transparent;
+  --grad-accent:#E56A4B;
+  --grad-primary:#E56A4B;
+  --overlay:rgba(0,0,0,.62);
+
+  --shadow-sm:3px 3px 0 var(--hard);
+  --shadow-md:5px 5px 0 var(--hard);
+  --shadow-lg:8px 10px 0 var(--hard);
+}
+
+/* ── base type ───────────────────────────────────────────────── */
+body {
+  font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;
+  background-color:var(--paper);
+  background-image:radial-gradient(var(--grain) 1px, transparent 1.4px);
+  background-size:7px 7px;
+  color:var(--ink);
+}
+
+h1,h2,h3,h4,h5,
+.section-header h2,
+.hero h1,
+.landing-text h1 {
+  font-family:Oswald,'Arial Narrow',sans-serif;
+  text-transform:uppercase;
+  letter-spacing:-.01em;
+  text-wrap:balance;
+}
+
+::selection { background:var(--stamp); color:var(--on-accent); }
+:focus-visible { outline:3px solid var(--postmark); outline-offset:2px; }
+
+a { color:inherit; }
+
+/* ── postal motif utilities ──────────────────────────────────── */
+.hard    { box-shadow:6px 6px 0 var(--hard); }
+.hard-sm { box-shadow:3px 3px 0 var(--hard); }
+
+.rubber {
+  display:inline-block;
+  font-family:'Space Mono',ui-monospace,Menlo,monospace;
+  text-transform:uppercase;
+  letter-spacing:.14em;
+  font-size:.7rem;
+  font-weight:700;
+  color:var(--stamp);
+  border:2px solid var(--stamp);
+  border-radius:2px;
+  padding:6px 12px 5px;
+  transform:rotate(-3.5deg);
+  line-height:1;
+}
+.rubber.ink  { color:var(--ink); border-color:var(--ink); }
+.rubber.blue { color:var(--postmark); border-color:var(--postmark); }
+
+.postmark-ring {
+  width:88px; height:88px;
+  border:2px solid var(--postmark);
+  border-radius:999px;
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  transform:rotate(-4deg);
+  opacity:.82;
+  color:var(--postmark);
+  text-align:center;
+  background:var(--paper);
+}
+.postmark-ring span {
+  font-family:'Space Mono',monospace;
+  font-weight:700;
+  font-size:.58rem;
+  letter-spacing:.1em;
+  line-height:1.25;
+}
+.postmark-ring .bar { width:70%; border-top:1.5px solid var(--postmark); margin:2px 0; }
+
+/* perforated postage-stamp edge (Temani-Afif mask) */
+.pstamp {
+  --r:4px; --s:9px;
+  background:var(--card);
+  filter:drop-shadow(4px 5px 0 var(--hard));
+  -webkit-mask:
+    radial-gradient(var(--r) at 50% 0,#0000 96%,#000) 0 0/var(--s) var(--s) repeat-x,
+    radial-gradient(var(--r) at 50% 100%,#0000 96%,#000) 0 100%/var(--s) var(--s) repeat-x,
+    radial-gradient(var(--r) at 0 50%,#0000 96%,#000) 0 0/var(--s) var(--s) repeat-y,
+    radial-gradient(var(--r) at 100% 50%,#0000 96%,#000) 100% 0/var(--s) var(--s) repeat-y,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+          mask-composite:exclude;
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   Navbar — bigger, bolder. Wordmark text dropped (icon only).
+   Navbar — flat franking bar, no blur
 ═══════════════════════════════════════════════════════════════ */
+.navbar {
+  background:var(--card);
+  backdrop-filter:none;
+  -webkit-backdrop-filter:none;
+  border:2px solid var(--ink);
+  border-radius:3px;
+  box-shadow:4px 4px 0 var(--hard);
+  padding:12px 14px 12px 18px;
+}
+.navbar.scrolled { background:var(--card); box-shadow:5px 5px 0 var(--hard); }
 
-.navbar { padding: 16px 20px 16px 22px; }
-.nav-logo-icon { width: 50px; height: 46px; }
-/* No pill/background around the nav items — plain text links */
-.nav-links { gap: 48px; padding: 0; background: none; border: none; }
-.nav-links a { font-size: 1.375rem; font-weight: 800; }
-.theme-toggle { width: 48px; height: 48px; }
-.theme-toggle svg { width: 22px; height: 22px; }
+.nav-links, .nav-controls { background:none; border:none; padding:0; }
+.nav-links { gap:26px; }
+.nav-links a {
+  font-family:'Space Mono',monospace;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  font-size:.72rem;
+  font-weight:700;
+  color:var(--ink);
+}
+.nav-links a:hover { opacity:1; color:var(--stamp); }
+
+.nav-logo { font-family:Oswald,sans-serif; font-weight:700; font-size:1.6rem; letter-spacing:-.01em; color:var(--ink); }
+.nav-logo-icon { width:44px; height:44px; }
+
+.theme-toggle {
+  border:2px solid var(--ink);
+  border-radius:2px;
+  background:var(--card);
+  color:var(--ink);
+  box-shadow:3px 3px 0 var(--hard);
+}
+.theme-toggle:hover { border-color:var(--ink); color:var(--stamp); }
+
+.nav-store-btn {
+  background:var(--card);
+  color:var(--ink);
+  border:2px solid var(--ink);
+  border-radius:2px;
+}
+.nav-store-btn:hover { transform:translate(-1px,-1px); opacity:1; }
+
+.mobile-menu-btn { color:var(--ink); }
+
+.mobile-nav {
+  background:var(--card);
+  backdrop-filter:none;
+  -webkit-backdrop-filter:none;
+  border:2px solid var(--ink);
+  border-radius:3px;
+  box-shadow:6px 6px 0 var(--hard);
+}
+.mobile-nav a {
+  color:var(--ink);
+  border-bottom:1.5px dashed var(--hair);
+  font-family:'Space Mono',monospace;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  font-size:.8rem;
+  font-weight:700;
+}
+
+/* language selector */
+.lang-btn {
+  background:var(--card);
+  border:2px solid var(--ink);
+  border-radius:2px;
+  color:var(--ink);
+  box-shadow:3px 3px 0 var(--hard);
+  font-family:'Space Mono',monospace;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  font-weight:700;
+}
+.lang-btn:hover { border-color:var(--ink); color:var(--stamp); }
+.lang-dropdown {
+  background:var(--card);
+  border:2px solid var(--ink);
+  border-radius:3px;
+  box-shadow:6px 6px 0 var(--hard);
+}
+.lang-option { color:var(--ink); font-family:'Space Mono',monospace; text-transform:uppercase; letter-spacing:.06em; font-size:.72rem; }
+.lang-option:hover { background:var(--card-2); }
+.lang-option.active { background:var(--ink); color:var(--paper); }
 
 /* ═══════════════════════════════════════════════════════════════
-   Buttons — flat only, no gradients
+   Buttons
 ═══════════════════════════════════════════════════════════════ */
-
-.btn-flat-gold, .btn-flat-dark, .btn-outline-v2 {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 18px 34px;
-  border-radius: 14px;
-  font-size: 1.125rem;
-  font-weight: 800;
-  transition: transform 0.15s ease, box-shadow 0.2s ease;
-  cursor: pointer;
-  white-space: nowrap;
+.btn-flat-gold, .btn-flat-dark, .btn-outline-v2,
+.btn-primary, .btn-outline {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:15px 28px;
+  font-family:Oswald,sans-serif;
+  font-size:1rem;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  font-weight:600;
+  border-radius:2px;
+  border:2px solid var(--ink);
+  transition:transform .12s ease, box-shadow .12s ease;
 }
-
-.btn-flat-gold {
-  background: var(--lounge-gold);
-  color: var(--gold-text);
+.btn-flat-gold, .btn-primary {
+  background:var(--stamp);
+  color:var(--on-accent);
+  box-shadow:4px 4px 0 var(--hard);
 }
-.btn-flat-gold:hover { transform: translateY(-2px); }
-
-.btn-flat-dark {
-  background: var(--text);
-  color: var(--bg);
+.btn-flat-gold:hover, .btn-primary:hover {
+  transform:translate(-2px,-2px);
+  box-shadow:6px 6px 0 var(--hard);
 }
-.btn-flat-dark:hover { transform: translateY(-2px); }
-
-.btn-outline-v2 {
-  background: transparent;
-  border: 2px solid var(--border);
-  color: var(--text);
+.btn-flat-dark, .btn-outline-v2, .btn-outline {
+  background:var(--card);
+  color:var(--ink);
+  box-shadow:4px 4px 0 var(--hard);
 }
-.btn-outline-v2:hover { border-color: var(--text); transform: translateY(-2px); }
+.btn-flat-dark:hover, .btn-outline-v2:hover, .btn-outline:hover {
+  transform:translate(-2px,-2px);
+  box-shadow:6px 6px 0 var(--hard);
+  border-color:var(--ink);
+}
 
 /* ═══════════════════════════════════════════════════════════════
-   Landing section — Bumble-style split: text one side, a fanned
-   stack of flat-color icon cards the other (no stock photos, no
-   app screenshots — real venue content instead). Cards left,
-   text right (.reverse).
+   Landing / hero
 ═══════════════════════════════════════════════════════════════ */
+html { scroll-snap-type:none; }
+.landing-section, #download { scroll-snap-align:none; }
 
-.landing-section { padding: 96px 24px; scroll-margin-top: 100px; background: var(--landing-bg); }
-
-/* First section sits under the fixed floating navbar — needs extra top
-   clearance so the eyebrow and the fanned card stack don't tuck behind it. */
-#hero { padding-top: 150px; }
-@media (max-width: 900px) { #hero { padding-top: 128px; } }
-
-.landing-split {
-  max-width: 1240px;
-  margin: 0 auto 72px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
-  align-items: center;
-}
-.landing-split.reverse .landing-text { order: 2; }
-.landing-split.reverse .showcase-stack { order: 1; }
+.landing-section { background:var(--paper); }
+.landing-section + .landing-section { border-top:2px dashed var(--hair); }
 
 .landing-eyebrow {
-  display: inline-block;
-  font-size: 1.125rem;
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  margin-bottom: 20px;
+  font-family:'Space Mono',monospace;
+  font-size:.7rem;
+  font-weight:700;
+  letter-spacing:.14em;
+  color:var(--stamp) !important;
+  border:2px solid var(--stamp);
+  border-radius:2px;
+  padding:6px 12px 5px;
+  transform:rotate(-3.5deg);
+  line-height:1;
 }
-.landing-lounge .landing-eyebrow { color: var(--lounge-gold); }
 
 .landing-text h1 {
-  font-size: clamp(2.5rem, 4.4vw, 3.75rem);
-  font-weight: 800;
-  letter-spacing: -0.035em;
-  line-height: 1.02;
-  color: var(--text);
-  margin-bottom: 20px;
+  font-size:clamp(2.6rem,5.4vw,4.2rem);
+  line-height:.98;
+  letter-spacing:-.02em;
+  color:var(--ink);
 }
+.landing-text p.lead { color:var(--ink-soft); max-width:30ch; }
 
-.landing-text p.lead {
-  font-size: 1.25rem;
-  line-height: 1.5;
-  color: var(--text-secondary);
-  max-width: 460px;
-  margin-bottom: 32px;
-}
-
-/* ── Showcase card stack ── */
-
-.showcase-stack {
-  position: relative;
-  height: 420px;
-  max-width: 460px;
-}
-
+/* showcase stack → fanned perforated stamps */
+.showcase-stack { position:relative; height:400px; max-width:460px; }
+.landing-lounge .showcase-card,
 .showcase-card {
-  position: absolute;
-  width: 220px;
-  height: 300px;
-  border-radius: 24px;
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  gap: 10px;
+  --r:4px; --s:9px;
+  position:absolute;
+  width:212px; height:280px;
+  padding:22px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  gap:10px;
+  border-radius:0 !important;
+  border:none !important;
+  background:var(--card);
+  filter:drop-shadow(4px 5px 0 var(--hard));
+  -webkit-mask:
+    radial-gradient(var(--r) at 50% 0,#0000 96%,#000) 0 0/var(--s) var(--s) repeat-x,
+    radial-gradient(var(--r) at 50% 100%,#0000 96%,#000) 0 100%/var(--s) var(--s) repeat-x,
+    radial-gradient(var(--r) at 0 50%,#0000 96%,#000) 0 0/var(--s) var(--s) repeat-y,
+    radial-gradient(var(--r) at 100% 50%,#0000 96%,#000) 100% 0/var(--s) var(--s) repeat-y,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+          mask-composite:exclude;
 }
-.showcase-card svg { width: 36px; height: 36px; }
+.showcase-card svg { width:40px; height:40px; align-self:center; margin:auto 0; color:var(--stamp); }
 .showcase-card span {
-  font-size: 1.25rem;
-  font-weight: 800;
-  letter-spacing: -0.01em;
+  font-family:Oswald,sans-serif;
+  text-transform:uppercase;
+  font-weight:700;
+  font-size:1.3rem;
+  letter-spacing:.01em;
+  color:var(--ink);
 }
+.landing-lounge .showcase-card--1 { background:var(--card); color:var(--ink); }
+.landing-lounge .showcase-card--2 { background:var(--card); color:var(--ink); }
+.landing-lounge .showcase-card--3 { background:var(--stamp); }
+.landing-lounge .showcase-card--3 svg,
+.landing-lounge .showcase-card--3 span { color:var(--on-accent); }
+.showcase-card--1 { top:8px;  left:0;    transform:rotate(-7deg);   z-index:1; }
+.showcase-card--2 { top:32px; right:6px; transform:rotate(6deg);    z-index:1; align-items:flex-end; text-align:right; }
+.showcase-card--2 svg { align-self:flex-end; }
+.showcase-card--3 { top:100px; left:96px; transform:rotate(-1.5deg); z-index:2; }
 
-.showcase-card--1 { top: 10px; left: 0; transform: rotate(-7deg); z-index: 1; }
-/* Card 2 sits right:0 while card 3 overlaps its left/bottom region in
-   front (z-index 2) — with the default left-aligned content, card 2's
-   icon+label landed directly under card 3 and were fully hidden.
-   Right-aligning card 2's content moves it clear of that overlap. */
-.showcase-card--2 { top: 30px; right: 0; transform: rotate(6deg); z-index: 1; align-items: flex-end; text-align: right; }
-.showcase-card--3 { top: 90px; left: 110px; transform: rotate(-1deg); z-index: 2; }
-
-.landing-lounge .showcase-card--1 { background: var(--input-bg); color: var(--text); border: 1px solid var(--border); }
-.landing-lounge .showcase-card--2 { background: var(--card); color: var(--text); border: 1px solid var(--border); }
-.landing-lounge .showcase-card--3 { background: var(--lounge-gold); color: var(--gold-text); }
-
-
-@media (max-width: 900px) {
-  .landing-split, .landing-split.reverse { grid-template-columns: 1fr; gap: 56px; }
-  .landing-split.reverse .landing-text { order: 1; }
-  .landing-split.reverse .showcase-stack { order: 2; }
-  .showcase-stack { margin: 0 auto; }
-}
+/* hero cancellation ring */
+.hero-postmark { position:absolute; top:-14px; right:-6px; z-index:4; }
+@media (max-width:900px){ .showcase-stack { margin:0 auto; } }
 
 /* ═══════════════════════════════════════════════════════════════
-   How it works — 3-step strip. Optional flat gold full-bleed band.
+   How it works — ticket-stub steps
 ═══════════════════════════════════════════════════════════════ */
+.steps-band { padding:64px 24px 72px; }
+.steps-band + .steps-band { border-top:2px dashed var(--hair); }
 
-.steps-band { padding: 56px 24px; }
-
-.steps {
-  max-width: 1080px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
+.step {
+  position:relative;
+  background:var(--card);
+  border:2px solid var(--ink);
+  border-radius:3px;
+  box-shadow:6px 6px 0 var(--hard);
+  padding:34px 26px 30px;
+  text-align:left;
 }
+.step::before, .step::after {
+  content:"";
+  position:absolute;
+  top:50%;
+  width:20px; height:20px;
+  margin-top:-10px;
+  background:var(--paper);
+  border:2px solid var(--ink);
+  border-radius:999px;
+}
+.step::before { left:-11px; }
+.step::after  { right:-11px; }
 
-.step { text-align: center; }
 .step-num {
-  width: 68px; height: 68px;
-  margin: 0 auto 20px;
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.75rem;
-  font-weight: 800;
-  color: var(--gold-text);
-  background: var(--lounge-gold);
+  width:auto; height:auto;
+  margin:0;
+  border-radius:0;
+  background:none;
+  font-family:Oswald,sans-serif;
+  font-weight:700;
+  font-size:2.4rem;
+  line-height:1;
+  color:var(--stamp);
 }
+.step h4 {
+  font-family:Oswald,sans-serif;
+  text-transform:uppercase;
+  font-weight:600;
+  letter-spacing:.03em;
+  color:var(--ink);
+  margin:12px 0 10px;
+}
+.step p { color:var(--ink-soft); font-size:.98rem; }
 
-.step h4 { font-size: 1.375rem; font-weight: 800; color: var(--text); margin-bottom: 10px; letter-spacing: -0.01em; }
-.step p { font-size: 1.0625rem; color: var(--text-secondary); line-height: 1.55; }
+/* ═══════════════════════════════════════════════════════════════
+   USP cards — dashed franking cards + stamp medallions
+═══════════════════════════════════════════════════════════════ */
+.usp-card {
+  background:var(--card);
+  border:2px dashed var(--ink);
+  border-radius:3px;
+  padding:34px 28px 30px;
+}
+.usp-grid.u-lounge .usp-card-art,
+.usp-card-art {
+  width:70px; height:70px;
+  border:2px solid var(--ink);
+  border-radius:999px;
+  background:var(--stamp) !important;
+  color:var(--on-accent) !important;
+  transform:rotate(-4deg);
+  box-shadow:3px 3px 0 var(--hard);
+  margin-bottom:20px;
+}
+.usp-card h3 {
+  font-family:Oswald,sans-serif;
+  text-transform:uppercase;
+  font-weight:600;
+  letter-spacing:.02em;
+  color:var(--ink);
+}
+.usp-card p { color:var(--ink-soft); }
 
-@media (max-width: 780px) {
-  .steps { grid-template-columns: 1fr; gap: 40px; }
+/* ── points strip ── */
+.lounge-points h2 {
+  font-family:Oswald,sans-serif;
+  text-transform:uppercase;
+  color:var(--ink);
+  letter-spacing:-.01em;
+}
+.usp-bullet { color:var(--ink); font-weight:500; }
+.usp-bullet::before {
+  content:"";
+  position:absolute;
+  left:2px; top:.12em;
+  width:7px; height:12px;
+  border:solid var(--stamp);
+  border-width:0 3px 3px 0;
+  border-radius:0;
+  background:none;
+  transform:rotate(45deg);
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   USP cards — big boxes, big type. Gold stays on the icon tile.
+   Download — dashed franking block + perforated store stamps
 ═══════════════════════════════════════════════════════════════ */
+#download.bg-surface {
+  background:var(--paper);
+  border-block:2px dashed var(--hair);
+}
+.download {
+  border:2px dashed var(--ink);
+  border-radius:4px;
+  background:var(--card);
+  box-shadow:8px 10px 0 var(--hard);
+  padding:48px 44px;
+  max-width:720px;
+  margin-inline:auto;
+}
+.download h2 {
+  font-family:Oswald,sans-serif;
+  text-transform:uppercase;
+  color:var(--ink);
+}
+.download p { color:var(--ink-soft); }
+
+.store-btn {
+  --r:4px; --s:9px;
+  background:var(--card);
+  border:none;
+  border-radius:0;
+  box-shadow:none;
+  color:var(--ink);
+  filter:drop-shadow(3px 3px 0 var(--hard));
+  -webkit-mask:
+    radial-gradient(var(--r) at 50% 0,#0000 96%,#000) 0 0/var(--s) var(--s) repeat-x,
+    radial-gradient(var(--r) at 50% 100%,#0000 96%,#000) 0 100%/var(--s) var(--s) repeat-x,
+    radial-gradient(var(--r) at 0 50%,#0000 96%,#000) 0 0/var(--s) var(--s) repeat-y,
+    radial-gradient(var(--r) at 100% 50%,#0000 96%,#000) 100% 0/var(--s) var(--s) repeat-y,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+          mask-composite:exclude;
+}
+.store-btn:hover { transform:translate(-2px,-2px); box-shadow:none; }
+.store-btn-icon svg { fill:var(--ink); }
+.store-btn-text small {
+  font-family:'Space Mono',monospace;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  color:var(--ink-soft);
+}
+.store-btn-text strong {
+  font-family:Oswald,sans-serif;
+  text-transform:uppercase;
+  letter-spacing:.01em;
+  color:var(--ink);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Footer — postal
+═══════════════════════════════════════════════════════════════ */
+.footer {
+  background:var(--card);
+  border-top:2px solid var(--ink);
+}
+.footer-brand p { color:var(--ink-soft); }
+.footer-social-link {
+  border:2px solid var(--ink);
+  border-radius:2px;
+  color:var(--ink);
+  background:var(--card);
+}
+.footer-social-link:hover { color:var(--stamp); border-color:var(--stamp); transform:translate(-1px,-1px); }
+.footer-col h4 {
+  font-family:'Space Mono',monospace;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  color:var(--ink-soft);
+  font-weight:700;
+}
+.footer-col a {
+  font-family:'Space Mono',monospace;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  font-size:.68rem;
+  font-weight:700;
+  color:var(--ink);
+}
+.footer-col a:hover { color:var(--stamp); }
+.footer-bottom { border-top:2px dashed var(--hair); }
+.footer-bottom p, .footer-bottom a {
+  font-family:'Space Mono',monospace;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  font-size:.66rem;
+  color:var(--ink-soft);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Legal pages — reskin the shared inline <style> shell.
+   (Those rules live in each page's <head> after this file, so the
+   structural overrides here need !important; colour follows the
+   remapped tokens automatically.)
+═══════════════════════════════════════════════════════════════ */
+.legal-page h1 {
+  font-family:Oswald,sans-serif !important;
+  text-transform:uppercase !important;
+  letter-spacing:-.01em;
+}
+.legal-page h2, .legal-page h3 {
+  font-family:Oswald,sans-serif !important;
+  text-transform:uppercase !important;
+  letter-spacing:.02em;
+}
+.legal-page .meta {
+  font-family:'Space Mono',monospace !important;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+}
+.legal-page a { color:var(--postmark); }
+.legal-page .highlight-box {
+  border:2px dashed var(--ink) !important;
+  border-radius:3px !important;
+  background:var(--card) !important;
+}
+.legal-toc {
+  border:2px solid var(--ink) !important;
+  border-radius:3px !important;
+  box-shadow:5px 5px 0 var(--hard);
+  background:var(--card) !important;
+}
+.legal-toc h4 {
+  font-family:'Space Mono',monospace !important;
+  letter-spacing:.12em;
+  color:var(--ink-soft) !important;
+}
+.legal-toc ol li a { color:var(--postmark) !important; font-family:'Space Mono',monospace; font-size:.78rem; }
+.section-divider { border-top:2px dashed var(--hair) !important; }
+table.data-table th {
+  background:var(--card-2) !important;
+  border:2px solid var(--ink) !important;
+  font-family:Oswald,sans-serif;
+  text-transform:uppercase;
+}
+table.data-table td { border:1.5px solid var(--hair) !important; }
+
+/* ═══════════════════════════════════════════════════════════════
+   Layout scaffold — structural rules the pre-reskin v2 layer owned.
+   (Skin above; geometry here.)
+═══════════════════════════════════════════════════════════════ */
+.landing-section { padding:96px 24px; scroll-margin-top:100px; }
+#hero { padding-top:150px; }
+
+.landing-split {
+  max-width:1240px;
+  margin:0 auto 72px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:64px;
+  align-items:center;
+}
+.landing-split.reverse .landing-text { order:2; }
+.landing-split.reverse .showcase-stack { order:1; }
+
+.landing-eyebrow { display:inline-block; margin-bottom:20px; }
+.landing-text h1 { margin-bottom:20px; }
+.landing-text p.lead { font-size:1.25rem; line-height:1.5; max-width:460px; margin-bottom:32px; }
+
+.showcase-card { justify-content:center; gap:16px; }
+
+.steps-band { padding:56px 24px; }
+.steps {
+  max-width:1080px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:40px;
+}
 
 .usp-grid {
-  max-width: 1240px;
-  margin: 0 auto;
-  padding: 16px 24px 32px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  max-width:1240px;
+  margin:0 auto;
+  padding:16px 24px 32px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
 }
+.usp-card-art { display:flex; align-items:center; justify-content:center; }
 
-.usp-card {
-  padding: 44px 36px;
-  border-radius: 24px;
-  background: var(--card);
-  border: 1px solid var(--border);
-}
-.usp-card:nth-child(2) { transition-delay: 0.1s; }
-.usp-card:nth-child(3) { transition-delay: 0.2s; }
-
-.usp-card-art {
-  width: 76px; height: 76px;
-  border-radius: 18px;
-  display: flex; align-items: center; justify-content: center;
-  margin-bottom: 26px;
-}
-.usp-card-art svg { width: 34px; height: 34px; }
-
-.usp-grid.u-lounge .usp-card-art { background: var(--lounge-gold); color: var(--gold-text); }
-
-.usp-card h3 { font-size: 1.5rem; font-weight: 800; color: var(--text); margin-bottom: 12px; letter-spacing: -0.015em; }
-.usp-card p { font-size: 1.0625rem; color: var(--text-secondary); line-height: 1.6; }
-
-@media (max-width: 860px) {
-  .usp-grid { grid-template-columns: 1fr; }
-}
-
-/* ── "No feed. No fakes." points strip ── */
-
-.lounge-points {
-  max-width: 1080px;
-  margin: 0 auto;
-  padding: 24px 24px 8px;
-}
-.lounge-points h2 {
-  font-size: clamp(1.5rem, 2.6vw, 2rem);
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  color: var(--text);
-  text-align: center;
-  margin-bottom: 32px;
-}
+.lounge-points { max-width:1080px; margin:0 auto; padding:24px 24px 8px; }
+.lounge-points h2 { font-size:clamp(1.5rem,2.6vw,2rem); text-align:center; margin-bottom:32px; }
 
 .usp-bullets {
-  max-width: 1080px;
-  margin: 0 auto;
-  padding: 8px 24px 32px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px 40px;
+  max-width:1080px;
+  margin:0 auto;
+  padding:8px 24px 32px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px 40px;
 }
+.usp-bullet { position:relative; padding-left:28px; font-size:1.125rem; line-height:1.5; }
 
-.usp-bullet {
-  position: relative;
-  padding-left: 26px;
-  font-size: 1.125rem;
-  font-weight: 600;
-  line-height: 1.5;
-  color: var(--text);
-}
-.usp-bullet::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.5em;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--lounge-gold);
-}
-.usp-bullet:nth-child(2) { transition-delay: 0.06s; }
-.usp-bullet:nth-child(3) { transition-delay: 0.12s; }
-.usp-bullet:nth-child(4) { transition-delay: 0.18s; }
-.usp-bullet:nth-child(5) { transition-delay: 0.24s; }
+.download { text-align:center; }
 
-@media (max-width: 640px) {
-  .usp-bullets { grid-template-columns: 1fr; }
+@media (max-width:900px) {
+  #hero { padding-top:128px; }
+  .landing-split, .landing-split.reverse { grid-template-columns:1fr; gap:56px; }
+  .landing-split.reverse .landing-text { order:1; }
+  .landing-split.reverse .showcase-stack { order:2; }
 }
+@media (max-width:860px) { .usp-grid { grid-template-columns:1fr; } }
+@media (max-width:780px) { .steps { grid-template-columns:1fr; } }
+@media (max-width:640px) { .usp-bullets { grid-template-columns:1fr; } }
 
 /* ═══════════════════════════════════════════════════════════════
-   Analytics consent banner  (js/consent.js)
+   Reveal-on-scroll — start visible (postal look has no fade-in need)
 ═══════════════════════════════════════════════════════════════ */
+.reveal { opacity:1; transform:none; }
 
-.cookie-consent {
-  position: fixed;
-  left: 16px;
-  right: 16px;
-  bottom: 16px;
-  z-index: 300;
-  max-width: 720px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  padding: 16px 20px;
-  background: color-mix(in srgb, var(--surface) 92%, transparent);
-  backdrop-filter: saturate(180%) blur(20px);
-  -webkit-backdrop-filter: saturate(180%) blur(20px);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg);
-}
-
-.cookie-consent-text {
-  flex: 1;
-  font-size: 0.9375rem;
-  line-height: 1.55;
-  color: var(--text-secondary);
-}
-
-.cookie-consent-text a {
-  color: var(--text);
-  text-decoration: underline;
-}
-
-.cookie-consent-actions {
-  display: flex;
-  gap: 10px;
-  flex-shrink: 0;
-}
-
-.cookie-consent-btn {
-  padding: 10px 18px;
-  border-radius: 12px;
-  font-size: 0.9375rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-}
-
-.cookie-consent-accept {
-  background: var(--text);
-  color: var(--bg);
-  box-shadow: var(--shadow-md);
-}
-
-.cookie-consent-accept:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
-}
-
-.cookie-consent-decline {
-  background: transparent;
-  color: var(--text);
-  border: 1.5px solid var(--border);
-}
-
-.cookie-consent-decline:hover {
-  border-color: var(--text);
-}
-
-@media (max-width: 560px) {
-  .cookie-consent {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 14px;
-  }
-  .cookie-consent-actions {
-    justify-content: flex-end;
-  }
+@media (prefers-reduced-motion:reduce) {
+  * { transition:none !important; animation:none !important; }
 }
