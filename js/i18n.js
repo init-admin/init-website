@@ -67,7 +67,7 @@
     },
 
     fr: {
-      nav_how: 'Comment ça marche',
+      nav_how: 'Comment fonctionne Lounge',
       nav_download: 'Télécharger',
       hero_eyebrow: 'Init Lounge',
       lounge_step1_title: 'Pointez',
@@ -106,7 +106,7 @@
     },
 
     it: {
-      nav_how: 'Come funziona',
+      nav_how: 'Come funziona Lounge',
       nav_download: 'Scarica',
       hero_eyebrow: 'Init Lounge',
       lounge_step1_title: 'Fai il check-in',
@@ -145,7 +145,7 @@
     },
 
     es: {
-      nav_how: 'Cómo funciona',
+      nav_how: 'Cómo funciona Lounge',
       nav_download: 'Descargar',
       hero_eyebrow: 'Init Lounge',
       lounge_step1_title: 'Regístrate',
@@ -184,7 +184,7 @@
     },
 
     hi: {
-      nav_how: 'यह कैसे काम करता है',
+      nav_how: 'Lounge कैसे काम करता है',
       nav_download: 'डाउनलोड',
       hero_eyebrow: 'Init Lounge',
       lounge_step1_title: 'चेक इन करें',
@@ -223,7 +223,7 @@
     },
 
     zh: {
-      nav_how: '如何运作',
+      nav_how: 'Lounge 如何运作',
       nav_download: '下载',
       hero_eyebrow: 'Init Lounge',
       lounge_step1_title: '签到',
@@ -262,7 +262,7 @@
     },
 
     bn: {
-      nav_how: 'কীভাবে কাজ করে',
+      nav_how: 'Lounge কীভাবে কাজ করে',
       nav_download: 'ডাউনলোড',
       hero_eyebrow: 'Init Lounge',
       lounge_step1_title: 'চেক ইন করুন',
@@ -301,7 +301,7 @@
     },
 
     te: {
-      nav_how: 'ఇది ఎలా పని చేస్తుంది',
+      nav_how: 'Lounge ఎలా పని చేస్తుంది',
       nav_download: 'డౌన్‌లోడ్',
       hero_eyebrow: 'Init Lounge',
       lounge_step1_title: 'చెక్ ఇన్ చేయండి',
@@ -340,7 +340,7 @@
     },
 
     mr: {
-      nav_how: 'हे कसे काम करते',
+      nav_how: 'Lounge कसे काम करते',
       nav_download: 'डाउनलोड',
       hero_eyebrow: 'Init Lounge',
       lounge_step1_title: 'चेक इन करा',
@@ -379,7 +379,7 @@
     },
 
     ta: {
-      nav_how: 'இது எப்படி செயல்படுகிறது',
+      nav_how: 'Lounge எப்படி செயல்படுகிறது',
       nav_download: 'பதிவிறக்கம்',
       hero_eyebrow: 'Init Lounge',
       lounge_step1_title: 'செக் இன் செய்யுங்கள்',
@@ -418,7 +418,7 @@
     },
 
     kn: {
-      nav_how: 'ಇದು ಹೇಗೆ ಕೆಲಸ ಮಾಡುತ್ತದೆ',
+      nav_how: 'Lounge ಹೇಗೆ ಕೆಲಸ ಮಾಡುತ್ತದೆ',
       nav_download: 'ಡೌನ್‌ಲೋಡ್',
       hero_eyebrow: 'Init Lounge',
       lounge_step1_title: 'ಚೆಕ್ ಇನ್ ಮಾಡಿ',
